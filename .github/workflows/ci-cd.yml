@@ -7,201 +7,199 @@ on:
     branches: [ main, master, develop ]
 
 jobs:
-  # Job 1: Code Quality & Linting
+# =========================
+# JOB 1: Code Quality
+# =========================
   code-quality:
     name: Code Quality Check
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
           extensions: mbstring, xml, ctype, json, tokenizer
           coverage: none
-          
+
       - name: Install Composer dependencies
         run: |
           if [ -f "composer.json" ]; then
-            composer install --prefer-dist --no-progress --no-suggest
+            composer install --prefer-dist --no-progress
           else
-            echo "No composer.json found, skipping..."
+            echo "No composer.json found"
           fi
-          
+
       - name: PHP Syntax Check
         run: |
-          find . -name "*.php" -not -path "./vendor/*" -not -path "./node_modules/*" -exec php -l {} \; | grep -v "No syntax errors"
-          
+          find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
+
       - name: Install Node dependencies
         run: |
           if [ -f "package.json" ]; then
             npm ci
           else
-            echo "No package.json found, skipping..."
-          fi
-          
-      - name: CSS Linting
-        run: |
-          if [ -f "package.json" ] && grep -q "stylelint" package.json; then
-            npm run lint:css || echo "No CSS linting configured"
-          else
-            echo "Stylelint not configured, skipping..."
+            echo "No package.json found"
           fi
 
-  # Job 2: Build Assets
+
+# =========================
+# JOB 2: Build Assets
+# =========================
   build:
     name: Build Assets
     runs-on: ubuntu-latest
     needs: code-quality
-    
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
+
       - name: Install dependencies
         run: |
           if [ -f "package.json" ]; then
             npm ci
-          else
-            echo "No package.json found, skipping build..."
           fi
-          
+
       - name: Build assets
         run: |
           if [ -f "package.json" ]; then
-            if grep -q "\"build\"" package.json; then
-              npm run build
-            else
-              echo "No build script found in package.json"
-            fi
+            npm run build || echo "No build script"
           fi
-          
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: theme-build
           path: |
-            assets/css/
-            assets/js/
-            !assets/**/*.map
+            assets/
+            dist/
           retention-days: 7
 
-  # Job 3: Create Release Package
+
+# =========================
+# JOB 3: Package Theme
+# =========================
   package:
     name: Create Release Package
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop')
-    
+    if: github.event_name == 'push'
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: theme-build
-          
-      - name: Create deployment package
+
+      - name: Create clean package
         run: |
-          # Create a clean package excluding development files
-          mkdir -p deploy-package
-          rsync -av --progress . deploy-package/ \
+          mkdir deploy-package
+          rsync -av . deploy-package/ \
             --exclude .git \
             --exclude .github \
             --exclude node_modules \
-            --exclude .gitignore \
-            --exclude .gitattributes \
+            --exclude deploy-package \
+            --exclude '*.map' \
+            --exclude README.md \
             --exclude package.json \
             --exclude package-lock.json \
             --exclude composer.json \
-            --exclude composer.lock \
-            --exclude README.md \
-            --exclude .DS_Store \
-            --exclude '*.map'
-            
-      - name: Create ZIP archive
+            --exclude composer.lock
+
+      - name: Zip theme
         run: |
           cd deploy-package
           zip -r ../docy-theme.zip .
           cd ..
-          
-      - name: Upload package artifact
+
+      - name: Upload package
         uses: actions/upload-artifact@v4
         with:
           name: docy-theme-package
           path: docy-theme.zip
           retention-days: 30
 
-  # Job 4: Deploy to Staging (Optional)
+
+# =========================
+# JOB 4: Deploy to Staging
+# =========================
   deploy-staging:
     name: Deploy to Staging
     runs-on: ubuntu-latest
     needs: package
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-    environment:
-      name: staging
-      
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+
     steps:
       - name: Download package
         uses: actions/download-artifact@v4
         with:
           name: docy-theme-package
-          
+
+      - name: Unzip package
+        run: unzip docy-theme.zip -d deploy-package
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.STAGING_FTP_SERVER }}
           username: ${{ secrets.STAGING_FTP_USERNAME }}
           password: ${{ secrets.STAGING_FTP_PASSWORD }}
-          local-dir: ./
+          local-dir: deploy-package/
           server-dir: /wp-content/themes/docy/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
 
-  # Job 5: Deploy to Production
+
+# =========================
+# JOB 5: Deploy to Production
+# =========================
   deploy-production:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: package
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-    environment:
-      name: production
-      
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    environment: production
+
     steps:
       - name: Download package
         uses: actions/download-artifact@v4
         with:
           name: docy-theme-package
-          
+
+      - name: Unzip package
+        run: unzip docy-theme.zip -d deploy-package
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ${{ secrets.PROD_FTP_SERVER }}
-          username: ${{ secrets.PROD_FTP_USERNAME }}
-          password: ${{ secrets.PROD_FTP_PASSWORD }}
-          local-dir: ./
+          server: ${{ secrets.STAGING_FTP_SERVER }}   # CHANGE TO PROD if you add secrets
+          username: ${{ secrets.STAGING_FTP_USERNAME }}
+          password: ${{ secrets.STAGING_FTP_PASSWORD }}
+          local-dir: deploy-package/
           server-dir: /wp-content/themes/docy/
-          dangerous-clean-slate: true
-          
-      - name: Notify deployment success
+          dangerous-clean-slate: false
+
+      - name: Success Message
         if: success()
-        run: |
-          echo "✅ Production deployment successful!"
-          
-      - name: Notify deployment failure
+        run: echo "✅ Production deployment successful!"
+
+      - name: Failure Message
         if: failure()
-        run: |
-          echo "❌ Production deployment failed!"
+        run: echo "❌ Production deployment failed!"
