@@ -335,7 +335,7 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 }
 ?>
 
-    <section class="<?php echo esc_attr( $sec_class ) ?>" style="<?php echo $is_category_page ? 'margin-top: 38px;' : ''; ?>">
+    <section class="<?php echo esc_attr( $sec_class ) ?>" style="<?php echo $is_category_page ? 'margin-top: 38px !important;' : ''; ?>">
 		<?php
 		// Debug: Show current layout and category
 		echo '<!-- Debug: blog_layout = ' . $blog_layout . ', is_category_page = ' . ($is_category_page ? 'yes' : 'no') . ' -->';
