@@ -655,7 +655,6 @@ if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
 			align-self: flex-start;
 			max-height: calc(100vh - 170px);
 			overflow-y: auto;
-			margin-top: 38px !important;
 		}	
 			
 			/* Extend the border upward to connect with navbar */
@@ -676,10 +675,10 @@ if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
 				padding-right: 0 !important;
 			}
 			
-			/* Add margin-top to all category columns */
+			/* Remove margin-top from all category columns */
 			.category-main-col,
 			.category-right-sidebar-col {
-				margin-top: 38px !important;
+				/* margin-top removed */
 			}
 			
 			/* Remove margin-top from category header card */
