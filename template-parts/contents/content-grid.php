@@ -1,6 +1,6 @@
 <?php
 // Check if we're on a category page with sidebar
-$has_cat_sidebar = isset($_GET['cat']) && !empty($_GET['cat']);
+$has_cat_sidebar = (isset($_GET['cat']) && !empty($_GET['cat'])) || is_category();
 
 if ($has_cat_sidebar) {
     // Simple card layout for category pages with sidebar

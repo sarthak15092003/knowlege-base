@@ -249,7 +249,7 @@ if ( ! function_exists( 'docy_render_category_header_card' ) ) {
         <div class="card border shadow-sm p-4 mb-4 category-header-card">
             <?php
             // Add breadcrumb inside header card for category pages with ?cat= parameter
-            if ( isset( $_GET['cat'] ) && ! empty( $_GET['cat'] ) ) {
+            if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
                 $is_breadcrumb = docy_opt('is_breadcrumb', '1');
                 if ( $is_breadcrumb == '1' ) {
                     $cat_id = intval( $_GET['cat'] );
