@@ -14,10 +14,10 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         
       - name: Setup PHP
-        uses: shivammathur/setup-php@v4
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
           extensions: mbstring, xml, ctype, json, tokenizer
@@ -36,7 +36,7 @@ jobs:
           find . -name "*.php" -not -path "./vendor/*" -not -path "./node_modules/*" -exec php -l {} \; | grep -v "No syntax errors"
           
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
           
@@ -64,13 +64,12 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
           
       - name: Install dependencies
         run: |
@@ -91,7 +90,7 @@ jobs:
           fi
           
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: theme-build
           path: |
@@ -105,14 +104,18 @@ jobs:
     name: Create Release Package
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    if: github.event_name == 'push' && (
+      github.ref == 'refs/heads/main' ||
+      github.ref == 'refs/heads/master' ||
+      github.ref == 'refs/heads/develop'
+    )
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: theme-build
           
@@ -141,7 +144,7 @@ jobs:
           cd ..
           
       - name: Upload package artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: docy-theme-package
           path: docy-theme.zip
@@ -158,7 +161,7 @@ jobs:
       
     steps:
       - name: Download package
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: docy-theme-package
           
@@ -183,7 +186,7 @@ jobs:
       
     steps:
       - name: Download package
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: docy-theme-package
           
