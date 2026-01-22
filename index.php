@@ -141,10 +141,16 @@ if ( isset( $_GET['cat'] ) && ! empty( $_GET['cat'] ) ) : ?>
 
 // Breadcrumb now moved to header card - no duplicate needed here
 
-// Prepare category header data for ?cat pages
+// Prepare category header data for ?cat pages or category archives
 $cat_header_data = null;
-if ( isset( $_GET['cat'] ) && ! empty( $_GET['cat'] ) ) {
-    $current_cat_id   = intval( $_GET['cat'] );
+$is_category_page = (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category();
+
+if ( $is_category_page ) {
+    if (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) {
+        $current_cat_id = intval( $_GET['cat'] );
+    } else {
+        $current_cat_id = get_queried_object_id();
+    }
     $current_category = get_category( $current_cat_id );
 
     if ( $current_category && ! is_wp_error( $current_category ) ) {
@@ -301,8 +307,8 @@ if ( is_home() && $blog_layout === 'list' ) {
     $blog_layout = 'blog_category';
 }
 
-// Force blog_category layout for category pages with ?cat parameter
-if ( isset( $_GET['cat'] ) && ! empty( $_GET['cat'] ) ) {
+// Force blog_category layout for category pages with ?cat parameter or category archives
+if ( $is_category_page ) {
     $blog_layout = 'blog_category';
 }
 
@@ -321,20 +327,20 @@ if ( $blog_layout == 'list' ) {
 	$is_row    = '';
 }
 
-// Is Sticky - but not for category pages with ?cat parameter
-if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
+// Is Sticky - but not for category pages
+if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 	while ( have_posts() ) : the_post();
 		get_template_part( 'template-parts/contents/content-sticky' );
 	endwhile;
 }
 ?>
 
-    <section class="<?php echo esc_attr( $sec_class ) ?>" style="<?php echo isset($_GET['cat']) && !empty($_GET['cat']) ? 'margin-top: 50px;' : ''; ?>">
+    <section class="<?php echo esc_attr( $sec_class ) ?>" style="<?php echo $is_category_page ? 'margin-top: 50px;' : ''; ?>">
 		<?php
 		// Debug: Show current layout and category
-		echo '<!-- Debug: blog_layout = ' . $blog_layout . ', cat = ' . (isset($_GET['cat']) ? $_GET['cat'] : 'none') . ' -->';
+		echo '<!-- Debug: blog_layout = ' . $blog_layout . ', is_category_page = ' . ($is_category_page ? 'yes' : 'no') . ' -->';
 		
-		if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
+		if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 			// Dynamic Category Grid (top-level categories) - only show on home page, not category pages
 			$docy_categories = get_categories([
 				'hide_empty' => true,
@@ -520,7 +526,7 @@ if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
 		?>
         <?php 
         // Show container for category pages or non-home pages
-        $show_container = ! ( is_home() && $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) );
+        $show_container = ! ( is_home() && $blog_layout == 'blog_category' && ! $is_category_page );
         if ( $show_container ) : ?>
         <div class="container">
             <div class="row <?php echo esc_attr( $is_row ) ?>">
@@ -569,7 +575,7 @@ if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
 
 				if ( $blog_layout == 'list' ) {
 					// Check if this is a category page with ?cat parameter
-					$show_cat_sidebar = isset( $_GET['cat'] ) && ! empty( $_GET['cat'] );
+					$show_cat_sidebar = $is_category_page;
 					
 					if ( $show_cat_sidebar ) {
 						// Reset the query to start from the beginning
@@ -633,9 +639,15 @@ if ( $blog_layout == 'blog_category' && ! isset( $_GET['cat'] ) ) {
 					}
 					// Grid layout content removed - not needed for category pages
 				} elseif ( $blog_layout == 'blog_category' ) {
-					// Add sidebar for category pages with ?cat parameter
-					$show_sidebar = isset( $_GET['cat'] ) && ! empty( $_GET['cat'] );
-					$current_cat_id = isset( $_GET['cat'] ) ? intval( $_GET['cat'] ) : 0;
+					// Add sidebar for category pages with ?cat parameter OR pretty permalink category archives
+					$show_sidebar = (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category();
+					$current_cat_id = 0;
+					
+					if (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) {
+						$current_cat_id = intval( $_GET['cat'] );
+					} elseif (is_category()) {
+						$current_cat_id = get_queried_object_id();
+					}
 					
 					if ( $show_sidebar ) {
 						// Debug: Add comment to check if this section is reached
