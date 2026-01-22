@@ -90,7 +90,7 @@ jobs:
           fi
           
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: theme-build
           path: |
@@ -111,7 +111,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: theme-build
           
@@ -140,7 +140,7 @@ jobs:
           cd ..
           
       - name: Upload package artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docy-theme-package
           path: docy-theme.zip
@@ -157,7 +157,7 @@ jobs:
       
     steps:
       - name: Download package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docy-theme-package
           
@@ -182,7 +182,7 @@ jobs:
       
     steps:
       - name: Download package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docy-theme-package
           
