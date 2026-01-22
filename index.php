@@ -662,12 +662,23 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 				<style>
 								/* Sticky left sidebar for cat=2 and cat=3 */
 		.category-left-sidebar-col {
-			position: sticky;
-			 /* Stick below the navbar */
 			align-self: flex-start;
-			max-height: calc(100vh - 170px);
-			overflow-y: auto;
 		}	
+
+        .category-left-sidebar-col .modern-sidebar {
+            position: sticky;
+            top: 130px;
+            width: 100%;
+            max-width: 100%;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            margin-top: 20px;
+            margin-left: 0;
+            margin-right: 0;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 0;
+        }
 			
 			/* Extend the border upward to connect with navbar */
 			.category-left-sidebar-col::before {
@@ -701,16 +712,6 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 				margin-top: 0 !important;
 			}
 				
-				.modern-sidebar {
-					background: #ffffff;
-					/* border removed */
-					border-radius: 8px;
-					padding: 0;
-					margin-bottom: 0;
-					width: 100%;
-					max-width: 100%; /* Changed from 240px to reduce gap */
-				}
-				
 				/* Large screen adjustments */
 				@media (min-width: 1440px) {
 					.category-left-sidebar-col.col-lg-3 {
@@ -721,21 +722,21 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 				}
 				
 				/* Smooth scrollbar for sidebar */
-				.category-left-sidebar-col::-webkit-scrollbar {
+				.category-left-sidebar-col .modern-sidebar::-webkit-scrollbar {
 					width: 6px;
 				}
 				
-				.category-left-sidebar-col::-webkit-scrollbar-track {
+				.category-left-sidebar-col .modern-sidebar::-webkit-scrollbar-track {
 					background: #f1f1f1;
 					border-radius: 3px;
 				}
 				
-				.category-left-sidebar-col::-webkit-scrollbar-thumb {
+				.category-left-sidebar-col .modern-sidebar::-webkit-scrollbar-thumb {
 					background: #888;
 					border-radius: 3px;
 				}
 				
-				.category-left-sidebar-col::-webkit-scrollbar-thumb:hover {
+				.category-left-sidebar-col .modern-sidebar::-webkit-scrollbar-thumb:hover {
 					background: #555;
 				}
 				
