@@ -50,7 +50,7 @@ if ( isset( $_GET['cat'] ) && intval( $_GET['cat'] ) === 3 ) : ?>
 <?php endif;
 
 // Add custom container width for category pages
-if ( isset( $_GET['cat'] ) && ! empty( $_GET['cat'] ) ) : ?>
+if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
     <style id="cat-page-container-width">
         @media (min-width: 1400px) {
             .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
