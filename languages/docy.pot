@@ -1,0 +1,5509 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Docy\n"
+"POT-Creation-Date: 2024-12-18 20:15+0600\n"
+"PO-Revision-Date: 2021-03-14 18:03+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+
+#: 404.php:19
+msgid "404 page background shape."
+msgstr ""
+
+#: 404.php:21 404.php:27
+msgid "4 illustration"
+msgstr ""
+
+#: 404.php:24
+msgid "0 illustration"
+msgstr ""
+
+#: 404.php:32 options/opt_404.php:12
+msgid "Error! We can't find the page you're looking for."
+msgstr ""
+
+#: 404.php:33
+msgid "We can't seem to find the page you're looking for"
+msgstr ""
+
+#: 404.php:37 bbpress/form-search.php:21 searchform.php:5
+#: woocommerce/product-searchform.php:24
+msgid "Search"
+msgstr ""
+
+#: 404.php:41
+msgid "Go Back to home Page"
+msgstr ""
+
+#: bbpress/alert-topic-lock.php:21
+msgid "Leave"
+msgstr ""
+
+#: bbpress/alert-topic-lock.php:22
+msgid "Stay"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:54
+msgid " Replies"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:65
+msgid "Subscribed"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:78 options/opt_forum.php:283
+msgid "Subscribe"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:83 options/opt_forum.php:291
+msgid "Login to the community"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:84 options/opt_forum.php:299
+msgid "You must be logged in to subscribe to this topic."
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:86 options/opt_forum.php:306
+#: woocommerce/checkout/form-coupon.php:53
+msgid "Login"
+msgstr ""
+
+#: bbpress/content-single-topic-lead.php:126
+msgid "Tagged:"
+msgstr ""
+
+#: bbpress/content-single-topic.php:30
+msgid "All Replies"
+msgstr ""
+
+#: bbpress/content-statistics.php:20
+msgid "Registered Users"
+msgstr ""
+
+#: bbpress/content-statistics.php:25 bbpress/user-profile.php:34
+#: options/opt_forum.php:3 options/opt_forum.php:192
+msgid "Forums"
+msgstr ""
+
+#: bbpress/content-statistics.php:30 bbpress/loop-forums.php:24
+msgid "Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:36 bbpress/loop-forums.php:25
+msgid "Replies"
+msgstr ""
+
+#: bbpress/content-statistics.php:42
+msgid "Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:49
+msgid "Empty Topic Tags"
+msgstr ""
+
+#: bbpress/content-statistics.php:58
+msgid "Hidden Topics"
+msgstr ""
+
+#: bbpress/content-statistics.php:69
+msgid "Hidden Replies"
+msgstr ""
+
+#: bbpress/feedback-logged-in.php:17
+msgid "You are already logged in."
+msgstr ""
+
+#: bbpress/feedback-no-access.php:16
+msgid "Private"
+msgstr ""
+
+#: bbpress/feedback-no-access.php:20
+msgid "You do not have permission to view this forum."
+msgstr ""
+
+#: bbpress/feedback-no-forums.php:17
+msgid "Oh, bother! No forums were found here."
+msgstr ""
+
+#: bbpress/feedback-no-replies.php:17
+msgid "Oh, bother! No replies were found here."
+msgstr ""
+
+#: bbpress/feedback-no-search.php:17
+msgid "Oh, bother! No search results were found here."
+msgstr ""
+
+#: bbpress/feedback-no-topics.php:17
+msgid "Oh, bother! No topics were found here."
+msgstr ""
+
+#: bbpress/form-anonymous.php:18
+msgid "Author Information"
+msgstr ""
+
+#: bbpress/form-anonymous.php:18
+msgid "Your information:"
+msgstr ""
+
+#: bbpress/form-anonymous.php:23
+msgid "Name (required):"
+msgstr ""
+
+#: bbpress/form-anonymous.php:28
+msgid "Mail (will not be published) (required):"
+msgstr ""
+
+#: bbpress/form-anonymous.php:33
+msgid "Website:"
+msgstr ""
+
+#: bbpress/form-forum.php:34 bbpress/form-topic.php:37
+#, php-format
+msgid "Now Editing &ldquo;%s&rdquo;"
+msgstr ""
+
+#: bbpress/form-forum.php:37
+#, php-format
+msgid "Create New Forum in &ldquo;%s&rdquo;"
+msgstr ""
+
+#: bbpress/form-forum.php:38
+msgid "Create New Forum"
+msgstr ""
+
+#: bbpress/form-forum.php:50 bbpress/form-reply.php:46
+msgid ""
+"This forum is closed to new content, however your posting capabilities still "
+"allow you to post."
+msgstr ""
+
+#: bbpress/form-forum.php:60 bbpress/form-reply.php:56
+#: bbpress/form-topic.php:64
+msgid "Your account has the ability to post unrestricted HTML content."
+msgstr ""
+
+#: bbpress/form-forum.php:73
+#, php-format
+msgid "Forum Name (Maximum Length: %d):"
+msgstr ""
+
+#: bbpress/form-forum.php:88 bbpress/form-reply.php:77
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes:"
+msgstr ""
+
+#: bbpress/form-forum.php:99
+msgid "Forum Moderators:"
+msgstr ""
+
+#: bbpress/form-forum.php:110
+msgid "Forum Type:"
+msgstr ""
+
+#: bbpress/form-forum.php:119
+msgid "Status:"
+msgstr ""
+
+#: bbpress/form-forum.php:128
+msgid "Visibility:"
+msgstr ""
+
+#: bbpress/form-forum.php:137
+msgid "Parent Forum:"
+msgstr ""
+
+#: bbpress/form-forum.php:142
+msgid "&mdash; No parent &mdash;"
+msgstr ""
+
+#: bbpress/form-forum.php:158 bbpress/form-reply-move.php:79
+#: bbpress/form-reply.php:174 bbpress/form-topic-merge.php:101
+#: bbpress/form-topic-split.php:105 bbpress/form-topic.php:220
+#: woocommerce/single-product-reviews.php:72
+msgid "Submit"
+msgstr ""
+
+#: bbpress/form-forum.php:183
+#, php-format
+msgid "The forum &#8216;%s&#8217; is closed to new content."
+msgstr ""
+
+#: bbpress/form-forum.php:194
+msgid "You cannot create new forums."
+msgstr ""
+
+#: bbpress/form-forum.php:195
+msgid "You must be logged in to create new forums."
+msgstr ""
+
+#: bbpress/form-protected.php:17
+msgid "Protected"
+msgstr ""
+
+#: bbpress/form-reply-move.php:25
+#, php-format
+msgid "Move reply \"%s\""
+msgstr ""
+
+#: bbpress/form-reply-move.php:31
+msgid ""
+"You can either make this reply a new topic with a new title, or merge it "
+"into an existing topic."
+msgstr ""
+
+#: bbpress/form-reply-move.php:37
+msgid ""
+"If you choose an existing topic, replies will be ordered by the time and "
+"date they were created."
+msgstr ""
+
+#: bbpress/form-reply-move.php:42
+msgid "Move Method"
+msgstr ""
+
+#: bbpress/form-reply-move.php:46 bbpress/form-topic-split.php:46
+#, php-format
+msgid "New topic in %s titled:"
+msgstr ""
+
+#: bbpress/form-reply-move.php:47
+#, php-format
+msgid "Moved: %s"
+msgstr ""
+
+#: bbpress/form-reply-move.php:54 bbpress/form-topic-split.php:54
+msgid "Use an existing topic in this forum:"
+msgstr ""
+
+#: bbpress/form-reply-move.php:74 bbpress/form-topic-merge.php:96
+#: bbpress/form-topic-split.php:100
+msgid "This process cannot be undone."
+msgstr ""
+
+#: bbpress/form-reply-move.php:93
+msgid "You do not have permission to edit this reply."
+msgstr ""
+
+#: bbpress/form-reply-move.php:94
+msgid "You cannot edit this reply."
+msgstr ""
+
+#: bbpress/form-reply-search.php:16
+msgid "Search replies:"
+msgstr ""
+
+#: bbpress/form-reply-search.php:17
+msgid "Search in Reply"
+msgstr ""
+
+#: bbpress/form-reply.php:28
+#, php-format
+msgid "Reply To: %s"
+msgstr ""
+
+#: bbpress/form-reply.php:28
+#, php-format
+msgid "Reply #%1$s in %2$s"
+msgstr ""
+
+#: bbpress/form-reply.php:36
+msgid ""
+"This topic is marked as closed to new replies, however your posting "
+"capabilities still allow you to reply."
+msgstr ""
+
+#: bbpress/form-reply.php:88
+msgid "Tags:"
+msgstr ""
+
+#: bbpress/form-reply.php:106 bbpress/form-topic.php:203
+msgid "Notify the author of follow-up replies via email"
+msgstr ""
+
+#: bbpress/form-reply.php:110 bbpress/form-topic.php:208
+msgid "Notify me of follow-up replies via email"
+msgstr ""
+
+#: bbpress/form-reply.php:127
+msgid "Reply To:"
+msgstr ""
+
+#: bbpress/form-reply.php:136
+msgid "Reply Status:"
+msgstr ""
+
+#: bbpress/form-reply.php:151 bbpress/form-topic.php:170
+msgid "Keep a log of this edit:"
+msgstr ""
+
+#: bbpress/form-reply.php:155 bbpress/form-topic.php:174
+msgid "Optional reason for editing:"
+msgstr ""
+
+#: bbpress/form-reply.php:198
+#, php-format
+msgid "The topic &#8216;%s&#8217; is closed to new replies."
+msgstr ""
+
+#: bbpress/form-reply.php:208 bbpress/form-topic.php:245
+#, php-format
+msgid "The forum &#8216;%s&#8217; is closed to new topics and replies."
+msgstr ""
+
+#: bbpress/form-reply.php:219
+msgid "You cannot reply to this topic."
+msgstr ""
+
+#: bbpress/form-reply.php:220
+msgid "You must be logged in to reply to this topic."
+msgstr ""
+
+#: bbpress/form-search.php:18
+msgid "Search for:"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:25
+#, php-format
+msgid "Merge topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-merge.php:31
+msgid ""
+"Select the topic to merge this one into. The destination topic will remain "
+"the lead topic, and this one will change into a reply."
+msgstr ""
+
+#: bbpress/form-topic-merge.php:32
+msgid ""
+"To keep this topic as the lead, go to the other topic and use the merge tool "
+"from there instead."
+msgstr ""
+
+#: bbpress/form-topic-merge.php:38
+msgid ""
+"Replies to both topics are merged chronologically, ordered by the time and "
+"date they were published. Topics may be updated to a 1 second difference to "
+"maintain chronological order based on the merge direction."
+msgstr ""
+
+#: bbpress/form-topic-merge.php:43
+msgid "Destination"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:47
+msgid "Merge with this topic:"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:62
+msgid "There are no other topics in this forum to merge with."
+msgstr ""
+
+#: bbpress/form-topic-merge.php:70 bbpress/form-topic-split.php:74
+msgid "Topic Extras"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:77
+msgid "Merge topic subscribers"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:82
+msgid "Merge topic favoriters"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:87
+msgid "Merge topic tags"
+msgstr ""
+
+#: bbpress/form-topic-merge.php:115 bbpress/form-topic-split.php:119
+msgid "You do not have permission to edit this topic."
+msgstr ""
+
+#: bbpress/form-topic-merge.php:116 bbpress/form-topic-split.php:120
+msgid "You cannot edit this topic."
+msgstr ""
+
+#: bbpress/form-topic-search.php:17
+msgid "Search topics:"
+msgstr ""
+
+#: bbpress/form-topic-search.php:18
+msgid "Search in Topics"
+msgstr ""
+
+#: bbpress/form-topic-split.php:25
+#, php-format
+msgid "Split topic \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-split.php:31
+msgid ""
+"When you split a topic, you are slicing it in half starting with the reply "
+"you just selected. Choose to use that reply as a new topic with a new title, "
+"or merge those replies into an existing topic."
+msgstr ""
+
+#: bbpress/form-topic-split.php:37
+msgid ""
+"If you use the existing topic option, replies within both topics will be "
+"merged chronologically. The order of the merged replies is based on the time "
+"and date they were posted."
+msgstr ""
+
+#: bbpress/form-topic-split.php:42
+msgid "Split Method"
+msgstr ""
+
+#: bbpress/form-topic-split.php:47
+#, php-format
+msgid "Split: %s"
+msgstr ""
+
+#: bbpress/form-topic-split.php:81
+msgid "Copy subscribers to the new topic"
+msgstr ""
+
+#: bbpress/form-topic-split.php:86
+msgid "Copy favoriters to the new topic"
+msgstr ""
+
+#: bbpress/form-topic-split.php:91
+msgid "Copy topic tags to the new topic"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:19
+#, php-format
+msgid "Manage Tag: \"%s\""
+msgstr ""
+
+#: bbpress/form-topic-tag.php:23
+msgid "Rename"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:27
+msgid "Leave the slug empty to have one automatically generated."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:33
+msgid ""
+"Changing the slug affects its permalink. Any links to the old slug will stop "
+"working."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:40
+msgid "Name:"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:45
+msgid "Slug:"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:50
+msgid "Description:"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:55 inc/tgm/class-tgm-plugin-activation.php:2782
+msgid "Update"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:69 bbpress/form-topic-tag.php:85
+msgid "Merge"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:73
+msgid "Merging tags together cannot be undone."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:80
+msgid "Existing tag:"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:85
+#, php-format
+msgid ""
+"Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:100 bbpress/form-topic-tag.php:117
+msgid "Delete"
+msgstr ""
+
+#: bbpress/form-topic-tag.php:104
+msgid "This does not delete your topics. Only the tag itself is deleted."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:109
+msgid "Deleting a tag cannot be undone."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:110
+msgid "Any links to this tag will no longer function."
+msgstr ""
+
+#: bbpress/form-topic-tag.php:117
+#, php-format
+msgid ""
+"Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
+"be undone."
+msgstr ""
+
+#: bbpress/form-topic.php:40
+#, php-format
+msgid "Create New Topic in &ldquo;%s&rdquo;"
+msgstr ""
+
+#: bbpress/form-topic.php:41
+msgid "Create New Topic"
+msgstr ""
+
+#: bbpress/form-topic.php:53
+msgid ""
+"This forum is marked as closed to new topics, however your posting "
+"capabilities still allow you to create a topic."
+msgstr ""
+
+#: bbpress/form-topic.php:79
+#, php-format
+msgid "Topic Title (Maximum Length: %d):"
+msgstr ""
+
+#: bbpress/form-topic.php:96
+#, php-format
+msgid "You may use these %s tags and attributes:"
+msgstr ""
+
+#: bbpress/form-topic.php:108
+msgid "Topic Tags:"
+msgstr ""
+
+#: bbpress/form-topic.php:122 bbpress/loop-search-forum.php:25
+msgid "Forum:"
+msgstr ""
+
+#: bbpress/form-topic.php:125
+msgid "&mdash; No forum &mdash;"
+msgstr ""
+
+#: bbpress/form-topic.php:141
+msgid "Topic Type:"
+msgstr ""
+
+#: bbpress/form-topic.php:153
+msgid "Topic Status:"
+msgstr ""
+
+#: bbpress/form-topic.php:258
+msgid "You cannot create new topics."
+msgstr ""
+
+#: bbpress/form-topic.php:259
+msgid "You must be logged in to create new topics."
+msgstr ""
+
+#: bbpress/form-user-edit.php:17 bbpress/form-user-edit.php:22
+msgid "Name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:27
+msgid "First Name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:32
+msgid "Last Name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:37
+msgid "Nickname"
+msgstr ""
+
+#: bbpress/form-user-edit.php:42
+msgid "Display Name"
+msgstr ""
+
+#: bbpress/form-user-edit.php:52 bbpress/form-user-edit.php:55
+msgid "Contact Info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:60
+msgid "Website"
+msgstr ""
+
+#: bbpress/form-user-edit.php:78 bbpress/form-user-edit.php:84
+msgid "About Yourself"
+msgstr ""
+
+#: bbpress/form-user-edit.php:79 bbpress/form-user-edit.php:85
+msgid "About the user"
+msgstr ""
+
+#: bbpress/form-user-edit.php:91
+msgid "Biographical Info"
+msgstr ""
+
+#: bbpress/form-user-edit.php:99 bbpress/form-user-edit.php:102
+msgid "Account"
+msgstr ""
+
+#: bbpress/form-user-edit.php:107 bbpress/form-user-login.php:19
+#: bbpress/form-user-register.php:29 inc/reg_process.php:16 page-signin.php:58
+msgid "Username"
+msgstr ""
+
+#: bbpress/form-user-edit.php:112 bbpress/form-user-register.php:34
+#: comments.php:59
+msgid "Email"
+msgstr ""
+
+#: bbpress/form-user-edit.php:119
+msgid "Language"
+msgstr ""
+
+#: bbpress/form-user-edit.php:131 bbpress/form-user-edit.php:134
+msgid "User Role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:141
+msgid "Network Role"
+msgstr ""
+
+#: bbpress/form-user-edit.php:144
+msgid "Grant this user super admin privileges for the Network."
+msgstr ""
+
+#: bbpress/form-user-edit.php:161
+msgid "Save Changes"
+msgstr ""
+
+#: bbpress/form-user-edit.php:167
+msgid "Update Profile"
+msgstr ""
+
+#: bbpress/form-user-edit.php:168
+msgid "Update User"
+msgstr ""
+
+#: bbpress/form-user-login.php:16 bbpress/form-user-login.php:37
+msgid "Log In"
+msgstr ""
+
+#: bbpress/form-user-login.php:24 bbpress/form-user-passwords.php:17
+#: inc/reg_process.php:24 inc/reg_process.php:25 page-signin.php:62
+#: woocommerce/checkout/form-coupon.php:47
+msgid "Password"
+msgstr ""
+
+#: bbpress/form-user-login.php:30
+msgid "Keep me signed in"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:17
+msgid "Lost Password"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:21 woocommerce/checkout/form-coupon.php:44
+msgid "Username or Email"
+msgstr ""
+
+#: bbpress/form-user-lost-pass.php:31
+msgid "Reset My Password"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:18
+msgid "Generate Password"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:26
+msgid "Hide password"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:28 inc/meta/all-meta-boxes.php:87
+#: inc/meta/all-meta-boxes.php:98 inc/meta/meta-action-button.php:12
+#: inc/meta/meta-doc.php:42 inc/meta/meta-header.php:51
+#: options/opt_blog.php:103 options/opt_blog.php:112 options/opt_blog.php:122
+#: options/opt_blog.php:132 options/opt_blog.php:142 options/opt_blog.php:169
+#: options/opt_blog.php:280 options/opt_blog.php:289 options/opt_blog.php:299
+#: options/opt_blog.php:309 options/opt_blog.php:328 options/opt_blog.php:339
+#: options/opt_color_scheme.php:62 options/opt_dark.php:19
+#: options/opt_forum.php:28 options/opt_forum.php:100 options/opt_forum.php:196
+#: options/opt_forum.php:274 options/opt_general.php:241
+#: options/opt_header.php:119 options/opt_header.php:263
+#: options/opt_header.php:492 options/opt_header.php:611
+#: options/opt_header.php:628 options/opt_header.php:655
+#: options/opt_header.php:924 options/opt_header.php:1037
+#: options/opt_header.php:1052 options/opt_header.php:1221
+msgid "Hide"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:29
+msgid "Cancel password change"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:31
+#: inc/csf/classes/comment-options.class.php:202
+#: inc/csf/classes/metabox-options.class.php:281
+msgid "Cancel"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:40
+msgid "Repeat New Password"
+msgstr ""
+
+#: bbpress/form-user-passwords.php:42
+msgid "Type your new password again."
+msgstr ""
+
+#: bbpress/form-user-passwords.php:46
+msgid "Confirm"
+msgstr ""
+
+#: bbpress/form-user-register.php:17
+msgid "Create an Account"
+msgstr ""
+
+#: bbpress/form-user-register.php:23
+msgid "Your username must be unique, and cannot be changed later."
+msgstr ""
+
+#: bbpress/form-user-register.php:24
+msgid ""
+"We use your email address to email you a secure password and verify your "
+"account."
+msgstr ""
+
+#: bbpress/form-user-register.php:42
+msgid "Register"
+msgstr ""
+
+#: bbpress/form-user-roles.php:16
+msgid "Blog Role"
+msgstr ""
+
+#: bbpress/form-user-roles.php:23
+msgid "Forum Role"
+msgstr ""
+
+#: bbpress/loop-forums.php:19
+msgid "Forum"
+msgstr ""
+
+#: bbpress/loop-forums.php:25
+msgid "Posts"
+msgstr ""
+
+#: bbpress/loop-forums.php:26
+msgid "Last Post"
+msgstr ""
+
+#: bbpress/loop-search-forum.php:17
+#, php-format
+msgid "Last updated %s"
+msgstr ""
+
+#: bbpress/loop-search-reply.php:22
+msgid "In reply to: "
+msgstr ""
+
+#: bbpress/loop-search-topic.php:25
+msgid "Topic:"
+msgstr ""
+
+#: bbpress/loop-search-topic.php:32
+msgid "in group forum "
+msgstr ""
+
+#: bbpress/loop-search-topic.php:36
+msgid "in forum "
+msgstr ""
+
+#: bbpress/loop-search.php:19 bbpress/loop-search.php:41
+#: bbpress/loop-topics-head.php:10 options/opt_blog.php:138
+msgid "Author"
+msgstr ""
+
+#: bbpress/loop-search.php:23 bbpress/loop-search.php:45
+msgid "Search Results"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:13
+msgid "Filter by author"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:15
+msgid "Search users"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:26
+msgid "Label"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:29
+msgid "Filter by label"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:31
+msgid "Search label"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:42
+msgid "Sort"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:45 woocommerce/loop/orderby.php:47
+msgid "Sort by"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:47
+msgid "Newest"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:48
+msgid "Oldest"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:49
+msgid "Most commented"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:50
+msgid "Least commented"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:51
+msgid "Recently updated"
+msgstr ""
+
+#: bbpress/loop-topics-head.php:52
+msgid "Least recently updated"
+msgstr ""
+
+#: bbpress/loop-topics.php:114
+msgid "Oops! No Post Found"
+msgstr ""
+
+#: bbpress/user-details.php:35
+#, php-format
+msgid "%s's Profile"
+msgstr ""
+
+#: bbpress/user-details.php:35 bbpress/user-profile.php:18
+msgid "Profile"
+msgstr ""
+
+#: bbpress/user-details.php:41
+#, php-format
+msgid "%s's Topics Started"
+msgstr ""
+
+#: bbpress/user-details.php:41
+msgid "Topics Started"
+msgstr ""
+
+#: bbpress/user-details.php:47
+#, php-format
+msgid "%s's Replies Created"
+msgstr ""
+
+#: bbpress/user-details.php:47
+msgid "Replies Created"
+msgstr ""
+
+#: bbpress/user-details.php:54
+#, php-format
+msgid "%s's Engagements"
+msgstr ""
+
+#: bbpress/user-details.php:54
+msgid "Engagements"
+msgstr ""
+
+#: bbpress/user-details.php:62
+#, php-format
+msgid "%s's Favorites"
+msgstr ""
+
+#: bbpress/user-details.php:62 inc/classes/Docy_Forum_Class.php:137
+msgid "Favorites"
+msgstr ""
+
+#: bbpress/user-details.php:72
+#, php-format
+msgid "%s's Subscriptions"
+msgstr ""
+
+#: bbpress/user-details.php:72
+msgid "Subscriptions"
+msgstr ""
+
+#: bbpress/user-details.php:79
+#, php-format
+msgid "Edit %s's Profile"
+msgstr ""
+
+#: bbpress/user-details.php:79
+msgid "Edit"
+msgstr ""
+
+#: bbpress/user-engagements.php:19
+msgid "Topics Engaged In"
+msgstr ""
+
+#: bbpress/user-favorites.php:19
+msgid "Favorite Forum Topics"
+msgstr ""
+
+#: bbpress/user-profile.php:19
+#, php-format
+msgid "Registered: %s"
+msgstr ""
+
+#: bbpress/user-profile.php:29
+#, php-format
+msgid "Website: %s"
+msgstr ""
+
+#: bbpress/user-profile.php:38
+#, php-format
+msgid "Last Activity: %s"
+msgstr ""
+
+#: bbpress/user-profile.php:42
+#, php-format
+msgid "Topics Started: %s"
+msgstr ""
+
+#: bbpress/user-profile.php:43
+#, php-format
+msgid "Replies Created: %s"
+msgstr ""
+
+#: bbpress/user-profile.php:44
+#, php-format
+msgid "Forum Role: %s"
+msgstr ""
+
+#: bbpress/user-replies-created.php:19
+msgid "Forum Replies Created"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:23
+msgid "Subscribed Forums"
+msgstr ""
+
+#: bbpress/user-subscriptions.php:38
+msgid "Subscribed Topics"
+msgstr ""
+
+#: bbpress/user-topics-created.php:19
+msgid "Forum Topics Started"
+msgstr ""
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:56
+msgid "Website (Optional)"
+msgstr ""
+
+#: comments.php:58
+msgid "Full Name"
+msgstr ""
+
+#: comments.php:58
+msgid "Full Name *"
+msgstr ""
+
+#: comments.php:59 woocommerce/single-product-reviews.php:69
+msgid "Email *"
+msgstr ""
+
+#: comments.php:67
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:70
+msgid "Comment"
+msgstr ""
+
+#: footer.php:30
+msgid "©2025 Spider Themes. All rights reserved"
+msgstr ""
+
+#: footer.php:41 options/opt_general.php:225 options/opt_general.php:231
+msgid "Back to Top"
+msgstr ""
+
+#: functions.php:56 options/opt_menu.php:15 options/opt_menu.php:21
+msgid "Main Menu"
+msgstr ""
+
+#: header.php:65
+msgid "Toggle navigation"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+#: inc/Admin.php:26 inc/Admin.php:27 inc/Admin.php:39
+#: inc/admin/settings-options.php:14
+msgid "Docy"
+msgstr ""
+
+#: inc/Admin.php:40
+msgid "Welcome"
+msgstr ""
+
+#: inc/Admin.php:49 inc/Admin.php:50
+#: inc/admin/dashboard/Docy_admin_dashboard.php:23
+#: inc/admin/notices/welcome-notice.php:32
+msgid "Register/Verify"
+msgstr ""
+
+#: inc/Admin.php:60 inc/Admin.php:61
+msgid "Headers"
+msgstr ""
+
+#: inc/Admin.php:72 inc/Admin.php:73
+msgid "Footers"
+msgstr ""
+
+#: inc/Admin.php:88
+msgid "Welcome to the Docy Theme"
+msgstr ""
+
+#: inc/Admin.php:89
+msgid ""
+"Docy is the ultimate WordPress theme for creating comprehensive "
+"documentation, knowledge base, and LMS websites. Our theme is loaded with "
+"powerful features, seamless integration with popular plugins, and extensive "
+"customization options to suit your needs."
+msgstr ""
+
+#: inc/Admin.php:93
+msgid "Watch this video to get an overview of the Docy Theme and its features."
+msgstr ""
+
+#: inc/Admin.php:96
+msgid "Watch More Videos"
+msgstr ""
+
+#: inc/Admin.php:108 inc/admin/support/knowledge.php:6
+msgid "Knowledge Base"
+msgstr ""
+
+#: inc/Admin.php:110
+msgid "Find the full documentation for the Docy Theme:"
+msgstr ""
+
+#: inc/Admin.php:112
+msgid "View Documentation"
+msgstr ""
+
+#: inc/Admin.php:123 inc/admin/support/support.php:20
+msgid "Support"
+msgstr ""
+
+#: inc/Admin.php:125
+msgid ""
+"If your questions that have not been answered by our documentation or video "
+"tutorials, just drop us a line."
+msgstr ""
+
+#: inc/Admin.php:127 inc/admin/support/ticket.php:6
+msgid "Submit a Ticket"
+msgstr ""
+
+#: inc/Admin.php:138 options/opt_general.php:36
+msgid "Changelogs"
+msgstr ""
+
+#: inc/Admin.php:140
+msgid "View the changelogs for the latest updates and features:"
+msgstr ""
+
+#: inc/Admin.php:142
+msgid "View Changelogs"
+msgstr ""
+
+#: inc/Admin.php:153
+msgid "Rate Us"
+msgstr ""
+
+#: inc/Admin.php:155
+msgid "We love to hear from you, we would appreciate every single review."
+msgstr ""
+
+#: inc/Admin.php:157
+msgid "Submit a Review"
+msgstr ""
+
+#: inc/admin/dashboard/Docy_admin_dashboard.php:22
+msgid "Docy Dashboard"
+msgstr ""
+
+#: inc/admin/dashboard/dashboard.php:4
+msgid "Welcome to Docy!"
+msgstr ""
+
+#: inc/admin/dashboard/dashboard.php:5
+msgid "Verify Your Purchase of Docy WordPress Theme"
+msgstr ""
+
+#: inc/admin/features.php:3
+msgid "Unlock Features You Paid For!"
+msgstr ""
+
+#: inc/admin/features.php:8
+msgid "One-Click Demo Import"
+msgstr ""
+
+#: inc/admin/features.php:9
+msgid "Choose a pre-built layout for starting a quick design process."
+msgstr ""
+
+#: inc/admin/features.php:12
+msgid "Premium and Useful Plugins"
+msgstr ""
+
+#: inc/admin/features.php:13
+msgid "Get access to premium and exclusive plugins for free."
+msgstr ""
+
+#: inc/admin/features.php:16
+msgid "Premium, Dedicated Support"
+msgstr ""
+
+#: inc/admin/features.php:17
+msgid "Get access to top-notch support."
+msgstr ""
+
+#: inc/admin/features.php:22
+msgid "Need Help?"
+msgstr ""
+
+#: inc/admin/features.php:27
+msgid "Docy Documentation"
+msgstr ""
+
+#: inc/admin/features.php:32
+msgid "Docy YouTube Playlist"
+msgstr ""
+
+#: inc/admin/notices/deactivate-plugins.php:13
+msgid ""
+"We replaced the ACF metaboxes with the Theme Settings options framework to "
+"make the theme more lightweight and dependency free."
+msgstr ""
+
+#: inc/admin/notices/deactivate-plugins.php:14
+msgid ""
+"Deactivate ACF Pro plugin to avoid conflict with the new metabox fields."
+msgstr ""
+
+#: inc/admin/notices/deactivate-plugins.php:18
+msgid "Deactivate ACF Pro"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:13
+msgid "Congratulations!"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:14
+msgid ""
+"Docy is now installed and ready to use. We've assembled some links to get "
+"you started."
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:20 page.php:116 single.php:118
+msgid "Docy theme"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:25
+msgid "Ready To GO"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:26
+msgid ""
+"Now you need to configure the theme step by step to build your dream "
+"website. Follow the steps bellow to get started with Docy."
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:31
+msgid "01"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:35
+msgid "02"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:36
+#: inc/tgm/class-tgm-plugin-activation.php:302
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:39
+msgid "03"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:40
+msgid "Import Demo"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:45
+msgid "then, go to the theme settings"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:52
+msgid "Documentation"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:53
+msgid ""
+"Need more details? Please check our full documentation for detailed "
+"information on how to use Docy."
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:56
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:63
+msgid "Read full documentation"
+msgstr ""
+
+#: inc/admin/notices/welcome-notice.php:69
+msgid "Return to your dashboard"
+msgstr ""
+
+#: inc/admin/registration.php:23
+msgid "Where can find purchase code!"
+msgstr ""
+
+#: inc/admin/settings-options.php:12
+msgid "Theme Settings"
+msgstr ""
+
+#: inc/admin/support/changelog.php:3 inc/admin/support/knowledge.php:3
+msgid "Docy Knowledge Base"
+msgstr ""
+
+#: inc/admin/support/changelog.php:6
+msgid "Changelog"
+msgstr ""
+
+#: inc/admin/support/changelog.php:7
+msgid "See what’s new with each update."
+msgstr ""
+
+#: inc/admin/support/changelog.php:9
+msgid "View Changelog"
+msgstr ""
+
+#: inc/admin/support/knowledge.php:7
+msgid "Extended documentation with articles, FAQs and more."
+msgstr ""
+
+#: inc/admin/support/knowledge.php:9
+msgid "Go to Documentation"
+msgstr ""
+
+#: inc/admin/support/support.php:19
+msgid "Liquid Support"
+msgstr ""
+
+#: inc/admin/support/ticket.php:7
+msgid "Feel free to reach our support team for further assistance."
+msgstr ""
+
+#: inc/admin/support/ticket.php:9
+msgid "Contact Us"
+msgstr ""
+
+#: inc/ajax_actions.php:142
+msgid "Show More Results"
+msgstr ""
+
+#: inc/ajax_actions.php:299 inc/ajax_actions.php:417 inc/ajax_actions.php:554
+#: inc/ajax_actions.php:638
+msgid "Oops! No results matched your search."
+msgstr ""
+
+#: inc/ajax_actions.php:300 inc/ajax_actions.php:418 inc/ajax_actions.php:555
+#: inc/ajax_actions.php:639
+msgid "You could search again."
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:132
+msgid "TOPIC"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:136
+msgid "Comments"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:146
+msgid " Open"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:152
+msgid " Closed"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:158
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+#: inc/csf/classes/comment-options.class.php:201
+#: inc/csf/classes/metabox-options.class.php:280
+#: inc/csf/fields/backup/backup.php:31
+msgid "Reset"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:169
+msgid "Sticky"
+msgstr ""
+
+#: inc/classes/Docy_Forum_Class.php:174
+msgid "Closed"
+msgstr ""
+
+#: inc/classes/Docy_Walker_Comment.php:47
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/classes/Docy_Walker_Comment.php:52
+msgid "Reply"
+msgstr ""
+
+#. translators: %d: ID of a post
+#: inc/classes/Docy_Walker_Docs.php:137
+#, php-format
+msgid "#%d (no title)"
+msgstr ""
+
+#: inc/classes/Docy_Walker_Docs.php:142
+msgid "folder icon closed"
+msgstr ""
+
+#: inc/classes/Docy_Walker_Docs.php:142
+msgid "folder icon"
+msgstr ""
+
+#: inc/classes/Docy_Walker_Docs.php:249
+msgid "Pages"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:83
+#, php-format
+msgid "The %s theme needs to be registered. %sRegister Now%s"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:93
+#, php-format
+msgid "Purchase code is invalid. Need a license? %sPurchase Now%s"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:107
+msgid "Purchase Verified"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:107
+msgid "Purchase Code Invalid"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:110
+msgid "Verify by . . ."
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:140
+msgid "Enter your purchase code"
+msgstr ""
+
+#: inc/classes/Docy_register_theme.php:141
+msgid "Register your copy"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:169
+msgid "Error while saving the changes."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:229
+msgid "Settings successfully imported."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:241
+#: inc/csf/classes/admin-options.class.php:257
+msgid "Default settings restored."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:328
+msgid "Settings saved."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:509
+msgid "You have unsaved changes, save your changes!"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:511
+msgid "show all settings"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:513 inc/csf/fields/icon/icon.php:57
+#: inc/csf/fields/map/map.php:23
+#: template-parts/header-elements/layout-default.php:22
+#: template-parts/header-elements/layout-search.php:28
+msgid "Search..."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:516
+#: inc/csf/classes/admin-options.class.php:639
+msgid "Save"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:516
+#: inc/csf/classes/admin-options.class.php:639
+msgid "Saving..."
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:517
+#: inc/csf/classes/admin-options.class.php:640
+msgid "Reset Section"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:517
+#: inc/csf/classes/admin-options.class.php:640
+msgid "Are you sure to reset this section options?"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+msgid "Reset All"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+msgid "Are you sure you want to reset all settings to default values?"
+msgstr ""
+
+#: inc/csf/classes/admin-options.class.php:616
+#: inc/csf/classes/comment-options.class.php:184
+#: inc/csf/classes/metabox-options.class.php:263
+#: inc/csf/fields/button_set/button_set.php:56
+#: inc/csf/fields/checkbox/checkbox.php:82 inc/csf/fields/radio/radio.php:75
+#: inc/csf/fields/select/select.php:113 inc/csf/functions/actions.php:41
+msgid "No data available."
+msgstr ""
+
+#: inc/csf/classes/comment-options.class.php:202
+#: inc/csf/classes/metabox-options.class.php:281
+msgid "update post"
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:617
+msgid "Are you sure?"
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:618
+#, php-format
+msgid "Please enter %s or more characters"
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:619
+msgid "Searching..."
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:620
+msgid "No results found."
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:721
+msgid "Oops! Not allowed."
+msgstr ""
+
+#: inc/csf/classes/setup.class.php:789 inc/csf/classes/setup.class.php:793
+msgid "Field not found!"
+msgstr ""
+
+#: inc/csf/classes/shortcode-options.class.php:210
+#: inc/csf/fields/group/group.php:23 options/opt_footer.php:215
+msgid "Add New"
+msgstr ""
+
+#: inc/csf/classes/shortcode-options.class.php:247
+#: inc/csf/functions/actions.php:16 inc/csf/functions/actions.php:68
+#: inc/csf/functions/actions.php:106 inc/csf/functions/actions.php:141
+#: inc/csf/functions/actions.php:170
+msgid "Error: Invalid nonce verification."
+msgstr ""
+
+#: inc/csf/fields/background/background.php:36
+#: inc/csf/fields/media/media.php:59
+msgid "Not selected"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:72 inc/csf/fields/date/date.php:31
+#: inc/csf/fields/datetime/datetime.php:36 options/opt_header.php:935
+msgid "From"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:90 inc/csf/fields/date/date.php:32
+#: inc/csf/fields/datetime/datetime.php:37 options/opt_header.php:936
+msgid "To"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:108
+msgid "Direction"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:114
+msgid "Gradient Direction"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:115
+msgid "&#8659; top to bottom"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:116
+msgid "&#8658; left to right"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:117
+msgid "&#8664; corner top to right"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:118
+msgid "&#8665; corner top to left"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:161
+msgid "Background Position"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:162
+msgid "Left Top"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:163
+msgid "Left Center"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:164
+msgid "Left Bottom"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:165
+msgid "Center Top"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:166
+msgid "Center Center"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:167
+msgid "Center Bottom"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:168
+msgid "Right Top"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:169
+msgid "Right Center"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:170
+msgid "Right Bottom"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:184
+msgid "Background Repeat"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:185
+msgid "Repeat"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:186
+msgid "No Repeat"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:187
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:188
+msgid "Repeat Vertically"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:202
+msgid "Background Attachment"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:203
+msgid "Scroll"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:204
+msgid "Fixed"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:218
+msgid "Background Size"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:219
+msgid "Cover"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:220
+msgid "Contain"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:221
+msgid "Auto"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:235
+msgid "Background Origin"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:236
+#: inc/csf/fields/background/background.php:254
+msgid "Padding Box"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:237
+#: inc/csf/fields/background/background.php:253
+msgid "Border Box"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:238
+#: inc/csf/fields/background/background.php:255
+msgid "Content Box"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:252
+msgid "Background Clip"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:269
+msgid "Background Blend Mode"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:270
+#: inc/csf/fields/link_color/link_color.php:36
+#: inc/csf/fields/typography/typography.php:186
+msgid "Normal"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:271
+msgid "Multiply"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:272
+msgid "Screen"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:273 options/opt_header.php:921
+msgid "Overlay"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:274
+msgid "Darken"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:275
+msgid "Lighten"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:276
+msgid "Color Dodge"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:277
+msgid "Saturation"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:278
+msgid "Color"
+msgstr ""
+
+#: inc/csf/fields/background/background.php:279
+msgid "Luminosity"
+msgstr ""
+
+#: inc/csf/fields/backup/backup.php:26
+msgid "Import"
+msgstr ""
+
+#: inc/csf/fields/backup/backup.php:29
+msgid "Export & Download"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:25 inc/csf/fields/spacing/spacing.php:25
+msgid "top"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:26 inc/csf/fields/spacing/spacing.php:26
+msgid "right"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:27 inc/csf/fields/spacing/spacing.php:27
+msgid "bottom"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:28 inc/csf/fields/spacing/spacing.php:28
+msgid "left"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:29 inc/csf/fields/spacing/spacing.php:29
+msgid "all"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:51
+#: inc/csf/fields/typography/typography.php:214
+msgid "Solid"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:52
+#: inc/csf/fields/typography/typography.php:217
+msgid "Dashed"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:53
+#: inc/csf/fields/typography/typography.php:216
+msgid "Dotted"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:54
+#: inc/csf/fields/typography/typography.php:215
+msgid "Double"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:55
+msgid "Inset"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:56
+msgid "Outset"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:57
+msgid "Groove"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:58
+msgid "ridge"
+msgstr ""
+
+#: inc/csf/fields/border/border.php:59
+#: inc/csf/fields/typography/typography.php:199
+#: inc/csf/fields/typography/typography.php:213
+msgid "None"
+msgstr ""
+
+#: inc/csf/fields/checkbox/checkbox.php:23
+msgid "Check/Uncheck All"
+msgstr ""
+
+#: inc/csf/fields/dimensions/dimensions.php:22
+msgid "width"
+msgstr ""
+
+#: inc/csf/fields/dimensions/dimensions.php:23
+msgid "height"
+msgstr ""
+
+#: inc/csf/fields/gallery/gallery.php:20
+msgid "Add Gallery"
+msgstr ""
+
+#: inc/csf/fields/gallery/gallery.php:21
+msgid "Edit Gallery"
+msgstr ""
+
+#: inc/csf/fields/gallery/gallery.php:22 inc/filter_actions.php:149
+#: woocommerce/single-product/add-to-cart/variable.php:46
+msgid "Clear"
+msgstr ""
+
+#: inc/csf/fields/group/group.php:41 inc/csf/fields/repeater/repeater.php:27
+msgid "Error: Field ID conflict."
+msgstr ""
+
+#: inc/csf/fields/group/group.php:52 inc/csf/fields/group/group.php:107
+#: inc/csf/fields/repeater/repeater.php:48
+#: inc/csf/fields/repeater/repeater.php:76
+msgid "Are you sure to delete this item?"
+msgstr ""
+
+#: inc/csf/fields/group/group.php:141 inc/csf/fields/repeater/repeater.php:89
+msgid "You cannot add more."
+msgstr ""
+
+#: inc/csf/fields/group/group.php:142 inc/csf/fields/repeater/repeater.php:90
+msgid "You cannot remove more."
+msgstr ""
+
+#: inc/csf/fields/icon/icon.php:20 inc/csf/fields/icon/icon.php:53
+msgid "Add Icon"
+msgstr ""
+
+#: inc/csf/fields/icon/icon.php:21
+msgid "Remove Icon"
+msgstr ""
+
+#: inc/csf/fields/link/link.php:20
+msgid "Add Link"
+msgstr ""
+
+#: inc/csf/fields/link/link.php:21
+msgid "Edit Link"
+msgstr ""
+
+#: inc/csf/fields/link/link.php:22
+msgid "Remove Link"
+msgstr ""
+
+#: inc/csf/fields/link_color/link_color.php:37
+msgid "Hover"
+msgstr ""
+
+#: inc/csf/fields/link_color/link_color.php:38
+#: inc/tgm/class-tgm-plugin-activation.php:2380
+msgid "Active"
+msgstr ""
+
+#: inc/csf/fields/link_color/link_color.php:39
+msgid "Visited"
+msgstr ""
+
+#: inc/csf/fields/link_color/link_color.php:40
+msgid "Focus"
+msgstr ""
+
+#: inc/csf/fields/map/map.php:24
+msgid "Latitude"
+msgstr ""
+
+#: inc/csf/fields/map/map.php:25
+msgid "Longitude"
+msgstr ""
+
+#: inc/csf/fields/media/media.php:25 inc/csf/fields/upload/upload.php:24
+msgid "Upload"
+msgstr ""
+
+#: inc/csf/fields/media/media.php:26 inc/csf/fields/upload/upload.php:25
+msgid "Remove"
+msgstr ""
+
+#: inc/csf/fields/sorter/sorter.php:21 options/opt_customizer.php:15
+#: options/opt_header.php:502 options/opt_header.php:680
+msgid "Enabled"
+msgstr ""
+
+#: inc/csf/fields/sorter/sorter.php:22 options/opt_customizer.php:16
+#: options/opt_header.php:503 options/opt_header.php:681
+msgid "Disabled"
+msgstr ""
+
+#: inc/csf/fields/switcher/switcher.php:20 options/opt_privacy.php:12
+msgid "On"
+msgstr ""
+
+#: inc/csf/fields/switcher/switcher.php:21 options/opt_privacy.php:13
+msgid "Off"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:96
+msgid "Font Family"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:97
+msgid "Select a font"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:105
+msgid "Backup Font Family"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:119
+#: inc/csf/fields/typography/typography.php:132
+#: inc/csf/fields/typography/typography.php:145
+#: inc/csf/fields/typography/typography.php:160
+#: inc/csf/fields/typography/typography.php:176
+#: inc/csf/fields/typography/typography.php:189
+#: inc/csf/fields/typography/typography.php:203
+#: inc/csf/fields/typography/typography.php:221 inc/filter_actions.php:151
+#: inc/meta/all-meta-boxes.php:28 inc/meta/meta-doc.php:27
+#: inc/meta/meta-doc.php:40 inc/meta/meta-header.php:13
+#: inc/meta/meta-header.php:25 inc/meta/meta-header.php:38
+#: inc/template-functions.php:188 inc/template-functions.php:816
+#: options/opt_footer.php:26 options/opt_header.php:32
+#: options/opt_header.php:106 options/opt_header.php:709
+msgid "Default"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:130
+msgid "Font Style"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:144
+#: inc/csf/fields/typography/typography.php:145
+msgid "Load Extra Styles"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:158
+msgid "Subset"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:168
+msgid "Text Align"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:170
+msgid "Inherit"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:171 options/opt_menu.php:31
+msgid "Left"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:172 options/opt_menu.php:32
+msgid "Center"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:173 options/opt_menu.php:33
+msgid "Right"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:174
+msgid "Justify"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:175
+msgid "Initial"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:184
+msgid "Font Variant"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:187
+msgid "Small Caps"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:188
+msgid "All Small Caps"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:197
+msgid "Text Transform"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:200
+msgid "Capitalize"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:201
+msgid "Uppercase"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:202
+msgid "Lowercase"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:211
+msgid "Text Decoration"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:218
+msgid "Wavy"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:219
+msgid "Overline"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:220
+msgid "Line-through"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:233
+msgid "Font Size"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:245
+msgid "Line Height"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:257
+msgid "Letter Spacing"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:269
+msgid "Word Spacing"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:284 options/opt_footer.php:113
+msgid "Font Color"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:295
+msgid "Custom Style"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:362
+msgid "Custom Web Fonts"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:368
+msgid "Safe Web Fonts"
+msgstr ""
+
+#: inc/csf/fields/typography/typography.php:388
+msgid "Google Web Fonts"
+msgstr ""
+
+#: inc/csf/functions/actions.php:72 inc/csf/functions/actions.php:110
+msgid "Error: Invalid key."
+msgstr ""
+
+#: inc/csf/functions/actions.php:114
+msgid "Error: The response is not a valid JSON response."
+msgstr ""
+
+#: inc/csf/functions/actions.php:174
+msgid "Error: Invalid term ID."
+msgstr ""
+
+#: inc/csf/functions/actions.php:180
+msgid "Error: You do not have permission to do that."
+msgstr ""
+
+#: inc/csf/functions/validate.php:14 inc/csf/functions/validate.php:86
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: inc/csf/functions/validate.php:32 inc/csf/functions/validate.php:106
+msgid "Please enter a valid number."
+msgstr ""
+
+#: inc/csf/functions/validate.php:50 inc/csf/functions/validate.php:126
+msgid "This field is required."
+msgstr ""
+
+#: inc/csf/functions/validate.php:68 inc/csf/functions/validate.php:146
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: inc/demo_config.php:22
+msgid "Install and activate all "
+msgstr ""
+
+#: inc/demo_config.php:24
+msgid "required plugins"
+msgstr ""
+
+#: inc/demo_config.php:25
+msgid "before you click on the \"Import\" button."
+msgstr ""
+
+#: inc/demo_config.php:29
+msgid "After importing a demo, you will find all the pages in "
+msgstr ""
+
+#: inc/demo_config.php:31
+msgid "Pages."
+msgstr ""
+
+#: inc/demo_config.php:32
+msgid "Other pages will be imported along with the main Homepage demo."
+msgstr ""
+
+#: inc/demo_config.php:37
+msgid "If you fail to import the demo data, follow the alternative way"
+msgstr ""
+
+#: inc/demo_config.php:39
+msgid "here."
+msgstr ""
+
+#: inc/demo_config.php:53
+msgid "Creative Helpdesk"
+msgstr ""
+
+#: inc/demo_config.php:66
+msgid "Cool Knowledgebase"
+msgstr ""
+
+#: inc/demo_config.php:79
+msgid "Classic Helpdesk"
+msgstr ""
+
+#: inc/demo_config.php:92
+msgid "Light Knowledgebase"
+msgstr ""
+
+#: inc/demo_config.php:105
+msgid "Support Forum"
+msgstr ""
+
+#: inc/demo_config.php:118
+msgid "Multi Helpdesk"
+msgstr ""
+
+#: inc/demo_config.php:131
+msgid "Book Chapters / Tutorials"
+msgstr ""
+
+#: inc/demo_config.php:144
+msgid "User Manuals"
+msgstr ""
+
+#: inc/demo_config.php:157
+msgid "Focused Helpdesk"
+msgstr ""
+
+#: inc/demo_config.php:170
+msgid "LMS"
+msgstr ""
+
+#: inc/filter_actions.php:150
+msgid "Clear color"
+msgstr ""
+
+#: inc/filter_actions.php:152
+msgid "Select default color"
+msgstr ""
+
+#: inc/filter_actions.php:153
+msgid "Select Color"
+msgstr ""
+
+#: inc/filter_actions.php:154
+msgid "Color value"
+msgstr ""
+
+#: inc/filter_actions.php:174
+msgid "Changelogs Settings"
+msgstr ""
+
+#: inc/filter_actions.php:175
+msgid "Settings"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:9
+msgid "Docy:: Options"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:19 inc/meta/all-meta-boxes.php:79
+#: inc/meta/all-meta-boxes.php:85
+msgid "Banner"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:26
+msgid "Banner Type"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:29
+msgid "Creative Colorful"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:30
+msgid "Classic Titlebar"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:31
+msgid "Curved Shape"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:39 inc/meta/all-meta-boxes.php:115
+#: inc/meta/meta-action-button.php:37 inc/meta/meta-doc.php:50
+#: inc/meta/meta-footer.php:19 options/opt_footer.php:154
+#: options/opt_general.php:278 options/opt_general.php:308
+#: options/opt_header.php:344 options/opt_menu.php:157
+msgid "Background Color"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:48
+msgid "Shape 01"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:55
+msgid "Shape 02"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:62 options/opt_forum.php:123
+#: options/opt_header.php:794
+msgid "Background Image"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:69
+msgid "Overlay Color"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:86 inc/meta/all-meta-boxes.php:97
+#: inc/meta/meta-action-button.php:11 inc/meta/meta-doc.php:41
+#: inc/meta/meta-header.php:50 options/opt_blog.php:102
+#: options/opt_blog.php:111 options/opt_blog.php:121 options/opt_blog.php:131
+#: options/opt_blog.php:141 options/opt_blog.php:168 options/opt_blog.php:279
+#: options/opt_blog.php:288 options/opt_blog.php:298 options/opt_blog.php:308
+#: options/opt_blog.php:327 options/opt_blog.php:338 options/opt_forum.php:27
+#: options/opt_forum.php:99 options/opt_forum.php:195 options/opt_forum.php:273
+#: options/opt_header.php:118 options/opt_header.php:262
+#: options/opt_header.php:491 options/opt_header.php:610
+#: options/opt_header.php:627 options/opt_header.php:654
+#: options/opt_header.php:923 options/opt_header.php:1036
+#: options/opt_header.php:1051 options/opt_header.php:1220
+msgid "Show"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:95 options/opt_header.php:1218
+msgid "Show/Hide Breadcrumb"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:96 options/opt_header.php:1219
+msgid "Toggle this switch to Show/Hide the Breadcrumb bar."
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:107 inc/meta/meta-action-button.php:46
+msgid "Text Color"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:124
+msgid "Featured Video"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:130
+msgid "YouTube Video URL"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:131
+msgid "Only YouTube video link supported."
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:136
+#: template-parts/header-elements/search-banner/featured-video.php:13
+msgid "Video Thumbnail"
+msgstr ""
+
+#: inc/meta/all-meta-boxes.php:154 inc/meta/meta-footer.php:28
+#: options/opt_footer.php:65 options/opt_header.php:230
+#: options/opt_header.php:744
+msgid "Padding"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:4 options/opt_header.php:248
+#: options/opt_header.php:255
+msgid "Action Button"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:10 options/opt_header.php:259
+msgid "Button Visibility"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:20
+msgid "Link"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:28
+msgid "Border Radius"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:55 options/opt_header.php:334
+#: options/opt_menu.php:167
+msgid "Border Color"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:65
+msgid "Hover Background Color"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:75
+msgid "Hover Text Color"
+msgstr ""
+
+#: inc/meta/meta-action-button.php:84 options/opt_header.php:365
+msgid "Hover Border Color"
+msgstr ""
+
+#: inc/meta/meta-doc.php:9
+msgid "Docy:: Doc Options"
+msgstr ""
+
+#: inc/meta/meta-doc.php:18
+msgid "Header Settings"
+msgstr ""
+
+#: inc/meta/meta-doc.php:24
+msgid "Header Type"
+msgstr ""
+
+#: inc/meta/meta-doc.php:25
+msgid "The header type will on the header elements based on the chooses type"
+msgstr ""
+
+#: inc/meta/meta-doc.php:28 inc/meta/meta-header.php:14
+#: options/opt_header.php:108
+msgid "Black"
+msgstr ""
+
+#: inc/meta/meta-doc.php:29 inc/meta/meta-header.php:15
+#: options/opt_header.php:107
+msgid "White"
+msgstr ""
+
+#: inc/meta/meta-doc.php:37 options/opt_header.php:587
+#: options/opt_header.php:595 options/opt_header.php:607
+msgid "Search Banner"
+msgstr ""
+
+#: inc/meta/meta-doc.php:38
+msgid "The default option comes from Theme Settings > Header > Search Banner."
+msgstr ""
+
+#: inc/meta/meta-doc.php:51
+msgid "The header background-color"
+msgstr ""
+
+#: inc/meta/meta-doc.php:59 inc/meta/meta-header.php:59
+msgid "Menu Item Color"
+msgstr ""
+
+#: inc/meta/meta-doc.php:60
+msgid "Menu items font color"
+msgstr ""
+
+#: inc/meta/meta-footer.php:4 options/opt_footer.php:4
+#: options/opt_footer.php:17
+msgid "Footer"
+msgstr ""
+
+#: inc/meta/meta-footer.php:9
+msgid "Footer Visibility"
+msgstr ""
+
+#: inc/meta/meta-footer.php:10
+msgid "Shown"
+msgstr ""
+
+#: inc/meta/meta-footer.php:11
+msgid "Hidden"
+msgstr ""
+
+#: inc/meta/meta-header.php:5 options/opt_header.php:4
+msgid "Header"
+msgstr ""
+
+#: inc/meta/meta-header.php:11
+msgid "Navbar Type"
+msgstr ""
+
+#: inc/meta/meta-header.php:23 options/opt_header.php:86
+msgid "Navbar Position"
+msgstr ""
+
+#: inc/meta/meta-header.php:26 options/opt_header.php:92
+msgid "Absolute"
+msgstr ""
+
+#: inc/meta/meta-header.php:27 options/opt_header.php:93
+#: options/opt_header.php:1130
+msgid "Static"
+msgstr ""
+
+#: inc/meta/meta-header.php:35 options/opt_header.php:39
+msgid "Header Width"
+msgstr ""
+
+#: inc/meta/meta-header.php:39 options/opt_header.php:44
+msgid "Boxed"
+msgstr ""
+
+#: inc/meta/meta-header.php:40 options/opt_header.php:45
+msgid "Wide"
+msgstr ""
+
+#: inc/meta/meta-header.php:41
+msgid "Full-Width"
+msgstr ""
+
+#: inc/meta/meta-header.php:49 options/opt_header.php:115
+#: options/opt_header.php:678 options/opt_header.php:977
+msgid "Search Form"
+msgstr ""
+
+#: inc/meta/meta-post-format.php:9 inc/meta/meta-post-format.php:22
+msgid "Video"
+msgstr ""
+
+#: inc/meta/meta-post-format.php:27
+msgid "Video URL"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:9
+msgid "Docy:: Sign up / Sign in Page Options"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:19
+msgid "Left Column"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:25 options/opt_footer.php:207
+#: options/opt_forum.php:56 options/opt_forum.php:134 options/opt_forum.php:288
+msgid "Title"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:26
+msgid "We are design changers do what matters."
+msgstr ""
+
+#: inc/meta/meta-register-login.php:32
+msgid "Top Ornament Image"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:38
+msgid "Bottom Ornament Image"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:44
+msgid "Featured Image"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:51
+msgid "Right Column"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:57
+msgid "Right Title"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:58
+msgid "Create your Account"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:64 options/opt_404.php:16
+#: options/opt_forum.php:64 options/opt_forum.php:296
+msgid "Subtitle"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:65
+msgid "Already have an account? Sign in"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:71
+msgid "Submit Button Label"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:72 inc/reg_process.php:9
+msgid "Create an account"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:79 inc/meta/meta-register-login.php:85
+msgid "Agree Checkbox"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:86 options/opt_footer.php:38
+#: options/opt_header.php:949 options/opt_header.php:998
+#: options/opt_header.php:1014 options/opt_header.php:1087
+#: options/opt_shop.php:92
+msgid "Yes"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:87 options/opt_footer.php:39
+#: options/opt_header.php:950 options/opt_header.php:999
+#: options/opt_header.php:1015 options/opt_header.php:1088
+#: options/opt_shop.php:93
+msgid "No"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:96
+msgid "Agreement Label"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:97
+msgid "I accept the politic of confidentiality"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:103
+msgid "Alert Message"
+msgstr ""
+
+#: inc/meta/meta-register-login.php:104
+msgid ""
+"The alert message will throw if the checkbox is not checked before "
+"submitting the form."
+msgstr ""
+
+#: inc/meta/meta-register-login.php:105 inc/reg_process.php:12
+msgid ""
+"Please indicate that you have read and agree to the Terms and Conditions and "
+"Privacy Policy"
+msgstr ""
+
+#: inc/meta/meta-sidebar.php:5 options/opt_shop.php:31
+msgid "Sidebar"
+msgstr ""
+
+#: inc/meta/meta-sidebar.php:10
+msgid "TOC"
+msgstr ""
+
+#: inc/meta/meta-sidebar.php:11
+msgid "TOC will work on the default page template only."
+msgstr ""
+
+#: inc/reg_process.php:17
+msgid "User name"
+msgstr ""
+
+#: inc/reg_process.php:20
+msgid "Your email"
+msgstr ""
+
+#: inc/reg_process.php:21
+msgid "Email address"
+msgstr ""
+
+#: inc/reg_process.php:50
+msgid "Username too short. At least 4 characters is required"
+msgstr ""
+
+#: inc/reg_process.php:53
+msgid "Sorry, that username already exists!"
+msgstr ""
+
+#: inc/reg_process.php:56
+msgid "Sorry, the username you entered is not valid"
+msgstr ""
+
+#: inc/reg_process.php:59
+msgid "Password length must be greater than 5"
+msgstr ""
+
+#: inc/reg_process.php:62
+msgid "Email is not valid"
+msgstr ""
+
+#: inc/reg_process.php:65
+msgid "Email already in use"
+msgstr ""
+
+#: inc/reg_process.php:71
+msgid "ERROR"
+msgstr ""
+
+#: inc/reg_process.php:77
+msgid "No Error"
+msgstr ""
+
+#: inc/sidebars.php:6
+msgid "Primary Sidebar"
+msgstr ""
+
+#: inc/sidebars.php:7
+msgid "Place widgets in sidebar widgets area."
+msgstr ""
+
+#: inc/sidebars.php:17
+msgid "Forum Sidebar"
+msgstr ""
+
+#: inc/sidebars.php:18
+msgid "Add widgets here for the Forum Archive Sidebar area"
+msgstr ""
+
+#: inc/sidebars.php:29
+msgid "Shop sidebar"
+msgstr ""
+
+#: inc/sidebars.php:30
+msgid "Place widgets here for WooCommerce shop page."
+msgstr ""
+
+#: inc/sidebars.php:41
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/sidebars.php:42
+msgid "Add widgets here for Footer widgets area"
+msgstr ""
+
+#: inc/template-functions.php:115
+msgid "Search ..."
+msgstr ""
+
+#: inc/template-functions.php:120
+msgid "Back to home Page"
+msgstr ""
+
+#: inc/template-functions.php:136
+msgid "No Comments"
+msgstr ""
+
+#: inc/template-functions.php:138
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-functions.php:140
+msgid " Comments"
+msgstr ""
+
+#: inc/template-functions.php:257 options/opt_header.php:1230
+#: template-parts/header-elements/search-banner/breadcrumb.php:5
+msgid "Home"
+msgstr ""
+
+#: inc/template-functions.php:260 inc/template-functions.php:318
+#: inc/template-functions.php:846 options/opt_blog.php:30
+msgid "Blog"
+msgstr ""
+
+#: inc/template-functions.php:546
+msgid " minute"
+msgstr ""
+
+#: inc/template-functions.php:548
+msgid " minutes"
+msgstr ""
+
+#: inc/template-functions.php:849 options/opt_shop.php:13
+#: options/opt_shop.php:18 options/opt_shop.php:27
+msgid "Shop"
+msgstr ""
+
+#: inc/template-functions.php:860
+msgid "Search result for: “"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:303
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:305
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:307
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:308
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:311
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:317
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:323
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:329
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:335
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:341
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:346
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:351
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:356
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:360
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:361
+#: inc/tgm/class-tgm-plugin-activation.php:886
+#: inc/tgm/class-tgm-plugin-activation.php:2592
+#: inc/tgm/class-tgm-plugin-activation.php:3639
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:362
+#: inc/tgm/class-tgm-plugin-activation.php:3218
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:363
+#: inc/tgm/class-tgm-plugin-activation.php:3011
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:365
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:367
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: inc/tgm/class-tgm-plugin-activation.php:369
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:370
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:371
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:372
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:575
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:576
+msgid "Update Required"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:693
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:993
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:993
+#: inc/tgm/class-tgm-plugin-activation.php:996
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:996
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:1180
+#: inc/tgm/class-tgm-plugin-activation.php:3007
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: inc/tgm/class-tgm-plugin-activation.php:2041
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2332
+msgid "Required"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2335
+msgid "Recommended"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2351
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2354
+msgid "External Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2357
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2374
+msgid "Not Installed"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2378
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2386
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2389
+msgid "Requires Update"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2392
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: inc/tgm/class-tgm-plugin-activation.php:2401
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2447
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2451
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2455
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2459
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2541
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2549
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2557
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2569
+msgid "Available version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2592
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2606
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2607
+msgid "Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2608
+msgid "Type"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2612
+msgid "Version"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2613
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2662
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2667
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2673
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2743
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2776
+msgid "Install"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2785
+msgid "Activate"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2816
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2818
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2859
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2861
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2967
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2993
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3217
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3557
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/tgm/class-tgm-plugin-activation.php:3560
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3562
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3566
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+msgid "Show Details"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+msgid "Hide Details"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3569
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3571
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3574
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3577
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3579
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:40
+msgid "Elementor"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:46
+msgid "Docy Core"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:54 inc/tgm/plugin_activation.php:146
+msgid "Advanced Custom Fields-pro"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:61 inc/tgm/plugin_activation.php:160
+msgid "EazyDocs"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:67 inc/tgm/plugin_activation.php:172
+msgid "bbPress"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:73 inc/tgm/plugin_activation.php:178
+msgid "BBP Core"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:79 inc/tgm/plugin_activation.php:166
+msgid "wooCommerce"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:85
+msgid "One Click Demo Import"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:91
+msgid "Smart bbPress nVerify"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:136
+msgid ""
+"Elementor is a free drag & drop page builder plugin that will help you to "
+"create any layout you can imagine with WordPress."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:150
+msgid ""
+"Advanced Custom Fields Pro is a premium plugin that allows you to add custom "
+"fields to your WordPress edit screens."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:153
+msgid "Pro Elements"
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:157
+msgid ""
+"Free WordPress plugin that enables PRO features in the Elementor page "
+"builder. If you have Elementor Pro, no need to install this plugin."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:163
+msgid ""
+"EazyDocs is a free WordPress plugin that allows you to create a knowledge "
+"base, documentation, or wiki for your website."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:168
+msgid ""
+"WooCommerce is a free eCommerce plugin that allows you to sell anything. If "
+"you need to sell product, you have to install it. Otherwise, you can skip "
+"this plugin."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:175
+msgid ""
+"bbPress is forum software with a twist from the creators of WordPress. If "
+"you don't want the Forum feature, you can skip installing this plugin."
+msgstr ""
+
+#: inc/tgm/plugin_activation.php:181
+msgid ""
+"BBP Core is a required plugin for bbPress forum. If you don't want the Forum "
+"feature, you can skip installing this plugin."
+msgstr ""
+
+#: options/opt_404.php:4
+msgid "404 Error Page"
+msgstr ""
+
+#: options/opt_404.php:9
+msgid "Title Text"
+msgstr ""
+
+#: options/opt_404.php:19
+msgid ""
+"Sorry for the inconvenience. Go to our homepage or check out our latest "
+"collections for Fashion, Chair, Decoration..."
+msgstr ""
+
+#: options/opt_404.php:23
+msgid "Home Button Title"
+msgstr ""
+
+#: options/opt_404.php:26
+msgid "Back to Home Page"
+msgstr ""
+
+#: options/opt_404.php:32
+msgid "Button Text Color"
+msgstr ""
+
+#: options/opt_404.php:41
+msgid "Button Background Color"
+msgstr ""
+
+#: options/opt_404.php:48
+msgid "Background shape"
+msgstr ""
+
+#: options/opt_404.php:49
+msgid "Upload here the default background shape image"
+msgstr ""
+
+#: options/opt_backup.php:3 options/opt_backup.php:14
+msgid "Backup"
+msgstr ""
+
+#: options/opt_backup.php:10
+msgid "Export / Import"
+msgstr ""
+
+#: options/opt_blog.php:3
+msgid "Blog Pages"
+msgstr ""
+
+#: options/opt_blog.php:13 options/opt_blog.php:20
+msgid "Blog archive"
+msgstr ""
+
+#: options/opt_blog.php:26
+msgid "Blog page Title"
+msgstr ""
+
+#: options/opt_blog.php:27
+msgid ""
+"Controls the title text that displays on the Blog page Titlebar/Search "
+"Banner."
+msgstr ""
+
+#: options/opt_blog.php:34
+msgid "Blog page Subtitle"
+msgstr ""
+
+#: options/opt_blog.php:35
+msgid ""
+"Controls the title text that displays on the Blog page Titlebar/Search "
+"Banner.\"."
+msgstr ""
+
+#: options/opt_blog.php:41
+msgid "Blog Layout"
+msgstr ""
+
+#: options/opt_blog.php:42
+msgid "The Blog layout will also apply on the blog category and tag pages."
+msgstr ""
+
+#: options/opt_blog.php:54
+msgid "Column"
+msgstr ""
+
+#: options/opt_blog.php:58
+msgid "Two"
+msgstr ""
+
+#: options/opt_blog.php:59
+msgid "Three"
+msgstr ""
+
+#: options/opt_blog.php:60
+msgid "Four"
+msgstr ""
+
+#: options/opt_blog.php:66
+msgid "Post title length"
+msgstr ""
+
+#: options/opt_blog.php:67
+msgid "Blog post title length in character"
+msgstr ""
+
+#: options/opt_blog.php:77
+msgid "Post Word Excerpt"
+msgstr ""
+
+#: options/opt_blog.php:78
+msgid ""
+"If post excerpt empty, the excerpt content will take from the post content. "
+"Define here how much word you want to show along with the each posts in the "
+"blog page."
+msgstr ""
+
+#: options/opt_blog.php:89
+msgid "Continue Reading Label"
+msgstr ""
+
+#: options/opt_blog.php:92 template-parts/contents/content-search.php:4
+#: template-parts/contents/content-sticky.php:4
+#: template-parts/contents/content-video.php:4
+#: template-parts/contents/content.php:4
+msgid "Continue Reading"
+msgstr ""
+
+#: options/opt_blog.php:98
+msgid "Post Meta"
+msgstr ""
+
+#: options/opt_blog.php:99
+msgid "Show/hide post meta on blog archive page"
+msgstr ""
+
+#: options/opt_blog.php:108 options/opt_blog.php:285
+msgid "Post Date"
+msgstr ""
+
+#: options/opt_blog.php:118 options/opt_blog.php:295
+msgid "Post Reading Time"
+msgstr ""
+
+#: options/opt_blog.php:128
+msgid "Post category"
+msgstr ""
+
+#: options/opt_blog.php:157
+msgid "Post Format Icon"
+msgstr ""
+
+#: options/opt_blog.php:164
+msgid "Post Icon"
+msgstr ""
+
+#: options/opt_blog.php:165
+msgid "Post Icon show"
+msgstr ""
+
+#: options/opt_blog.php:178
+msgid "Post Standard"
+msgstr ""
+
+#: options/opt_blog.php:185
+msgid "Post Video"
+msgstr ""
+
+#: options/opt_blog.php:193
+msgid "Icon Size"
+msgstr ""
+
+#: options/opt_blog.php:212
+msgid "Blog single"
+msgstr ""
+
+#: options/opt_blog.php:220
+msgid "Title Bar"
+msgstr ""
+
+#: options/opt_blog.php:227
+msgid "Banner Layout"
+msgstr ""
+
+#: options/opt_blog.php:242
+msgid "Shape 1"
+msgstr ""
+
+#: options/opt_blog.php:249
+msgid "Shape 2"
+msgstr ""
+
+#: options/opt_blog.php:256 options/opt_footer.php:142
+#: options/opt_footer.php:149 options/opt_header.php:779
+msgid "Background"
+msgstr ""
+
+#: options/opt_blog.php:267
+msgid "Title Color"
+msgstr ""
+
+#: options/opt_blog.php:275
+msgid "Post meta"
+msgstr ""
+
+#: options/opt_blog.php:276
+msgid "Post meta includes Date, Reading Time and Categories."
+msgstr ""
+
+#: options/opt_blog.php:305 template-parts/single-post/post-meta.php:32
+msgid "Categories"
+msgstr ""
+
+#: options/opt_blog.php:318
+msgid "Post Contents"
+msgstr ""
+
+#: options/opt_blog.php:323
+msgid "Post Tags"
+msgstr ""
+
+#: options/opt_blog.php:324
+msgid "The Post Tags shows at the bottom of the post content."
+msgstr ""
+
+#: options/opt_blog.php:335
+msgid "Related posts "
+msgstr ""
+
+#: options/opt_blog.php:343
+msgid "Posts section title"
+msgstr ""
+
+#: options/opt_blog.php:346
+msgid "Related Post"
+msgstr ""
+
+#: options/opt_blog.php:350
+msgid "Related posts count"
+msgstr ""
+
+#: options/opt_color_scheme.php:5
+msgid "Appearance"
+msgstr ""
+
+#: options/opt_color_scheme.php:10
+msgid "Color Scheme"
+msgstr ""
+
+#: options/opt_color_scheme.php:17 options/opt_dark.php:35
+msgid "Accent Color"
+msgstr ""
+
+#: options/opt_color_scheme.php:25
+msgid "Secondary Color"
+msgstr ""
+
+#: options/opt_color_scheme.php:26
+msgid "Normally used in Titles, Gradient Colors"
+msgstr ""
+
+#: options/opt_color_scheme.php:34
+msgid "Paragraph Color"
+msgstr ""
+
+#: options/opt_color_scheme.php:35
+msgid "Normally used in meta content, paragraph, doc lists, subtitles, icon"
+msgstr ""
+
+#: options/opt_color_scheme.php:43
+msgid "Background Gradient Color"
+msgstr ""
+
+#: options/opt_color_scheme.php:44 options/opt_color_scheme.php:60
+msgid "This color applied to Post Single, Forum pages, Search Results page"
+msgstr ""
+
+#: options/opt_color_scheme.php:59
+msgid "Container Box Shadow"
+msgstr ""
+
+#: options/opt_color_scheme.php:61 options/opt_dark.php:18
+#: options/opt_general.php:240
+msgid "SHow"
+msgstr ""
+
+#: options/opt_custom_code.php:3
+msgid "Custom Code"
+msgstr ""
+
+#: options/opt_custom_code.php:10
+msgid "CSS Code"
+msgstr ""
+
+#: options/opt_custom_code.php:11
+msgid "Paste your CSS code here."
+msgstr ""
+
+#: options/opt_custom_code.php:20
+msgid "JS Code"
+msgstr ""
+
+#: options/opt_custom_code.php:21
+msgid "Paste your JS code here."
+msgstr ""
+
+#: options/opt_customizer.php:7 options/opt_customizer.php:22
+msgid "Customizer"
+msgstr ""
+
+#: options/opt_customizer.php:14
+msgid "Options Visibility on Customizer"
+msgstr ""
+
+#: options/opt_dark.php:4 options/opt_dark.php:9
+msgid "Dark Mode"
+msgstr ""
+
+#: options/opt_dark.php:14
+msgid "Dark Mode Switcher"
+msgstr ""
+
+#: options/opt_dark.php:15
+msgid "Show/Hide the Dark Mode Switcher on the Header navigation bar."
+msgstr ""
+
+#: options/opt_dark.php:24
+msgid "Active Dark Mode"
+msgstr ""
+
+#: options/opt_dark.php:25
+msgid "Activate the Dark Mode by default."
+msgstr ""
+
+#: options/opt_dark.php:36
+msgid "Accent Color for dark mode"
+msgstr ""
+
+#: options/opt_footer.php:12
+msgid "Footer Options"
+msgstr ""
+
+#: options/opt_footer.php:22
+msgid "Footer Style"
+msgstr ""
+
+#: options/opt_footer.php:27
+msgid "Simple"
+msgstr ""
+
+#: options/opt_footer.php:28 options/opt_footer.php:91
+#: options/opt_header.php:33 options/opt_header.php:143
+#: options/opt_header.php:710
+msgid "Elementor Template"
+msgstr ""
+
+#: options/opt_footer.php:36
+msgid "Preset Columns"
+msgstr ""
+
+#: options/opt_footer.php:37
+msgid ""
+"If you enable this switcher, the Footer Widget columns will set as preset "
+"(33.33% + 22.22% + 22.22% + 22.22%) on the demo of Docy."
+msgstr ""
+
+#: options/opt_footer.php:45
+msgid "Footer Column"
+msgstr ""
+
+#: options/opt_footer.php:50
+msgid "Two Column"
+msgstr ""
+
+#: options/opt_footer.php:51
+msgid "Three Column"
+msgstr ""
+
+#: options/opt_footer.php:52
+msgid "Four Column"
+msgstr ""
+
+#: options/opt_footer.php:66
+msgid "Padding around the footer columns (Top Right Bottom Left)"
+msgstr ""
+
+#: options/opt_footer.php:77
+msgid "Ornament Illustration"
+msgstr ""
+
+#: options/opt_footer.php:78
+msgid ""
+"This is for beautiful design purpose. You can replace the default "
+"illustration or delete it from here."
+msgstr ""
+
+#: options/opt_footer.php:106
+msgid "Font colors"
+msgstr ""
+
+#: options/opt_footer.php:117
+msgid "Widget Title Color"
+msgstr ""
+
+#: options/opt_footer.php:123
+msgid "Normal Font color"
+msgstr ""
+
+#: options/opt_footer.php:130
+msgid "Hover Font color"
+msgstr ""
+
+#: options/opt_footer.php:162
+msgid "Bottom Background Color"
+msgstr ""
+
+#: options/opt_footer.php:163
+msgid "Footer bottom background color"
+msgstr ""
+
+#: options/opt_footer.php:175 options/opt_footer.php:182
+msgid "Footer Bottom"
+msgstr ""
+
+#: options/opt_footer.php:186
+msgid "Copyright Text"
+msgstr ""
+
+#: options/opt_footer.php:201
+msgid "Useful Links"
+msgstr ""
+
+#: options/opt_footer.php:212
+msgid "URL"
+msgstr ""
+
+#: options/opt_forum.php:13 options/opt_forum.php:20
+msgid "Forum Archive"
+msgstr ""
+
+#: options/opt_forum.php:24
+msgid "Top Call to Action"
+msgstr ""
+
+#: options/opt_forum.php:37
+msgid "Top Call to Action Controls"
+msgstr ""
+
+#: options/opt_forum.php:45 options/opt_forum.php:113
+msgid "Left Featured Image"
+msgstr ""
+
+#: options/opt_forum.php:59
+msgid "Can't find an answer?"
+msgstr ""
+
+#: options/opt_forum.php:67
+msgid "Make use of a qualified tutor to get the answer"
+msgstr ""
+
+#: options/opt_forum.php:72 options/opt_forum.php:142
+msgid "Button Title"
+msgstr ""
+
+#: options/opt_forum.php:75
+msgid "Ask a Question"
+msgstr ""
+
+#: options/opt_forum.php:79 options/opt_header.php:278
+msgid "Button URL"
+msgstr ""
+
+#: options/opt_forum.php:96 options/opt_forum.php:105
+msgid "Bottom Call to Action"
+msgstr ""
+
+#: options/opt_forum.php:106
+msgid "Control here the bottom Call to Action area of the Forum archive pages."
+msgstr ""
+
+#: options/opt_forum.php:137
+msgid "New to Communities?"
+msgstr ""
+
+#: options/opt_forum.php:145
+msgid "Join the community "
+msgstr ""
+
+#: options/opt_forum.php:156
+msgid "Signup Button"
+msgstr ""
+
+#: options/opt_forum.php:159 options/opt_general.php:50
+#: options/opt_general.php:61 options/opt_general.php:90
+#: options/opt_general.php:349
+msgid "Enable"
+msgstr ""
+
+#: options/opt_forum.php:160 options/opt_general.php:51
+#: options/opt_general.php:62 options/opt_general.php:91
+#: options/opt_general.php:350
+msgid "Disable"
+msgstr ""
+
+#: options/opt_forum.php:166
+msgid "Select signup Page"
+msgstr ""
+
+#: options/opt_forum.php:174
+#, php-format
+msgid ""
+"This setting will work if the Membership checkbox is checked from the "
+"general <a href=\"%s\">settings</a>"
+msgstr ""
+
+#: options/opt_forum.php:175
+#, php-format
+msgid ""
+"Use this shortcode to show the bbpress default signup form <b>%s</b> Or skip "
+"the selection if need the wordprss register form"
+msgstr ""
+
+#: options/opt_forum.php:185
+msgid "Topics Archive"
+msgstr ""
+
+#: options/opt_forum.php:202
+msgid "Forums Number"
+msgstr ""
+
+#: options/opt_forum.php:203
+msgid "Forums to show above the topics list."
+msgstr ""
+
+#: options/opt_forum.php:220 options/opt_forum.php:227
+msgid "Topic Details"
+msgstr ""
+
+#: options/opt_forum.php:231
+msgid "Replies Order"
+msgstr ""
+
+#: options/opt_forum.php:236
+msgid "Ascending"
+msgstr ""
+
+#: options/opt_forum.php:237
+msgid "Descending"
+msgstr ""
+
+#: options/opt_forum.php:241
+msgid "Title Prefix"
+msgstr ""
+
+#: options/opt_forum.php:244
+msgid "Q:"
+msgstr ""
+
+#: options/opt_forum.php:250
+msgid "Title Prefix Typography"
+msgstr ""
+
+#: options/opt_forum.php:264
+msgid "Subscription"
+msgstr ""
+
+#: options/opt_forum.php:265
+msgid "Subscription settings for logged out users."
+msgstr ""
+
+#: options/opt_forum.php:270
+msgid "Enable / Disable"
+msgstr ""
+
+#: options/opt_forum.php:280
+msgid "Subscribe Button"
+msgstr ""
+
+#: options/opt_forum.php:303
+msgid "Login Button"
+msgstr ""
+
+#: options/opt_forum.php:311
+msgid "Login Type"
+msgstr ""
+
+#: options/opt_forum.php:316
+msgid "Default Login"
+msgstr ""
+
+#: options/opt_forum.php:317
+msgid "Custom Page"
+msgstr ""
+
+#: options/opt_forum.php:323
+msgid "Select Page"
+msgstr ""
+
+#: options/opt_forum.php:338
+msgid "Users"
+msgstr ""
+
+#: options/opt_forum.php:345
+msgid "User Details"
+msgstr ""
+
+#: options/opt_forum.php:349
+msgid "User Menu Background"
+msgstr ""
+
+#: options/opt_forum.php:350 options/opt_header.php:767
+msgid "Select a pre-designed banner background style."
+msgstr ""
+
+#: options/opt_forum.php:357
+msgid "Key master Icon"
+msgstr ""
+
+#: options/opt_forum.php:366
+msgid "Moderator Icon"
+msgstr ""
+
+#: options/opt_forum.php:375
+msgid "Participant Icon"
+msgstr ""
+
+#: options/opt_forum.php:384
+msgid "Blocked Icon"
+msgstr ""
+
+#: options/opt_general.php:3
+msgid "General"
+msgstr ""
+
+#: options/opt_general.php:10
+msgid "General Settings"
+msgstr ""
+
+#: options/opt_general.php:19
+msgid "Sidebar Widgets Editor"
+msgstr ""
+
+#: options/opt_general.php:21
+msgid "Classic"
+msgstr ""
+
+#: options/opt_general.php:22
+msgid "Gutenberg"
+msgstr ""
+
+#: options/opt_general.php:24
+msgid ""
+"If enabled classic, it will be restored the old Widgets screen and disables "
+"the block editor from managing widgets."
+msgstr ""
+
+#: options/opt_general.php:29
+msgid "Custom Post Types"
+msgstr ""
+
+#: options/opt_general.php:30
+msgid ""
+"If you disable a post type, all the assets, widgets associated with that "
+"post type will be disabled."
+msgstr ""
+
+#: options/opt_general.php:34
+msgid "FAQs"
+msgstr ""
+
+#: options/opt_general.php:35
+msgid "Videos"
+msgstr ""
+
+#: options/opt_general.php:48
+msgid "Page TOC"
+msgstr ""
+
+#: options/opt_general.php:49
+msgid "Enable/disable TOC (Table of Contents) in Page sidebar."
+msgstr ""
+
+#: options/opt_general.php:59
+msgid "Post TOC"
+msgstr ""
+
+#: options/opt_general.php:60
+msgid "Enable/disable TOC (Table of Contents) in Post sidebar."
+msgstr ""
+
+#: options/opt_general.php:75 options/opt_general.php:81
+msgid "Preloader"
+msgstr ""
+
+#: options/opt_general.php:89
+msgid "Pre-loader"
+msgstr ""
+
+#: options/opt_general.php:97
+msgid "Enable Pre-loader on"
+msgstr ""
+
+#: options/opt_general.php:101
+msgid "All Pages"
+msgstr ""
+
+#: options/opt_general.php:102
+msgid "Specific Pages"
+msgstr ""
+
+#: options/opt_general.php:110
+msgid "Page IDs"
+msgstr ""
+
+#: options/opt_general.php:111
+msgid "Input the multiple page IDs in comma separated format."
+msgstr ""
+
+#: options/opt_general.php:112
+#, php-format
+msgid "%s How to find page ID %s"
+msgstr ""
+
+#: options/opt_general.php:124
+msgid "Pre-loader Logo"
+msgstr ""
+
+#: options/opt_general.php:136
+msgid "Logo Title"
+msgstr ""
+
+#: options/opt_general.php:141
+msgid "Logo Title Color"
+msgstr ""
+
+#: options/opt_general.php:156
+msgid "Preloader Title"
+msgstr ""
+
+#: options/opt_general.php:161
+msgid "Preloader Title Color"
+msgstr ""
+
+#: options/opt_general.php:176 options/opt_general.php:182
+msgid "Quotes"
+msgstr ""
+
+#: options/opt_general.php:177
+msgid "The quotes will display randomly under the title."
+msgstr ""
+
+#: options/opt_general.php:189
+msgid ""
+"We design Docy for the readers, optimizing not for page views or engagement"
+msgstr ""
+
+#: options/opt_general.php:193
+msgid "Docy turns out that context is a key part of learning."
+msgstr ""
+
+#: options/opt_general.php:197
+msgid "You can create any type of product documentation with Docy"
+msgstr ""
+
+#: options/opt_general.php:201
+msgid "Advanced visual search system powered by Ajax"
+msgstr ""
+
+#: options/opt_general.php:209
+msgid "Preloader Quotes Color"
+msgstr ""
+
+#: options/opt_general.php:236
+msgid "Back to Top Button"
+msgstr ""
+
+#: options/opt_general.php:237
+msgid "Show/hide back to top button globally settings"
+msgstr ""
+
+#: options/opt_general.php:247
+msgid "Position"
+msgstr ""
+
+#: options/opt_general.php:264
+msgid "Normal Color"
+msgstr ""
+
+#: options/opt_general.php:269 options/opt_general.php:299
+msgid "Icon Color"
+msgstr ""
+
+#: options/opt_general.php:294
+msgid "Hover Color"
+msgstr ""
+
+#: options/opt_general.php:327 options/opt_general.php:333
+msgid "Ajax Search"
+msgstr ""
+
+#: options/opt_general.php:338
+msgid "Ajax Search Result Limit"
+msgstr ""
+
+#: options/opt_general.php:339
+msgid ""
+"This will limit the doc sections and articles in Ajax live search results. "
+"Input -1 for show all results."
+msgstr ""
+
+#: options/opt_general.php:347
+msgid "Tab Filters"
+msgstr ""
+
+#: options/opt_general.php:348
+msgid "If you disable it, the docs search will show by default."
+msgstr ""
+
+#: options/opt_header.php:14
+msgid "Layout & Settings"
+msgstr ""
+
+#: options/opt_header.php:23
+msgid "Layout & Setting"
+msgstr ""
+
+#: options/opt_header.php:28
+msgid "Header Style"
+msgstr ""
+
+#: options/opt_header.php:40
+msgid ""
+"Set the default Header width here. It will apply on the theme's Header "
+"globally."
+msgstr ""
+
+#: options/opt_header.php:46
+msgid "Full Width"
+msgstr ""
+
+#: options/opt_header.php:53
+msgid "Sticky Navbar"
+msgstr ""
+
+#: options/opt_header.php:61
+msgid "Sticky Appearance"
+msgstr ""
+
+#: options/opt_header.php:62
+msgid "Set the sticky appearance based on scrolling states."
+msgstr ""
+
+#: options/opt_header.php:66
+msgid "Stick all Time"
+msgstr ""
+
+#: options/opt_header.php:67
+msgid "Stick on Up Scrolling"
+msgstr ""
+
+#: options/opt_header.php:74
+msgid "Header Layout"
+msgstr ""
+
+#: options/opt_header.php:87
+msgid "The Navbar Position will apply globally except the blog single page."
+msgstr ""
+
+#: options/opt_header.php:88
+msgid "The Static position recommended with disabling the Search Banner"
+msgstr ""
+
+#: options/opt_header.php:100
+msgid "Navbar Color"
+msgstr ""
+
+#: options/opt_header.php:101
+msgid "Select the default color for the selected Navbar style."
+msgstr ""
+
+#: options/opt_header.php:102
+msgid ""
+"The selected style would apply main navbar area's elements (logo, menu "
+"items, action button)"
+msgstr ""
+
+#: options/opt_header.php:126
+msgid "Search Form Dimension"
+msgstr ""
+
+#: options/opt_header.php:157 options/opt_header.php:164
+msgid "Logo"
+msgstr ""
+
+#: options/opt_header.php:165
+msgid ""
+"The logo will display in the website’s navigation bar. If you’re uploading "
+"an SVG logo, there’s no need to upload a separate Retina logo, as SVG files "
+"maintain high resolution on all screens."
+msgstr ""
+
+#: options/opt_header.php:169
+msgid "Black Logo"
+msgstr ""
+
+#: options/opt_header.php:170
+msgid "Upload here the black version of your logo."
+msgstr ""
+
+#: options/opt_header.php:182
+msgid "White Logo"
+msgstr ""
+
+#: options/opt_header.php:183
+msgid ""
+"Upload here the white version of your logo. This logo is useful for the Dark "
+"mode."
+msgstr ""
+
+#: options/opt_header.php:193
+msgid "Black Retina Logo"
+msgstr ""
+
+#: options/opt_header.php:194 options/opt_header.php:205
+msgid "The retina logo should be double (2x) of your original logo size."
+msgstr ""
+
+#: options/opt_header.php:204
+msgid "White Retina Logo"
+msgstr ""
+
+#: options/opt_header.php:215
+msgid "Logo dimensions"
+msgstr ""
+
+#: options/opt_header.php:216
+msgid "Set a custom height width for your uploaded logo."
+msgstr ""
+
+#: options/opt_header.php:231
+msgid ""
+"Padding around the logo. Input the padding as clockwise (Top Right Bottom "
+"Left)"
+msgstr ""
+
+#: options/opt_header.php:269
+msgid "Button label"
+msgstr ""
+
+#: options/opt_header.php:270
+msgid "Leave the button label field empty to hide the menu action button."
+msgstr ""
+
+#: options/opt_header.php:273
+msgid "Get Started"
+msgstr ""
+
+#: options/opt_header.php:286
+msgid "Button URL Target"
+msgstr ""
+
+#: options/opt_header.php:290 options/opt_header.php:539
+msgid "Blank (Open in new tab)"
+msgstr ""
+
+#: options/opt_header.php:291 options/opt_header.php:540
+msgid "Self (Open in the same tab)"
+msgstr ""
+
+#: options/opt_header.php:298
+msgid "Button padding"
+msgstr ""
+
+#: options/opt_header.php:299
+msgid "Padding around the menu action button."
+msgstr ""
+
+#: options/opt_header.php:315
+msgid "Button Colors"
+msgstr ""
+
+#: options/opt_header.php:316
+msgid "Button style attributes on normal (non sticky) mode."
+msgstr ""
+
+#: options/opt_header.php:324 options/opt_header.php:411
+msgid "Font color"
+msgstr ""
+
+#: options/opt_header.php:355
+msgid "Hover Font Color"
+msgstr ""
+
+#: options/opt_header.php:356
+msgid "Font color on hover stats."
+msgstr ""
+
+#: options/opt_header.php:366
+msgid "Border color on hover stats."
+msgstr ""
+
+#: options/opt_header.php:376 options/opt_header.php:444
+msgid "Hover background color"
+msgstr ""
+
+#: options/opt_header.php:377
+msgid "Background color on hover stats."
+msgstr ""
+
+#: options/opt_header.php:392
+msgid "Sticky Button Style"
+msgstr ""
+
+#: options/opt_header.php:393
+msgid "Button colors on sticky mode."
+msgstr ""
+
+#: options/opt_header.php:400
+msgid "Border color"
+msgstr ""
+
+#: options/opt_header.php:401
+msgid "Border color on header sticky mode."
+msgstr ""
+
+#: options/opt_header.php:412
+msgid "Font color on header sticky mode."
+msgstr ""
+
+#: options/opt_header.php:421 options/opt_header.php:694
+#: options/opt_header.php:1244
+msgid "Background color"
+msgstr ""
+
+#: options/opt_header.php:422
+msgid "Background color on header sticky mode."
+msgstr ""
+
+#: options/opt_header.php:434
+msgid "Hover font color"
+msgstr ""
+
+#: options/opt_header.php:435
+msgid "Font hover color on Header sticky mode."
+msgstr ""
+
+#: options/opt_header.php:445 options/opt_header.php:457
+msgid "Background hover color on Header sticky mode.."
+msgstr ""
+
+#: options/opt_header.php:456
+msgid "Hover border color"
+msgstr ""
+
+#: options/opt_header.php:481 options/opt_header.php:489
+msgid "Top Header"
+msgstr ""
+
+#: options/opt_header.php:490
+msgid "Toggle this switch to Show/Hide the Top Header."
+msgstr ""
+
+#: options/opt_header.php:500
+msgid "Active Current Site"
+msgstr ""
+
+#: options/opt_header.php:501
+msgid "Show the current website menu item URL activated."
+msgstr ""
+
+#: options/opt_header.php:512
+msgid "Left Items"
+msgstr ""
+
+#: options/opt_header.php:513
+msgid "Add your menu items for the left side Top Header."
+msgstr ""
+
+#: options/opt_header.php:519
+msgid "Icon"
+msgstr ""
+
+#: options/opt_header.php:525 options/opt_header.php:565
+msgid "Menu Item"
+msgstr ""
+
+#: options/opt_header.php:531 options/opt_header.php:571
+msgid "Menu URL"
+msgstr ""
+
+#: options/opt_header.php:535
+msgid "Menu URL Target"
+msgstr ""
+
+#: options/opt_header.php:547
+msgid "Menu Item 01"
+msgstr ""
+
+#: options/opt_header.php:551 options/opt_header.php:575
+msgid "Add Item"
+msgstr ""
+
+#: options/opt_header.php:558
+msgid "Right Items"
+msgstr ""
+
+#: options/opt_header.php:559
+msgid "Add your menu items for the right side Top Header."
+msgstr ""
+
+#: options/opt_header.php:601 options/opt_typo.php:22 options/opt_typo.php:62
+msgid "Important Note:"
+msgstr ""
+
+#: options/opt_header.php:603
+msgid ""
+"By default, the Search Banner is displays on all pages. You can hide Search "
+"Banner from a specific page from Options :: Page > Banner"
+msgstr ""
+
+#: options/opt_header.php:619
+msgid "Banner Title"
+msgstr ""
+
+#: options/opt_header.php:625
+msgid "Page Title"
+msgstr ""
+
+#: options/opt_header.php:626
+msgid "Show / Hide the page title"
+msgstr ""
+
+#: options/opt_header.php:633
+msgid "Title color"
+msgstr ""
+
+#: options/opt_header.php:646
+msgid "Banner Subtitle"
+msgstr ""
+
+#: options/opt_header.php:652
+msgid "Page Subtitle"
+msgstr ""
+
+#: options/opt_header.php:653
+msgid "Page subtitle will get from the page excerpt."
+msgstr ""
+
+#: options/opt_header.php:660
+msgid "Subtitle color"
+msgstr ""
+
+#: options/opt_header.php:672
+msgid "Banner Search Form"
+msgstr ""
+
+#: options/opt_header.php:679
+msgid "Enable/Disable the Search Form on the banner area."
+msgstr ""
+
+#: options/opt_header.php:686
+msgid "Placeholder color"
+msgstr ""
+
+#: options/opt_header.php:705
+msgid "Search Banner Layout"
+msgstr ""
+
+#: options/opt_header.php:717
+msgid "Select Elementor Layout"
+msgstr ""
+
+#: options/opt_header.php:729
+msgid "Search Banner Design"
+msgstr ""
+
+#: options/opt_header.php:745
+msgid ""
+"Padding around the Search Banner. Input the padding as clockwise (Top Right "
+"Bottom Left)"
+msgstr ""
+
+#: options/opt_header.php:761
+msgid "Background Styling"
+msgstr ""
+
+#: options/opt_header.php:766
+msgid "Banner Background Style"
+msgstr ""
+
+#: options/opt_header.php:808
+msgid "Left Leaf Image"
+msgstr ""
+
+#: options/opt_header.php:822
+msgid "Right Leaf Image"
+msgstr ""
+
+#: options/opt_header.php:836
+msgid "Man Image"
+msgstr ""
+
+#: options/opt_header.php:850
+msgid "Flower Image"
+msgstr ""
+
+#: options/opt_header.php:864
+msgid "Background Shape Image"
+msgstr ""
+
+#: options/opt_header.php:865
+msgid ""
+"We used here a transparent image that are containing stars. So you can use "
+"here similar transparent image or any other image."
+msgstr ""
+
+#: options/opt_header.php:880
+msgid "Wave Shape 01"
+msgstr ""
+
+#: options/opt_header.php:881 options/opt_header.php:897
+msgid ""
+"We used here a transparent wave shape image. You can use here similar "
+"transparent shape image or any other image."
+msgstr ""
+
+#: options/opt_header.php:896
+msgid "Wave Shape 02"
+msgstr ""
+
+#: options/opt_header.php:914
+msgid "Banner Overlay"
+msgstr ""
+
+#: options/opt_header.php:922
+msgid "Show/hide banner overlay color"
+msgstr ""
+
+#: options/opt_header.php:932
+msgid "Overlay Gradient Color"
+msgstr ""
+
+#: options/opt_header.php:933
+msgid "Use transparent colors to see the blur effect."
+msgstr ""
+
+#: options/opt_header.php:947
+msgid "Overlay Blur"
+msgstr ""
+
+#: options/opt_header.php:948
+msgid "Enable/disable background overlay blur effect."
+msgstr ""
+
+#: options/opt_header.php:960
+msgid "Blur Density"
+msgstr ""
+
+#: options/opt_header.php:961
+msgid ""
+"Adjust the blur intensity for Post Single, Forum pages, Search Results page"
+msgstr ""
+
+#: options/opt_header.php:984
+msgid "Search Placeholder"
+msgstr ""
+
+#: options/opt_header.php:985
+msgid "Search (\"/\" to focus)"
+msgstr ""
+
+#: options/opt_header.php:993
+msgid "Focus Search"
+msgstr ""
+
+#: options/opt_header.php:994
+msgid ""
+"When you enter the cursor in the search field, a transparent overlay color "
+"will appear on other elements of the page."
+msgstr ""
+
+#: options/opt_header.php:1009
+msgid "Focus Search by /"
+msgstr ""
+
+#: options/opt_header.php:1010
+msgid ""
+"If you enable this setting, your website visitors can focus (enter the mouse "
+"cursor) on the search form by pressing the \"/\" key of the keyboard."
+msgstr ""
+
+#: options/opt_header.php:1027
+msgid "Ajax Search Results"
+msgstr ""
+
+#: options/opt_header.php:1034
+msgid "Breadcrumb"
+msgstr ""
+
+#: options/opt_header.php:1035
+msgid "Show / Hide the breadcrumbs in search results"
+msgstr ""
+
+#: options/opt_header.php:1049
+msgid "Thumbnail"
+msgstr ""
+
+#: options/opt_header.php:1050
+msgid "Show / Hide the thumbnail in search results"
+msgstr ""
+
+#: options/opt_header.php:1064
+msgid "Select Post Types to Include"
+msgstr ""
+
+#: options/opt_header.php:1065
+msgid ""
+"Choose one or more post types (e.g., Pages, Posts, Products) to filter "
+"results."
+msgstr ""
+
+#: options/opt_header.php:1079
+msgid "Search Keywords"
+msgstr ""
+
+#: options/opt_header.php:1084
+msgid "Do you want it?"
+msgstr ""
+
+#: options/opt_header.php:1097
+msgid "Keywords Label"
+msgstr ""
+
+#: options/opt_header.php:1100
+msgid "Popular Searches"
+msgstr ""
+
+#: options/opt_header.php:1109
+msgid "Label color"
+msgstr ""
+
+#: options/opt_header.php:1126
+msgid "Keywords By"
+msgstr ""
+
+#: options/opt_header.php:1127
+msgid "Select your preferred keywords type."
+msgstr ""
+
+#: options/opt_header.php:1128
+msgid ""
+"Static keywords are predefined, while dynamic keywords are generated by "
+"queries from website visitors"
+msgstr ""
+
+#: options/opt_header.php:1131
+msgid "Dynamic (Sort by popular)"
+msgstr ""
+
+#: options/opt_header.php:1144
+msgid "Keywords Limit"
+msgstr ""
+
+#: options/opt_header.php:1145
+msgid "Set the number of keywords to show."
+msgstr ""
+
+#: options/opt_header.php:1159
+msgid "Keywords"
+msgstr ""
+
+#: options/opt_header.php:1167
+msgid "Text"
+msgstr ""
+
+#: options/opt_header.php:1171
+msgid "Add Keyword"
+msgstr ""
+
+#: options/opt_header.php:1180
+msgid "Keywords color"
+msgstr ""
+
+#: options/opt_header.php:1201 options/opt_header.php:1211
+msgid "Breadcrumbs"
+msgstr ""
+
+#: options/opt_header.php:1212
+msgid ""
+"Breadcrumbs are a great way to help your visitors navigate your website. The "
+"breadcrumbs displays below to the Search Banner."
+msgstr ""
+
+#: options/opt_header.php:1229
+msgid "Frontpage Name"
+msgstr ""
+
+#: options/opt_header.php:1237
+msgid "Updated Text"
+msgstr ""
+
+#: options/opt_header.php:1238
+#: template-parts/header-elements/search-banner/breadcrumb.php:4
+msgid "Updated on"
+msgstr ""
+
+#: options/opt_header.php:1254
+msgid "Text color"
+msgstr ""
+
+#: options/opt_menu.php:5
+msgid "Menu"
+msgstr ""
+
+#: options/opt_menu.php:27
+msgid "Navbar Meu Alignment"
+msgstr ""
+
+#: options/opt_menu.php:42
+msgid "Normal menu colors"
+msgstr ""
+
+#: options/opt_menu.php:43
+msgid "The following settings will only apply on the normal header mode.."
+msgstr ""
+
+#: options/opt_menu.php:48
+msgid "Item Color"
+msgstr ""
+
+#: options/opt_menu.php:49
+msgid "This is the menu item font color."
+msgstr ""
+
+#: options/opt_menu.php:59
+msgid "Item Hover Color"
+msgstr ""
+
+#: options/opt_menu.php:60
+msgid "Menu item's font color on hover stats."
+msgstr ""
+
+#: options/opt_menu.php:73
+msgid "Item Active Color"
+msgstr ""
+
+#: options/opt_menu.php:74
+msgid "Menu item's font color on active stats."
+msgstr ""
+
+#: options/opt_menu.php:88
+msgid "Sticky menu colors"
+msgstr ""
+
+#: options/opt_menu.php:89
+msgid "The following settings will only apply on the sticky header mode.."
+msgstr ""
+
+#: options/opt_menu.php:94 options/opt_menu.php:136
+msgid "Menu Color"
+msgstr ""
+
+#: options/opt_menu.php:95
+msgid "Menu item font color on sticky menu mode."
+msgstr ""
+
+#: options/opt_menu.php:105
+msgid "Menu Hover Color"
+msgstr ""
+
+#: options/opt_menu.php:106
+msgid "Menu item hover font color on header sticky mode"
+msgstr ""
+
+#: options/opt_menu.php:116
+msgid "Menu Active Color"
+msgstr ""
+
+#: options/opt_menu.php:117
+msgid "Menu item active font color on header sticky mode"
+msgstr ""
+
+#: options/opt_menu.php:130
+msgid "Dropdown menu colors"
+msgstr ""
+
+#: options/opt_menu.php:131
+msgid "The following settings will only apply on the dropdown header mode.."
+msgstr ""
+
+#: options/opt_menu.php:146
+msgid "Menu Hover/Active Color"
+msgstr ""
+
+#: options/opt_menu.php:184
+msgid "Menu item padding"
+msgstr ""
+
+#: options/opt_menu.php:185
+msgid ""
+"Padding around menu item. Default is 37px 0px 37px 0px. You can reduce the "
+"top and bottom padding to make the menu bar height smaller."
+msgstr ""
+
+#: options/opt_menu.php:195
+msgid "Menu item margin"
+msgstr ""
+
+#: options/opt_menu.php:196
+msgid "Margin around menu item."
+msgstr ""
+
+#: options/opt_privacy.php:3
+msgid "Privacy"
+msgstr ""
+
+#: options/opt_privacy.php:10
+msgid "Privacy Bar"
+msgstr ""
+
+#: options/opt_privacy.php:11
+msgid "Turn on to enable a privacy bar at the bottom of the page."
+msgstr ""
+
+#: options/opt_privacy.php:23
+msgid "Privacy Bar Text"
+msgstr ""
+
+#: options/opt_privacy.php:26
+msgid "By using this website, you automatically accept that we use cookies."
+msgstr ""
+
+#: options/opt_privacy.php:37
+msgid "Privacy Bar Button Text"
+msgstr ""
+
+#: options/opt_privacy.php:40
+msgid "Understood"
+msgstr ""
+
+#: options/opt_privacy.php:45
+msgid "Privacy Bar Padding"
+msgstr ""
+
+#: options/opt_privacy.php:55
+msgid "Privacy Bar Background Color"
+msgstr ""
+
+#: options/opt_shop.php:4
+msgid "Shop/wooCommerce"
+msgstr ""
+
+#: options/opt_shop.php:22
+msgid "Page title"
+msgstr ""
+
+#: options/opt_shop.php:23
+msgid "Give here the shop page title"
+msgstr ""
+
+#: options/opt_shop.php:24
+msgid "This text will show on the shop page banner"
+msgstr ""
+
+#: options/opt_shop.php:32
+msgid "Select the sidebar position of Shop page"
+msgstr ""
+
+#: options/opt_shop.php:48 options/opt_shop.php:55
+msgid "Product Single"
+msgstr ""
+
+#: options/opt_shop.php:59
+msgid "Related Products Title"
+msgstr ""
+
+#: options/opt_shop.php:62
+msgid "Related products"
+msgstr ""
+
+#: options/opt_shop.php:65
+msgid "Related Products Subtitle"
+msgstr ""
+
+#: options/opt_shop.php:76
+msgid "Gutenberg Blocks"
+msgstr ""
+
+#: options/opt_shop.php:83
+msgid "Blocks"
+msgstr ""
+
+#: options/opt_shop.php:87
+msgid "Unload WC Gutenberg Assets"
+msgstr ""
+
+#: options/opt_shop.php:88
+msgid ""
+"WC gutenberg assets loads globally. If you don't use wooCommerce gutenberg "
+"blocks, it's recommended to unload the unnecessary assets."
+msgstr ""
+
+#: options/opt_social_links.php:3 options/opt_social_links.php:11
+msgid "Social links"
+msgstr ""
+
+#: options/opt_social_links.php:16 woocommerce/single-product/meta.php:51
+msgid "Facebook"
+msgstr ""
+
+#: options/opt_social_links.php:23 woocommerce/single-product/meta.php:52
+msgid "Twitter"
+msgstr ""
+
+#: options/opt_social_links.php:30
+msgid "Instagram"
+msgstr ""
+
+#: options/opt_social_links.php:36
+msgid "LinkedIn"
+msgstr ""
+
+#: options/opt_social_links.php:43
+msgid "Youtube"
+msgstr ""
+
+#: options/opt_social_links.php:49
+msgid "Dribbble"
+msgstr ""
+
+#: options/opt_social_links.php:55
+msgid "GitHub"
+msgstr ""
+
+#: options/opt_typo.php:3 options/opt_typo.php:10 options/opt_typo.php:15
+msgid "Typography Settings"
+msgstr ""
+
+#: options/opt_typo.php:24 options/opt_typo.php:64
+msgid ""
+"This tab contains general typography options. Additional typography options "
+"for specific areas can be found within other tabs. Example: For menu "
+"typography options go to the Menu Settings tab."
+msgstr ""
+
+#: options/opt_typo.php:30
+msgid "Body Typography"
+msgstr ""
+
+#: options/opt_typo.php:31
+msgid "These settings control the typography for the body text globally."
+msgstr ""
+
+#: options/opt_typo.php:48 options/opt_typo.php:55
+msgid "Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:70
+msgid "H1 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:71
+msgid "These settings control the typography for all H1 Headers."
+msgstr ""
+
+#: options/opt_typo.php:85
+msgid "H2 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:86
+msgid ""
+"These settings control the typography for all H2 Headers. The h2 title tag "
+"used in the most section title."
+msgstr ""
+
+#: options/opt_typo.php:100
+msgid "H3 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:101
+msgid "These settings control the typography for all H3 Headers."
+msgstr ""
+
+#: options/opt_typo.php:115
+msgid "H4 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:116
+msgid "These settings control the typography for all H4 Headers."
+msgstr ""
+
+#: options/opt_typo.php:130
+msgid "H5 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:138
+msgid "These settings control the typography for all H5 Headers."
+msgstr ""
+
+#: options/opt_typo.php:152
+msgid "H6 Headers Typography"
+msgstr ""
+
+#: options/opt_typo.php:153
+msgid "These settings control the typography for all H6 Headers."
+msgstr ""
+
+#: page-signin.php:28 page-signup.php:28
+msgid "top ornament"
+msgstr ""
+
+#: page-signin.php:34 page-signup.php:34
+msgid "bottom ornament"
+msgstr ""
+
+#: page-signin.php:40
+msgid "door"
+msgstr ""
+
+#: page-signin.php:59
+msgid "Enter the username here."
+msgstr ""
+
+#: page-signin.php:66
+msgid "Forgotten password?"
+msgstr ""
+
+#: page-signin.php:72
+msgid "Sign in"
+msgstr ""
+
+#: page-signin.php:79
+msgid "Welcome "
+msgstr ""
+
+#: page-signin.php:82
+msgid "You are logged in"
+msgstr ""
+
+#: page-signup.php:40
+msgid "man image with lock"
+msgstr ""
+
+#: page.php:53 single.php:55
+msgid "Table of Contents"
+msgstr ""
+
+#: page.php:80 single.php:82 woocommerce/single-product/photoswipe.php:36
+msgid "Share"
+msgstr ""
+
+#: page.php:98 single.php:100
+msgid "Check out this doc"
+msgstr ""
+
+#: page.php:129 single-elementor_library.php:11 single.php:137
+msgid "Pages:"
+msgstr ""
+
+#: page.php:133 single-elementor_library.php:15 single.php:141
+msgid "Page"
+msgstr ""
+
+#: search.php:22
+msgid "All"
+msgstr ""
+
+#: single.php:150
+msgid "Tags : "
+msgstr ""
+
+#: template-parts/contents/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/contents/content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/contents/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/contents/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/contents/content-search.php:15
+#: template-parts/contents/content.php:20
+msgid "Featured"
+msgstr ""
+
+#: template-parts/footers/footer-normal.php:6
+#: template-parts/footers/footer-normal.php:40
+msgid "© 2021 Spider-Themes. All rights reserved"
+msgstr ""
+
+#: template-parts/footers/footer-simple.php:6
+msgid "Leaf Illustration"
+msgstr ""
+
+#: template-parts/footers/footer-simple.php:12
+msgid "© 2023 Spider-Themes. All rights reserved"
+msgstr ""
+
+#: template-parts/header-elements/action-button.php:56
+#: template-parts/header-elements/dark-switcher.php:7
+msgid "Toggle dark mode"
+msgstr ""
+
+#: template-parts/header-elements/search-banner/ajax-search-results.php:3
+msgid "No Results Found"
+msgstr ""
+
+#: template-parts/header-elements/search-banner/breadcrumb.php:31
+msgid "Search results for \""
+msgstr ""
+
+#: template-parts/header-elements/search-banner/breadcrumb.php:42
+msgid "Published on: "
+msgstr ""
+
+#: template-parts/header-elements/search-banner/featured-video.php:24
+msgid "Copy link"
+msgstr ""
+
+#: template-parts/header-elements/search-banner/featured-video.php:29
+msgid "Play Icon"
+msgstr ""
+
+#: template-parts/header-elements/search-banner/featured-video.php:31
+msgid "Click to play"
+msgstr ""
+
+#: template-parts/header-elements/search-banner/search-spinner.php:2
+msgid "loading"
+msgstr ""
+
+#: template-parts/single-post/banner-colorful.php:22
+#: template-parts/single-post/banner-colorful.php:27
+#: template-parts/single-post/banner-colorful.php:28
+#: template-parts/single-post/banner-colorful.php:37
+msgid "banner shape"
+msgstr ""
+
+#: template-parts/single-post/banner-colorful.php:43
+#: template-parts/single-post/banner-colorful.php:44
+msgid "plus icon"
+msgstr ""
+
+#: template-parts/single-post/banner-curved.php:49
+#: template-parts/single-post/banner-curved.php:50
+msgid "Overlay Image"
+msgstr ""
+
+#: template-parts/single-post/post-meta.php:12
+msgid "First published on "
+msgstr ""
+
+#: template-parts/single-post/post-meta.php:14
+msgid "Updated on "
+msgstr ""
+
+#: template-parts/single-post/post-meta.php:22
+msgid " to read this post"
+msgstr ""
+
+#: template-parts/single-post/post-meta.php:47
+msgid " Views"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:28
+msgid "Cart Totals"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:31
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:52
+msgid "Shipping "
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:67
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:86
+msgid "Total"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:51
+#: woocommerce/cart/cart.php:62
+msgid "PRODUCT"
+msgstr ""
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:82
+msgid "PRICE"
+msgstr ""
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:85
+msgid "QUANTITY"
+msgstr ""
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:105
+msgid "TOTAL"
+msgstr ""
+
+#: woocommerce/cart/cart.php:78 woocommerce/cart/mini-cart.php:69
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:118 woocommerce/cart/mini-cart.php:83
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:133
+msgid "Continue Shopping"
+msgstr ""
+
+#: woocommerce/cart/cart.php:135
+msgid "Update cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:141
+msgid "Discount Code:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:145
+msgid "Enter your coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:146 woocommerce/checkout/form-coupon.php:81
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:146 woocommerce/checkout/form-coupon.php:82
+msgid "Apply"
+msgstr ""
+
+#: woocommerce/cart/cross-sells.php:27
+msgid "You may be interested in&hellip;"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:100
+msgid "Subtotal :"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:103
+msgid "View Cart"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:104
+msgid "Checkout"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:110
+msgid "No products in the cart."
+msgstr ""
+
+#: woocommerce/cart/proceed-to-checkout-button.php:26
+msgid "Proceed to checkout"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:26
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:30
+msgid "Billing details"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:60
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:36
+msgid "Returning customer?"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:37
+msgid "Click here to login"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:40
+msgid ""
+"If you have shopped with us before, please enter your details below. If you "
+"are a new customer, please proceed to the Billing & Shipping section."
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:52
+msgid "Remember Me"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:71
+msgid "Have a coupon?"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:72
+msgid "Click here to enter your code"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:77
+msgid "If you have a coupon code, please apply it below."
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:80
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:26
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:60
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:34
+msgid ""
+"Sorry, it seems that there are no available payment methods. Please contact "
+"us if you require assistance or wish to make alternate arrangements."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:34
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#. translators: $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:44
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:46
+msgid "Update totals"
+msgstr ""
+
+#. translators: %s: Quantity.
+#: woocommerce/global/quantity-input.php:28
+#, php-format
+msgid "%s quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:41
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr ""
+
+#: woocommerce/loop/no-products-found.php:24
+msgid "No products were found matching your selection."
+msgstr ""
+
+#. translators: %d: total results
+#: woocommerce/loop/result-count.php:30
+#, php-format
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: first result 2: last result 3: total results
+#: woocommerce/loop/result-count.php:35
+#, php-format
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/loop/sale-flash.php:28
+#: woocommerce/single-product/sale-flash.php:28
+msgid "Sale!"
+msgstr ""
+
+#. translators: 1: reviews count 2: product name
+#: woocommerce/single-product-reviews.php:31
+#, php-format
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:33
+msgid "Reviews"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:59
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:60
+msgid "Add your Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:60
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:66
+msgid "Name *"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:81
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:86
+msgid "Your Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:92
+msgid "Your rating:"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:94
+msgid "Rate&hellip;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:95
+msgid "Perfect"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:96
+msgid "Good"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:97
+msgid "Average"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:98
+msgid "Not that bad"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:99
+msgid "Very poor"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:109
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:32
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variation.php:23
+msgid ""
+"Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+
+#: woocommerce/single-product/meta.php:25
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:36
+msgid "SKU:"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:40
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/meta.php:42
+msgid "Tag:"
+msgid_plural "Tags: "
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/meta.php:49
+msgid "Share ON:"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:53
+msgid "Pinterest"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:54
+msgid "Linkedin"
+msgstr ""
+
+#: woocommerce/single-product/photoswipe.php:35
+msgid "Close (Esc)"
+msgstr ""
+
+#: woocommerce/single-product/photoswipe.php:37
+msgid "Toggle fullscreen"
+msgstr ""
+
+#: woocommerce/single-product/photoswipe.php:38
+msgid "Zoom in/out"
+msgstr ""
+
+#: woocommerce/single-product/photoswipe.php:50
+msgid "Previous (arrow left)"
+msgstr ""
+
+#: woocommerce/single-product/photoswipe.php:51
+msgid "Next (arrow right)"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:29
+msgid "Weight"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:36
+msgid "Dimensions"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:43
+msgid "Awaiting product image"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:42
+msgid " reviews"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:27
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:37
+msgid "verified owner"
+msgstr ""
+
+#: woocommerce/single-product/tabs/description.php:25
+msgid "Description"
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:27
+msgid "You may also like&hellip;"
+msgstr ""
+
+#: woocommerce/wc-template-parts/content-list.php:27
+msgid "Add to cart"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress-theme.spider-themes.net/docy/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Docy is a WordPress theme for documentation and knowledge base with forum. "
+"It is a perfect theme for any kind of documentation, knowledge base, "
+"helpdesk, support center, FAQ, community forum, etc. It is a responsive "
+"theme and looks great on all devices. It is a powerful theme with tons of "
+"features. It has a powerful admin panel with tons of options to customize "
+"the theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "spider-themes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://themeforest.net/user/spider-themes"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Sign in Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Sign up Page"
+msgstr ""

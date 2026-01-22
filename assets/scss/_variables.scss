@@ -1,0 +1,56 @@
+/*font Variables*/
+$rob: "Roboto", sans-serif;
+$great: "Great Vibes", cursive;
+
+$hover3: #c6e7f7;
+
+// Mixins
+@mixin transition(
+  $property: all,
+  $duration: 300ms,
+  $animate: linear,
+  $delay: 0s
+) {
+  transition: $property $duration $animate $delay;
+}
+
+@mixin link_style {
+  a {
+    color: var(--p_color);
+    text-decoration: underline;
+    text-decoration-color: rgba(76,76,241, 0.4);
+    text-underline-offset: 4px;
+    transition: all .3s;
+    text-decoration-thickness: 2px;
+    &:hover {
+      text-decoration-color: var(--brand_color);
+      text-decoration-thickness: 3px;
+    }
+  }
+}
+
+/**=== Functions ===**/
+@function brand_color_rgba($alpha) {
+  @return rgba(8, 102, 255, $alpha);
+}
+
+// Placeholder Mixins
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+.col-md-offset-right-1,
+.col-lg-offset-right-1 {
+  margin-right: 8.33333333%;
+}

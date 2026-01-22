@@ -1,0 +1,380 @@
+/*============== Start doc_tag_area css =============*/
+.doc_tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  margin-bottom: 75px;
+  .nav-item {
+    margin-bottom: 0;
+    .nav-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--brand_color);
+      border: 1px solid brand_color_rgba(.2);
+      border-radius: 4px;
+      background-color: rgba(16, 179, 214, 0.031);
+      padding: 0 20px;
+      line-height: 28px;
+      margin: 0 5px;
+      transition: all 0.4s linear;
+      text-decoration: none;
+      &:not(.active):hover {
+        background: brand_color_rgba(.2);
+      }
+      &.active {
+        background-color: var(--brand_color);
+        border-color: var(--brand_color);
+        color: #fff;
+      }
+    }
+  }
+}
+
+.doc_tab_pane {
+  .row {
+    margin-bottom: -85px;
+  }
+}
+
+.doc_tag_item {
+  margin-bottom: 85px;
+}
+
+.tag_list {
+  margin-bottom: 32px;
+  list-style:none;
+  li {
+    margin: 15px 0 0 0;
+    padding: 0;
+    .children {
+      list-style: none;
+    }
+    a {
+      font-size: 16px;
+      color: var(--p_color);
+      line-height: 22px;
+      transition: color 0.2s linear;
+      display: flex;
+      text-decoration: none !important;
+      &:before{
+        content: "\68";
+        font-family: 'ElegantIcons';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        padding-right: 15px;
+      }
+      i {
+        margin-right: 15px;
+      }
+
+      &:hover {
+        color: var(--brand_color);
+      }
+    }
+  }
+}
+
+/** === Docs 2 === **/
+.documentation_tab {
+  border-bottom: 2px solid #e1e9eb;
+  .nav-item {
+    margin-bottom: 0;
+    .nav-link {
+      border: 0;
+      color: var(--p_color);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 20px 10px;
+      position: relative;
+      transition: color 0.2s linear;
+      background: transparent;
+      border-radius: 5px 5px 0 0;
+      text-decoration: none;
+
+      &:before {
+        content: "";
+        width: 0;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        background: var(--brand_color);
+        transition: width 0.3s linear;
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+      }
+
+      &:hover, &.active {
+        color: var(--brand_color);
+      }
+      &.active::before {
+          width: 100%;
+          left: 0;
+          right: auto;
+      }
+    }
+  }
+}
+
+.documentation_tab_pane {
+  padding-top: 65px;
+  @media ( max-width: 991px ) {
+    margin-bottom: 30px;
+    padding-top: 40px;
+  }
+}
+
+.documentation_text {
+  .doc-logo {
+    margin-bottom: 20px;
+    max-width: 150px;
+  }
+  .round {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(15, 204, 208);
+    box-shadow: 0 20px 30px 0 rgba(24, 211, 214, 0.2);
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 25px;
+  }
+  h4 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .learn_btn {
+    padding-top: 20px;
+  }
+}
+
+.documentation_item {
+  display: flex;
+  .icon {
+    border-radius: 10px;
+    background-color: var(--bs-white);
+    box-shadow: 0 10px 30px 0 rgba(76, 76, 241, 0.12);
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+  }
+  .media-body {
+    flex: 1;
+    .title {
+      font-weight: 500;
+      margin: 0 0 8px;
+      transition: color 0.2s linear;
+      display: block;
+      line-height: 1.5;
+      &:hover {
+        color: var(--brand_color);
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/**== Docs 4 / Book chapter CSS ==**/
+.book-chapter-nav {
+  position: relative;
+  flex-flow: row nowrap;
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  margin: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 2px solid var(--border_on_white);
+  }
+  li {
+    display: inline-block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 15px;
+    padding-left: 0px;
+    border-bottom: 2px solid transparent;
+    min-width: 150px;
+    margin: 0;
+    &.active {
+      border-color: var(--brand_color);
+      z-index: 1;
+      a, span {
+        color: var(--brand_color) !important;
+      }
+    }
+    a {
+      padding: 12px 0;
+      font-weight: 500;
+      position: relative;
+      color: var(--black_900);
+      margin-right: 20px;
+      font-size: 15px;
+      &:hover, &:hover span.chapter-part{
+        color: var(--brand_color);
+        text-decoration: none;
+      }
+      span.chapter-part {
+        display: block;
+        text-transform: uppercase;
+        font-size: 90%;
+        font-weight: 400;
+        color: var(--black_700);
+      }
+    }
+  }
+}
+
+.dock4-nav-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  z-index: 1;
+  border-top: 2px solid var(--border_on_white);
+  overflow: auto;
+  white-space: nowrap;
+  margin: auto;
+  text-align: center;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid var(--border_on_white);
+    z-index: -1;
+  }
+  .book-chapter-nav::after {
+    display: none;
+  }
+  .book-chapter-nav {
+    margin-bottom: 0 !important;
+    border-bottom: none;
+  }
+}
+
+.chapter_counter {
+  font-size: 14px;
+  margin-right: 5px;
+  color: var(--black_300);
+}
+
+.docs4-heading {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  h3{
+    margin-top: 0;
+    font-size: 18px;
+  }
+  p{
+    font-size: 16px;
+  }
+}
+
+.navbar-shown .dock4-nav-sticky {
+  transition: .4s;
+  top: 73px;
+}
+.admin-bar.navbar-shown .dock4-nav-sticky {
+  transition: .4s;
+  top: 105px;
+}
+
+.admin-bar .dock4-nav-sticky{
+  top: 32px;
+  z-index: 9999;
+}
+
+.doc4-section-title h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/*book chapter Dark*/
+.body_dark .dock4-nav-sticky {
+  background: #131417;
+}
+
+/** === Docs-5 === **/
+.docs-5-title {
+  background: #171544;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.dox5-section-item {
+  border: 1px solid var(--border_on_white);
+  padding: 20px 0 0;
+  background: var(--body_bg);
+}
+
+.section5-section-title {
+  padding-bottom: 5px;
+  h6 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black_700);
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+}
+
+.section5-article {
+  margin-bottom: 15px;
+  ul {
+    li {
+      padding: 10px 20px 10px 50px;
+      line-height: 1.5;
+      transition: all .3s;
+      &:nth-child(even) {
+        background: var(--black_50);
+      }
+      &:hover {
+        background: #f1f1f17a;
+      }
+      a {
+        color: var(--p_color);
+        font-size: 15px;
+        &:hover {
+          color: var(--brand_color)
+        }
+      }
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.docs-box-item {
+  margin-bottom: 25px;
+}

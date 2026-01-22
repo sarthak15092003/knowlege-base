@@ -1,0 +1,782 @@
+﻿.woocommerce form .form-row.form-row-wide, span.woocommerce-input-wrapper {
+  width: 100%;
+}
+
+.woocommerce-checkout .woocommerce .checkout .checkout_content input[type=text], .woocommerce-checkout .woocommerce .checkout .checkout_content input[type=email] {
+  width: 100%;
+  margin-bottom: 15px;
+  transition: all 0.3s linear;
+  line-height: 60px;
+  color: var(--black_900);
+  border: 1px solid var(--black_50);
+}
+.woocommerce-checkout .woocommerce .checkout .checkout_content input[type=text]:focus, .woocommerce-checkout .woocommerce .checkout .checkout_content input[type=email]:focus {
+  border-color: var(--brand_color);
+}
+
+.woocommerce-info {
+  border-top-color: var(--brand_color);
+  background: var(--black_25);
+  color: var(--black_700);
+  font-size: 15px;
+}
+.woocommerce-info::before {
+  color: var(--brand_color);
+}
+
+.woocommerce form .form-row {
+  float: left;
+  padding-right: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+@media (max-width: 768px) {
+  .woocommerce form .form-row {
+    padding: 0 5px;
+  }
+}
+
+.select2-container--default .select2-selection--single {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  float: left;
+  line-height: 40px;
+  outline: 0;
+  position: relative;
+  text-align: left !important;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+  width: 100%;
+  border-radius: 5px;
+  font: 400 14px/60px "Poppins", sans-serif;
+  background: var(--bs-white);
+  height: 56px;
+  color: #9ca3b9;
+  padding: 0 25px;
+  margin-bottom: 15px;
+  border: 1px solid var(--black_50);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 60px;
+  color: var(--black_400);
+  padding-left: 0;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+p#order_comments_field {
+  width: 100%;
+}
+
+.woocommerce form .form-row textarea {
+  height: 170px;
+  background: var(--bs-white);
+  border-radius: 5px;
+  border: 1px solid var(--black_50);
+}
+
+.woocommerce-additional-fields h3 {
+  display: none;
+}
+
+.woocommerce .woocommerce-checkout-review-order table.shop_table {
+  width: 100%;
+  margin-bottom: 30px;
+  border: 0;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td {
+  padding: 8px 0;
+}
+
+.woocommerce-checkout-review-order .shop_table tfoot tr td {
+  font: 400 15px/30px "Poppins", sans-serif;
+  color: var(--black_600);
+  padding: 10px;
+  width: 40%;
+}
+.woocommerce-checkout-review-order .shop_table tfoot tr td ul#shipping_method {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+}
+.woocommerce-checkout-review-order .shop_table tfoot tr td ul#shipping_method li {
+  margin-bottom: 0 !important;
+}
+
+tr.cart-subtotal.recurring-total td {
+  display: flex;
+  place-content: flex-end;
+}
+
+tr.order-total.recurring-total td strong {
+  float: left;
+}
+
+.woocommerce-checkout-review-order .shop_table tfoot tr td span.woocommerce-Price-amount.amount {
+  float: right;
+}
+
+.woocommerce-checkout-review-order .shop_table tfoot tr td.total {
+  color: var(--brand_color);
+  font-size: 20px;
+}
+
+#add_payment_method #payment ul.payment_methods, .woocommerce-cart #payment ul.payment_methods, .woocommerce-checkout #payment ul.payment_methods {
+  padding: 25px;
+  border: 1px solid var(--black_50);
+  border-radius: 10px;
+}
+#add_payment_method #payment ul.payment_methods input, .woocommerce-cart #payment ul.payment_methods input, .woocommerce-checkout #payment ul.payment_methods input {
+  margin-right: 10px !important;
+  display: inline !important;
+}
+
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
+  display: none;
+}
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment, #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.woocommerce-checkout #payment div.payment_box p {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--p_color);
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.woocommerce-checkout #payment li.wc_payment_method div.payment_box p {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 25px;
+  padding-left: 28px;
+}
+
+.woocommerce-checkout #payment li.wc_payment_method:last-child div.payment_box p {
+  margin-bottom: 0;
+}
+
+.form-row.place-order {
+  padding: 0;
+}
+
+.woocommerce-checkout-review-order .condition p {
+  margin-bottom: 0;
+}
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+  width: 100%;
+  height: 60px;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td strong.product-quantity {
+  font-weight: 500;
+}
+
+.return_customer {
+  font: 400 15px/25px "Poppins", sans-serif;
+  padding-bottom: 20px;
+}
+
+.return_customer i {
+  color: var(--brand_color);
+  padding-right: 8px;
+  font-size: 14px;
+}
+
+.return_customer a {
+  color: var(--brand_color);
+  font-weight: 300;
+}
+
+.checkout_content input {
+  background: var(--bs-white);
+  padding: 0 25px;
+  font: 300 14px/60px "Poppins", sans-serif;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 30px;
+  transition: all 0.2s linear;
+  border: 1px solid var(--black_700);
+}
+
+.woocommerce form .form-row ::-webkit-input-placeholder {
+  color: var(--black_500);
+  font-size: 16px;
+}
+
+.checkout_content label {
+  font: 500 16px/50px "Poppins", sans-serif;
+  display: block;
+}
+
+.checkout_content label .required {
+  font-size: 16px;
+  color: #ff2525;
+  text-decoration: none;
+}
+
+.checkout_content .selectpickers {
+  width: 100%;
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 11, 40, 0.06);
+  box-shadow: 0 2px 3px 0 rgba(0, 11, 40, 0.06);
+  font: 300 14px/60px "Poppins", sans-serif;
+  background: #fff;
+  height: 60px;
+  color: #9ca3b9;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.checkout_content .selectpickers:after {
+  right: 30px;
+}
+
+.checkout_content .selectpickers ul {
+  width: 100%;
+}
+
+.checkout_content input[type=checkbox] {
+  position: relative;
+  top: 2px;
+  width: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.checkout_content input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #9ca3b9;
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  background-color: #fbfbfb;
+}
+
+.checkout_content input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #9ca3b9;
+}
+
+.checkout_content .l_text {
+  display: inline-block;
+  font: 300 15px/26px "Poppins", sans-serif;
+  color: #9ca3b9;
+  padding-left: 8px;
+}
+
+.checkout_content textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 11, 40, 0.06);
+  height: 170px;
+  font: 300 14px/20px "Poppins", sans-serif;
+  color: #b6b9be;
+  padding-left: 30px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.checkout_content textarea.placeholder {
+  color: #9ca3b9;
+}
+
+.checkout_content textarea:-moz-placeholder {
+  color: #9ca3b9;
+}
+
+.checkout_content textarea::-moz-placeholder {
+  color: #9ca3b9;
+}
+
+.checkout_content textarea::-webkit-input-placeholder {
+  color: #9ca3b9;
+}
+
+.checkout_content textarea:focus {
+  outline: 0;
+}
+
+.checkout_content .tab_content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  margin-bottom: 0;
+  padding: 0 0 15px;
+}
+
+.checkout_content .tab_content .login_button {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.checkout_content .tab_content .login_button label {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.checkout_content .tab_content .login_button label input {
+  margin-bottom: 0;
+}
+
+.checkout_content .tab_content .coupon_form {
+  overflow: hidden;
+  display: flex;
+}
+
+.checkout_content .tab_content .coupon_form input {
+  max-width: 370px;
+  margin-bottom: 0;
+  height: 60px;
+}
+
+.woocommerce form .form-row-first, .woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+  width: 50%;
+}
+
+.checkout_content .tab_content .coupon_form .login_btn {
+  margin-left: 20px;
+}
+@media (max-width: 768px) {
+  .checkout_content .tab_content .coupon_form .login_btn {
+    margin-left: 0;
+  }
+}
+
+.cart_total_box {
+  margin-left: 12px;
+  background: var(--bs-white);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 40px;
+  border-radius: 20px;
+}
+@media (max-width: 991px) {
+  .cart_total_box {
+    padding: 30px;
+    margin-left: 0;
+    margin-top: 30px;
+    border: 1px solid;
+  }
+}
+
+#billing_country_field, .woocommerce-additional-fields, #billing_address_1_field, #billing_country_field, #billing_email_field,
+#billing_state_field {
+  margin-top: 15px;
+}
+
+.cart_total_box .checkout_title {
+  border-bottom: 2px solid var(--black_50);
+  padding-bottom: 10px;
+}
+
+.woocommerce-checkout-review-order .shop_table {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td {
+  font: 400 15px/30px "Poppins", sans-serif;
+  color: var(--black_600);
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td.price {
+  color: #282835;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td.total {
+  color: var(--brand_color);
+  font-size: 20px;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr td + td {
+  text-align: right;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr.subtotal {
+  border-top: 1px solid #dfe2f1;
+}
+
+.woocommerce-checkout-review-order .shop_table tbody tr.subtotal td {
+  line-height: 56px;
+  padding-bottom: 0;
+}
+
+.woocommerce-checkout-review-order h6 {
+  font-size: 15px;
+  color: #282835;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  line-height: 30px;
+  margin-bottom: 6px;
+}
+
+.woocommerce-checkout-review-order .note {
+  font-size: 15px;
+  line-height: 26px;
+  color: #677294;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 25px;
+}
+
+.woocommerce-checkout-review-order ul li.payment {
+  padding-left: 25px;
+  position: relative;
+}
+
+.woocommerce-checkout-review-order ul li.payment .radio-btn {
+  position: absolute;
+  left: 0;
+}
+
+.woocommerce-checkout-review-order ul li.payment span {
+  float: none;
+  font-size: 12px;
+  color: #ff5f6d;
+  padding-top: 15px;
+  display: block;
+}
+
+.woocommerce-checkout-review-order ul li input[type=checkbox] {
+  position: relative;
+  border: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.woocommerce-checkout-review-order ul li input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+.woocommerce-checkout-review-order ul li input[type=checkbox]:checked + label:before {
+  border-color: var(--brand_color);
+}
+
+.woocommerce-checkout-review-order ul li .radio-btn {
+  line-height: 20px;
+}
+
+.woocommerce-checkout-review-order ul li .radio-btn label {
+  color: #8f8f8f;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 20px;
+}
+
+.woocommerce-checkout-review-order ul li .radio-btn label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #9ca3b9;
+  top: 1px;
+  left: 0;
+  border-radius: 50%;
+}
+
+.woocommerce-checkout-review-order ul li .radio-btn label:after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  border-radius: 50%;
+  background: var(--brand_color);
+  opacity: 0;
+}
+
+.woocommerce-checkout-review-order .condition {
+  border-top: 1px solid #dfe2f1;
+  padding-top: 25px;
+  margin-top: 40px;
+}
+
+.woocommerce-checkout-review-order .condition p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.woocommerce-checkout-review-order .condition input[type=checkbox] {
+  position: relative;
+  border: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.woocommerce-checkout-review-order .condition input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+.woocommerce-checkout-review-order .condition input[type=checkbox]:checked + label:before {
+  border-color: var(--brand_color);
+}
+
+.woocommerce-checkout-review-order .condition .l_text {
+  position: relative;
+  padding-left: 25px;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: "Poppins", sans-serif;
+  color: #282835;
+}
+
+.woocommerce-checkout-review-order .condition .l_text span {
+  color: #ff1e1e;
+}
+
+.woocommerce-checkout-review-order .condition .l_text:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #878a8e;
+  top: 8px;
+  left: 0;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.woocommerce-checkout-review-order .condition .l_text:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 7px;
+  border: solid var(--brand_color);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  opacity: 0;
+}
+
+.woocommerce-checkout-review-order .button {
+  width: 100%;
+  background: var(--brand_color);
+  border: 1px solid var(--brand_color);
+  font: 500 16px/50px "Poppins", sans-serif;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 25px;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.woocommerce-checkout-review-order .button:hover {
+  background: transparent;
+  color: var(--brand_color);
+}
+
+span.woocommerce-terms-and-conditions-checkbox-text {
+  padding-left: 25px;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: "Poppins", sans-serif;
+  color: #282835;
+  position: relative;
+}
+
+span.woocommerce-terms-and-conditions-checkbox-text:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #878a8e;
+  top: 8px;
+  left: 0;
+  border-radius: 2px;
+  background-color: white;
+}
+
+span.woocommerce-terms-and-conditions-checkbox-text:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 7px;
+  border: solid var(--brand_color);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  opacity: 0;
+}
+
+.woocommerce-checkout-review-order .condition input[type=checkbox]:checked + span.woocommerce-terms-and-conditions-checkbox-text:after {
+  opacity: 1;
+}
+
+.woocommerce-checkout-payment .form-row.place-order {
+  float: none;
+  padding: 0 !important;
+}
+
+.woocommerce-checkout-review-order .condition .woocommerce-privacy-policy-text p {
+  margin-bottom: 1em;
+}
+
+h2.woocommerce-column__title, h2.woocommerce-order-details__title {
+  font: 600 24px "Poppins", sans-serif;
+  color: #282835;
+  margin-bottom: 20px;
+}
+
+.woocommerce ul.order_details {
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.woocommerce table.shop_table th, .woocommerce table.shop_table tbody th, .woocommerce table.shop_table tfoot td, .woocommerce table.shop_table tfoot th {
+  font-weight: 600;
+}
+
+.woocommerce table.woocommerce-checkout-review-order-table.shop_table th {
+  padding-left: 0;
+  padding-right: 0 !important;
+}
+.woocommerce table.woocommerce-checkout-review-order-table.shop_table th tr.woocommerce-shipping-totals.shipping td {
+  padding: 10px 0 5px !important;
+}
+
+.woocommerce table.woocommerce-checkout-review-order-table th.product-total {
+  text-align: right;
+}
+
+.woocommerce table.woocommerce-checkout-review-order-table.shop_table thead th {
+  border-top: 0;
+}
+
+.woocommerce-checkout #payment ul.payment_methods label {
+  font-size: 16px;
+  color: var(--black_700);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 0 0 6px;
+}
+
+.woocommerce form .form-row.hidden {
+  display: none;
+}
+
+/*** Block checkout design ***/
+.woocommerce-checkout .wc-block-components-sidebar-layout .wc-block-components-main {
+  padding-right: 30px;
+}
+.woocommerce-checkout button.wc-block-components-totals-coupon__button {
+  border-radius: 3px;
+}
+.woocommerce-checkout .components-base-control__label, .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input label, .woocommerce-checkout .wc-block-components-text-input label {
+  padding-left: 10px;
+}
+.woocommerce-checkout .wc-block-components-product-name {
+  font-weight: 500;
+}
+.woocommerce-checkout .wc-block-components-product-price .wc-block-components-product-price__value {
+  font-size: 16px;
+}
+.woocommerce-checkout .components-combobox-control__input, .woocommerce-checkout .wc-blocks-components-select .wc-blocks-components-select__select,
+.woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input:-webkit-autofill, .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input.is-active input[type=email],
+.woocommerce-checkout .wc-block-components-form .wc-block-components-text-input.is-active input[type=number], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input.is-active input[type=tel],
+.woocommerce-checkout .wc-block-components-form .wc-block-components-text-input.is-active input[type=text], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input.is-active input[type=url],
+.woocommerce-checkout .wc-block-components-text-input input:-webkit-autofill, .woocommerce-checkout .wc-block-components-text-input.is-active input[type=email], .woocommerce-checkout .wc-block-components-text-input.is-active input[type=number],
+.woocommerce-checkout .wc-block-components-text-input.is-active input[type=tel], .woocommerce-checkout .wc-block-components-text-input.is-active input[type=text], .woocommerce-checkout .wc-block-components-text-input.is-active input[type=url] {
+  padding-left: 18px;
+}
+.woocommerce-checkout .wc-blocks-components-select .wc-blocks-components-select__label {
+  padding-left: 15px;
+}
+.woocommerce-checkout .wc-blocks-components-select .wc-blocks-components-select__container,
+.woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=email], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=number], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=password], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=tel], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=text], .woocommerce-checkout .wc-block-components-form .wc-block-components-text-input input[type=url], .woocommerce-checkout .wc-block-components-text-input input[type=email], .woocommerce-checkout .wc-block-components-text-input input[type=number], .woocommerce-checkout .wc-block-components-text-input input[type=password], .woocommerce-checkout .wc-block-components-text-input input[type=tel], .woocommerce-checkout .wc-block-components-text-input input[type=text], .woocommerce-checkout .wc-block-components-text-input input[type=url] {
+  background-color: var(--bs-white);
+  color: var(--black_900);
+  border: 2px solid var(--black_50);
+}
+.woocommerce-checkout .wc-blocks-components-select .wc-blocks-components-select__select {
+  color: var(--black_900);
+}
+.woocommerce-checkout .wc-blocks-components-select .wc-blocks-components-select__label,
+.woocommerce-checkout .wc-block-components-form .wc-block-components-text-input label, .woocommerce-checkout .wc-block-components-text-input label {
+  color: var(--black_700);
+}
+.woocommerce-checkout .wc-block-components-checkout-place-order-button {
+  min-height: 60px !important;
+}
+.woocommerce-checkout .wc-block-components-panel__button > .wc-block-components-panel__button-icon {
+  top: 45%;
+}
+.woocommerce-checkout .is-large .wp-block-woocommerce-checkout-order-summary-block {
+  border: 2px solid var(--black_400);
+  border-radius: 10px;
+}
+.woocommerce-checkout .wc-block-components-totals-wrapper, .woocommerce-checkout .wp-block-woocommerce-checkout-order-summary-totals-block {
+  border-top: 1px solid var(--black_100);
+}
+.woocommerce-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__image > img {
+  max-width: 55px;
+  width: 55px;
+  border-radius: 5px;
+}
+.woocommerce-checkout .wc-block-components-order-summary .wc-block-components-order-summary-item__quantity {
+  background-color: var(--bs-warning);
+  height: 22px;
+  color: #000;
+  font-size: 12px;
+  display: flex;
+  line-height: 1.2;
+  padding: 5px 7px 5px 8px;
+  transition: all 0.3s;
+  min-width: 20px;
+  border-radius: 2em;
+  font-weight: 500;
+  border: 1px solid var(--black_50);
+  box-shadow: none;
+}
+
+/*# sourceMappingURL=checkout.css.map */
+

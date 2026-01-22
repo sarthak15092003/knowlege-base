@@ -1,0 +1,481 @@
+/*==============Typography Schema ================*/
+/* 
+ * Global Typography Schema
+ * This file defines consistent typography across all posts and pages
+ */
+
+/* Import Onest Font */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ========== Headings ========== */
+
+/* Heading 1 */
+h1,
+.h1 {
+    font-family: 'Onest', sans-serif;
+    font-size: 42px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Heading 2 */
+h2,
+.h2 {
+    font-family: 'Onest', sans-serif;
+    font-size: 32px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+/* Heading 3 */
+h3,
+.h3 {
+    font-family: 'Onest', sans-serif;
+    font-size: 28px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+/* Heading 4 */
+h4,
+.h4 {
+    font-family: 'Onest', sans-serif;
+    font-size: 22px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Heading 5 */
+h5,
+.h5 {
+    font-family: 'Onest', sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Heading 6 */
+h6,
+.h6 {
+    font-family: 'Onest', sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 600;
+    margin-bottom: 0.875rem;
+}
+
+/* Remove strong/bold override in headings */
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong,
+.h1 strong,
+.h2 strong,
+.h3 strong,
+.h4 strong,
+.h5 strong,
+.h6 strong {
+    font-weight: inherit;
+}
+
+/* ========== Paragraphs ========== */
+
+/* Large Paragraph */
+p.paragraph-large,
+.paragraph-large {
+    font-family: 'Onest', sans-serif;
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* Default Paragraph */
+p,
+.paragraph {
+    font-family: 'Onest', sans-serif;
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* ========== Buttons ========== */
+
+/* Large Button */
+.btn-large,
+button.btn-large {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    padding: 12px 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Medium Button */
+.btn-medium,
+button.btn-medium {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* ========== Responsive Typography ========== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    h1,
+    .h1 {
+        font-size: 44px;
+    }
+
+    h2,
+    .h2 {
+        font-size: 36px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 32px;
+    }
+
+    h4,
+    .h4 {
+        font-size: 20px;
+    }
+
+    h5,
+    .h5 {
+        font-size: 18px;
+    }
+
+    h6,
+    .h6 {
+        font-size: 15px;
+    }
+
+    p.paragraph-large,
+    .paragraph-large {
+        font-size: 17px;
+    }
+
+    p,
+    .paragraph {
+        font-size: 15px;
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+
+    h1,
+    .h1 {
+        font-size: 36px;
+    }
+
+    h2,
+    .h2 {
+        font-size: 30px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 26px;
+    }
+
+    h4,
+    .h4 {
+        font-size: 18px;
+    }
+
+    h5,
+    .h5 {
+        font-size: 16px;
+    }
+
+    h6,
+    .h6 {
+        font-size: 14px;
+    }
+
+    p.paragraph-large,
+    .paragraph-large {
+        font-size: 16px;
+    }
+
+    p,
+    .paragraph {
+        font-size: 14px;
+    }
+
+    .btn-large,
+    button.btn-large {
+        font-size: 15px;
+        padding: 10px 24px;
+    }
+
+    .btn-medium,
+    button.btn-medium {
+        font-size: 13px;
+        padding: 8px 20px;
+    }
+}
+
+/* ========== Apply to Post Content ========== */
+
+/* Apply typography to WordPress post content */
+.blog_single_item,
+.editor-content,
+.post-content,
+.entry-content,
+article {
+
+    h1,
+    .h1 {
+        font-family: 'Onest', sans-serif;
+        font-size: 54px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    h2,
+    .h2 {
+        font-family: 'Onest', sans-serif;
+        font-size: 44px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+    }
+
+    h3,
+    .h3 {
+        font-family: 'Onest', sans-serif;
+        font-size: 40px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+    }
+
+    h4,
+    .h4 {
+        font-family: 'Onest', sans-serif;
+        font-size: 22px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    h5,
+    .h5 {
+        font-family: 'Onest', sans-serif;
+        font-size: 20px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    h6,
+    .h6 {
+        font-family: 'Onest', sans-serif;
+        font-size: 16px;
+        line-height: 120%;
+        font-weight: 600;
+        margin-bottom: 0.875rem;
+    }
+
+    p {
+        font-family: 'Onest', sans-serif;
+        font-size: 16px;
+        line-height: 120%;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive for post content */
+    @media (max-width: 1024px) {
+
+        h1,
+        .h1 {
+            font-size: 44px;
+        }
+
+        h2,
+        .h2 {
+            font-size: 36px;
+        }
+
+        h3,
+        .h3 {
+            font-size: 32px;
+        }
+
+        h4,
+        .h4 {
+            font-size: 20px;
+        }
+
+        h5,
+        .h5 {
+            font-size: 18px;
+        }
+
+        h6,
+        .h6 {
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        h1,
+        .h1 {
+            font-size: 36px;
+        }
+
+        h2,
+        .h2 {
+            font-size: 30px;
+        }
+
+        h3,
+        .h3 {
+            font-size: 26px;
+        }
+
+        h4,
+        .h4 {
+            font-size: 18px;
+        }
+
+        h5,
+        .h5 {
+            font-size: 16px;
+        }
+
+        h6,
+        .h6 {
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        font-size: 14px;
+    }
+}
+}
+
+/*==============End Typography Schema ================*/
+
+/* Table of Contents - Blue Line Only on Active Items */
+
+/* Base styles for all TOC links */
+#docy-toc .nav-link,
+#docy-toc a,
+.doc-nav .nav-link,
+.doc-nav a,
+.nav-sidebar.doc-nav .nav-link,
+.nav-sidebar.doc-nav a,
+.left_sidebarlist .nav-link,
+.left_sidebarlist a {
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    padding-left: 15px !important;
+    /* Consistent padding for all items */
+    color: #64748b !important;
+    /* Default gray color for inactive items */
+    background-color: transparent !important;
+    /* No background */
+}
+
+/* Active Section - Blue color only, no background */
+#docy-toc .nav-link.active,
+#docy-toc li.active>a,
+#docy-toc .active,
+#docy-toc .is-active,
+#docy-toc a.active,
+.doc-nav .nav-link.active,
+.doc-nav li.active>a,
+.doc-nav .active,
+.doc-nav .is-active,
+.doc-nav a.active,
+.nav-sidebar.doc-nav .nav-link.active,
+.nav-sidebar.doc-nav li.active>a,
+.nav-sidebar.doc-nav a.active,
+.left_sidebarlist .nav-link.active,
+.left_sidebarlist li.active>a,
+.left_sidebarlist a.active {
+    color: #007bff !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+    background-color: transparent !important;
+    /* No background on active */
+}
+
+/* Fixed gray vertical track line on the left side of TOC */
+#docy-toc::before,
+.doc-nav::before,
+.nav-sidebar.doc-nav::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e5e7eb;
+    border-radius: 2px;
+}
+
+/* Blue indicator line - only on active items, no gray track */
+#docy-toc .nav-link.active::before,
+#docy-toc li.active>a::before,
+#docy-toc a.active::before,
+.doc-nav .nav-link.active::before,
+.doc-nav li.active>a::before,
+.doc-nav a.active::before,
+.nav-sidebar.doc-nav .nav-link.active::before,
+.nav-sidebar.doc-nav li.active>a::before,
+.nav-sidebar.doc-nav a.active::before,
+.left_sidebarlist .nav-link.active::before,
+.left_sidebarlist li.active>a::before,
+.left_sidebarlist a.active::before {
+    content: '';
+    position: absolute;
+    left: 0 !important;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 24px;
+    background-color: #007bff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover state - blue color but no background */
+#docy-toc a:hover,
+.doc-nav a:hover,
+.nav-sidebar.doc-nav a:hover,
+.left_sidebarlist a:hover {
+    text-decoration: none !important;
+    font-weight: normal !important;
+    color: #007bff !important;
+    background-color: transparent !important;
+}

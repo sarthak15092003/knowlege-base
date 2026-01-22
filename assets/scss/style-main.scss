@@ -1,0 +1,42 @@
+/*----------------------------------------------------
+@File: Default Styles
+
+This file contains the styling for the actual template, this
+is the file you need to edit to change the look of the
+template.
+---------------------------------------------------- */
+
+/*=====================================================================
+@Template Name: Docy
+@Default Styles
+=====================================================================*/
+
+/*----------------------------------------------------*/
+@import "variables";
+@import "typography-schema";
+@import "predefine";
+@import "wp-elements";
+@import "elements/index";
+@import "elementor_style";
+@import "header";
+@import "top_header";
+@import "search_banner";
+@import "docs";
+@import "tutor-lms";
+@import "features";
+@import "widgets/index";
+@import "keyframe";
+@import "wp-custom";
+@import "community";
+@import "shortcode";
+@import "typography";
+@import "forum-single";
+@import "blog";
+@import "comments";
+@import "toc-sidebar";
+@import "signup";
+@import "error";
+@import "home-creative";
+@import "home_forum";
+@import "animation";
+@import "footer";

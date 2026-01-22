@@ -1,0 +1,158 @@
+﻿/* Simple Post Card Styles for Category Pages */
+.simple-post-card {
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.simple-post-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.post-card-content {
+    width: 100%;
+}
+
+.post-card-meta {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.post-category {
+    font-size: 0.875rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 6px;
+    border: 1px solid #D5E1FC;
+    padding: 4px 8px;
+}
+
+.post-category a {
+    color: #484A61;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.post-category a:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+.post-category .category-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: inline-block;
+}
+
+.meta-separator {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+.post-date {
+    font-size: 0.875rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.post-date i {
+    font-size: 0.75rem;
+}
+
+.post-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.post-card-title a {
+    color: #1e293b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-card-title a:hover {
+    color: #3b82f6;
+}
+
+.post-card-excerpt {
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3b82f6;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.post-card-link:hover {
+    color: #1d4ed8;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .simple-post-card {
+        padding: 1.25rem;
+    }
+    
+    .post-card-meta {
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+    }
+    
+    .post-category,
+    .post-date {
+        font-size: 0.8125rem;
+    }
+    
+    .post-card-title {
+        font-size: 1rem;
+    }
+    
+    .post-card-excerpt {
+        font-size: 0.875rem;
+    }
+}
+
+/* Breadcrumb styles */
+nav[aria-label="breadcrumb"] {
+    display: contents;
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+    padding-left: 0px !important;
+    padding-right: 188px !important;
+}
+
+/* Container max-width for large screens */
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 100% !important;
+    }
+}
+

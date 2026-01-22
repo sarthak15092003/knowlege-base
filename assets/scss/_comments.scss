@@ -1,0 +1,217 @@
+/** === Comment Form == **/
+.blog_comment_box .get_quote_form {
+  position: relative;
+}
+
+.comment_inner {
+  padding-top: 80px;
+
+  .c_head {
+    margin-bottom: 0;
+  }
+}
+
+#commentform {
+  .form-group {
+    position: relative;
+
+    .form-control:not(:placeholder-shown) + .floating-label {
+      transform: translate(2px, -50%);
+      opacity: 1;
+      background: #fff;
+    }
+
+    .floating-label {
+      left: 15px;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      transition: all 200ms;
+      font-size: 12px;
+      padding: 0 5px;
+      color: var(--brand_color)
+    }
+  }
+
+  .form-submit {
+    margin-top: 15px;
+  }
+}
+
+.comment_box {
+  margin-bottom: 0;
+
+  .post_comment {
+    .comment_author {
+      padding-top: 25px;
+
+      .img_rounded {
+        border-radius: 50%;
+        margin-right: 20px;
+        height: max-content;
+      }
+
+      .media-body {
+        border-bottom: 1px solid var(--black_50);
+        padding-bottom: 15px;
+        position: relative;
+        width: 100%;
+
+        .comment-txt p:last-child {
+          margin-bottom: .5rem;
+        }
+
+        .comment-txt p {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+
+        @media (min-width: 576px) {
+          .comment_info {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 3px;
+          }
+        }
+
+        .comment_info {
+          h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+          }
+
+          @media (min-width: 576px) {
+            .comment_date {
+              margin-left: 5px;
+              margin-top: 0;
+            }
+          }
+          @media (max-width: 575px) {
+            .comment_date {
+              &::before {
+                content: none;
+              }
+            }
+          }
+
+          .comment_date {
+            font-size: 12px;
+
+          }
+        }
+
+        .comment_reply {
+          font-size: 12px;
+          font-weight: 500;
+          color: var(--black_400);
+          transition: all 0.2s linear;
+          position: absolute;
+          right: 0;
+          top: -1px;
+          text-decoration: none;
+
+          i {
+            vertical-align: middle;
+            font-size: 18px;
+            padding-left: 5px;
+          }
+
+          &:hover {
+            color: var(--brand_color);
+
+            i {
+              color: var(--brand_color);
+              transform: translateX(3px);
+            }
+          }
+        }
+      }
+    }
+
+    .reply_comment {
+      padding-left: 80px;
+    }
+  }
+}
+
+.blog_comment_box {
+  p {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--p_color);
+  }
+
+  .get_quote_form {
+    padding-top: 55px;
+
+    @media ( max-width: 575px) {
+      padding-top: 70px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      .form-control {
+        height: 46px;
+        border-radius: 4px;
+        border: 1px solid var(--border_on_white);
+        font-size: 14px;
+        line-height: 1.4;
+        padding-left: 25px;
+        box-shadow: none;
+        color: var(--black_800);
+        @include placeholder {
+          color: var(--black_300);
+        }
+
+        &:focus {
+          border: 1px solid var(--brand_color);
+        }
+
+        &.message {
+          height: 160px;
+          padding-top: 22px;
+        }
+      }
+    }
+
+    .thm_btn {
+      padding: 14px 35px;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: 0 20px 30px 0 brand_color_rgba(0.24);
+      }
+    }
+  }
+}
+
+.blog_comment_box.topic_comment {
+  .c_head {
+    display: inline-block;
+    margin-bottom: 15px;
+
+    a {
+      color: var(--secondary_color);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  }
+
+  .cancle {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    color: #54595d;
+    background: transparent;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.comment_inner .comment_box .post_comment .post_author_two p {
+  padding-bottom: 20px;
+  padding-top: 0;
+}

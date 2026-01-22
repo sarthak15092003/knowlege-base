@@ -1,0 +1,775 @@
+/* Modern Sidebar Styles - Clean Design */
+.modern-sidebar {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0 10px 0 0;
+    margin: 0 0 2rem;
+    overflow: hidden;
+    border: 0px;
+    /* Changed from 1px to 0px */
+    width: 100%;
+    max-width: 240px;
+}
+
+.sidebar-content {
+    padding: 0;
+}
+
+.sidebar-cta-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 1px 2px;
+    border: 2px solid #3B82F6;
+    border-radius: 18px;
+    background: #f4f8ff;
+}
+
+.sidebar-cta-icon svg {
+    display: block;
+}
+
+.sidebar-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-cta-eyebrow {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2a4b;
+}
+
+.sidebar-cta-body {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #475074;
+}
+
+.sidebar-cta-link {
+    color: #1f2a4b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar-cta-link:hover {
+    text-decoration: underline;
+}
+
+/* Apply TOC-like sticky properties to modern sidebar */
+.category-left-sidebar-col .modern-sidebar {
+    position: sticky;
+    top: 130px;
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Right sidebar (Category 3) */
+.category-right-sidebar-col .cat-3-right-sidebar {
+    position: sticky;
+    top: 130px;
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Make sidebar static when footer is in view */
+.footer-in-view .category-left-sidebar-col .modern-sidebar,
+.footer-in-view .category-right-sidebar-col .cat-3-right-sidebar,
+.footer-in-view #toc_stick.stick .left_sidebarlist {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 240px !important;
+}
+
+/* Section Styles */
+.sidebar-section {
+    border-bottom: 1px solid #f8fafc;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 0px 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.section-header:hover {
+    background: #f8fafc;
+}
+
+.section-header.active {
+    background: #f0f7ff;
+    /* border-left removed */
+    position: relative;
+    border-radius: 10px;
+}
+
+/* Add blue color to active section title */
+.section-header.active .section-title {
+    color: #007bff !important;
+    font-weight: 500;
+}
+
+/* Add vertical indicator line for active sidebar sections */
+.section-header.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #007bff;
+    border-radius: 0 2px 2px 0;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.section-header.active .section-icon {
+    color: #3b82f6;
+}
+
+.section-icon svg,
+.section-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.section-title {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+.section-title-link {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.section-title-link:hover {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.section-header.active .section-title-link {
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.expand-icon {
+    font-size: 12px;
+    color: #9ca3af;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.expand-icon svg {
+    display: inline-block;
+    color: inherit;
+}
+
+/* Expanded state rotation */
+.expand-icon.expanded {
+    transform: rotate(90deg);
+}
+
+/* Active section arrow rotation */
+.section-header.active .expand-icon {
+    transform: rotate(90deg);
+}
+
+/* Section Content (Expandable areas) */
+.section-content {
+    display: none;
+}
+
+.section-content.expanded {
+    display: block;
+}
+
+/* Subsection Items */
+.subsection-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px 12px 52px;
+    /* Indent for hierarchy */
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+}
+
+.subsection-item:last-child {
+    border-bottom: none;
+}
+
+.subsection-item:hover {
+    background: #f1f5f9;
+}
+
+.subsection-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.subsection-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.subsection-title {
+    flex: 1;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: #3b82f6;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.subsection-title:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+/* Highlight current page in sidebar - text only, no background */
+.subsection-item.current-page .subsection-title {
+    color: #007bff !important;
+    font-weight: 600 !important;
+}
+
+/* Remove all underlines from sidebar links */
+.subsection-title,
+.subsection-title:hover,
+.subsection-title:focus,
+.subsection-title:active,
+.section-title-link,
+.section-title-link:hover,
+.section-title-link:focus,
+.section-title-link:active,
+.modern-sidebar a,
+.modern-sidebar a:hover,
+.modern-sidebar a:focus,
+.modern-sidebar a:active {
+    text-decoration: none !important;
+}
+
+.subsection-title-plain {
+    flex: 1;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.subsection-arrow {
+    font-size: 8px;
+    color: #cbd5e1;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* UTM Parameters Display */
+.utm-params-display {
+    margin-top: 16px;
+    padding: 12px 20px 12px 52px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.utm-param-header {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.utm-param-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+}
+
+.utm-param-item:last-child {
+    margin-bottom: 0;
+}
+
+.utm-label {
+    font-weight: 500;
+    color: #64748b;
+    min-width: 60px;
+    margin-right: 8px;
+}
+
+.utm-value {
+    color: #1e293b;
+    font-weight: 400;
+    background: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+}
+
+/* Hide CSS arrow when Font Awesome icon is present */
+.section-content {
+    max-height: 0;
+    overflow-y: hidden;
+    overflow-x: visible;
+    transition: max-height 0.3s ease;
+}
+
+.section-content.expanded {
+    max-height: 500px;
+    padding-bottom: 0.5rem;
+}
+
+/* Subsection Styles */
+.subsection {
+    margin-bottom: 0.5rem;
+}
+
+.subsection-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem 0.75rem 3rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.subsection-header:hover {
+    background: #e2e8f0;
+}
+
+.subsection-title {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.subsection-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.subsection-content.expanded {
+    max-height: 300px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 0;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 0.5rem 1.25rem 0.5rem 4rem;
+    font-size: 0.875rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-menu a:hover {
+    background: #e2e8f0;
+    color: #3b82f6;
+    border-left-color: #3b82f6;
+    text-decoration: none;
+}
+
+.sidebar-menu a.active {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-left-color: #1d4ed8;
+    font-weight: 500;
+}
+
+/* Sidebar Item */
+.sidebar-item {
+    padding: 0;
+}
+
+.item-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem 0.75rem 3rem;
+    font-size: 0.875rem;
+    color: #475569;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.item-link:hover {
+    background: #e2e8f0;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.item-link span {
+    flex: 1;
+}
+
+.item-link i {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Icon Colors */
+.sidebar-section:nth-child(1) .section-icon {
+    color: #3b82f6;
+}
+
+/* Blue */
+.sidebar-section:nth-child(2) .section-icon {
+    color: #10b981;
+}
+
+/* Green */
+.sidebar-section:nth-child(3) .section-icon {
+    color: #f59e0b;
+}
+
+/* Orange */
+.sidebar-section:nth-child(4) .section-icon {
+    color: #8b5cf6;
+}
+
+/* Purple */
+.sidebar-section:nth-child(5) .section-icon {
+    color: #06b6d4;
+}
+
+/* Cyan */
+.sidebar-section:nth-child(6) .section-icon {
+    color: #ef4444;
+}
+
+/* Red */
+.sidebar-section:nth-child(7) .section-icon {
+    color: #84cc16;
+}
+
+/* Lime */
+.sidebar-section:nth-child(8) .section-icon {
+    color: #6366f1;
+}
+
+/* Indigo */
+
+/* Fallback for missing Font Awesome icons */
+.section-icon i::before {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", "FontAwesome", Arial, sans-serif !important;
+    font-weight: 900;
+}
+
+/* Ensure Font Awesome icons display */
+.fa {
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Pro", "FontAwesome" !important;
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .modern-sidebar {
+        margin-bottom: 1.5rem;
+        max-width: 100% !important;
+    }
+
+    .section-header {
+        padding: 0.875rem 0rem 0.875rem 1rem;
+    }
+
+    .subsection-header {
+        padding: 0.625rem 1rem 0.625rem 2.5rem;
+    }
+
+    .sidebar-menu a {
+        padding: 0.5rem 1rem 0.5rem 3rem;
+    }
+
+    .item-link {
+        padding: 0.625rem 1rem 0.625rem 2.5rem;
+    }
+
+    /* Disable sticky on mobile */
+    .category-left-sidebar-col .modern-sidebar {
+        position: static !important;
+        top: auto !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        margin-top: 0 !important;
+    }
+
+    .category-right-sidebar-col .cat-3-right-sidebar {
+        position: static !important;
+        top: auto !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .modern-sidebar {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    .section-header {
+        padding: 0.75rem 0rem 0.75rem 0.875rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    .section-title,
+    .section-title-link {
+        font-size: 0.8125rem;
+    }
+
+    .subsection-item {
+        padding: 0.75rem 0.875rem 0.75rem 2.25rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    .subsection-title,
+    .subsection-title-plain {
+        font-size: 0.75rem;
+    }
+
+    .subsection-header {
+        padding: 0.625rem 0.875rem 0.625rem 2rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    .sidebar-menu a {
+        padding: 0.625rem 0.875rem 0.625rem 2.5rem;
+        font-size: 0.8125rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    .item-link {
+        padding: 0.625rem 0.875rem 0.625rem 2rem;
+        font-size: 0.8125rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    .sidebar-cta-card {
+        padding: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .sidebar-cta-eyebrow {
+        font-size: 0.875rem;
+    }
+
+    .sidebar-cta-body {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header {
+        padding: 0.625rem 0rem 0.625rem 0.75rem;
+    }
+
+    .subsection-item {
+        padding: 0.625rem 0.75rem 0.625rem 2rem;
+    }
+
+    .sidebar-menu a,
+    .item-link {
+        padding: 0.625rem 0.75rem 0.625rem 2rem;
+    }
+}
+
+/* Animation for smooth transitions */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-content.expanded,
+.subsection-content.expanded {
+    animation: slideDown 0.3s ease;
+}
+
+/* Scrollbar Styling */
+.modern-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modern-sidebar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Focus States for Accessibility */
+.section-header:focus,
+.subsection-header:focus,
+.item-link:focus,
+.sidebar-menu a:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+}
+
+/* Active States */
+.section-header.active {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.section-header.active .section-icon {
+    color: #1d4ed8;
+}
+
+/* Loading State */
+.sidebar-loading {
+    padding: 2rem;
+    text-align: center;
+    color: #64748b;
+}
+
+.sidebar-loading::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Prevent horizontal scroll on mobile - Fix for 767px and below */
+@media (max-width: 767px) {
+
+    body,
+    html {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        margin-top: 0px;
+    }
+
+    .container,
+    .container-fluid,
+    .row {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    * {
+        box-sizing: border-box !important;
+    }
+
+    /* Ensure all major layout elements don't exceed viewport */
+    .doc_documentation_area,
+    .documentation_info,
+    .doc_left_sidebarlist,
+    .doc_rightsidebar,
+    .category-left-sidebar-col,
+    .category-right-sidebar-col,
+    .main-content-area {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}

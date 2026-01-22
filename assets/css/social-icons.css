@@ -1,0 +1,164 @@
+﻿/* Social Icons and Footer Links - Match Reference Image */
+.footer-social-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social-icons {
+    display: flex !important;
+    gap: 16px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.social-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+   
+    
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 22px !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+ 
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.social-icon:before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: inherit !important;
+    border-radius: inherit !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.social-icon:hover {
+   
+    color: #ffffff !important;
+    transform: translateY(-4px) scale(1.05) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.social-icon:hover:before {
+    opacity: 1 !important;
+}
+
+.social-icon i {
+    display: block !important;
+    font-family: 'Font Awesome 5 Brands', FontAwesome, sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    line-height: 1 !important;
+    font-size: inherit !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.social-icon.facebook:hover {
+    background: linear-gradient(135deg, #1877f2, #42a5f5) !important;
+    border-color: #1877f2 !important;
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3) !important;
+}
+
+.social-icon.twitter:hover {
+    background: linear-gradient(135deg, #1da1f2, #42a5f5) !important;
+    border-color: #1da1f2 !important;
+    box-shadow: 0 8px 25px rgba(29, 161, 242, 0.3) !important;
+}
+
+.social-icon.linkedin:hover {
+    background: linear-gradient(135deg, #0077b5, #42a5f5) !important;
+    border-color: #0077b5 !important;
+    box-shadow: 0 8px 25px rgba(0, 119, 181, 0.3) !important;
+}
+
+.social-icon.github:hover {
+    background: linear-gradient(135deg, #333, #555) !important;
+    border-color: #333 !important;
+    box-shadow: 0 8px 25px rgba(51, 51, 51, 0.3) !important;
+}
+
+/* Footer Links Styling */
+.footer-links {
+    text-align: center !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    padding: 0 4px !important;
+}
+
+.footer-link:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(255, 255, 255, 0.7) !important;
+    text-underline-offset: 3px !important;
+}
+
+.footer-separator {
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin: 0 12px !important;
+    font-weight: 300 !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .footer-social-icons {
+        gap: 12px !important;
+    }
+
+    .social-icon {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 18px !important;
+    }
+
+    .footer-social-wrapper {
+        margin-bottom: 15px !important;
+    }
+
+    .footer-links {
+        margin-top: 10px !important;
+    }
+
+    .footer-link {
+        font-size: 14px !important;
+    }
+
+    .footer-separator {
+        margin: 0 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-social-icons {
+        gap: 8px !important;
+    }
+
+    .social-icon {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 16px !important;
+    }
+}
+

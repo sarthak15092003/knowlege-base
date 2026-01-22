@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Schema Preview</title>
+    <link rel="stylesheet" href="assets/css/typography-schema.css">
+    <style>
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f9fafb;
+        }
+        .preview-section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .preview-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .spec-table th,
+        .spec-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .spec-table th {
+            background: #f3f4f6;
+            font-weight: 600;
+        }
+        .button-demo {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .btn-large,
+        .btn-medium {
+            cursor: pointer;
+            border: none;
+            background: #667eea;
+            color: white;
+        }
+        .btn-large:hover,
+        .btn-medium:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-header">
+        <h1 style="margin-bottom: 16px; color: white;">Typography Schema Preview</h1>
+        <p style="font-size: 18px; opacity: 0.9; color: white;">Comprehensive typography system for consistent design</p>
+    </div>
+
+    <!-- Headings Section -->
+    <div class="preview-section">
+        <h2 style="margin-bottom: 30px; color: #1f2937;">Headings</h2>
+        
+        <div style="margin-bottom: 40px;">
+            <h1>Heading 1 - 54px / 120% / 600</h1>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 54px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h2>Heading 2 - 44px / 120% / 600</h2>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 44px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h3>Heading 3 - 40px / 120% / 600</h3>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 40px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h4>Heading 4 - 22px / 120% / 600</h4>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 22px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h5>Heading 5 - 20px / 120% / 600</h5>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 20px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h6>Heading 6 - 16px / 120% / 600</h6>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 16px | Line Height: 120% | Font Weight: 600</p>
+        </div>
+    </div>
+
+    <!-- Paragraphs Section -->
+    <div class="preview-section">
+        <h2 style="margin-bottom: 30px; color: #1f2937;">Paragraphs</h2>
+        
+        <div style="margin-bottom: 30px;">
+            <h5 style="color: #374151;">Large Paragraph</h5>
+            <p class="paragraph-large">
+                This is a large paragraph with 18px font size and 120% line height. 
+                It's perfect for introductory text or important content that needs more emphasis. 
+                The typography schema ensures consistent spacing and readability across all devices.
+            </p>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 18px | Line Height: 120% | Font Weight: 400</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="margin-bottom: 30px;">
+            <h5 style="color: #374151;">Default Paragraph</h5>
+            <p>
+                This is a default paragraph with 16px font size and 120% line height. 
+                It's the standard text size used throughout the website for body content. 
+                The line height of 120% provides optimal readability while maintaining a clean, modern look.
+            </p>
+            <p style="color: #6b7280; font-size: 14px;">Font Size: 16px | Line Height: 120% | Font Weight: 400</p>
+        </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="preview-section">
+        <h2 style="margin-bottom: 30px; color: #1f2937;">Buttons</h2>
+        
+        <div style="margin-bottom: 30px;">
+            <h5 style="color: #374151; margin-bottom: 16px;">Large Button</h5>
+            <div class="button-demo">
+                <button class="btn-large">Large Button</button>
+                <button class="btn-large" style="background: #10b981;">Success</button>
+                <button class="btn-large" style="background: #ef4444;">Danger</button>
+            </div>
+            <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">Font Size: 16px | Line Height: 24px | Font Weight: 500 | Padding: 12px 32px</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="margin-bottom: 30px;">
+            <h5 style="color: #374151; margin-bottom: 16px;">Medium Button</h5>
+            <div class="button-demo">
+                <button class="btn-medium">Medium Button</button>
+                <button class="btn-medium" style="background: #f59e0b;">Warning</button>
+                <button class="btn-medium" style="background: #3b82f6;">Info</button>
+            </div>
+            <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">Font Size: 14px | Line Height: 24px | Font Weight: 500 | Padding: 10px 24px</p>
+        </div>
+    </div>
+
+    <!-- Content Example -->
+    <div class="preview-section">
+        <h2 style="margin-bottom: 30px; color: #1f2937;">Full Content Example</h2>
+        
+        <article class="blog_single_item">
+            <h1>Getting Started with CMGalaxy</h1>
+            <p class="paragraph-large">
+                Welcome to CMGalaxy! This comprehensive guide will help you understand 
+                how to leverage our powerful analytics platform to drive growth for your business.
+            </p>
+
+            <h2>Understanding the Dashboard</h2>
+            <p>
+                The CMGalaxy dashboard provides a centralized view of all your marketing metrics. 
+                You can customize widgets, create custom reports, and track performance across 
+                multiple channels in real-time.
+            </p>
+
+            <h3>Key Features</h3>
+            <p>
+                Our platform offers a wide range of features designed to simplify your marketing 
+                analytics workflow and provide actionable insights.
+            </p>
+
+            <h4>Real-time Analytics</h4>
+            <p>
+                Monitor your campaigns as they happen with our real-time analytics engine. 
+                Get instant notifications when important metrics change.
+            </p>
+
+            <h5>Custom Reports</h5>
+            <p>
+                Create custom reports tailored to your specific business needs. Export data 
+                in multiple formats including PDF, CSV, and Excel.
+            </p>
+
+            <h6>Integration Options</h6>
+            <p>
+                Connect CMGalaxy with your existing tools through our extensive integration 
+                library. We support over 100+ popular marketing platforms.
+            </p>
+
+            <div class="button-demo" style="margin-top: 30px;">
+                <button class="btn-large">Get Started</button>
+                <button class="btn-medium" style="background: transparent; border: 2px solid #667eea; color: #667eea;">Learn More</button>
+            </div>
+        </article>
+    </div>
+
+    <!-- Responsive Preview Note -->
+    <div class="preview-section" style="background: #fef3c7; border-left: 4px solid #f59e0b;">
+        <h4 style="color: #92400e; margin-bottom: 16px;">📱 Responsive Typography</h4>
+        <p style="color: #78350f;">
+            This typography schema is fully responsive. Resize your browser window to see how 
+            the font sizes adjust for tablet (768px-1024px) and mobile (up to 767px) devices.
+        </p>
+    </div>
+</body>
+</html>

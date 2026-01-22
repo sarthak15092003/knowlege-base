@@ -1,0 +1,5211 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Docy\n"
+"POT-Creation-Date: 2024-02-20 21:20+0600\n"
+"PO-Revision-Date: 2024-02-20 21:41+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+
+#: 404.php:19
+msgid "404 page background shape."
+msgstr "404 পৃষ্ঠা পটভূমি আকৃতি।"
+
+#: 404.php:21 404.php:27
+msgid "4 illustration"
+msgstr "৪ দৃষ্টান্ত"
+
+#: 404.php:24
+msgid "0 illustration"
+msgstr "0 চিত্রণ"
+
+#: 404.php:32 options/opt_404.php:12
+msgid "Error! We can't find the page you're looking for."
+msgstr "ত্রুটি! আপনি যে পৃষ্ঠাটি খুঁজছেন তা আমরা খুঁজে পাচ্ছি না।"
+
+#: 404.php:33
+msgid "We can't seem to find the page you're looking for"
+msgstr "আপনি যে পৃষ্ঠাটি খুঁজছেন তা আমরা খুঁজে পাচ্ছি না"
+
+#: 404.php:37 bbpress/form-search.php:21 searchform.php:5
+#: woocommerce/product-searchform.php:24
+msgid "Search"
+msgstr "অনুসন্ধান"
+
+#: 404.php:41
+msgid "Go Back to home Page"
+msgstr "হোম পেজে ফিরে যান"
+
+#: bbpress/alert-topic-lock.php:21
+msgid "Leave"
+msgstr "চলে যাও"
+
+#: bbpress/alert-topic-lock.php:22
+msgid "Stay"
+msgstr "থাকতে"
+
+#: bbpress/content-single-topic-lead.php:54
+msgid " Replies"
+msgstr " জবাবসমূহ"
+
+#: bbpress/content-single-topic-lead.php:65
+msgid "Subscribed"
+msgstr "সদস্যতা"
+
+#: bbpress/content-single-topic-lead.php:78 options/opt_forum.php:259
+#: options/opt_forum.php:282
+msgid "Subscribe"
+msgstr "সাবস্ক্রাইব"
+
+#: bbpress/content-single-topic-lead.php:83 options/opt_forum.php:267
+msgid "Login to the community"
+msgstr "কমিউনিটিতে লগইন করুন"
+
+#: bbpress/content-single-topic-lead.php:84 options/opt_forum.php:275
+msgid "You must be logged in to subscribe to this topic."
+msgstr "এই বিষয়ে সাবস্ক্রাইব করতে আপনাকে অবশ্যই লগ ইন করতে হবে।"
+
+#: bbpress/content-single-topic-lead.php:85
+msgid "Login"
+msgstr "লগইন"
+
+#: bbpress/content-single-topic-lead.php:124
+msgid "Tagged:"
+msgstr "ট্যাগ করা আছে:"
+
+#: bbpress/content-single-topic.php:30
+msgid "All Replies"
+msgstr "সকল জবাবসমূহ"
+
+#: bbpress/content-statistics.php:20
+msgid "Registered Users"
+msgstr "নিবন্ধিত ব্যবহারকারী"
+
+#: bbpress/content-statistics.php:25 bbpress/user-profile.php:34
+#: inc/ajax_actions.php:145 options/opt_forum.php:3 options/opt_forum.php:168
+msgid "Forums"
+msgstr "ফোরাম"
+
+#: bbpress/content-statistics.php:30 bbpress/loop-forums.php:24
+msgid "Topics"
+msgstr "বিষয় সমূহ"
+
+#: bbpress/content-statistics.php:36 bbpress/loop-forums.php:25
+msgid "Replies"
+msgstr "উত্তর দিন"
+
+#: bbpress/content-statistics.php:42
+msgid "Topic Tags"
+msgstr "টপিক ট্যাগ"
+
+#: bbpress/content-statistics.php:49
+msgid "Empty Topic Tags"
+msgstr "খালি টপিক ট্যাগ"
+
+#: bbpress/content-statistics.php:58
+msgid "Hidden Topics"
+msgstr "লুকানো বিষয়"
+
+#: bbpress/content-statistics.php:69
+msgid "Hidden Replies"
+msgstr "লুকানো উত্তর"
+
+#: bbpress/feedback-logged-in.php:17
+msgid "You are already logged in."
+msgstr "তুমি ইতিমধ্যে লগ ইন করেছ।"
+
+#: bbpress/feedback-no-access.php:16
+msgid "Private"
+msgstr "ব্যক্তিগত"
+
+#: bbpress/feedback-no-access.php:20
+msgid "You do not have permission to view this forum."
+msgstr "আপনার এই ফোরাম দেখার অনুমতি নেই."
+
+#: bbpress/feedback-no-forums.php:17
+msgid "Oh, bother! No forums were found here."
+msgstr "ওহ, বিরক্ত! এখানে কোন ফোরাম পাওয়া যায়নি।"
+
+#: bbpress/feedback-no-replies.php:17
+msgid "Oh, bother! No replies were found here."
+msgstr "ওহ, বিরক্ত! এখানে কোনো উত্তর পাওয়া গেল না।"
+
+#: bbpress/feedback-no-search.php:17
+msgid "Oh, bother! No search results were found here."
+msgstr "ওহ, বিরক্ত! এখানে কোনো অনুসন্ধানের ফলাফল পাওয়া যায়নি।"
+
+#: bbpress/feedback-no-topics.php:17
+msgid "Oh, bother! No topics were found here."
+msgstr "ওহ, বিরক্ত! এখানে কোন টপিক পাওয়া যায়নি।"
+
+#: bbpress/form-anonymous.php:18
+msgid "Author Information"
+msgstr "লেখক তথ্য"
+
+#: bbpress/form-anonymous.php:18
+msgid "Your information:"
+msgstr "আপনার তথ্য:"
+
+#: bbpress/form-anonymous.php:23
+msgid "Name (required):"
+msgstr "নাম (আবশ্যক):"
+
+#: bbpress/form-anonymous.php:28
+msgid "Mail (will not be published) (required):"
+msgstr "মেইল (প্রকাশিত হবে না) (আবশ্যক):"
+
+#: bbpress/form-anonymous.php:33
+msgid "Website:"
+msgstr "ওয়েবসাইটঃ"
+
+#: bbpress/form-forum.php:34 bbpress/form-topic.php:37
+#, php-format
+msgid "Now Editing &ldquo;%s&rdquo;"
+msgstr "এখন \"%s\" সম্পাদনা করা হচ্ছে"
+
+#: bbpress/form-forum.php:37
+#, php-format
+msgid "Create New Forum in &ldquo;%s&rdquo;"
+msgstr "\"%s\" এ নতুন ফোরাম তৈরি করুন"
+
+#: bbpress/form-forum.php:38
+msgid "Create New Forum"
+msgstr "নতুন ফোরাম তৈরি করুন"
+
+#: bbpress/form-forum.php:50 bbpress/form-reply.php:46
+msgid ""
+"This forum is closed to new content, however your posting capabilities still "
+"allow you to post."
+msgstr ""
+"এই ফোরামটি নতুন সামগ্রীর জন্য বন্ধ, তবে আপনার পোস্টিং ক্ষমতা এখনও আপনাকে পোস্ট করার "
+"অনুমতি দেয়।"
+
+#: bbpress/form-forum.php:60 bbpress/form-reply.php:56
+#: bbpress/form-topic.php:64
+msgid "Your account has the ability to post unrestricted HTML content."
+msgstr "আপনার অ্যাকাউন্টে অসীমাবদ্ধ HTML সামগ্রী পোস্ট করার ক্ষমতা আছে।"
+
+#: bbpress/form-forum.php:73
+#, php-format
+msgid "Forum Name (Maximum Length: %d):"
+msgstr "ফোরামের নাম (সর্বোচ্চ দৈর্ঘ্য: %d):"
+
+#: bbpress/form-forum.php:88 bbpress/form-reply.php:77
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes:"
+msgstr ""
+"আপনি এই <abbr title=\"HyperText Markup Language\">এইচটিএমএল</abbr> ট্যাগ এবং "
+"বৈশিষ্ট্যগুলি ব্যবহার করতে পারেন:"
+
+#: bbpress/form-forum.php:99
+msgid "Forum Moderators:"
+msgstr "ফোরামের মডারেটর:"
+
+#: bbpress/form-forum.php:110
+msgid "Forum Type:"
+msgstr "ফোরামের ধরন:"
+
+#: bbpress/form-forum.php:119
+msgid "Status:"
+msgstr "স্থিতি:"
+
+#: bbpress/form-forum.php:128
+msgid "Visibility:"
+msgstr "দৃশ্যমানতা:"
+
+#: bbpress/form-forum.php:137
+msgid "Parent Forum:"
+msgstr "প্যারেন্ট ফোরাম:"
+
+#: bbpress/form-forum.php:142
+msgid "&mdash; No parent &mdash;"
+msgstr "অভিভাবক নেই-"
+
+#: bbpress/form-forum.php:158 bbpress/form-reply-move.php:79
+#: bbpress/form-reply.php:174 bbpress/form-topic-merge.php:101
+#: bbpress/form-topic-split.php:105 bbpress/form-topic.php:220
+#: woocommerce/single-product-reviews.php:72
+msgid "Submit"
+msgstr "সাবমিট"
+
+#: bbpress/form-forum.php:183
+#, php-format
+msgid "The forum &#8216;%s&#8217; is closed to new content."
+msgstr "ফোরাম '%s' নতুন কন্টেন্টের জন্য বন্ধ।"
+
+#: bbpress/form-forum.php:194
+msgid "You cannot create new forums."
+msgstr "আপনি নতুন ফোরাম তৈরি করতে পারবেন না।"
+
+#: bbpress/form-forum.php:195
+msgid "You must be logged in to create new forums."
+msgstr "নতুন ফোরাম তৈরি করতে আপনাকে অবশ্যই লগ ইন করতে হবে।"
+
+#: bbpress/form-protected.php:17
+msgid "Protected"
+msgstr "সুরক্ষিত"
+
+#: bbpress/form-reply-move.php:25
+#, php-format
+msgid "Move reply \"%s\""
+msgstr "সরান প্রত্যুত্তর \"%s\""
+
+#: bbpress/form-reply-move.php:31
+msgid ""
+"You can either make this reply a new topic with a new title, or merge it "
+"into an existing topic."
+msgstr ""
+"আপনি হয় এই উত্তরটিকে একটি নতুন শিরোনাম দিয়ে একটি নতুন বিষয় তৈরি করতে পারেন বা "
+"এটি একটি বিদ্যমান বিষয়ে মার্জ করতে পারেন।"
+
+#: bbpress/form-reply-move.php:37
+msgid ""
+"If you choose an existing topic, replies will be ordered by the time and "
+"date they were created."
+msgstr ""
+"আপনি যদি কোনও বিদ্যমান বিষয় চয়ন করেন তবে উত্তরগুলি তৈরি হওয়ার সময় এবং তারিখ "
+"অনুসারে অর্ডার করা হবে।"
+
+#: bbpress/form-reply-move.php:42
+msgid "Move Method"
+msgstr "সরানোর পদ্ধতি"
+
+#: bbpress/form-reply-move.php:46 bbpress/form-topic-split.php:46
+#, php-format
+msgid "New topic in %s titled:"
+msgstr "%s শিরোনামে নতুন প্রসঙ্গ:"
+
+#: bbpress/form-reply-move.php:47
+#, php-format
+msgid "Moved: %s"
+msgstr "সরানো হয়েছে: %s"
+
+#: bbpress/form-reply-move.php:54 bbpress/form-topic-split.php:54
+msgid "Use an existing topic in this forum:"
+msgstr "এই ফোরামে একটি বিদ্যমান বিষয় ব্যবহার করুন:"
+
+#: bbpress/form-reply-move.php:74 bbpress/form-topic-merge.php:96
+#: bbpress/form-topic-split.php:100
+msgid "This process cannot be undone."
+msgstr "এই প্রক্রিয়াটি পূর্বাবস্থায় ফেরানো যাবে না।"
+
+#: bbpress/form-reply-move.php:93
+msgid "You do not have permission to edit this reply."
+msgstr "আপনার এই প্রত্যুত্তর সম্পাদনা করার অনুমতি নেই।"
+
+#: bbpress/form-reply-move.php:94
+msgid "You cannot edit this reply."
+msgstr "আপনি এই প্রত্যুত্তর সম্পাদনা করতে পারবেন না।"
+
+#: bbpress/form-reply-search.php:16
+msgid "Search replies:"
+msgstr "অনুসন্ধানের জবাব:"
+
+#: bbpress/form-reply-search.php:17
+msgid "Search in Reply"
+msgstr "উত্তরে অনুসন্ধান করুন"
+
+#: bbpress/form-reply.php:28
+#, php-format
+msgid "Reply To: %s"
+msgstr "উত্তর : %s"
+
+#: bbpress/form-reply.php:28
+#, php-format
+msgid "Reply #%1$s in %2$s"
+msgstr "উত্তর দিন #%1$s %2$s"
+
+#: bbpress/form-reply.php:36
+msgid ""
+"This topic is marked as closed to new replies, however your posting "
+"capabilities still allow you to reply."
+msgstr ""
+"এই বিষয়টি নতুন উত্তরগুলির জন্য বন্ধ হিসাবে চিহ্নিত করা হয়েছে, তবে আপনার পোস্টিং "
+"ক্ষমতা এখনও আপনাকে উত্তর দেওয়ার অনুমতি দেয়।"
+
+#: bbpress/form-reply.php:88
+msgid "Tags:"
+msgstr "ট্যাগ:"
+
+#: bbpress/form-reply.php:106 bbpress/form-topic.php:203
+msgid "Notify the author of follow-up replies via email"
+msgstr "ইমেলের মাধ্যমে ফলো-আপ উত্তরগুলির লেখককে অবহিত করুন"
+
+#: bbpress/form-reply.php:110 bbpress/form-topic.php:208
+msgid "Notify me of follow-up replies via email"
+msgstr "ইমেলের মাধ্যমে ফলো-আপ উত্তরগুলি সম্পর্কে আমাকে অবহিত করুন"
+
+#: bbpress/form-reply.php:127
+msgid "Reply To:"
+msgstr "উত্তরঃ"
+
+#: bbpress/form-reply.php:136
+msgid "Reply Status:"
+msgstr "জবাব স্ট্যাটাস:"
+
+#: bbpress/form-reply.php:151 bbpress/form-topic.php:170
+msgid "Keep a log of this edit:"
+msgstr "এই সম্পাদনার একটি লগ রাখুন:"
+
+#: bbpress/form-reply.php:155 bbpress/form-topic.php:174
+msgid "Optional reason for editing:"
+msgstr "সম্পাদনার ঐচ্ছিক কারণ:"
+
+#: bbpress/form-reply.php:198
+#, php-format
+msgid "The topic &#8216;%s&#8217; is closed to new replies."
+msgstr "'%s' বিষয়টি নতুন উত্তরের জন্য বন্ধ।"
+
+#: bbpress/form-reply.php:208 bbpress/form-topic.php:245
+#, php-format
+msgid "The forum &#8216;%s&#8217; is closed to new topics and replies."
+msgstr "ফোরাম '%s' নতুন বিষয় এবং উত্তর বন্ধ করা হয়।"
+
+#: bbpress/form-reply.php:219
+msgid "You cannot reply to this topic."
+msgstr "আপনি এই বিষয়ে উত্তর দিতে পারবেন না।"
+
+#: bbpress/form-reply.php:220
+msgid "You must be logged in to reply to this topic."
+msgstr "এই টপিকের উত্তর দেওয়ার জন্য আপনাকে অবশ্যই লগ ইন করতে হবে।"
+
+#: bbpress/form-search.php:18
+msgid "Search for:"
+msgstr "খোজ করা "
+
+#: bbpress/form-topic-merge.php:25
+#, php-format
+msgid "Merge topic \"%s\""
+msgstr "বিষয় \"%s\" মার্জ করুন"
+
+#: bbpress/form-topic-merge.php:31
+msgid ""
+"Select the topic to merge this one into. The destination topic will remain "
+"the lead topic, and this one will change into a reply."
+msgstr ""
+"এটিতে মার্জ করতে বিষয়টি চয়ন করো। গন্তব্য বিষয় প্রধান বিষয় থাকবে, এবং এটি একটি "
+"উত্তর মধ্যে পরিবর্তিত হবে।"
+
+#: bbpress/form-topic-merge.php:32
+msgid ""
+"To keep this topic as the lead, go to the other topic and use the merge tool "
+"from there instead."
+msgstr ""
+"এই টপিককে লিড হিসেবে রাখার জন্য অন্য টপিকে যান এবং সেখান থেকে মার্জ টুলটি ব্যবহার "
+"করুন।"
+
+#: bbpress/form-topic-merge.php:38
+msgid ""
+"Replies to both topics are merged chronologically, ordered by the time and "
+"date they were published. Topics may be updated to a 1 second difference to "
+"maintain chronological order based on the merge direction."
+msgstr ""
+"উভয় বিষয়ের জবাবগুলি কালানুক্রমিকভাবে মার্জ করা হয়, তারা প্রকাশিত হওয়ার সময় এবং "
+"তারিখ অনুসারে ক্রমানুসারে ক্রমানুসারে করা হয়। মার্জ দিকনির্দেশের উপর ভিত্তি করে "
+"কালানুক্রমিক ক্রম বজায় রাখতে বিষয়গুলি 1 সেকেন্ডের পার্থক্যে আপডেট করা যেতে পারে।"
+
+#: bbpress/form-topic-merge.php:43
+msgid "Destination"
+msgstr "গন্তব্য"
+
+#: bbpress/form-topic-merge.php:47
+msgid "Merge with this topic:"
+msgstr "এই বিষয়ের সাথে মার্জ করুন:"
+
+#: bbpress/form-topic-merge.php:62
+msgid "There are no other topics in this forum to merge with."
+msgstr "এই ফোরামে মার্জ করার মতো অন্য কোন টপিক নেই।"
+
+#: bbpress/form-topic-merge.php:70 bbpress/form-topic-split.php:74
+msgid "Topic Extras"
+msgstr "টপিক এক্সট্রা"
+
+#: bbpress/form-topic-merge.php:77
+msgid "Merge topic subscribers"
+msgstr "বিষয় সাবস্ক্রাইবার মার্জ করুন"
+
+#: bbpress/form-topic-merge.php:82
+msgid "Merge topic favoriters"
+msgstr "বিষয় প্রিয় মার্জ করুন"
+
+#: bbpress/form-topic-merge.php:87
+msgid "Merge topic tags"
+msgstr "বিষয় ট্যাগগুলি মার্জ করুন"
+
+#: bbpress/form-topic-merge.php:115 bbpress/form-topic-split.php:119
+msgid "You do not have permission to edit this topic."
+msgstr "আপনার এই বিষয়টি সম্পাদনা করার অনুমতি নেই."
+
+#: bbpress/form-topic-merge.php:116 bbpress/form-topic-split.php:120
+msgid "You cannot edit this topic."
+msgstr "আপনি এই বিষয়টি সম্পাদনা করতে পারবেন না।"
+
+#: bbpress/form-topic-search.php:17
+msgid "Search topics:"
+msgstr "অনুসন্ধানের বিষয়:"
+
+#: bbpress/form-topic-search.php:18
+msgid "Search in Topics"
+msgstr "বিষয়গুলিতে অনুসন্ধান করুন"
+
+#: bbpress/form-topic-split.php:25
+#, php-format
+msgid "Split topic \"%s\""
+msgstr "বিভক্ত বিষয় \"%s\""
+
+#: bbpress/form-topic-split.php:31
+msgid ""
+"When you split a topic, you are slicing it in half starting with the reply "
+"you just selected. Choose to use that reply as a new topic with a new title, "
+"or merge those replies into an existing topic."
+msgstr ""
+"আপনি যখন কোনও বিষয় বিভক্ত করেন, আপনি সবেমাত্র নির্বাচিত উত্তরটি দিয়ে শুরু করে এটি "
+"অর্ধেক টুকরো করছেন। সেই উত্তরটিকে একটি নতুন শিরোনাম সহ একটি নতুন বিষয় হিসাবে "
+"ব্যবহার করতে চয়ন করুন বা সেই উত্তরগুলি একটি বিদ্যমান বিষয়ে মার্জ করুন।"
+
+#: bbpress/form-topic-split.php:37
+msgid ""
+"If you use the existing topic option, replies within both topics will be "
+"merged chronologically. The order of the merged replies is based on the time "
+"and date they were posted."
+msgstr ""
+"আপনি যদি বিদ্যমান বিষয় বিকল্পটি ব্যবহার করেন তবে উভয় বিষয়ের মধ্যে উত্তরগুলি "
+"কালানুক্রমিকভাবে মার্জ করা হবে। মার্জ করা জবাবগুলির ক্রমটি পোস্ট করার সময় এবং "
+"তারিখের উপর ভিত্তি করে।"
+
+#: bbpress/form-topic-split.php:42
+msgid "Split Method"
+msgstr "বিভক্ত পদ্ধতি"
+
+#: bbpress/form-topic-split.php:47
+#, php-format
+msgid "Split: %s"
+msgstr "বিভক্তি: %s"
+
+#: bbpress/form-topic-split.php:81
+msgid "Copy subscribers to the new topic"
+msgstr "নতুন বিষয়ে সাবস্ক্রাইবার কপি করুন"
+
+#: bbpress/form-topic-split.php:86
+msgid "Copy favoriters to the new topic"
+msgstr "নতুন টপিকে প্রিয়গুলো কপি করুন"
+
+#: bbpress/form-topic-split.php:91
+msgid "Copy topic tags to the new topic"
+msgstr "নতুন বিষয়ে বিষয় ট্যাগ অনুলিপি করুন"
+
+#: bbpress/form-topic-tag.php:19
+#, php-format
+msgid "Manage Tag: \"%s\""
+msgstr "ট্যাগ পরিচালনা করুন: \"%s\""
+
+#: bbpress/form-topic-tag.php:23
+msgid "Rename"
+msgstr "পুনঃনামকরণ"
+
+#: bbpress/form-topic-tag.php:27
+msgid "Leave the slug empty to have one automatically generated."
+msgstr "স্বয়ংক্রিয়ভাবে একটি উত্পন্ন করার জন্য স্লাগটি খালি ছেড়ে দিন।"
+
+#: bbpress/form-topic-tag.php:33
+msgid ""
+"Changing the slug affects its permalink. Any links to the old slug will stop "
+"working."
+msgstr ""
+"স্লাগ পরিবর্তন করলে এর পারমালিংক প্রভাবিত হয়। পুরানো স্লাগের যে কোনও লিঙ্ক কাজ করা "
+"বন্ধ করে দেবে।"
+
+#: bbpress/form-topic-tag.php:40
+msgid "Name:"
+msgstr "নামঃ"
+
+#: bbpress/form-topic-tag.php:45
+msgid "Slug:"
+msgstr "স্লাগ:"
+
+#: bbpress/form-topic-tag.php:50
+msgid "Description:"
+msgstr "বর্ণনা:"
+
+#: bbpress/form-topic-tag.php:55 inc/tgm/class-tgm-plugin-activation.php:2782
+msgid "Update"
+msgstr "আপডেট করুন"
+
+#: bbpress/form-topic-tag.php:69 bbpress/form-topic-tag.php:85
+msgid "Merge"
+msgstr "মার্জ"
+
+#: bbpress/form-topic-tag.php:73
+msgid "Merging tags together cannot be undone."
+msgstr "ট্যাগগুলি একসাথে মার্জ করা পূর্বাবস্থায় ফেরানো যাবে না।"
+
+#: bbpress/form-topic-tag.php:80
+msgid "Existing tag:"
+msgstr "বিদ্যমান ট্যাগ:"
+
+#: bbpress/form-topic-tag.php:85
+#, php-format
+msgid ""
+"Are you sure you want to merge the \"%s\" tag into the tag you specified?"
+msgstr ""
+"আপনি কি নিশ্চিত যে আপনি আপনার নির্দিষ্ট করা ট্যাগে \"%s\" ট্যাগটি মার্জ করতে চান?"
+
+#: bbpress/form-topic-tag.php:100 bbpress/form-topic-tag.php:117
+msgid "Delete"
+msgstr "মুছে ফেলুন"
+
+#: bbpress/form-topic-tag.php:104
+msgid "This does not delete your topics. Only the tag itself is deleted."
+msgstr "এটি আপনার বিষয়গুলি মুছবে না। শুধুমাত্র ট্যাগ নিজেই মুছে ফেলা হয়।"
+
+#: bbpress/form-topic-tag.php:109
+msgid "Deleting a tag cannot be undone."
+msgstr "কোনও ট্যাগ মোছা পূর্বাবস্থায় ফেরানো যাবে না।"
+
+#: bbpress/form-topic-tag.php:110
+msgid "Any links to this tag will no longer function."
+msgstr "এই ট্যাগের যে কোনও লিঙ্ক আর কাজ করবে না।"
+
+#: bbpress/form-topic-tag.php:117
+#, php-format
+msgid ""
+"Are you sure you want to delete the \"%s\" tag? This is permanent and cannot "
+"be undone."
+msgstr ""
+"তুমি কি নিশ্চিত যে তুমি \"%s\" ট্যাগটি মুছতে চাও? এটি স্থায়ী এবং পূর্বাবস্থায় ফেরানো "
+"যাবে না।"
+
+#: bbpress/form-topic.php:40
+#, php-format
+msgid "Create New Topic in &ldquo;%s&rdquo;"
+msgstr "\"%s\" এ নতুন বিষয় তৈরি করুন"
+
+#: bbpress/form-topic.php:41
+msgid "Create New Topic"
+msgstr "নতুন বিষয় তৈরি করুন"
+
+#: bbpress/form-topic.php:53
+msgid ""
+"This forum is marked as closed to new topics, however your posting "
+"capabilities still allow you to create a topic."
+msgstr ""
+"এই ফোরামটি নতুন বিষয়গুলির জন্য বন্ধ হিসাবে চিহ্নিত করা হয়েছে, তবে আপনার পোস্টিং "
+"ক্ষমতা এখনও আপনাকে একটি বিষয় তৈরি করতে দেয়।"
+
+#: bbpress/form-topic.php:79
+#, php-format
+msgid "Topic Title (Maximum Length: %d):"
+msgstr "বিষয়ের শিরোনাম (সর্বোচ্চ দৈর্ঘ্য: %d):"
+
+#: bbpress/form-topic.php:96
+#, php-format
+msgid "You may use these %s tags and attributes:"
+msgstr "আপনি এই %s ট্যাগ এবং বৈশিষ্ট্যগুলি ব্যবহার করতে পারেন:"
+
+#: bbpress/form-topic.php:108
+msgid "Topic Tags:"
+msgstr "টপিক ট্যাগ:"
+
+#: bbpress/form-topic.php:122 bbpress/loop-search-forum.php:25
+msgid "Forum:"
+msgstr "ফোরাম:"
+
+#: bbpress/form-topic.php:125
+msgid "&mdash; No forum &mdash;"
+msgstr "ফোরাম নেই-"
+
+#: bbpress/form-topic.php:141
+msgid "Topic Type:"
+msgstr "টপিক টাইপ:"
+
+#: bbpress/form-topic.php:153
+msgid "Topic Status:"
+msgstr "টপিক স্ট্যাটাস:"
+
+#: bbpress/form-topic.php:258
+msgid "You cannot create new topics."
+msgstr "নতুন টপিক তৈরি করতে পারছেন না।"
+
+#: bbpress/form-topic.php:259
+msgid "You must be logged in to create new topics."
+msgstr "নতুন টপিক তৈরি করতে আপনাকে অবশ্যই লগ ইন করতে হবে।"
+
+#: bbpress/form-user-edit.php:17 bbpress/form-user-edit.php:22
+msgid "Name"
+msgstr "নাম"
+
+#: bbpress/form-user-edit.php:27 options/opt_shop.php:100
+msgid "First Name"
+msgstr "নামের প্রথমাংশ"
+
+#: bbpress/form-user-edit.php:32 options/opt_shop.php:101
+msgid "Last Name"
+msgstr "নামের শেষাংশ"
+
+#: bbpress/form-user-edit.php:37
+msgid "Nickname"
+msgstr "ডাকনাম"
+
+#: bbpress/form-user-edit.php:42
+msgid "Display Name"
+msgstr "প্রদর্শিত নাম"
+
+#: bbpress/form-user-edit.php:52 bbpress/form-user-edit.php:55
+msgid "Contact Info"
+msgstr "যোগাযোগের তথ্য"
+
+#: bbpress/form-user-edit.php:60
+msgid "Website"
+msgstr "ওয়েবসাইট"
+
+#: bbpress/form-user-edit.php:78 bbpress/form-user-edit.php:84
+msgid "About Yourself"
+msgstr "নিজের সম্পর্কে"
+
+#: bbpress/form-user-edit.php:79 bbpress/form-user-edit.php:85
+msgid "About the user"
+msgstr "ব্যবহারকারী সম্পর্কে"
+
+#: bbpress/form-user-edit.php:91
+msgid "Biographical Info"
+msgstr "জীবনী সংক্রান্ত তথ্য"
+
+#: bbpress/form-user-edit.php:99 bbpress/form-user-edit.php:102
+msgid "Account"
+msgstr "অ্যাকাউন্ট"
+
+#: bbpress/form-user-edit.php:107 bbpress/form-user-login.php:20
+#: bbpress/form-user-register.php:29 inc/reg_process.php:16 page-signin.php:69
+msgid "Username"
+msgstr "ইউজার নেম"
+
+#: bbpress/form-user-edit.php:112 bbpress/form-user-register.php:34
+#: comments.php:59 options/opt_shop.php:110
+msgid "Email"
+msgstr "ইমেইল"
+
+#: bbpress/form-user-edit.php:119
+msgid "Language"
+msgstr "ভাষা"
+
+#: bbpress/form-user-edit.php:131 bbpress/form-user-edit.php:134
+msgid "User Role"
+msgstr "ব্যবহারকারীর ভূমিকা"
+
+#: bbpress/form-user-edit.php:141
+msgid "Network Role"
+msgstr "নেটওয়ার্ক ভূমিকা"
+
+#: bbpress/form-user-edit.php:144
+msgid "Grant this user super admin privileges for the Network."
+msgstr "এই ব্যবহারকারীকে নেটওয়ার্কের জন্য সুপার অ্যাডমিন সুবিধা মঞ্জুর করুন।"
+
+#: bbpress/form-user-edit.php:161
+msgid "Save Changes"
+msgstr "পরিবর্তনগুলি সংরক্ষণ করুন"
+
+#: bbpress/form-user-edit.php:167
+msgid "Update Profile"
+msgstr "প্রোফাইল আপডেট করুন"
+
+#: bbpress/form-user-edit.php:168
+msgid "Update User"
+msgstr "ব্যবহারকারী আপডেট করুন"
+
+#: bbpress/form-user-login.php:17 bbpress/form-user-login.php:38
+msgid "Log In"
+msgstr "লগ ইন"
+
+#: bbpress/form-user-login.php:25 bbpress/form-user-passwords.php:17
+#: inc/reg_process.php:24 inc/reg_process.php:25 page-signin.php:73
+#: woocommerce/checkout/form-coupon.php:47
+msgid "Password"
+msgstr "পাসওয়ার্ড"
+
+#: bbpress/form-user-login.php:31
+msgid "Keep me signed in"
+msgstr "আমাকে সাইন ইন করে রাখুন"
+
+#: bbpress/form-user-lost-pass.php:17
+msgid "Lost Password"
+msgstr "হারিয়ে যাওয়া পাসওয়ার্ড"
+
+#: bbpress/form-user-lost-pass.php:21 woocommerce/checkout/form-coupon.php:44
+msgid "Username or Email"
+msgstr "ব্যবহারকারীর নাম বা ইমেল"
+
+#: bbpress/form-user-lost-pass.php:31
+msgid "Reset My Password"
+msgstr "আমার পাসওয়ার্ড রিসেট করুন"
+
+#: bbpress/form-user-passwords.php:18
+msgid "Generate Password"
+msgstr "পাসওয়ার্ড জেনারেট করুন"
+
+#: bbpress/form-user-passwords.php:26
+msgid "Hide password"
+msgstr "পাসওয়ার্ড লুকান"
+
+#: bbpress/form-user-passwords.php:28 options/opt_blog.php:97
+#: options/opt_blog.php:106 options/opt_blog.php:116 options/opt_blog.php:126
+#: options/opt_blog.php:136 options/opt_blog.php:163 options/opt_blog.php:286
+#: options/opt_blog.php:295 options/opt_blog.php:305 options/opt_blog.php:315
+#: options/opt_blog.php:334 options/opt_blog.php:345
+#: options/opt_color_scheme.php:62 options/opt_dark.php:19
+#: options/opt_forum.php:28 options/opt_forum.php:100 options/opt_forum.php:172
+#: options/opt_forum.php:250 options/opt_general.php:202
+#: options/opt_header.php:101 options/opt_header.php:226
+#: options/opt_header.php:444 options/opt_header.php:554
+#: options/opt_header.php:647 options/opt_header.php:658
+#: options/opt_header.php:820 options/opt_header.php:835
+#: options/opt_header.php:1011
+msgid "Hide"
+msgstr "লুকান"
+
+#: bbpress/form-user-passwords.php:29
+msgid "Cancel password change"
+msgstr "পাসওয়ার্ড পরিবর্তন বাতিল করুন"
+
+#: bbpress/form-user-passwords.php:31
+#: inc/csf/classes/comment-options.class.php:202
+#: inc/csf/classes/metabox-options.class.php:281
+msgid "Cancel"
+msgstr "বাতিল"
+
+#: bbpress/form-user-passwords.php:40
+msgid "Repeat New Password"
+msgstr "নতুন পাসওয়ার্ড পুনরাবৃত্তি করুন"
+
+#: bbpress/form-user-passwords.php:42
+msgid "Type your new password again."
+msgstr "আপনার নতুন পাসওয়ার্ডটি আবার টাইপ করুন।"
+
+#: bbpress/form-user-passwords.php:46
+msgid "Confirm"
+msgstr "কনফার্ম"
+
+#: bbpress/form-user-register.php:17
+msgid "Create an Account"
+msgstr "একটি অ্যাকাউন্ট তৈরি করুন।"
+
+#: bbpress/form-user-register.php:23
+msgid "Your username must be unique, and cannot be changed later."
+msgstr "আপনার ব্যবহারকারী নাম অবশ্যই অনন্য হতে হবে এবং পরে পরিবর্তন করা যাবে না।"
+
+#: bbpress/form-user-register.php:24
+msgid ""
+"We use your email address to email you a secure password and verify your "
+"account."
+msgstr ""
+"আপনাকে একটি নিরাপদ পাসওয়ার্ড ইমেল করতে এবং আপনার অ্যাকাউন্ট যাচাই করতে আমরা "
+"আপনার ইমেল ঠিকানা ব্যবহার করি।"
+
+#: bbpress/form-user-register.php:42
+msgid "Register"
+msgstr "নিবন্ধন করুন"
+
+#: bbpress/form-user-roles.php:16
+msgid "Blog Role"
+msgstr "ব্লগের ভূমিকা"
+
+#: bbpress/form-user-roles.php:23
+msgid "Forum Role"
+msgstr "ফোরামের ভূমিকা"
+
+#: bbpress/loop-forums.php:19 inc/ajax_actions.php:30 search.php:30
+msgid "Forum"
+msgstr "সংগঠন"
+
+#: bbpress/loop-forums.php:25
+msgid "Posts"
+msgstr "প্রতিবেদন"
+
+#: bbpress/loop-forums.php:26
+msgid "Last Post"
+msgstr "শেষ পোস্ট"
+
+#: bbpress/loop-search-forum.php:17
+#, php-format
+msgid "Last updated %s"
+msgstr "সর্বশেষ আপডেট %s"
+
+#: bbpress/loop-search-reply.php:22
+msgid "In reply to: "
+msgstr "এর উত্তরে: "
+
+#: bbpress/loop-search-topic.php:25
+msgid "Topic:"
+msgstr "বিষয়ঃ"
+
+#: bbpress/loop-search-topic.php:32
+msgid "in group forum "
+msgstr "গ্রুপ ফোরামে "
+
+#: bbpress/loop-search-topic.php:36
+msgid "in forum "
+msgstr "ফোরামে "
+
+#: bbpress/loop-search.php:19 bbpress/loop-search.php:41
+#: bbpress/loop-topics-head.php:10 options/opt_blog.php:132
+msgid "Author"
+msgstr "লেখক"
+
+#: bbpress/loop-search.php:23 bbpress/loop-search.php:45
+msgid "Search Results"
+msgstr "অনুসন্ধানের ফলাফল"
+
+#: bbpress/loop-topics-head.php:13
+msgid "Filter by author"
+msgstr "লেখক দ্বারা ফিল্টার করুন"
+
+#: bbpress/loop-topics-head.php:15
+msgid "Search users"
+msgstr "ব্যবহারকারী অনুসন্ধান করুন"
+
+#: bbpress/loop-topics-head.php:26
+msgid "Label"
+msgstr "লেবেল"
+
+#: bbpress/loop-topics-head.php:29
+msgid "Filter by label"
+msgstr "লেবেল দ্বারা ফিল্টার করুন"
+
+#: bbpress/loop-topics-head.php:31
+msgid "Search label"
+msgstr "অনুসন্ধান লেবেল"
+
+#: bbpress/loop-topics-head.php:42
+msgid "Sort"
+msgstr "বাছাই"
+
+#: bbpress/loop-topics-head.php:45 woocommerce/loop/orderby.php:47
+msgid "Sort by"
+msgstr "ক্রমানুসার"
+
+#: bbpress/loop-topics-head.php:47
+msgid "Newest"
+msgstr "নতুনতম"
+
+#: bbpress/loop-topics-head.php:48
+msgid "Oldest"
+msgstr "প্রাচীনতম"
+
+#: bbpress/loop-topics-head.php:49
+msgid "Most commented"
+msgstr "সর্বাধিক মন্তব্য করা হয়েছে"
+
+#: bbpress/loop-topics-head.php:50
+msgid "Least commented"
+msgstr "ন্যূনতম মন্তব্য করা হয়েছে"
+
+#: bbpress/loop-topics-head.php:51
+msgid "Recently updated"
+msgstr "সম্প্রতি আপডেট করা হয়েছে"
+
+#: bbpress/loop-topics-head.php:52
+msgid "Least recently updated"
+msgstr "সবচেয়ে কম সম্প্রতি আপডেট করা হয়েছে"
+
+#: bbpress/loop-topics.php:114
+msgid "Oops! No Post Found"
+msgstr "উফ! কোন পোস্ট পাওয়া যায়নি"
+
+#: bbpress/user-details.php:35
+#, php-format
+msgid "%s's Profile"
+msgstr "%s প্রোফাইল"
+
+#: bbpress/user-details.php:35 bbpress/user-profile.php:18
+msgid "Profile"
+msgstr "প্রোফাইল"
+
+#: bbpress/user-details.php:41
+#, php-format
+msgid "%s's Topics Started"
+msgstr "%s টপিকস শুরু হয়েছে"
+
+#: bbpress/user-details.php:41
+msgid "Topics Started"
+msgstr "টপিকস শুরু হয়েছে"
+
+#: bbpress/user-details.php:47
+#, php-format
+msgid "%s's Replies Created"
+msgstr "%s জবাবগুলি তৈরি করা হয়েছে"
+
+#: bbpress/user-details.php:47
+msgid "Replies Created"
+msgstr "জবাবসমূহ তৈরি করা হয়েছে"
+
+#: bbpress/user-details.php:54
+#, php-format
+msgid "%s's Engagements"
+msgstr "%s ব্যস্ততা"
+
+#: bbpress/user-details.php:54
+msgid "Engagements"
+msgstr "ব্যস্ততা"
+
+#: bbpress/user-details.php:62
+#, php-format
+msgid "%s's Favorites"
+msgstr "%s প্রিয়"
+
+#: bbpress/user-details.php:62 inc/classes/Docy_Forum_Class.php:137
+msgid "Favorites"
+msgstr "পছন্দসই"
+
+#: bbpress/user-details.php:72
+#, php-format
+msgid "%s's Subscriptions"
+msgstr "%s সাবস্ক্রিপশন"
+
+#: bbpress/user-details.php:72
+msgid "Subscriptions"
+msgstr "সাবস্ক্রিপশন"
+
+#: bbpress/user-details.php:79
+#, php-format
+msgid "Edit %s's Profile"
+msgstr "%s প্রোফাইল সম্পাদনা করুন"
+
+#: bbpress/user-details.php:79
+msgid "Edit"
+msgstr "সম্পাদনা"
+
+#: bbpress/user-engagements.php:19
+msgid "Topics Engaged In"
+msgstr "এতে জড়িত বিষয়সমূহ"
+
+#: bbpress/user-favorites.php:19
+msgid "Favorite Forum Topics"
+msgstr "প্রিয় ফোরাম বিষয়"
+
+#: bbpress/user-profile.php:19
+#, php-format
+msgid "Registered: %s"
+msgstr "নিবন্ধিত: %s"
+
+#: bbpress/user-profile.php:29
+#, php-format
+msgid "Website: %s"
+msgstr "ওয়েবসাইট: %s"
+
+#: bbpress/user-profile.php:38
+#, php-format
+msgid "Last Activity: %s"
+msgstr "শেষ কাজ: %s"
+
+#: bbpress/user-profile.php:42
+#, php-format
+msgid "Topics Started: %s"
+msgstr "বিষয় শুরু: %s"
+
+#: bbpress/user-profile.php:43
+#, php-format
+msgid "Replies Created: %s"
+msgstr "জবাবসমূহ তৈরি করা হয়েছে: %s"
+
+#: bbpress/user-profile.php:44
+#, php-format
+msgid "Forum Role: %s"
+msgstr "ফোরামের ভূমিকা: %s"
+
+#: bbpress/user-replies-created.php:19
+msgid "Forum Replies Created"
+msgstr "ফোরামের জবাবসমূহ তৈরি করা হয়েছে"
+
+#: bbpress/user-subscriptions.php:23
+msgid "Subscribed Forums"
+msgstr "সাবস্ক্রাইব করা ফোরাম"
+
+#: bbpress/user-subscriptions.php:38
+msgid "Subscribed Topics"
+msgstr "সাবস্ক্রাইব করা বিষয়সমূহ"
+
+#: bbpress/user-topics-created.php:19
+msgid "Forum Topics Started"
+msgstr "ফোরামের টপিক শুরু হয়েছে"
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr "মন্তব্য বন্ধ।"
+
+#: comments.php:56
+msgid "Website (Optional)"
+msgstr "ওয়েবসাইট (ঐচ্ছিক)"
+
+#: comments.php:58
+msgid "Full Name"
+msgstr "Voor-en achternaam"
+
+#: comments.php:58
+msgid "Full Name *"
+msgstr "সম্পূর্ণ নাম *"
+
+#: comments.php:59 woocommerce/single-product-reviews.php:69
+msgid "Email *"
+msgstr "ইমেল*"
+
+#: comments.php:67
+msgid "Leave a Comment"
+msgstr "একটি মন্তব্য দিন"
+
+#: comments.php:70
+msgid "Comment"
+msgstr "মন্তব্য"
+
+#: footer.php:29
+msgid "©2023 Spider-Themes. All rights reserved"
+msgstr "©২০২৩ স্পাইডার-থিমস। সর্বস্বত্ব সংরক্ষিত"
+
+#: footer.php:50 options/opt_general.php:186 options/opt_general.php:192
+msgid "Back to Top"
+msgstr "শীর্ষে ফিরে যান"
+
+#: functions.php:56 options/opt_menu.php:15 options/opt_menu.php:21
+msgid "Main Menu"
+msgstr "মূল মেনু"
+
+#: header.php:57
+msgid "Toggle navigation"
+msgstr "টগল নেভিগেশান"
+
+#: inc/admin/dashboard/Docy_admin_dashboard.php:22
+msgid "Docy Dashboard"
+msgstr "ডসি ড্যাশবোর্ড"
+
+#: inc/admin/dashboard/Docy_admin_dashboard.php:23
+msgid "Register/Verify"
+msgstr "নিবন্ধন/যাচাই করুন"
+
+#: inc/admin/dashboard/dashboard.php:4
+msgid "Welcome to Docy!"
+msgstr "ডসিতে স্বাগতম!"
+
+#: inc/admin/dashboard/dashboard.php:5
+msgid "Verify Your Purchase of Docy WordPress Theme"
+msgstr "আপনার ডোসি ওয়ার্ডপ্রেস থিম ক্রয় যাচাই করুন"
+
+#: inc/admin/features.php:3
+msgid "Unlock Features You Paid For!"
+msgstr "আপনি যে বৈশিষ্ট্যগুলির জন্য অর্থ প্রদান করেছেন তা আনলক করুন!"
+
+#: inc/admin/features.php:8
+msgid "One-Click Demo Import"
+msgstr "এক-ক্লিক ডেমো আমদানি"
+
+#: inc/admin/features.php:9
+msgid "Choose a pre-built layout for starting a quick design process."
+msgstr "দ্রুত নকশা প্রক্রিয়া শুরু করার জন্য একটি প্রাক-বিল্ট লেআউট চয়ন করুন।"
+
+#: inc/admin/features.php:12
+msgid "Premium and Useful Plugins"
+msgstr "প্রিমিয়াম এবং দরকারী প্লাগিন"
+
+#: inc/admin/features.php:13
+msgid "Get access to premium and exclusive plugins for free."
+msgstr "বিনামূল্যে প্রিমিয়াম এবং এক্সক্লুসিভ প্লাগইন অ্যাক্সেস পান।"
+
+#: inc/admin/features.php:16
+msgid "Premium, Dedicated Support"
+msgstr "প্রিমিয়াম, ডেডিকেটেড সাপোর্ট"
+
+#: inc/admin/features.php:17
+msgid "Get access to top-notch support."
+msgstr "সেরা খাঁজ সমর্থনে অ্যাক্সেস পান।"
+
+#: inc/admin/features.php:22
+msgid "Need Help?"
+msgstr "সাহায্য দরকার?"
+
+#: inc/admin/features.php:27
+msgid "Docy Documentation"
+msgstr "ডসি ডকুমেন্টেশন"
+
+#: inc/admin/features.php:32
+msgid "Docy YouTube Playlist"
+msgstr "ডসি ইউটিউব প্লেলিস্ট"
+
+#: inc/admin/notices.php:28
+msgid ""
+"We have detected another Options Framework Plugin installed in this site."
+msgstr "আমরা এই সাইটে ইনস্টল করা অন্য বিকল্প ফ্রেমওয়ার্ক প্লাগইন সনাক্ত করেছি।"
+
+#: inc/admin/notices.php:29
+msgid ""
+"We've removed dependency from Redux framework. If you don't use Redux "
+"framework's other features, you can deactivate it."
+msgstr ""
+"আমরা Redux ফ্রেমওয়ার্ক থেকে নির্ভরতা অপসারণ করেছি। আপনি যদি রিডাক্স ফ্রেমওয়ার্কের "
+"অন্যান্য বৈশিষ্ট্যগুলি ব্যবহার না করেন তবে আপনি এটি নিষ্ক্রিয় করতে পারেন।"
+
+#: inc/admin/notices.php:33
+msgid "Deactivate Redux Framework"
+msgstr "Redux ফ্রেমওয়ার্ক নিষ্ক্রিয় করুন"
+
+#: inc/admin/registration.php:23
+msgid "Where can find purchase code!"
+msgstr "ক্রয় কোড কোথায় পাওয়া যাবে!"
+
+#: inc/admin/settings-options.php:12
+msgid "Theme Settings"
+msgstr "থিম সেটিংস"
+
+#. Theme Name of the plugin/theme
+#: inc/admin/settings-options.php:14
+msgid "Docy"
+msgstr "ডসি"
+
+#: inc/admin/support/changelog.php:3 inc/admin/support/knowledge.php:3
+msgid "Docy Knowledge Base"
+msgstr "ডসি নলেজ বেস"
+
+#: inc/admin/support/changelog.php:6
+msgid "Changelog"
+msgstr "চেঞ্জলগ"
+
+#: inc/admin/support/changelog.php:7
+msgid "See what’s new with each update."
+msgstr "প্রতিটি আপডেটে নতুন কী আছে তা দেখুন।"
+
+#: inc/admin/support/changelog.php:9
+msgid "View Changelog"
+msgstr "চেঞ্জলগ প্রদর্শন করুন"
+
+#: inc/admin/support/knowledge.php:6
+msgid "Knowledge Base"
+msgstr "জ্ঞান বেস"
+
+#: inc/admin/support/knowledge.php:7
+msgid "Extended documentation with articles, FAQs and more."
+msgstr "নিবন্ধ, প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী এবং আরও অনেক কিছু সহ বর্ধিত ডকুমেন্টেশন।"
+
+#: inc/admin/support/knowledge.php:9
+msgid "Go to Documentation"
+msgstr "ডকুমেন্টেশনে যান"
+
+#: inc/admin/support/support.php:19
+msgid "Liquid Support"
+msgstr "তরল সমর্থন"
+
+#: inc/admin/support/support.php:20 inc/admin/tabs.php:29
+msgid "Support"
+msgstr "সমর্থন"
+
+#: inc/admin/support/ticket.php:6
+msgid "Submit a Ticket"
+msgstr "টিকিট জমা দিন"
+
+#: inc/admin/support/ticket.php:7
+msgid "Feel free to reach our support team for further assistance."
+msgstr "আরও সহায়তার জন্য আমাদের সহায়তা দলের সাথে নির্দ্বিধায় যোগাযোগ করুন।"
+
+#: inc/admin/support/ticket.php:9
+msgid "Contact Us"
+msgstr "আমাদের সাথে যোগাযোগ করুন"
+
+#: inc/admin/tabs.php:14
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: inc/admin/tabs.php:19 inc/tgm/class-tgm-plugin-activation.php:303
+msgid "Install Plugins"
+msgstr "প্লাগইন ইনস্টল করুন"
+
+#: inc/admin/tabs.php:24
+msgid "Import Demo"
+msgstr "ডেমো আমদানি করুন"
+
+#: inc/admin/tabs.php:35
+msgid "Documentations"
+msgstr "ডকুমেন্টেশন"
+
+#: inc/ajax_actions.php:22 search.php:25
+msgid "Docs"
+msgstr "ডক্স"
+
+#: inc/ajax_actions.php:36 inc/ajax_actions.php:204
+#: inc/classes/Docy_helper.php:99 inc/template-functions.php:160
+#: inc/template-functions.php:206 search.php:34
+msgid "Blog"
+msgstr "ব্লগ"
+
+#: inc/ajax_actions.php:90
+msgid "No result found!"
+msgstr "কোন ফলাফল পাওয়া যায়নি!"
+
+#: inc/ajax_actions.php:333 inc/ajax_actions.php:451 inc/ajax_actions.php:587
+#: inc/ajax_actions.php:671
+msgid "Oops! No results matched your search."
+msgstr "উফ! আপনার অনুসন্ধানের সাথে কোনও ফলাফল মেলে না।"
+
+#: inc/ajax_actions.php:334 inc/ajax_actions.php:452 inc/ajax_actions.php:588
+#: inc/ajax_actions.php:672
+msgid "You could search again."
+msgstr "আপনি আবার অনুসন্ধান করতে পারেন।"
+
+#: inc/classes/Docy_Forum_Class.php:132
+msgid "TOPIC"
+msgstr "বিষয়"
+
+#: inc/classes/Docy_Forum_Class.php:136
+msgid "Comments"
+msgstr "মন্তব্য সমূহ"
+
+#: inc/classes/Docy_Forum_Class.php:146
+msgid " Open"
+msgstr " খুলুন"
+
+#: inc/classes/Docy_Forum_Class.php:152
+msgid " Closed"
+msgstr " বন্ধ"
+
+#: inc/classes/Docy_Forum_Class.php:158
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+#: inc/csf/classes/comment-options.class.php:201
+#: inc/csf/classes/metabox-options.class.php:280
+#: inc/csf/fields/backup/backup.php:31
+msgid "Reset"
+msgstr "রিসেট"
+
+#: inc/classes/Docy_Forum_Class.php:169
+msgid "Sticky"
+msgstr "স্টিকি"
+
+#: inc/classes/Docy_Forum_Class.php:174
+msgid "Closed"
+msgstr "বন্ধ আছে"
+
+#: inc/classes/Docy_Walker_Comment.php:47
+msgid "Your comment is awaiting moderation."
+msgstr "আপনার মতামত বিবেচনাধীন।"
+
+#: inc/classes/Docy_Walker_Comment.php:52
+msgid "Reply"
+msgstr "উত্তর"
+
+#. translators: %d: ID of a post
+#: inc/classes/Docy_Walker_Docs.php:137
+#, php-format
+msgid "#%d (no title)"
+msgstr "#%d (শিরোনাম নেই)"
+
+#: inc/classes/Docy_Walker_Docs.php:142
+msgid "folder icon closed"
+msgstr "ফোল্ডার আইকন বন্ধ হয়েছে"
+
+#: inc/classes/Docy_Walker_Docs.php:142
+msgid "folder icon"
+msgstr "ফোল্ডার আইকন"
+
+#: inc/classes/Docy_Walker_Docs.php:249
+msgid "Pages"
+msgstr "পাতা"
+
+#: inc/classes/Docy_helper.php:108
+msgid "Search result for: “"
+msgstr "এর জন্য অনুসন্ধানের ফলাফল: \""
+
+#: inc/classes/Docy_register_theme.php:83
+#, php-format
+msgid "The %s theme needs to be registered. %sRegister Now%s"
+msgstr "%s থিমটি নিবন্ধন করতে হবে। %s এখনই রেজিস্ট্রেশন করুন%s"
+
+#: inc/classes/Docy_register_theme.php:93
+#, php-format
+msgid "Purchase code is invalid. Need a license? %sPurchase Now%s"
+msgstr "ক্রয়ের কোডটি অবৈধ। লাইসেন্স লাগবে? %s এখনই কিনুন%s"
+
+#: inc/classes/Docy_register_theme.php:107
+msgid "Purchase Verified"
+msgstr "ক্রয় যাচাই করা হয়েছে"
+
+#: inc/classes/Docy_register_theme.php:107
+msgid "Purchase Code Invalid"
+msgstr "ক্রয়ের কোড অবৈধ"
+
+#: inc/classes/Docy_register_theme.php:110
+msgid "Verify by . . ."
+msgstr "যাচাই করুন . . ."
+
+#: inc/classes/Docy_register_theme.php:140
+msgid "Enter your purchase code"
+msgstr "আপনার ক্রয়ের কোড লিখুন"
+
+#: inc/classes/Docy_register_theme.php:141
+msgid "Register your copy"
+msgstr "আপনার অনুলিপি নিবন্ধন করুন"
+
+#: inc/csf/classes/admin-options.class.php:169
+msgid "Error while saving the changes."
+msgstr "পরিবর্তনগুলি সংরক্ষণ করার সময় ত্রুটি।"
+
+#: inc/csf/classes/admin-options.class.php:229
+msgid "Settings successfully imported."
+msgstr "সেটিংস সফলভাবে আমদানি করা হয়েছে।"
+
+#: inc/csf/classes/admin-options.class.php:241
+#: inc/csf/classes/admin-options.class.php:257
+msgid "Default settings restored."
+msgstr "ডিফল্ট সেটিংস পুনরুদ্ধার হয়েছে।"
+
+#: inc/csf/classes/admin-options.class.php:328
+msgid "Settings saved."
+msgstr "dssd"
+
+#: inc/csf/classes/admin-options.class.php:509
+msgid "You have unsaved changes, save your changes!"
+msgstr "আপনার অসংরক্ষিত পরিবর্তনগুলি আছে, আপনার পরিবর্তনগুলি সংরক্ষণ করুন!"
+
+#: inc/csf/classes/admin-options.class.php:511
+msgid "show all settings"
+msgstr "সমস্ত সেটিংস দেখান"
+
+#: inc/csf/classes/admin-options.class.php:513 inc/csf/fields/icon/icon.php:57
+#: inc/csf/fields/map/map.php:23
+#: template-parts/header-elements/layout-default.php:22
+#: template-parts/header-elements/layout-search.php:27
+msgid "Search..."
+msgstr "অনুসন্ধান ..."
+
+#: inc/csf/classes/admin-options.class.php:516
+#: inc/csf/classes/admin-options.class.php:639
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+#: inc/csf/classes/admin-options.class.php:516
+#: inc/csf/classes/admin-options.class.php:639
+msgid "Saving..."
+msgstr "সংরক্ষণ।।।"
+
+#: inc/csf/classes/admin-options.class.php:517
+#: inc/csf/classes/admin-options.class.php:640
+msgid "Reset Section"
+msgstr "রিসেট বিভাগ"
+
+#: inc/csf/classes/admin-options.class.php:517
+#: inc/csf/classes/admin-options.class.php:640
+msgid "Are you sure to reset this section options?"
+msgstr "তুমি কি এই বিভাগের বিকল্পগুলি পুনরায় সেট করার বিষয়ে নিশ্চিত?"
+
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+msgid "Reset All"
+msgstr "সব রিসেট করুন"
+
+#: inc/csf/classes/admin-options.class.php:518
+#: inc/csf/classes/admin-options.class.php:641
+msgid "Are you sure you want to reset all settings to default values?"
+msgstr "তুমি কি নিশ্চিত যে তুমি সমস্ত সেটিংসকে ডিফল্ট মানে পুনরায় সেট করতে চাও?"
+
+#: inc/csf/classes/admin-options.class.php:616
+#: inc/csf/classes/comment-options.class.php:184
+#: inc/csf/classes/metabox-options.class.php:263
+#: inc/csf/fields/button_set/button_set.php:56
+#: inc/csf/fields/checkbox/checkbox.php:82 inc/csf/fields/radio/radio.php:75
+#: inc/csf/fields/select/select.php:113 inc/csf/functions/actions.php:41
+msgid "No data available."
+msgstr "কোনও তথ্য সুলভ নেই।"
+
+#: inc/csf/classes/comment-options.class.php:202
+#: inc/csf/classes/metabox-options.class.php:281
+msgid "update post"
+msgstr "পোস্ট আপডেট করুন"
+
+#: inc/csf/classes/setup.class.php:615
+msgid "Are you sure?"
+msgstr "আপনি কি নিশ্চিত?"
+
+#: inc/csf/classes/setup.class.php:616
+#, php-format
+msgid "Please enter %s or more characters"
+msgstr "দয়া করে %s বা আরও অক্ষর লিখুন"
+
+#: inc/csf/classes/setup.class.php:617
+msgid "Searching..."
+msgstr "সন্ধানের।।।"
+
+#: inc/csf/classes/setup.class.php:618
+msgid "No results found."
+msgstr "কোন ফলাফল পাওয়া যায়নি।"
+
+#: inc/csf/classes/setup.class.php:719
+msgid "Oops! Not allowed."
+msgstr "উফ! অনুমতি দেওয়া হয় না।"
+
+#: inc/csf/classes/setup.class.php:787 inc/csf/classes/setup.class.php:791
+msgid "Field not found!"
+msgstr "ক্ষেত্র পাওয়া যায়নি!"
+
+#: inc/csf/classes/shortcode-options.class.php:210
+#: inc/csf/fields/group/group.php:23 options/opt_footer.php:201
+msgid "Add New"
+msgstr "নতুন"
+
+#: inc/csf/classes/shortcode-options.class.php:247
+#: inc/csf/functions/actions.php:16 inc/csf/functions/actions.php:68
+#: inc/csf/functions/actions.php:106 inc/csf/functions/actions.php:141
+#: inc/csf/functions/actions.php:170
+msgid "Error: Invalid nonce verification."
+msgstr "ত্রুটি: অবৈধ নন যাচাইকরণ।"
+
+#: inc/csf/fields/background/background.php:36
+#: inc/csf/fields/media/media.php:59
+msgid "Not selected"
+msgstr "অনির্বাচিত"
+
+#: inc/csf/fields/background/background.php:72 inc/csf/fields/date/date.php:31
+#: inc/csf/fields/datetime/datetime.php:36
+msgid "From"
+msgstr "থেকে"
+
+#: inc/csf/fields/background/background.php:90 inc/csf/fields/date/date.php:32
+#: inc/csf/fields/datetime/datetime.php:37
+msgid "To"
+msgstr "করতে"
+
+#: inc/csf/fields/background/background.php:108
+msgid "Direction"
+msgstr "দিকনির্দেশনা"
+
+#: inc/csf/fields/background/background.php:114
+msgid "Gradient Direction"
+msgstr "গ্রেডিয়েন্ট দিক"
+
+#: inc/csf/fields/background/background.php:115
+msgid "&#8659; top to bottom"
+msgstr "⇓ উপর থেকে নীচে"
+
+#: inc/csf/fields/background/background.php:116
+msgid "&#8658; left to right"
+msgstr "⇒ বাম থেকে ডানে"
+
+#: inc/csf/fields/background/background.php:117
+msgid "&#8664; corner top to right"
+msgstr "⇘ কোণার উপরে থেকে ডানে"
+
+#: inc/csf/fields/background/background.php:118
+msgid "&#8665; corner top to left"
+msgstr "⇙ কোণার উপরে থেকে বাম"
+
+#: inc/csf/fields/background/background.php:161
+msgid "Background Position"
+msgstr "পটভূমি অবস্থান"
+
+#: inc/csf/fields/background/background.php:162
+msgid "Left Top"
+msgstr "বাম শীর্ষ"
+
+#: inc/csf/fields/background/background.php:163
+msgid "Left Center"
+msgstr "বাম কেন্দ্র"
+
+#: inc/csf/fields/background/background.php:164
+msgid "Left Bottom"
+msgstr "লেফট বটম"
+
+#: inc/csf/fields/background/background.php:165
+msgid "Center Top"
+msgstr "সেন্টার টপ"
+
+#: inc/csf/fields/background/background.php:166
+msgid "Center Center"
+msgstr "কেন্দ্র কেন্দ্র"
+
+#: inc/csf/fields/background/background.php:167
+msgid "Center Bottom"
+msgstr "সেন্টার বটম"
+
+#: inc/csf/fields/background/background.php:168
+msgid "Right Top"
+msgstr "রাইট টপ"
+
+#: inc/csf/fields/background/background.php:169
+msgid "Right Center"
+msgstr "ডান কেন্দ্র"
+
+#: inc/csf/fields/background/background.php:170
+msgid "Right Bottom"
+msgstr "ডান নীচে"
+
+#: inc/csf/fields/background/background.php:184
+msgid "Background Repeat"
+msgstr "ব্যাকগ্রাউন্ড রিপিট"
+
+#: inc/csf/fields/background/background.php:185
+msgid "Repeat"
+msgstr "পুনরাবৃত্তি"
+
+#: inc/csf/fields/background/background.php:186
+msgid "No Repeat"
+msgstr "পুনরাবৃত্তি নয়"
+
+#: inc/csf/fields/background/background.php:187
+msgid "Repeat Horizontally"
+msgstr "অনুভূমিকভাবে পুনরাবৃত্তি করুন"
+
+#: inc/csf/fields/background/background.php:188
+msgid "Repeat Vertically"
+msgstr "উল্লম্বভাবে পুনরাবৃত্তি করুন"
+
+#: inc/csf/fields/background/background.php:202
+msgid "Background Attachment"
+msgstr "পটভূমি সংযুক্তি"
+
+#: inc/csf/fields/background/background.php:203
+msgid "Scroll"
+msgstr "স্ক্রোল"
+
+#: inc/csf/fields/background/background.php:204
+msgid "Fixed"
+msgstr "একদাম"
+
+#: inc/csf/fields/background/background.php:218
+msgid "Background Size"
+msgstr "পটভূমির আকার"
+
+#: inc/csf/fields/background/background.php:219
+msgid "Cover"
+msgstr "কভার"
+
+#: inc/csf/fields/background/background.php:220
+msgid "Contain"
+msgstr "কনটেইন"
+
+#: inc/csf/fields/background/background.php:221
+msgid "Auto"
+msgstr "অটো"
+
+#: inc/csf/fields/background/background.php:235
+msgid "Background Origin"
+msgstr "পটভূমি উৎপত্তি"
+
+#: inc/csf/fields/background/background.php:236
+#: inc/csf/fields/background/background.php:254
+msgid "Padding Box"
+msgstr "প্যাডিং বক্স"
+
+#: inc/csf/fields/background/background.php:237
+#: inc/csf/fields/background/background.php:253
+msgid "Border Box"
+msgstr "বর্ডার বক্স"
+
+#: inc/csf/fields/background/background.php:238
+#: inc/csf/fields/background/background.php:255
+msgid "Content Box"
+msgstr "বিষয়বস্তু বাক্স"
+
+#: inc/csf/fields/background/background.php:252
+msgid "Background Clip"
+msgstr "ব্যাকগ্রাউন্ড ক্লিপ"
+
+#: inc/csf/fields/background/background.php:269
+msgid "Background Blend Mode"
+msgstr "ব্যাকগ্রাউন্ড ব্লেন্ড মোড"
+
+#: inc/csf/fields/background/background.php:270
+#: inc/csf/fields/link_color/link_color.php:36
+#: inc/csf/fields/typography/typography.php:186
+msgid "Normal"
+msgstr "স্বাভাবিক"
+
+#: inc/csf/fields/background/background.php:271
+msgid "Multiply"
+msgstr "গুণ করুন"
+
+#: inc/csf/fields/background/background.php:272
+msgid "Screen"
+msgstr "স্ক্রীন"
+
+#: inc/csf/fields/background/background.php:273
+msgid "Overlay"
+msgstr "ওভারলে"
+
+#: inc/csf/fields/background/background.php:274
+msgid "Darken"
+msgstr "অন্ধকার"
+
+#: inc/csf/fields/background/background.php:275
+msgid "Lighten"
+msgstr "হালকা করুন"
+
+#: inc/csf/fields/background/background.php:276
+msgid "Color Dodge"
+msgstr "কালার ডজ"
+
+#: inc/csf/fields/background/background.php:277
+msgid "Saturation"
+msgstr "সম্পৃক্তি"
+
+#: inc/csf/fields/background/background.php:278
+msgid "Color"
+msgstr "রঙ"
+
+#: inc/csf/fields/background/background.php:279
+msgid "Luminosity"
+msgstr "ঔজ্জ্বল্য"
+
+#: inc/csf/fields/backup/backup.php:26
+msgid "Import"
+msgstr "আমদানি"
+
+#: inc/csf/fields/backup/backup.php:29
+msgid "Export & Download"
+msgstr "এক্সপোর্ট ও ডাউনলোড করুন"
+
+#: inc/csf/fields/border/border.php:25 inc/csf/fields/spacing/spacing.php:25
+msgid "top"
+msgstr "শীর্ষ"
+
+#: inc/csf/fields/border/border.php:26 inc/csf/fields/spacing/spacing.php:26
+msgid "right"
+msgstr "ডানদিকে"
+
+#: inc/csf/fields/border/border.php:27 inc/csf/fields/spacing/spacing.php:27
+msgid "bottom"
+msgstr "নিচে"
+
+#: inc/csf/fields/border/border.php:28 inc/csf/fields/spacing/spacing.php:28
+msgid "left"
+msgstr "বাঁদিকে"
+
+#: inc/csf/fields/border/border.php:29 inc/csf/fields/spacing/spacing.php:29
+msgid "all"
+msgstr "সকল"
+
+#: inc/csf/fields/border/border.php:51
+#: inc/csf/fields/typography/typography.php:214
+msgid "Solid"
+msgstr "কঠিন"
+
+#: inc/csf/fields/border/border.php:52
+#: inc/csf/fields/typography/typography.php:217
+msgid "Dashed"
+msgstr "বিধ্বস্ত"
+
+#: inc/csf/fields/border/border.php:53
+#: inc/csf/fields/typography/typography.php:216
+msgid "Dotted"
+msgstr "বিন্দু বিন্দু"
+
+#: inc/csf/fields/border/border.php:54
+#: inc/csf/fields/typography/typography.php:215
+msgid "Double"
+msgstr "দ্বিগুণ"
+
+#: inc/csf/fields/border/border.php:55
+msgid "Inset"
+msgstr "অন্তর্যোজনা"
+
+#: inc/csf/fields/border/border.php:56
+msgid "Outset"
+msgstr "সূচনা"
+
+#: inc/csf/fields/border/border.php:57
+msgid "Groove"
+msgstr "খাঁজ খাঁজ"
+
+#: inc/csf/fields/border/border.php:58
+msgid "ridge"
+msgstr "শৈলশিরা"
+
+#: inc/csf/fields/border/border.php:59
+#: inc/csf/fields/typography/typography.php:199
+#: inc/csf/fields/typography/typography.php:213
+msgid "None"
+msgstr "কোনোটিই নয়"
+
+#: inc/csf/fields/checkbox/checkbox.php:23
+msgid "Check/Uncheck All"
+msgstr "সমস্ত চেক/আনচেক করুন"
+
+#: inc/csf/fields/dimensions/dimensions.php:22
+msgid "width"
+msgstr "প্রস্থ"
+
+#: inc/csf/fields/dimensions/dimensions.php:23
+msgid "height"
+msgstr "উচ্চতা"
+
+#: inc/csf/fields/gallery/gallery.php:20
+msgid "Add Gallery"
+msgstr "গ্যালারী যুক্ত করুন"
+
+#: inc/csf/fields/gallery/gallery.php:21
+msgid "Edit Gallery"
+msgstr "গ্যালারী সম্পাদনা করুন"
+
+#: inc/csf/fields/gallery/gallery.php:22 inc/filter_actions.php:146
+#: woocommerce/single-product/add-to-cart/variable.php:46
+msgid "Clear"
+msgstr "পরিষ্কার"
+
+#: inc/csf/fields/group/group.php:41 inc/csf/fields/repeater/repeater.php:27
+msgid "Error: Field ID conflict."
+msgstr "ত্রুটি: ফিল্ড আইডি দ্বন্দ্ব।"
+
+#: inc/csf/fields/group/group.php:52 inc/csf/fields/group/group.php:107
+#: inc/csf/fields/repeater/repeater.php:48
+#: inc/csf/fields/repeater/repeater.php:76
+msgid "Are you sure to delete this item?"
+msgstr "আপনি কি এই বিষয়োপকরণটি মুছে ফেলার বিষয়ে নিশ্চিত?"
+
+#: inc/csf/fields/group/group.php:141 inc/csf/fields/repeater/repeater.php:89
+msgid "You cannot add more."
+msgstr "আপনি আর যোগ করতে পারবেন না।"
+
+#: inc/csf/fields/group/group.php:142 inc/csf/fields/repeater/repeater.php:90
+msgid "You cannot remove more."
+msgstr "আপনি আর অপসারণ করতে পারবেন না।"
+
+#: inc/csf/fields/icon/icon.php:20 inc/csf/fields/icon/icon.php:53
+msgid "Add Icon"
+msgstr "আইকন যুক্ত করুন"
+
+#: inc/csf/fields/icon/icon.php:21
+msgid "Remove Icon"
+msgstr "আইকন অপসারণ করুন"
+
+#: inc/csf/fields/link/link.php:20
+msgid "Add Link"
+msgstr "Voeg link toe"
+
+#: inc/csf/fields/link/link.php:21
+msgid "Edit Link"
+msgstr "লিংক সম্পাদনা করুন"
+
+#: inc/csf/fields/link/link.php:22
+msgid "Remove Link"
+msgstr "লিংক সরান"
+
+#: inc/csf/fields/link_color/link_color.php:37
+msgid "Hover"
+msgstr "হোভার"
+
+#: inc/csf/fields/link_color/link_color.php:38
+#: inc/tgm/class-tgm-plugin-activation.php:2380
+msgid "Active"
+msgstr "সক্রিয়"
+
+#: inc/csf/fields/link_color/link_color.php:39
+msgid "Visited"
+msgstr "পরিদর্শিত"
+
+#: inc/csf/fields/link_color/link_color.php:40
+msgid "Focus"
+msgstr "ফোকাস"
+
+#: inc/csf/fields/map/map.php:24
+msgid "Latitude"
+msgstr "অক্ষাংশ"
+
+#: inc/csf/fields/map/map.php:25
+msgid "Longitude"
+msgstr "দ্রাঘিমাংশ"
+
+#: inc/csf/fields/media/media.php:25 inc/csf/fields/upload/upload.php:24
+msgid "Upload"
+msgstr "আপলোড"
+
+#: inc/csf/fields/media/media.php:26 inc/csf/fields/upload/upload.php:25
+msgid "Remove"
+msgstr "অপসারণ"
+
+#: inc/csf/fields/sorter/sorter.php:21 options/opt_header.php:454
+msgid "Enabled"
+msgstr "সক্রিয়"
+
+#: inc/csf/fields/sorter/sorter.php:22 options/opt_header.php:455
+msgid "Disabled"
+msgstr "অক্ষম"
+
+#: inc/csf/fields/switcher/switcher.php:20 options/opt_privacy.php:12
+msgid "On"
+msgstr "চালু"
+
+#: inc/csf/fields/switcher/switcher.php:21 options/opt_privacy.php:13
+msgid "Off"
+msgstr "বন্ধ"
+
+#: inc/csf/fields/typography/typography.php:96
+msgid "Font Family"
+msgstr "ফন্ট পরিবার"
+
+#: inc/csf/fields/typography/typography.php:97
+msgid "Select a font"
+msgstr "একটি ফন্ট নির্বাচন করুন"
+
+#: inc/csf/fields/typography/typography.php:105
+msgid "Backup Font Family"
+msgstr "ব্যাকআপ ফন্ট পরিবার"
+
+#: inc/csf/fields/typography/typography.php:119
+#: inc/csf/fields/typography/typography.php:132
+#: inc/csf/fields/typography/typography.php:145
+#: inc/csf/fields/typography/typography.php:160
+#: inc/csf/fields/typography/typography.php:176
+#: inc/csf/fields/typography/typography.php:189
+#: inc/csf/fields/typography/typography.php:203
+#: inc/csf/fields/typography/typography.php:221 inc/filter_actions.php:148
+#: inc/template-functions.php:88 options/opt_footer.php:25
+#: options/opt_header.php:89 options/opt_header.php:669
+msgid "Default"
+msgstr "ডিফল্ট"
+
+#: inc/csf/fields/typography/typography.php:130
+msgid "Font Style"
+msgstr "ফন্ট স্টাইল"
+
+#: inc/csf/fields/typography/typography.php:144
+#: inc/csf/fields/typography/typography.php:145
+msgid "Load Extra Styles"
+msgstr "অতিরিক্ত শৈলী লোড করুন"
+
+#: inc/csf/fields/typography/typography.php:158
+msgid "Subset"
+msgstr "উপসেট"
+
+#: inc/csf/fields/typography/typography.php:168
+msgid "Text Align"
+msgstr "পাঠ্য সারিবদ্ধ করুন"
+
+#: inc/csf/fields/typography/typography.php:170
+msgid "Inherit"
+msgstr "উত্তরাধিকার সূত্রে"
+
+#: inc/csf/fields/typography/typography.php:171 options/opt_header.php:609
+#: options/opt_menu.php:31
+msgid "Left"
+msgstr "বাম"
+
+#: inc/csf/fields/typography/typography.php:172 options/opt_header.php:610
+#: options/opt_menu.php:32
+msgid "Center"
+msgstr "মাঝখান"
+
+#: inc/csf/fields/typography/typography.php:173 options/opt_header.php:611
+#: options/opt_menu.php:33
+msgid "Right"
+msgstr "ডান "
+
+#: inc/csf/fields/typography/typography.php:174
+msgid "Justify"
+msgstr "জাস্টিফাই করুন"
+
+#: inc/csf/fields/typography/typography.php:175
+msgid "Initial"
+msgstr "প্রাথমিক"
+
+#: inc/csf/fields/typography/typography.php:184
+msgid "Font Variant"
+msgstr "ফন্ট বৈকল্পিক"
+
+#: inc/csf/fields/typography/typography.php:187
+msgid "Small Caps"
+msgstr "ছোট টুপি"
+
+#: inc/csf/fields/typography/typography.php:188
+msgid "All Small Caps"
+msgstr "সব ছোট ক্যাপ"
+
+#: inc/csf/fields/typography/typography.php:197
+msgid "Text Transform"
+msgstr "টেক্সট ট্রান্সফর্ম"
+
+#: inc/csf/fields/typography/typography.php:200
+msgid "Capitalize"
+msgstr "মূলধন করুন"
+
+#: inc/csf/fields/typography/typography.php:201
+msgid "Uppercase"
+msgstr "বড় হাতের অক্ষর"
+
+#: inc/csf/fields/typography/typography.php:202
+msgid "Lowercase"
+msgstr "ছোট হাতের অক্ষর"
+
+#: inc/csf/fields/typography/typography.php:211
+msgid "Text Decoration"
+msgstr "পাঠ্য সজ্জা"
+
+#: inc/csf/fields/typography/typography.php:218
+msgid "Wavy"
+msgstr "ঢেউ খেলানো"
+
+#: inc/csf/fields/typography/typography.php:219
+msgid "Overline"
+msgstr "ওভারলাইন"
+
+#: inc/csf/fields/typography/typography.php:220
+msgid "Line-through"
+msgstr "লাইন-থ্রু"
+
+#: inc/csf/fields/typography/typography.php:233
+msgid "Font Size"
+msgstr "ফন্ট সাইজ"
+
+#: inc/csf/fields/typography/typography.php:245
+msgid "Line Height"
+msgstr "লাইনের উচ্চতা"
+
+#: inc/csf/fields/typography/typography.php:257
+msgid "Letter Spacing"
+msgstr "অক্ষরের ব্যবধান"
+
+#: inc/csf/fields/typography/typography.php:269
+msgid "Word Spacing"
+msgstr "শব্দের ব্যবধান"
+
+#: inc/csf/fields/typography/typography.php:284 options/opt_footer.php:99
+msgid "Font Color"
+msgstr "ফন্টের রঙ"
+
+#: inc/csf/fields/typography/typography.php:295
+msgid "Custom Style"
+msgstr "কাস্টম স্টাইল"
+
+#: inc/csf/fields/typography/typography.php:362
+msgid "Custom Web Fonts"
+msgstr "কাস্টম ওয়েব ফন্ট"
+
+#: inc/csf/fields/typography/typography.php:368
+msgid "Safe Web Fonts"
+msgstr "নিরাপদ ওয়েব ফন্ট"
+
+#: inc/csf/fields/typography/typography.php:388
+msgid "Google Web Fonts"
+msgstr "গুগল ওয়েব ফন্ট"
+
+#: inc/csf/functions/actions.php:72 inc/csf/functions/actions.php:110
+msgid "Error: Invalid key."
+msgstr "ত্রুটি: অবৈধ কী।"
+
+#: inc/csf/functions/actions.php:114
+msgid "Error: The response is not a valid JSON response."
+msgstr "ত্রুটি: প্রতিক্রিয়াটি একটি বৈধ JSON প্রতিক্রিয়া নয়।"
+
+#: inc/csf/functions/actions.php:174
+msgid "Error: Invalid term ID."
+msgstr "ত্রুটি: অবৈধ টার্ম আইডি।"
+
+#: inc/csf/functions/actions.php:180
+msgid "Error: You do not have permission to do that."
+msgstr "ত্রুটি: আপনার এটি করার অনুমতি নেই।"
+
+#: inc/csf/functions/validate.php:14 inc/csf/functions/validate.php:86
+msgid "Please enter a valid email address."
+msgstr "দয়া করে একটি বৈধ ইমেল ঠিকানা লিখুন।"
+
+#: inc/csf/functions/validate.php:32 inc/csf/functions/validate.php:106
+msgid "Please enter a valid number."
+msgstr "দয়া করে একটি বৈধ নম্বর লিখুন।"
+
+#: inc/csf/functions/validate.php:50 inc/csf/functions/validate.php:126
+msgid "This field is required."
+msgstr "ঘরটি অবশ্যই পূরণ করতে হবে."
+
+#: inc/csf/functions/validate.php:68 inc/csf/functions/validate.php:146
+msgid "Please enter a valid URL."
+msgstr "দয়া করে একটি বৈধ ইউআরএল লিখুন।"
+
+#: inc/demo_config.php:22
+msgid "Install and activate all "
+msgstr "ইনস্টল এবং সমস্ত সক্রিয় করুন "
+
+#: inc/demo_config.php:24
+msgid "required plugins"
+msgstr "প্রয়োজনীয় প্লাগিন"
+
+#: inc/demo_config.php:25
+msgid "before you click on the \"Import\" button."
+msgstr "আপনি \"আমদানি\" বোতামে ক্লিক করার আগে।"
+
+#: inc/demo_config.php:29
+msgid "After importing a demo, you will find all the pages in "
+msgstr "একটি ডেমো আমদানি করার পরে, আপনি সমস্ত পৃষ্ঠাগুলি পাবেন "
+
+#: inc/demo_config.php:31
+msgid "Pages."
+msgstr "পৃষ্ঠা।"
+
+#: inc/demo_config.php:32
+msgid "Other pages will be imported along with the main Homepage demo."
+msgstr "মূল হোমপেজ ডেমো সহ অন্যান্য পৃষ্ঠাগুলি আমদানি করা হবে।"
+
+#: inc/demo_config.php:37
+msgid "If you fail to import the demo data, follow the alternative way"
+msgstr "আপনি যদি ডেমো ডেটা আমদানি করতে ব্যর্থ হন তবে বিকল্প উপায় অনুসরণ করুন"
+
+#: inc/demo_config.php:39
+msgid "here."
+msgstr "এখানে।"
+
+#: inc/demo_config.php:53
+msgid "Creative Helpdesk"
+msgstr "ক্রিয়েটিভ হেল্পডেস্ক"
+
+#: inc/demo_config.php:66
+msgid "Cool Knowledgebase"
+msgstr "কুল নলেজবেস"
+
+#: inc/demo_config.php:79
+msgid "Classic Helpdesk"
+msgstr "ক্লাসিক হেল্পডেস্ক"
+
+#: inc/demo_config.php:92
+msgid "Light Knowledgebase"
+msgstr "হালকা নলেজবেস"
+
+#: inc/demo_config.php:105
+msgid "Support Forum"
+msgstr "সাপোর্ট ফোরাম"
+
+#: inc/demo_config.php:118
+msgid "Multi Helpdesk"
+msgstr "মাল্টি হেল্পডেস্ক"
+
+#: inc/demo_config.php:131
+msgid "Book Chapters / Tutorials"
+msgstr "বইয়ের অধ্যায়/টিউটোরিয়াল"
+
+#: inc/demo_config.php:144
+msgid "User Manuals"
+msgstr "ব্যবহারকারী ম্যানুয়াল"
+
+#: inc/demo_config.php:157
+msgid "Focused Helpdesk"
+msgstr "ফোকাসড হেল্পডেস্ক"
+
+#: inc/demo_config.php:170
+msgid "LMS"
+msgstr "এলএমএস"
+
+#: inc/filter_actions.php:147
+msgid "Clear color"
+msgstr "পরিষ্কার রঙ"
+
+#: inc/filter_actions.php:149
+msgid "Select default color"
+msgstr "ডিফল্ট রঙ নির্বাচন করুন"
+
+#: inc/filter_actions.php:150
+msgid "Select Color"
+msgstr "রঙ নির্বাচন করুন"
+
+#: inc/filter_actions.php:151
+msgid "Color value"
+msgstr "রঙের মান"
+
+#: inc/filter_actions.php:171
+msgid "Changelogs Settings"
+msgstr "চেঞ্জলগ সেটিংস"
+
+#: inc/filter_actions.php:172
+msgid "Settings"
+msgstr "বিন্যাস সমূহ"
+
+#: inc/reg_process.php:9
+msgid "Create an account"
+msgstr "অ্যাকাউন্ট তৈরী করুন"
+
+#: inc/reg_process.php:12
+msgid ""
+"Please indicate that you have read and agree to the Terms and Conditions and "
+"Privacy Policy"
+msgstr ""
+"দয়া করে নির্দেশ করুন যে আপনি শর্তাদি ও শর্তাদি এবং গোপনীয়তা নীতি পড়েছেন এবং সম্মত "
+"হয়েছেন"
+
+#: inc/reg_process.php:17
+msgid "User name"
+msgstr "ইউজারনেম"
+
+#: inc/reg_process.php:20
+msgid "Your email"
+msgstr "আপানার ইমেইল"
+
+#: inc/reg_process.php:21
+msgid "Email address"
+msgstr "ইমেইল অ্যড্রেস"
+
+#: inc/reg_process.php:50
+msgid "Username too short. At least 4 characters is required"
+msgstr "Gebruikersnaam te kort. Ten minste 4 tekens zijn vereist"
+
+#: inc/reg_process.php:53
+msgid "Sorry, that username already exists!"
+msgstr "Sorry, die gebruikersnaam bestaat al!"
+
+#: inc/reg_process.php:56
+msgid "Sorry, the username you entered is not valid"
+msgstr "Sorry, de gebruikersnaam die je hebt ingevoerd is niet geldig"
+
+#: inc/reg_process.php:59
+msgid "Password length must be greater than 5"
+msgstr "Wachtwoordlengte moet groter zijn dan 5"
+
+#: inc/reg_process.php:62
+msgid "Email is not valid"
+msgstr "E-mail is niet geldig"
+
+#: inc/reg_process.php:65
+msgid "Email already in use"
+msgstr "ইমেল ইতিমধ্যে ব্যবহার হচ্ছে"
+
+#: inc/reg_process.php:71
+msgid "ERROR"
+msgstr "ত্রুটি"
+
+#: inc/reg_process.php:77
+msgid "No Error"
+msgstr "কোন ত্রুটি নেই"
+
+#: inc/sidebars.php:6
+msgid "Primary Sidebar"
+msgstr "প্রাথমিক সাইডবার"
+
+#: inc/sidebars.php:7
+msgid "Place widgets in sidebar widgets area."
+msgstr "সাইডবার উইজেটগুলির ক্ষেত্রে উইজেটগুলি রাখুন।"
+
+#: inc/sidebars.php:17
+msgid "Forum Sidebar"
+msgstr "ফোরাম সাইডবার"
+
+#: inc/sidebars.php:18
+msgid "Add widgets here for the Forum Archive Sidebar area"
+msgstr "ফোরাম সংরক্ষণাগার সাইডবার এলাকার জন্য এখানে উইজেট যুক্ত করুন"
+
+#: inc/sidebars.php:29
+msgid "Shop sidebar"
+msgstr "শপ সাইডবার"
+
+#: inc/sidebars.php:30
+msgid "Place widgets here for WooCommerce shop page."
+msgstr "WooCommerce শপ পৃষ্ঠার জন্য এখানে উইজেট রাখুন।"
+
+#: inc/sidebars.php:41
+msgid "Footer Widgets"
+msgstr "পাদচরণ উইজেট"
+
+#: inc/sidebars.php:42
+msgid "Add widgets here for Footer widgets area"
+msgstr "পাদচরণ উইজেট এলাকার জন্য এখানে উইজেটগুলি যোগ করুন"
+
+#: inc/template-functions.php:15
+msgid "Search ..."
+msgstr "খুজুন..."
+
+#: inc/template-functions.php:20
+msgid "Back to home Page"
+msgstr "হোম পেজে ফিরে যান"
+
+#: inc/template-functions.php:36
+msgid "No Comments"
+msgstr "কোন মতামত নেই"
+
+#: inc/template-functions.php:38
+msgid "1 Comment"
+msgstr "একটি মতামত"
+
+#: inc/template-functions.php:40
+msgid " Comments"
+msgstr " মন্তব্যসমূহ"
+
+#: inc/template-functions.php:157 options/opt_header.php:1020
+#: template-parts/header-elements/search-banner/breadcrumb.php:7
+msgid "Home"
+msgstr "মূল পাতা"
+
+#: inc/template-functions.php:446
+msgid " minute"
+msgstr " মিনিটের"
+
+#: inc/template-functions.php:448
+msgid " minutes"
+msgstr " মিনিট"
+
+#: inc/tgm/class-tgm-plugin-activation.php:302
+msgid "Install Required Plugins"
+msgstr "প্রয়োজনীয় প্লাগইন ইনস্টল করুন"
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:305
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "প্লাগইন ইনস্টল করা হচ্ছে: %s"
+
+#. translators: %s: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:307
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "প্লাগইন আপডেট হচ্ছে: %s"
+
+#: inc/tgm/class-tgm-plugin-activation.php:308
+msgid "Something went wrong with the plugin API."
+msgstr "প্লাগইন API এ কিছু সমস্যা হয়েছে।"
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:311
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "এই থিম নিম্নলিখিত প্লাগ প্রয়োজন: %1$s."
+msgstr[1] "এই থিম নিম্নলিখিত প্লাগইন প্রয়োজন: %1$s."
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:317
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "এই থিম নিম্নলিখিত প্লাগ সুপারিশ: %1$s."
+msgstr[1] "এই থিম নিম্নলিখিত প্লাগইন সুপারিশ: %1$s."
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:323
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"এই থিমের সাথে সর্বাধিক সামঞ্জস্য নিশ্চিত করতে নিম্নলিখিত প্লাগইনটি তার সর্বশেষ "
+"সংস্করণে আপডেট করা প্রয়োজন: %1$s।"
+msgstr[1] ""
+"এই থিমের সাথে সর্বাধিক সামঞ্জস্য নিশ্চিত করতে নিম্নলিখিত প্লাগইনগুলি তাদের সর্বশেষ "
+"সংস্করণে আপডেট করা প্রয়োজন: %1$s।"
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:329
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "এর জন্য একটি আপডেট সুলভ আছে: %1$s।"
+msgstr[1] "নিম্নলিখিত প্লাগইনগুলির জন্য আধুনিকীকরণ উপলব্ধ রয়েছে: %1$s."
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:335
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "নিম্নলিখিত প্রয়োজনীয় প্লাগইন বর্তমানে নিষ্ক্রিয়: %1$s."
+msgstr[1] "নিম্নলিখিত প্রয়োজনীয় প্লাগইনগুলি বর্তমানে নিষ্ক্রিয়: %1$s।"
+
+#. translators: 1: plugin name(s).
+#: inc/tgm/class-tgm-plugin-activation.php:341
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "নিম্নোক্ত প্রস্তাবিত প্লাগইন বর্তমানে নিষ্ক্রিয়: %1$s."
+msgstr[1] "নিম্নলিখিত প্রস্তাবিত প্লাগইনগুলি বর্তমানে নিষ্ক্রিয়: %1$s."
+
+#: inc/tgm/class-tgm-plugin-activation.php:346
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "প্লাগইন ইনস্টল করা শুরু করুন"
+msgstr[1] "প্লাগইন ইনস্টল করা শুরু করুন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:351
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "প্লাগইন আপডেট করা শুরু করুন"
+msgstr[1] "প্লাগইন আপডেট করা শুরু করুন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:356
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "প্লাগইন সক্রিয় করা শুরু করুন"
+msgstr[1] "প্লাগইন সক্রিয় করা শুরু করুন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:360
+msgid "Return to Required Plugins Installer"
+msgstr "প্রয়োজনীয় প্লাগইনগুলিতে ফিরে যান ইনস্টলার"
+
+#: inc/tgm/class-tgm-plugin-activation.php:361
+#: inc/tgm/class-tgm-plugin-activation.php:886
+#: inc/tgm/class-tgm-plugin-activation.php:2592
+#: inc/tgm/class-tgm-plugin-activation.php:3639
+msgid "Return to the Dashboard"
+msgstr "ড্যাশবোর্ডে ফিরে যান"
+
+#: inc/tgm/class-tgm-plugin-activation.php:362
+#: inc/tgm/class-tgm-plugin-activation.php:3218
+msgid "Plugin activated successfully."
+msgstr "প্লাগইন সফলভাবে সক্রিয়।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:363
+#: inc/tgm/class-tgm-plugin-activation.php:3011
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "নিম্নোক্ত প্লাগইনটি সফলভাবে সক্রিয় করা হয়েছে:"
+msgstr[1] "নিম্নলিখিত প্লাগইনগুলি সফলভাবে সক্রিয় করা হয়েছিল:"
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:365
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "কোনো পদক্ষেপ নেওয়া নেই. প্লাগইন %1$s ইতিমধ্যে সক্রিয় ছিল।"
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:367
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"প্লাগইন সক্রিয় করা হয় না।  এই থিমের জন্য %s এর একটি উচ্চ সংস্করণ প্রয়োজন। প্লাগইন "
+"আপডেট করুন।"
+
+#. translators: 1: dashboard link.
+#: inc/tgm/class-tgm-plugin-activation.php:369
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "সব প্লাগইন ইনস্টল এবং সফলভাবে সক্রিয় %1$s এর"
+
+#: inc/tgm/class-tgm-plugin-activation.php:370
+msgid "Dismiss this notice"
+msgstr "এই নোটিশ বাতিল কর"
+
+#: inc/tgm/class-tgm-plugin-activation.php:371
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"ইনস্টল, আপডেট বা সক্রিয় করার জন্য এক বা একাধিক প্রয়োজনীয় বা প্রস্তাবিত প্লাগইন "
+"রয়েছে।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:372
+msgid "Please contact the administrator of this site for help."
+msgstr "সাহায্যের জন্য এই সাইটের এডমিনের সাথে যোগাযোগ করুন।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:575
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "এই প্লাগইন আপনার থিম সঙ্গে সামঞ্জস্যপূর্ণ হতে আপডেট করা প্রয়োজন।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:576
+msgid "Update Required"
+msgstr "আপডেট প্রয়োজন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:693
+msgid "Set the parent_slug config variable instead."
+msgstr "পরিবর্তে প্যারেন্ট স্লাগ্ কনফিগ ভেরিয়েবল সেট।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:993
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"রিমোট প্লাগইন প্যাকেজটি পছন্দসই স্লাগের সাথে একটি ফোল্ডার ধারণ করে না এবং "
+"পুনঃনামকরণ কাজ করে না।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:993
+#: inc/tgm/class-tgm-plugin-activation.php:996
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"প্লাগইন প্রদানকারীর সাথে যোগাযোগ করুন এবং তাদের প্লাগইন প্যাকেজ জিজ্ঞাসা করুন "
+"ওয়ার্ডপ্রেস নির্দেশিকা অনুযায়ী।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:996
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"দূরবর্তী প্লাগ-ইন প্যাকেজটিতে একাধিক ফাইল থাকে, কিন্তু ফাইলগুলি হল একটি ফোল্ডারে "
+"প্যাকেজ না।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:1180
+#: inc/tgm/class-tgm-plugin-activation.php:3007
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "এবং"
+
+#. translators: %s: version number
+#: inc/tgm/class-tgm-plugin-activation.php:2041
+#, php-format
+msgid "TGMPA v%s"
+msgstr "টিজিএমপিএ ভি%s"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2332
+msgid "Required"
+msgstr "প্রয়োজনীয়"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2335
+msgid "Recommended"
+msgstr "প্রস্তাবিত"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2351
+msgid "WordPress Repository"
+msgstr "ওয়ার্ডপ্রেস সংগ্রহস্থল"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2354
+msgid "External Source"
+msgstr "বহিঃস্থ উৎস"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2357
+msgid "Pre-Packaged"
+msgstr "প্রাক প্যাকেজ"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2374
+msgid "Not Installed"
+msgstr "ইনস্টল করা না"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2378
+msgid "Installed But Not Activated"
+msgstr "ইনস্টল করা কিন্তু সক্রিয় নয়"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2386
+msgid "Required Update not Available"
+msgstr "প্রয়োজনীয় আপডেট উপলব্ধ নেই"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2389
+msgid "Requires Update"
+msgstr "আপডেট প্রয়োজন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2392
+msgid "Update recommended"
+msgstr "আপডেট সুপারিশ"
+
+#. translators: 1: install status, 2: update status
+#: inc/tgm/class-tgm-plugin-activation.php:2401
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2447
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "সব <span class=\"count\">(%s)</span>"
+msgstr[1] "সব <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2451
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "ইনস্টল করতে <span class=\"count\">(%s)</span>"
+msgstr[1] "ইনস্টল করতে <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2455
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "আপডেট উপলব্ধ <span class=\"count\">(%s)</span>"
+msgstr[1] "আপডেট উপলব্ধ <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: inc/tgm/class-tgm-plugin-activation.php:2459
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "সক্রিয় করতে <span class=\"count\">(%s)</span>"
+msgstr[1] "সক্রিয় করতে <span class=\"count\">(%s)</span>"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2541
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "অজানা"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2549
+msgid "Installed version:"
+msgstr "ইনস্টল করা সংস্করণ:"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2557
+msgid "Minimum required version:"
+msgstr "ন্যূনতম প্রয়োজনীয় সংস্করণ:"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2569
+msgid "Available version:"
+msgstr "উপলব্ধ সংস্করণ:"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2592
+msgid "No plugins to install, update or activate."
+msgstr "কোন প্লাগইন ইনস্টল, আপডেট বা সক্রিয়।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2606
+msgid "Plugin"
+msgstr "প্লাগইন "
+
+#: inc/tgm/class-tgm-plugin-activation.php:2607
+msgid "Source"
+msgstr "উৎস"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2608
+msgid "Type"
+msgstr "টাইপ"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2612
+msgid "Version"
+msgstr "সংস্করণ"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2613
+msgid "Status"
+msgstr "অবস্থা"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2662
+#, php-format
+msgid "Install %2$s"
+msgstr "%2$s ইনস্টল করুন"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2667
+#, php-format
+msgid "Update %2$s"
+msgstr "হালনাগাদ  %2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm/class-tgm-plugin-activation.php:2673
+#, php-format
+msgid "Activate %2$s"
+msgstr "%2$s সক্রিয় করুন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2743
+msgid "Upgrade message from the plugin author:"
+msgstr "প্লাগইন লেখক থেকে বার্তা আপগ্রেড করুন:"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2776
+msgid "Install"
+msgstr "ইনস্টল করুন"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2785
+msgid "Activate"
+msgstr "সক্রিয় করা"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2816
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "কোন প্লাগইন ইনস্টল করা হয়েছে নির্বাচিত। কোনো পদক্ষেপ না নেওয়া."
+
+#: inc/tgm/class-tgm-plugin-activation.php:2818
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "কোন প্লাগইন আপডেট করা হয়েছে নির্বাচিত। কোনো পদক্ষেপ না নেওয়া."
+
+#: inc/tgm/class-tgm-plugin-activation.php:2859
+msgid "No plugins are available to be installed at this time."
+msgstr "কোন প্লাগইন এই সময়ে ইনস্টল করা উপলব্ধ।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2861
+msgid "No plugins are available to be updated at this time."
+msgstr "কোন প্লাগইন এই সময়ে আপডেট করা উপলব্ধ।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:2967
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "কোন প্লাগইন সক্রিয় করার জন্য নির্বাচিত করা হয়েছে। কোনো পদক্ষেপ না নেওয়া."
+
+#: inc/tgm/class-tgm-plugin-activation.php:2993
+msgid "No plugins are available to be activated at this time."
+msgstr "কোন প্লাগইন এই সময়ে সক্রিয় করা পাওয়া যায়।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3217
+msgid "Plugin activation failed."
+msgstr "প্লাগইন সক্রিয়করণ ব্যর্থ হয়েছে।"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3557
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "প্লাগইন আপডেট হচ্ছে %1$s (%2$d/%3$d)"
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/tgm/class-tgm-plugin-activation.php:3560
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "%1$s ইনস্টল করার সময় একটি ত্রুটি ঘটেছে: <strong>%2$s</strong>।"
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3562
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr " %1$s  এর ইনস্টলেশন ব্যর্থ হয়েছে।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3566
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s ইনস্টল এবং সফলভাবে সক্রিয়।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+msgid "Show Details"
+msgstr "বিস্তারিত দেখাও"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3568
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+msgid "Hide Details"
+msgstr "আড়াল বিস্তারিত"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3569
+msgid "All installations and activations have been completed."
+msgstr "সমস্ত ইনস্টলেশনের এবং অ্যাক্টিভেশন সম্পন্ন হয়েছে।"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3571
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "প্লাগইন ইনস্টল এবং সক্রিয় করা %1$s (%2$d /%3$d)"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3574
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"ইনস্টলেশন প্রক্রিয়া শুরু হয়। এই প্রক্রিয়াটি কিছু হোস্টে সময় নিতে পারে, তাই দয়া করে "
+"ধৈর্য ধরুন।"
+
+#. translators: 1: plugin name.
+#: inc/tgm/class-tgm-plugin-activation.php:3576
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s সফলভাবে ইনস্টল হয়েছে।"
+
+#: inc/tgm/class-tgm-plugin-activation.php:3577
+msgid "All installations have been completed."
+msgstr "সমস্ত ইনস্টলেশন সম্পন্ন হয়েছে।"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm/class-tgm-plugin-activation.php:3579
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "প্লাগইন %1$s ইনস্টল করা হচ্ছে (%2$d /%3$d)"
+
+#: inc/tgm/plugin_activation.php:40
+msgid "Elementor"
+msgstr "এলিমেন্টর"
+
+#: inc/tgm/plugin_activation.php:46
+msgid "Docy Core"
+msgstr "ডসি কোর"
+
+#: inc/tgm/plugin_activation.php:54 inc/tgm/plugin_activation.php:140
+msgid "Advanced Custom Fields-pro"
+msgstr "উন্নত কাস্টম ফিল্ডস-প্রো"
+
+#: inc/tgm/plugin_activation.php:61 inc/tgm/plugin_activation.php:166
+msgid "bbPress"
+msgstr "বিবিপ্রেস"
+
+#: inc/tgm/plugin_activation.php:67 inc/tgm/plugin_activation.php:172
+msgid "BBP Core"
+msgstr "বিবিপি কোর"
+
+#: inc/tgm/plugin_activation.php:73 inc/tgm/plugin_activation.php:160
+msgid "wooCommerce"
+msgstr "উকমার্স"
+
+#: inc/tgm/plugin_activation.php:79
+msgid "One Click Demo Import"
+msgstr "এক ক্লিক ডেমো আমদানি "
+
+#: inc/tgm/plugin_activation.php:85
+msgid "Smart bbPress nVerify"
+msgstr "স্মার্ট বিবিপ্রেস এনভেরিফাই"
+
+#: inc/tgm/plugin_activation.php:130
+msgid ""
+"Elementor is a free drag & drop page builder plugin that will help you to "
+"create any layout you can imagine with WordPress."
+msgstr ""
+"এলিমেন্টর একটি ফ্রি ড্র্যাগ অ্যান্ড ড্রপ পেজ বিল্ডার প্লাগইন যা আপনাকে ওয়ার্ডপ্রেস দিয়ে "
+"কল্পনা করতে পারে এমন কোনও লেআউট তৈরি করতে সহায়তা করবে।"
+
+#: inc/tgm/plugin_activation.php:144
+msgid ""
+"Advanced Custom Fields Pro is a premium plugin that allows you to add custom "
+"fields to your WordPress edit screens."
+msgstr ""
+"উন্নত কাস্টম ফিল্ডস প্রো একটি প্রিমিয়াম প্লাগইন যা আপনাকে আপনার ওয়ার্ডপ্রেস সম্পাদনা "
+"পর্দায় কাস্টম ক্ষেত্র যুক্ত করতে দেয়।"
+
+#: inc/tgm/plugin_activation.php:147
+msgid "Pro Elements"
+msgstr "প্রো এলিমেন্টস"
+
+#: inc/tgm/plugin_activation.php:151
+msgid ""
+"Free WordPress plugin that enables PRO features in the Elementor page "
+"builder. If you have Elementor Pro, no need to install this plugin."
+msgstr ""
+"ফ্রি ওয়ার্ডপ্রেস প্লাগইন যা এলিমেন্টর পৃষ্ঠা নির্মাতাতে প্রো বৈশিষ্ট্যগুলি সক্ষম করে। "
+"আপনার যদি এলিমেন্টর প্রো থাকে তবে এই প্লাগইনটি ইনস্টল করার দরকার নেই।"
+
+#: inc/tgm/plugin_activation.php:154
+msgid "EazyDocs"
+msgstr "EazyDocs"
+
+#: inc/tgm/plugin_activation.php:157
+msgid ""
+"EazyDocs is a free WordPress plugin that allows you to create a knowledge "
+"base, documentation, or wiki for your website."
+msgstr ""
+"EazyDocs একটি নিখরচায় ওয়ার্ডপ্রেস প্লাগইন যা আপনাকে আপনার ওয়েবসাইটের জন্য একটি "
+"জ্ঞান বেস, ডকুমেন্টেশন বা উইকি তৈরি করতে দেয়।"
+
+#: inc/tgm/plugin_activation.php:162
+msgid ""
+"WooCommerce is a free eCommerce plugin that allows you to sell anything. If "
+"you need to sell product, you have to install it. Otherwise, you can skip "
+"this plugin."
+msgstr ""
+"WooCommerce একটি ফ্রি ই-কমার্স প্লাগইন যা আপনাকে যেকোনো কিছু বিক্রি করতে দেয়। "
+"প্রোডাক্ট সেল করার প্রয়োজন হলে ইন্সটল করতে হবে। অন্যথায়, আপনি এই প্লাগইনটি এড়িয়ে "
+"যেতে পারেন।"
+
+#: inc/tgm/plugin_activation.php:169
+msgid ""
+"bbPress is forum software with a twist from the creators of WordPress. If "
+"you don't want the Forum feature, you can skip installing this plugin."
+msgstr ""
+"বিবিপ্রেস হ'ল ফোরাম সফ্টওয়্যার যা ওয়ার্ডপ্রেসের নির্মাতাদের কাছ থেকে একটি টুইস্ট "
+"রয়েছে। আপনি যদি ফোরাম বৈশিষ্ট্যটি না চান তবে আপনি এই প্লাগইনটি ইনস্টল করা এড়িয়ে "
+"যেতে পারেন।"
+
+#: inc/tgm/plugin_activation.php:175
+msgid ""
+"BBP Core is a required plugin for bbPress forum. If you don't want the Forum "
+"feature, you can skip installing this plugin."
+msgstr ""
+"বিবিপি কোর বিবিপ্রেস ফোরামের জন্য একটি প্রয়োজনীয় প্লাগইন। আপনি যদি ফোরাম "
+"বৈশিষ্ট্যটি না চান তবে আপনি এই প্লাগইনটি ইনস্টল করা এড়িয়ে যেতে পারেন।"
+
+#: inc/woo_config.php:26 inc/woo_config.php:82
+msgctxt "placeholder"
+msgid "First name *"
+msgstr "প্রথম নাম *"
+
+#: inc/woo_config.php:34 inc/woo_config.php:90
+msgctxt "placeholder"
+msgid "Last name *"
+msgstr "শেষ নাম *"
+
+#: inc/woo_config.php:42
+msgctxt "placeholder"
+msgid "Company name"
+msgstr "কোম্পানির নাম"
+
+#: inc/woo_config.php:50 inc/woo_config.php:106
+msgctxt "placeholder"
+msgid "Town / City *"
+msgstr "সিটি/শহর / শহর*"
+
+#: inc/woo_config.php:57 inc/woo_config.php:113
+msgctxt "placeholder"
+msgid "Postcode / ZIP (optional)"
+msgstr "পোস্টকোড / জিপ (ঐচ্ছিক)"
+
+#: inc/woo_config.php:64 inc/woo_config.php:120
+msgctxt "placeholder"
+msgid "Phone"
+msgstr "মোবাইল"
+
+#: inc/woo_config.php:73 inc/woo_config.php:128
+msgctxt "placeholder"
+msgid "Email address *"
+msgstr "ইমেইল ঠিকানা *"
+
+#: inc/woo_config.php:98
+msgctxt "placeholder"
+msgid "Company name (optional)"
+msgstr "কোম্পানির নাম (ঐচ্ছিক)"
+
+#: options/opt_404.php:4
+msgid "404 Error Page"
+msgstr "404 ত্রুটি পৃষ্ঠা"
+
+#: options/opt_404.php:9
+msgid "Title Text"
+msgstr "শিরোনাম লেখা"
+
+#: options/opt_404.php:16 options/opt_forum.php:64 options/opt_forum.php:272
+msgid "Subtitle"
+msgstr "উপশিরোনাম"
+
+#: options/opt_404.php:19
+msgid ""
+"Sorry for the inconvenience. Go to our homepage or check out our latest "
+"collections for Fashion, Chair, Decoration..."
+msgstr ""
+"অসুবিধার জন্য দুঃখিত। আমাদের হোমপেজে যান বা ফ্যাশন, চেয়ার, সজ্জা জন্য আমাদের "
+"সর্বশেষ সংগ্রহ চেক আউট ..."
+
+#: options/opt_404.php:23
+msgid "Home Button Title"
+msgstr "হোম বোতাম শিরোনাম"
+
+#: options/opt_404.php:26
+msgid "Back to Home Page"
+msgstr "হোম পেজে ফিরে যান"
+
+#: options/opt_404.php:32
+msgid "Button Text Color"
+msgstr "বোতাম পাঠ্য রঙ"
+
+#: options/opt_404.php:41
+msgid "Button Background Color"
+msgstr "বোতাম পটভূমির রঙ"
+
+#: options/opt_404.php:48
+msgid "Background shape"
+msgstr "পটভূমি আকৃতি"
+
+#: options/opt_404.php:49
+msgid "Upload here the default background shape image"
+msgstr "এখানে ডিফল্ট ব্যাকগ্রাউন্ড আকৃতির চিত্র আপলোড করুন"
+
+#: options/opt_backup.php:3 options/opt_backup.php:14
+msgid "Backup"
+msgstr "ব্যাকআপ"
+
+#: options/opt_backup.php:10
+msgid "Export / Import"
+msgstr "রপ্তানি / আমদানি"
+
+#: options/opt_blog.php:3
+msgid "Blog Pages"
+msgstr "ব্লগ পেজ"
+
+#: options/opt_blog.php:13 options/opt_blog.php:20
+msgid "Blog archive"
+msgstr "ব্লগ আর্কাইভ"
+
+#: options/opt_blog.php:26
+msgid "Blog page title"
+msgstr "ব্লগ পৃষ্ঠার শিরোনাম"
+
+#: options/opt_blog.php:27
+msgid ""
+"Controls the title text that displays in the page title bar only if your "
+"front page displays your latest post in \"Settings > Reading\"."
+msgstr ""
+"পৃষ্ঠার শিরোনাম বারে প্রদর্শিত শিরোনাম পাঠ্যটি নিয়ন্ত্রণ করে যদি আপনার প্রথম পৃষ্ঠাটি "
+"\"সেটিংস > পড়া\" তে আপনার সর্বশেষ পোস্টটি প্রদর্শন করে।"
+
+#: options/opt_blog.php:31
+msgid "Blog List"
+msgstr "ব্লগ তালিকা"
+
+#: options/opt_blog.php:35
+msgid "Blog Layout"
+msgstr "ব্লগ লেআউট"
+
+#: options/opt_blog.php:36
+msgid "The Blog layout will also apply on the blog category and tag pages."
+msgstr "ব্লগ লেআউট ব্লগ বিভাগ এবং ট্যাগ পৃষ্ঠাগুলিতেও প্রযোজ্য হবে।"
+
+#: options/opt_blog.php:48
+msgid "Column"
+msgstr "কলম"
+
+#: options/opt_blog.php:52
+msgid "Two"
+msgstr "দুই"
+
+#: options/opt_blog.php:53
+msgid "Three"
+msgstr "তিন"
+
+#: options/opt_blog.php:54
+msgid "Four"
+msgstr "চার"
+
+#: options/opt_blog.php:60
+msgid "Post title length"
+msgstr "পোস্টের শিরোনামের দৈর্ঘ্য"
+
+#: options/opt_blog.php:61
+msgid "Blog post title length in character"
+msgstr "ব্লগ পোস্ট শিরোনাম অক্ষর দৈর্ঘ্য"
+
+#: options/opt_blog.php:71
+msgid "Post Word Excerpt"
+msgstr "পোস্ট শব্দের উদ্ধৃতি"
+
+#: options/opt_blog.php:72
+msgid ""
+"If post excerpt empty, the excerpt content will take from the post content. "
+"Define here how much word you want to show along with the each posts in the "
+"blog page."
+msgstr ""
+"যদি পোস্টের অংশটি খালি থাকে তবে উদ্ধৃতাংশের সামগ্রীটি পোস্টের সামগ্রী থেকে নেওয়া "
+"হবে। ব্লগ পেজে প্রতিটি পোস্টের সাথে আপনি কতটুকু শব্দ দেখাতে চান তা এখানে নির্ধারণ "
+"করুন।"
+
+#: options/opt_blog.php:83
+msgid "Continue Reading Label"
+msgstr "লেবেল পড়া চালিয়ে যান"
+
+#: options/opt_blog.php:86 template-parts/contents/content-search.php:4
+#: template-parts/contents/content-sticky.php:4
+#: template-parts/contents/content-video.php:4
+#: template-parts/contents/content.php:4
+msgid "Continue Reading"
+msgstr "পড়া চালিয়ে যান"
+
+#: options/opt_blog.php:92
+msgid "Post Meta"
+msgstr "পোস্ট মেটা"
+
+#: options/opt_blog.php:93
+msgid "Show/hide post meta on blog archive page"
+msgstr "ব্লগ সংরক্ষণাগার পৃষ্ঠায় পোস্ট মেটা দেখান/লুকান"
+
+#: options/opt_blog.php:96 options/opt_blog.php:105 options/opt_blog.php:115
+#: options/opt_blog.php:125 options/opt_blog.php:135 options/opt_blog.php:162
+#: options/opt_blog.php:285 options/opt_blog.php:294 options/opt_blog.php:304
+#: options/opt_blog.php:314 options/opt_blog.php:333 options/opt_blog.php:344
+#: options/opt_forum.php:27 options/opt_forum.php:99 options/opt_forum.php:171
+#: options/opt_forum.php:249 options/opt_header.php:100
+#: options/opt_header.php:225 options/opt_header.php:443
+#: options/opt_header.php:553 options/opt_header.php:646
+#: options/opt_header.php:657 options/opt_header.php:819
+#: options/opt_header.php:834 options/opt_header.php:1010
+msgid "Show"
+msgstr "Göster"
+
+#: options/opt_blog.php:102 options/opt_blog.php:291
+msgid "Post Date"
+msgstr "পোস্ট তারিখ"
+
+#: options/opt_blog.php:112 options/opt_blog.php:301
+msgid "Post Reading Time"
+msgstr "পড়ার সময় পোস্ট করুন"
+
+#: options/opt_blog.php:122
+msgid "Post category"
+msgstr "পোস্ট বিভাগ"
+
+#: options/opt_blog.php:151
+msgid "Post Format Icon"
+msgstr "পোস্ট বিন্যাস আইকন"
+
+#: options/opt_blog.php:158
+msgid "Post Icon"
+msgstr "পোস্ট আইকন"
+
+#: options/opt_blog.php:159
+msgid "Post Icon show"
+msgstr "পোস্ট আইকন শো"
+
+#: options/opt_blog.php:172
+msgid "Post Standard"
+msgstr "পোস্ট স্ট্যান্ডার্ড"
+
+#: options/opt_blog.php:179
+msgid "Post Video"
+msgstr "ভিডিও পোস্ট করুন"
+
+#: options/opt_blog.php:187
+msgid "Icon Size"
+msgstr "আইকনের আকার"
+
+#: options/opt_blog.php:206
+msgid "Blog single"
+msgstr "ব্লগ একক"
+
+#: options/opt_blog.php:214
+msgid "Title Bar"
+msgstr "টাইটেল বার"
+
+#: options/opt_blog.php:233
+msgid "Banner Layout"
+msgstr "ব্যানার লেআউট"
+
+#: options/opt_blog.php:248
+msgid "Shape 1"
+msgstr "আকৃতি ১"
+
+#: options/opt_blog.php:255
+msgid "Shape 2"
+msgstr "আকৃতি ২"
+
+#: options/opt_blog.php:262 options/opt_footer.php:128
+#: options/opt_footer.php:135 options/opt_header.php:860
+msgid "Background"
+msgstr "পটভূমি"
+
+#: options/opt_blog.php:273
+msgid "Title Color"
+msgstr "টাইটেল রঙ"
+
+#: options/opt_blog.php:281
+msgid "Post meta"
+msgstr "পোস্ট মেটা"
+
+#: options/opt_blog.php:282
+msgid "Post meta includes Date, Reading Time and Categories."
+msgstr "পোস্ট মেটাতে তারিখ, পড়ার সময় এবং বিভাগগুলি অন্তর্ভুক্ত রয়েছে।"
+
+#: options/opt_blog.php:311
+msgid "Categories"
+msgstr "শ্রেণী"
+
+#: options/opt_blog.php:324
+msgid "Post Contents"
+msgstr "সূচিপত্র পোস্ট করুন"
+
+#: options/opt_blog.php:329
+msgid "Post Tags"
+msgstr "ট্যাগ পোস্ট করুন"
+
+#: options/opt_blog.php:330
+msgid "The Post Tags shows at the bottom of the post content."
+msgstr "পোস্ট ট্যাগগুলি পোস্টের সামগ্রীর নীচে দেখায়।"
+
+#: options/opt_blog.php:341
+msgid "Related posts "
+msgstr "সম্পর্কিত পোস্ট "
+
+#: options/opt_blog.php:349
+msgid "Posts section title"
+msgstr "পোস্ট বিভাগের শিরোনাম"
+
+#: options/opt_blog.php:352
+msgid "Related Post"
+msgstr "সম্পর্কিত পোস্ট"
+
+#: options/opt_blog.php:356
+msgid "Related posts count"
+msgstr "সম্পর্কিত পোস্ট গণনা"
+
+#: options/opt_color_scheme.php:5
+msgid "Appearance"
+msgstr "উপস্থিতি"
+
+#: options/opt_color_scheme.php:10
+msgid "Color Scheme"
+msgstr "বর্ণবিন্যাস"
+
+#: options/opt_color_scheme.php:17 options/opt_dark.php:35
+msgid "Accent Color"
+msgstr "অ্যাকসেন্ট কালার"
+
+#: options/opt_color_scheme.php:25
+msgid "Secondary Color"
+msgstr "গৌণ রঙ"
+
+#: options/opt_color_scheme.php:26
+msgid "Normally used in Titles, Gradient Colors"
+msgstr "সাধারণত শিরোনাম, গ্রেডিয়েন্ট রঙগুলিতে ব্যবহৃত হয়"
+
+#: options/opt_color_scheme.php:34
+msgid "Paragraph Color"
+msgstr "অনুচ্ছেদের রঙ"
+
+#: options/opt_color_scheme.php:35
+msgid "Normally used in meta content, paragraph, doc lists, subtitles, icon"
+msgstr "সাধারণত মেটা সামগ্রী, অনুচ্ছেদ, ডক তালিকা, সাবটাইটেল, আইকনে ব্যবহৃত হয়"
+
+#: options/opt_color_scheme.php:43
+msgid "Background Gradient Color"
+msgstr "পটভূমি গ্রেডিয়েন্ট রঙ"
+
+#: options/opt_color_scheme.php:44 options/opt_color_scheme.php:60
+msgid "This color applied to Post Single, Forum pages, Search Results page"
+msgstr "এই রঙটি পোস্ট একক, ফোরাম পৃষ্ঠাগুলি, অনুসন্ধান ফলাফল পৃষ্ঠায় প্রয়োগ করা হয়েছে"
+
+#: options/opt_color_scheme.php:59
+msgid "Container Box Shadow"
+msgstr "কনটেইনার বক্স শ্যাডো"
+
+#: options/opt_color_scheme.php:61 options/opt_dark.php:18
+#: options/opt_general.php:201
+msgid "SHow"
+msgstr "দেখান"
+
+#: options/opt_custom_code.php:3
+msgid "Custom Code"
+msgstr "কাস্টম কোড"
+
+#: options/opt_custom_code.php:10
+msgid "CSS Code"
+msgstr "সিএসএস কোড"
+
+#: options/opt_custom_code.php:11
+msgid "Paste your CSS code here."
+msgstr "এখানে আপনার সিএসএস কোড পেস্ট করুন।"
+
+#: options/opt_custom_code.php:20
+msgid "JS Code"
+msgstr "JS কোড"
+
+#: options/opt_custom_code.php:21
+msgid "Paste your JS code here."
+msgstr "আপনার JS কোডটি এখানে পেস্ট করুন।"
+
+#: options/opt_dark.php:4 options/opt_dark.php:9
+msgid "Dark Mode"
+msgstr "ডার্ক মোড"
+
+#: options/opt_dark.php:14
+msgid "Dark Mode Switcher"
+msgstr "ডার্ক মোড সুইচার"
+
+#: options/opt_dark.php:15
+msgid "Show/Hide the Dark Mode Switcher on the Header navigation bar."
+msgstr "শিরোনাম নেভিগেশন বারে ডার্ক মোড স্যুইচারটি দেখান/লুকান।"
+
+#: options/opt_dark.php:24
+msgid "Active Dark Mode"
+msgstr "সক্রিয় ডার্ক মোড"
+
+#: options/opt_dark.php:25
+msgid "Activate the Dark Mode by default."
+msgstr "ডিফল্টরূপে ডার্ক মোড সক্রিয় করুন।"
+
+#: options/opt_dark.php:36
+msgid "Accent Color for dark mode"
+msgstr "ডার্ক মোডের জন্য অ্যাকসেন্ট কালার"
+
+#: options/opt_footer.php:4 options/opt_footer.php:17
+msgid "Footer"
+msgstr "ফুটার"
+
+#: options/opt_footer.php:12
+msgid "Footer Options"
+msgstr "পাদচরণ বিকল্প"
+
+#: options/opt_footer.php:21
+msgid "Footer Style"
+msgstr "ফুটার স্টাইল"
+
+#: options/opt_footer.php:26
+msgid "Simple"
+msgstr "সাধারণ"
+
+#: options/opt_footer.php:34
+msgid "Preset Columns"
+msgstr "প্রিসেট কলাম"
+
+#: options/opt_footer.php:35
+msgid ""
+"If you enable this switcher, the Footer Widget columns will set as preset "
+"(33.33% + 22.22% + 22.22% + 22.22%) on the demo of Docy."
+msgstr ""
+"আপনি এই স্যুইচারটি সক্ষম করলে, পাদচরণ উইজেট কলামগুলি ডসির ডেমোতে প্রিসেট (33.33% "
+"+ 22.22% + 22.22% + 22.22%) হিসাবে সেট হবে।"
+
+#: options/opt_footer.php:36 options/opt_header.php:708
+#: options/opt_header.php:733 options/opt_header.php:749
+#: options/opt_header.php:763 options/opt_shop.php:136
+msgid "Yes"
+msgstr "হ্যাঁ"
+
+#: options/opt_footer.php:37 options/opt_header.php:709
+#: options/opt_header.php:734 options/opt_header.php:750
+#: options/opt_header.php:764 options/opt_shop.php:137
+msgid "No"
+msgstr "না"
+
+#: options/opt_footer.php:43
+msgid "Footer Column"
+msgstr "পাদলেখ কলাম"
+
+#: options/opt_footer.php:48
+msgid "Two Column"
+msgstr "দুই কলাম"
+
+#: options/opt_footer.php:49
+msgid "Three Column"
+msgstr "তিন কলাম"
+
+#: options/opt_footer.php:50
+msgid "Four Column"
+msgstr "চার কলাম"
+
+#: options/opt_footer.php:63 options/opt_header.php:193
+#: options/opt_header.php:845
+msgid "Padding"
+msgstr "প্যাডিং"
+
+#: options/opt_footer.php:64
+msgid "Padding around the footer columns (Top Right Bottom Left)"
+msgstr "পাদচরণ কলামগুলির চারপাশে প্যাডিং (উপরের ডান নীচে বাম)"
+
+#: options/opt_footer.php:75
+msgid "Ornament Illustration"
+msgstr "অলঙ্কার চিত্রণ"
+
+#: options/opt_footer.php:76
+msgid ""
+"This is for beautiful design purpose. You can replace the default "
+"illustration or delete it from here."
+msgstr ""
+"এটি সুন্দর ডিজাইনের উদ্দেশ্যে। আপনি ডিফল্ট চিত্রটি প্রতিস্থাপন করতে পারেন বা এখান "
+"থেকে এটি মুছতে পারেন।"
+
+#: options/opt_footer.php:92
+msgid "Font colors"
+msgstr "ফন্টের রং"
+
+#: options/opt_footer.php:103
+msgid "Widget Title Color"
+msgstr "উইজেট শিরোনাম রঙ"
+
+#: options/opt_footer.php:109
+msgid "Normal Font color"
+msgstr "সাধারণ ফন্টের রঙ"
+
+#: options/opt_footer.php:116
+msgid "Hover Font color"
+msgstr "হোভার হরফের রঙ"
+
+#: options/opt_footer.php:140 options/opt_general.php:239
+#: options/opt_general.php:269 options/opt_header.php:305
+#: options/opt_menu.php:157
+msgid "Background Color"
+msgstr "পটভূমির রং"
+
+#: options/opt_footer.php:148
+msgid "Bottom Background Color"
+msgstr "নিচের পটভূমির রঙ"
+
+#: options/opt_footer.php:149
+msgid "Footer bottom background color"
+msgstr "পাদচরণ নীচের পটভূমির রঙ"
+
+#: options/opt_footer.php:161 options/opt_footer.php:168
+msgid "Footer Bottom"
+msgstr "ফুটার বটম"
+
+#: options/opt_footer.php:172
+msgid "Copyright Text"
+msgstr "কপিরাইট টেক্সট"
+
+#: options/opt_footer.php:187
+msgid "Useful Links"
+msgstr "দরকারী লিংক"
+
+#: options/opt_footer.php:193 options/opt_forum.php:56
+#: options/opt_forum.php:134 options/opt_forum.php:264
+msgid "Title"
+msgstr "খেতাব"
+
+#: options/opt_footer.php:198
+msgid "URL"
+msgstr "URL"
+
+#: options/opt_forum.php:13 options/opt_forum.php:20
+msgid "Forum Archive"
+msgstr "ফোরাম আর্কাইভ"
+
+#: options/opt_forum.php:24
+msgid "Top Call to Action"
+msgstr "টপ কল টু অ্যাকশন"
+
+#: options/opt_forum.php:37
+msgid "Top Call to Action Controls"
+msgstr "টপ কল টু অ্যাকশন কন্ট্রোল"
+
+#: options/opt_forum.php:45 options/opt_forum.php:113
+msgid "Left Featured Image"
+msgstr "বাম বৈশিষ্ট্যযুক্ত চিত্র"
+
+#: options/opt_forum.php:59
+msgid "Can't find an answer?"
+msgstr "উত্তর খুঁজে পাচ্ছেন না?"
+
+#: options/opt_forum.php:67
+msgid "Make use of a qualified tutor to get the answer"
+msgstr "উত্তর পেতে একজন দক্ষ গৃহশিক্ষক ব্যবহার করুন"
+
+#: options/opt_forum.php:72 options/opt_forum.php:142
+msgid "Button Title"
+msgstr "বোতামের শিরোনাম"
+
+#: options/opt_forum.php:75
+msgid "Ask a Question"
+msgstr "প্রশ্ন করুন"
+
+#: options/opt_forum.php:79 options/opt_header.php:241
+msgid "Button URL"
+msgstr "বোতাম URL"
+
+#: options/opt_forum.php:96 options/opt_forum.php:105
+msgid "Bottom Call to Action"
+msgstr "বটম কল টু অ্যাকশন"
+
+#: options/opt_forum.php:106
+msgid "Control here the bottom Call to Action area of the Forum archive pages."
+msgstr "ফোরাম সংরক্ষণাগার পৃষ্ঠাগুলির নীচে কল টু অ্যাকশন অঞ্চলটি এখানে নিয়ন্ত্রণ করুন।"
+
+#: options/opt_forum.php:123 options/opt_header.php:875
+msgid "Background Image"
+msgstr "পটভূমির চিত্র"
+
+#: options/opt_forum.php:137
+msgid "New to Communities?"
+msgstr "সমাজে নতুন?"
+
+#: options/opt_forum.php:145
+msgid "Join the community "
+msgstr "কমিউনিটিতে যোগদান করুন "
+
+#: options/opt_forum.php:161
+msgid "Topics Archive"
+msgstr "বিষয়: Archives"
+
+#: options/opt_forum.php:178
+msgid "Forums Number"
+msgstr "ফোরাম সংখ্যা"
+
+#: options/opt_forum.php:179
+msgid "Forums to show above the topics list."
+msgstr "বিষয়ের তালিকার উপরে দেখানোর জন্য ফোরাম।"
+
+#: options/opt_forum.php:196 options/opt_forum.php:203
+msgid "Topic Details"
+msgstr "বিষয়ের বিবরণ"
+
+#: options/opt_forum.php:207
+msgid "Replies Order"
+msgstr "অর্ডারের জবাব দেয়"
+
+#: options/opt_forum.php:212
+msgid "Ascending"
+msgstr "আরোহী"
+
+#: options/opt_forum.php:213
+msgid "Descending"
+msgstr "অবতরণ"
+
+#: options/opt_forum.php:217
+msgid "Title Prefix"
+msgstr "শিরোনাম উপসর্গ"
+
+#: options/opt_forum.php:220
+msgid "Q:"
+msgstr "Q:"
+
+#: options/opt_forum.php:226
+msgid "Title Prefix Typography"
+msgstr "শিরোনাম উপসর্গ টাইপোগ্রাফি"
+
+#: options/opt_forum.php:240
+msgid "Subscription"
+msgstr "সদস্যতা"
+
+#: options/opt_forum.php:241
+msgid "Subscription settings for logged out users."
+msgstr "লগ আউট করা ব্যবহারকারীদের জন্য সাবস্ক্রিপশন সেটিংস।"
+
+#: options/opt_forum.php:246 options/opt_general.php:334
+msgid "Enable / Disable"
+msgstr "সক্ষম / অক্ষম করুন"
+
+#: options/opt_forum.php:256
+msgid "Subscribe Button"
+msgstr "সাবস্ক্রাইব বাটন"
+
+#: options/opt_forum.php:279
+msgid "Login Button"
+msgstr "লগইন বাটন"
+
+#: options/opt_forum.php:287
+msgid "Login Type"
+msgstr "লগইন টাইপ"
+
+#: options/opt_forum.php:292
+msgid "Default Login"
+msgstr "ডিফল্ট লগইন"
+
+#: options/opt_forum.php:293
+msgid "Custom Page"
+msgstr "কাস্টম পৃষ্ঠা"
+
+#: options/opt_forum.php:299
+msgid "Select Page"
+msgstr "পৃষ্ঠা নির্বাচন করুন"
+
+#: options/opt_forum.php:314
+msgid "Users"
+msgstr "ইউজার"
+
+#: options/opt_forum.php:321
+msgid "User Details"
+msgstr "ব্যবহারকারীর বিবরণ"
+
+#: options/opt_forum.php:325
+msgid "User Menu Background"
+msgstr "ব্যবহারকারী মেনু পটভূমি"
+
+#: options/opt_forum.php:326 options/opt_header.php:562
+#: options/opt_header.php:716
+msgid "Select a pre-designed banner background style."
+msgstr "একটি প্রাক-ডিজাইন করা ব্যানার পটভূমি শৈলী নির্বাচন করুন।"
+
+#: options/opt_forum.php:333
+msgid "Key master Icon"
+msgstr "কী মাস্টার আইকন"
+
+#: options/opt_forum.php:342
+msgid "Moderator Icon"
+msgstr "মডারেটর আইকন"
+
+#: options/opt_forum.php:351
+msgid "Participant Icon"
+msgstr "অংশগ্রহণকারী আইকন"
+
+#: options/opt_forum.php:360
+msgid "Blocked Icon"
+msgstr "অবরুদ্ধ আইকন"
+
+#: options/opt_general.php:3
+msgid "General"
+msgstr "সাধারণ"
+
+#: options/opt_general.php:10 options/opt_general.php:21
+msgid "Classic"
+msgstr "ক্লাসিক"
+
+#: options/opt_general.php:19
+msgid "Sidebar Widgets Editor"
+msgstr "সাইডবার উইজেট সম্পাদক"
+
+#: options/opt_general.php:22
+msgid "Gutenberg"
+msgstr "গুটেনবার্গ"
+
+#: options/opt_general.php:24
+msgid ""
+"If enabled classic, it will be restored the old Widgets screen and disables "
+"the block editor from managing widgets."
+msgstr ""
+"ক্লাসিক সক্ষম করা থাকলে, এটি পুরানো উইজেট স্ক্রিনটি পুনরুদ্ধার করবে এবং উইজেটগুলি "
+"পরিচালনা করা থেকে অবরোধ সম্পাদককে অক্ষম করবে।"
+
+#: options/opt_general.php:36 options/opt_general.php:42
+msgid "Preloader"
+msgstr "প্রিলোডার"
+
+#: options/opt_general.php:50
+msgid "Pre-loader"
+msgstr "প্রি-লোডার"
+
+#: options/opt_general.php:51 options/opt_general.php:310
+msgid "Enable"
+msgstr "সক্ষম"
+
+#: options/opt_general.php:52 options/opt_general.php:311
+msgid "Disable"
+msgstr "অক্ষম"
+
+#: options/opt_general.php:58
+msgid "Enable Pre-loader on"
+msgstr "প্রি-লোডার চালু করুন"
+
+#: options/opt_general.php:62
+msgid "All Pages"
+msgstr "সকল পাতা"
+
+#: options/opt_general.php:63
+msgid "Specific Pages"
+msgstr "নির্দিষ্ট পৃষ্ঠাসমূহ"
+
+#: options/opt_general.php:71
+msgid "Page IDs"
+msgstr "পৃষ্ঠা আইডি"
+
+#: options/opt_general.php:72
+msgid "Input the multiple page IDs in comma separated format."
+msgstr "কমা পৃথক বিন্যাসে একাধিক পৃষ্ঠা আইডি ইনপুট করুন।"
+
+#: options/opt_general.php:73
+#, php-format
+msgid "%s How to find page ID %s"
+msgstr "%s কিভাবে পেজ আইডি %s খুজে বের করবেন"
+
+#: options/opt_general.php:85
+msgid "Pre-loader Logo"
+msgstr "প্রি-লোডার লোগো"
+
+#: options/opt_general.php:97
+msgid "Logo Title"
+msgstr "লোগো শিরোনাম"
+
+#: options/opt_general.php:102
+msgid "Logo Title Color"
+msgstr "লোগো টাইটেল কালার"
+
+#: options/opt_general.php:117
+msgid "Preloader Title"
+msgstr "প্রিলোডার শিরোনাম"
+
+#: options/opt_general.php:122
+msgid "Preloader Title Color"
+msgstr "প্রিলোডার শিরোনাম রঙ"
+
+#: options/opt_general.php:137 options/opt_general.php:143
+msgid "Quotes"
+msgstr "উদ্ধৃতি সমূহ"
+
+#: options/opt_general.php:138
+msgid "The quotes will display randomly under the title."
+msgstr "উদ্ধৃতিগুলি শিরোনামের অধীনে এলোমেলোভাবে প্রদর্শিত হবে।"
+
+#: options/opt_general.php:150
+msgid ""
+"We design Docy for the readers, optimizing not for page views or engagement"
+msgstr ""
+"আমরা পাঠকদের জন্য ডোসি ডিজাইন করি, পৃষ্ঠা দর্শন বা ব্যস্ততার জন্য অপ্টিমাইজ করি না"
+
+#: options/opt_general.php:154
+msgid "Docy turns out that context is a key part of learning."
+msgstr "ডসি দেখা যাচ্ছে যে প্রসঙ্গটি শেখার একটি মূল অঙ্গ।"
+
+#: options/opt_general.php:158
+msgid "You can create any type of product documentation with Docy"
+msgstr "আপনি ডসি দিয়ে যে কোনও ধরণের পণ্য ডকুমেন্টেশন তৈরি করতে পারেন"
+
+#: options/opt_general.php:162
+msgid "Advanced visual search system powered by Ajax"
+msgstr "অ্যাজাক্স দ্বারা চালিত উন্নত ভিজ্যুয়াল অনুসন্ধান সিস্টেম"
+
+#: options/opt_general.php:170
+msgid "Preloader Quotes Color"
+msgstr "প্রিলোডার উদ্ধৃতি রঙ"
+
+#: options/opt_general.php:197
+msgid "Back to Top Button"
+msgstr "শীর্ষ বোতামে ফিরে যান"
+
+#: options/opt_general.php:198
+msgid "Show/hide back to top button globally settings"
+msgstr "বিশ্বব্যাপী সেটিংসে শীর্ষে ফিরে বোতামটি দেখান/লুকান"
+
+#: options/opt_general.php:208
+msgid "Position"
+msgstr "অবস্থান"
+
+#: options/opt_general.php:225
+msgid "Normal Color"
+msgstr "স্বাভাবিক রঙ"
+
+#: options/opt_general.php:230 options/opt_general.php:260
+msgid "Icon Color"
+msgstr "আইকনের রঙ"
+
+#: options/opt_general.php:255
+msgid "Hover Color"
+msgstr "হোভার কালার"
+
+#: options/opt_general.php:288 options/opt_general.php:294
+msgid "Ajax Search"
+msgstr "অ্যাজাক্স সার্চ"
+
+#: options/opt_general.php:299
+msgid "Ajax Search Result Limit"
+msgstr "অ্যাজাক্স অনুসন্ধান ফলাফলের সীমা"
+
+#: options/opt_general.php:300
+msgid ""
+"This will limit the doc sections and articles in Ajax live search results. "
+"Input -1 for show all results."
+msgstr ""
+"এটি অ্যাজাক্স লাইভ অনুসন্ধান ফলাফলগুলিতে ডক বিভাগ এবং নিবন্ধগুলিকে সীমাবদ্ধ করবে। "
+"সমস্ত ফলাফল দেখানোর জন্য ইনপুট -1।"
+
+#: options/opt_general.php:308
+msgid "Tab Filters"
+msgstr "ট্যাব ফিল্টার"
+
+#: options/opt_general.php:309
+msgid "If you disable it, the docs search will show by default."
+msgstr "আপনি যদি এটি অক্ষম করেন তবে ডক্স অনুসন্ধান ডিফল্টরূপে প্রদর্শিত হবে।"
+
+#: options/opt_general.php:323
+msgid "Custom Post Types"
+msgstr "কাস্টম পোস্টের ধরন"
+
+#: options/opt_general.php:329
+msgid "Post Types"
+msgstr "পোস্টের ধরন"
+
+#: options/opt_general.php:335
+msgid ""
+"If you disable a posttype, all the assets and elementor widgets of the post "
+"type will be disabled"
+msgstr ""
+"আপনি যদি কোনও পোস্টটাইপ অক্ষম করেন তবে পোস্টের ধরণের সমস্ত সম্পদ এবং এলিমেন্টর "
+"উইজেট অক্ষম করা হবে"
+
+#: options/opt_general.php:339
+msgid "FAQs"
+msgstr "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"
+
+#: options/opt_general.php:340
+msgid "Videos"
+msgstr "ভিডিও"
+
+#: options/opt_general.php:341
+msgid "Changelogs"
+msgstr "চেঞ্জলগ"
+
+#: options/opt_header.php:4
+msgid "Header"
+msgstr "শিরোলেখ"
+
+#: options/opt_header.php:14
+msgid "Layout & Settings"
+msgstr "লেআউট ও সেটিংস"
+
+#: options/opt_header.php:22
+msgid "Layout & Setting"
+msgstr "লেআউট ও সেটিং"
+
+#: options/opt_header.php:26
+msgid "Header Width"
+msgstr "হেডার প্রস্থ"
+
+#: options/opt_header.php:27
+msgid ""
+"Set the default Header width here. It will apply on the theme's Header "
+"globally."
+msgstr ""
+"এখানে ডিফল্ট শিরোলেখের প্রস্থ সেট করুন। এটি বিশ্বব্যাপী থিমের হেডারে প্রযোজ্য হবে।"
+
+#: options/opt_header.php:31
+msgid "Boxed"
+msgstr "বাক্সবন্দি"
+
+#: options/opt_header.php:32
+msgid "Wide"
+msgstr "প্রশস্ত"
+
+#: options/opt_header.php:33
+msgid "Full Width"
+msgstr "পুরো প্রস্থ"
+
+#: options/opt_header.php:39
+msgid "Sticky Navbar"
+msgstr "স্টিকি নাভবার"
+
+#: options/opt_header.php:46
+msgid "Sticky Appearance"
+msgstr "চটচটে চেহারা"
+
+#: options/opt_header.php:47
+msgid "Set the sticky appearance based on scrolling states."
+msgstr "স্ক্রোলিং স্থিতির ভিত্তিতে স্টিকি চেহারা সেট করুন।"
+
+#: options/opt_header.php:51
+msgid "Stick all Time"
+msgstr "সব সময় লেগে থাকুন"
+
+#: options/opt_header.php:52
+msgid "Stick on Up Scrolling"
+msgstr "আপ স্ক্রোলিংয়ে লেগে থাকুন"
+
+#: options/opt_header.php:59
+msgid "Header Layout"
+msgstr "হেডার লেআউট"
+
+#: options/opt_header.php:70
+msgid "Navbar Position"
+msgstr "ন্যাভবার অবস্থান"
+
+#: options/opt_header.php:71
+msgid "The Navbar Position will apply globally except the blog single page."
+msgstr "নাভবার পজিশন ব্লগ একক পৃষ্ঠা ব্যতীত বিশ্বব্যাপী প্রযোজ্য হবে।"
+
+#: options/opt_header.php:72
+msgid "The Static position recommended with disabling the Search Banner"
+msgstr "অনুসন্ধান ব্যানার অক্ষম করার সাথে প্রস্তাবিত স্ট্যাটিক অবস্থান"
+
+#: options/opt_header.php:76
+msgid "Absolute"
+msgstr "পরম"
+
+#: options/opt_header.php:77
+msgid "Static"
+msgstr "স্থির"
+
+#: options/opt_header.php:83
+msgid "Navbar Color"
+msgstr "ন্যাভবার রঙ"
+
+#: options/opt_header.php:84
+msgid "Select the default color for the selected Navbar style."
+msgstr "নির্বাচিত ন্যাভবার শৈলীর জন্য ডিফল্ট রঙ চয়ন করো।"
+
+#: options/opt_header.php:85
+msgid ""
+"The selected style would apply main navbar area's elements (logo, menu "
+"items, action button)"
+msgstr ""
+"নির্বাচিত শৈলী প্রধান ন্যাভবার এলাকার উপাদানগুলি (লোগো, মেনু আইটেম, অ্যাকশন বোতাম) "
+"প্রয়োগ করবে"
+
+#: options/opt_header.php:90
+msgid "White"
+msgstr "সাদা"
+
+#: options/opt_header.php:91
+msgid "Black"
+msgstr "ব্ল্যাক"
+
+#: options/opt_header.php:97
+msgid "Search Form"
+msgstr "অনুসন্ধান ফরম"
+
+#: options/opt_header.php:107
+msgid "Search Form Dimension"
+msgstr "অনুসন্ধান ফর্ম মাত্রা"
+
+#: options/opt_header.php:125 options/opt_header.php:132
+msgid "Logo"
+msgstr "লোগো"
+
+#: options/opt_header.php:136
+msgid "Black Logo"
+msgstr "কালো লোগো"
+
+#: options/opt_header.php:137
+msgid "Upload here the black version of your logo."
+msgstr "এখানে আপনার লোগোর কালো সংস্করণ আপলোড করুন।"
+
+#: options/opt_header.php:149
+msgid "White Logo"
+msgstr "সাদা লোগো"
+
+#: options/opt_header.php:150
+msgid "Upload here the white version of your logo."
+msgstr "এখানে আপনার লোগোর সাদা সংস্করণ আপলোড করুন।"
+
+#: options/opt_header.php:160
+msgid "Black Retina Logo"
+msgstr "কালো রেটিনা লোগো"
+
+#: options/opt_header.php:161 options/opt_header.php:172
+msgid "The retina logo should be double (2x) of your original logo size."
+msgstr "রেটিনা লোগোটি আপনার মূল লোগো আকারের দ্বিগুণ (2x) হওয়া উচিত।"
+
+#: options/opt_header.php:171
+msgid "White Retina Logo"
+msgstr "সাদা রেটিনা লোগো"
+
+#: options/opt_header.php:182
+msgid "Logo dimensions"
+msgstr "লোগোর মাত্রা"
+
+#: options/opt_header.php:183
+msgid "Set a custom height width for your uploaded logo."
+msgstr "আপনার আপলোড করা লোগোর জন্য একটি কাস্টম উচ্চতার প্রস্থ সেট করুন।"
+
+#: options/opt_header.php:194
+msgid ""
+"Padding around the logo. Input the padding as clockwise (Top Right Bottom "
+"Left)"
+msgstr ""
+"লোগোর চারপাশে প্যাডিং। প্যাডিংটি ঘড়ির কাঁটার দিকে ইনপুট করুন (উপরের ডান, নীচে বাম)"
+
+#: options/opt_header.php:211 options/opt_header.php:218
+msgid "Action Button"
+msgstr "অ্যাকশন বাটন"
+
+#: options/opt_header.php:222
+msgid "Button Visibility"
+msgstr "বোতাম দৃশ্যমানতা"
+
+#: options/opt_header.php:232
+msgid "Button label"
+msgstr "বোতাম লেবেল"
+
+#: options/opt_header.php:233
+msgid "Leave the button label field empty to hide the menu action button."
+msgstr "মেনু অ্যাকশন বোতামটি আড়াল করতে বোতাম লেবেল ক্ষেত্রটি খালি ছেড়ে দিন।"
+
+#: options/opt_header.php:236
+msgid "Get Started"
+msgstr "শুরু করা যাক"
+
+#: options/opt_header.php:249
+msgid "Button URL Target"
+msgstr "বোতাম URL লক্ষ্য"
+
+#: options/opt_header.php:253 options/opt_header.php:491
+msgid "Blank (Open in new tab)"
+msgstr "ফাঁকা (নতুন ট্যাবে খুলুন)"
+
+#: options/opt_header.php:254 options/opt_header.php:492
+msgid "Self (Open in the same tab)"
+msgstr "স্ব (একই ট্যাবে খুলুন)"
+
+#: options/opt_header.php:261
+msgid "Button padding"
+msgstr "বোতাম প্যাডিং"
+
+#: options/opt_header.php:262
+msgid "Padding around the menu action button."
+msgstr "মেনু অ্যাকশন বোতামের চারপাশে প্যাডিং।"
+
+#: options/opt_header.php:277
+msgid "Button Colors"
+msgstr "বোতামের রং"
+
+#: options/opt_header.php:278
+msgid "Button style attributes on normal (non sticky) mode."
+msgstr "সাধারণ (নন স্টিকি) মোডে বোতাম শৈলীর বৈশিষ্ট্যাবলী।"
+
+#: options/opt_header.php:286 options/opt_header.php:368
+msgid "Font color"
+msgstr "ফন্টের রঙ"
+
+#: options/opt_header.php:295 options/opt_menu.php:167
+msgid "Border Color"
+msgstr "সীমানার রং"
+
+#: options/opt_header.php:316
+msgid "Hover Font Color"
+msgstr "হোভার হরফের রঙ"
+
+#: options/opt_header.php:317
+msgid "Font color on hover stats."
+msgstr "হোভার পরিসংখ্যানে ফন্টের রঙ।"
+
+#: options/opt_header.php:325
+msgid "Hover Border Color"
+msgstr "হোভার বর্ডারের রঙ"
+
+#: options/opt_header.php:326
+msgid "Border color on hover stats."
+msgstr "হোভার পরিসংখ্যানে সীমানা রঙ।"
+
+#: options/opt_header.php:335 options/opt_header.php:398
+msgid "Hover background color"
+msgstr "ব্যাকগ্রাউন্ডের রঙ ঘোরান"
+
+#: options/opt_header.php:336
+msgid "Background color on hover stats."
+msgstr "হোভার পরিসংখ্যানে পটভূমির রঙ।"
+
+#: options/opt_header.php:350
+msgid "Sticky Button Style"
+msgstr "স্টিকি বাটন স্টাইল"
+
+#: options/opt_header.php:351
+msgid "Button colors on sticky mode."
+msgstr "স্টিকি মোডে বোতামের রঙগুলি।"
+
+#: options/opt_header.php:358
+msgid "Border color"
+msgstr "সীমানার রঙ"
+
+#: options/opt_header.php:359
+msgid "Border color on header sticky mode."
+msgstr "হেডার স্টিকি মোডে বর্ডার কালার।"
+
+#: options/opt_header.php:369
+msgid "Font color on header sticky mode."
+msgstr "হেডার স্টিকি মোডে ফন্টের রঙ।"
+
+#: options/opt_header.php:377
+msgid "Background color"
+msgstr "পটভূমির রং"
+
+#: options/opt_header.php:378
+msgid "Background color on header sticky mode."
+msgstr "হেডার স্টিকি মোডে ব্যাকগ্রাউন্ড কালার।"
+
+#: options/opt_header.php:389
+msgid "Hover font color"
+msgstr "হোভার হরফের রঙ"
+
+#: options/opt_header.php:390
+msgid "Font hover color on Header sticky mode."
+msgstr "হেডার স্টিকি মোডে হরফের রঙ ঘোরান।"
+
+#: options/opt_header.php:399 options/opt_header.php:410
+msgid "Background hover color on Header sticky mode.."
+msgstr "হেডার স্টিকি মোডে ব্যাকগ্রাউন্ড হোভার কালার.."
+
+#: options/opt_header.php:409
+msgid "Hover border color"
+msgstr "হোভার বর্ডারের রঙ"
+
+#: options/opt_header.php:433 options/opt_header.php:441
+msgid "Top Header"
+msgstr "শীর্ষ শিরোনাম"
+
+#: options/opt_header.php:442
+msgid "Toggle this switch to Show/Hide the Top Header."
+msgstr "শীর্ষ শিরোনামটি দেখান/লুকানাতে এই স্যুইচটি টগল করুন।"
+
+#: options/opt_header.php:452
+msgid "Active Current Site"
+msgstr "সক্রিয় বর্তমান সাইট"
+
+#: options/opt_header.php:453
+msgid "Show the current website menu item URL activated."
+msgstr "বর্তমান ওয়েবসাইট মেনু আইটেম URL সক্রিয় দেখান।"
+
+#: options/opt_header.php:464
+msgid "Left Items"
+msgstr "বাম আইটেম"
+
+#: options/opt_header.php:465
+msgid "Add your menu items for the left side Top Header."
+msgstr "বাম পাশের শীর্ষ শিরোনামের জন্য আপনার মেনু আইটেমগুলি যুক্ত করুন।"
+
+#: options/opt_header.php:471
+msgid "Icon"
+msgstr "আইকন"
+
+#: options/opt_header.php:477 options/opt_header.php:517
+msgid "Menu Item"
+msgstr "মেনু আইটেম"
+
+#: options/opt_header.php:483 options/opt_header.php:523
+msgid "Menu URL"
+msgstr "মেনু URL"
+
+#: options/opt_header.php:487
+msgid "Menu URL Target"
+msgstr "মেনু URL লক্ষ্য"
+
+#: options/opt_header.php:499
+msgid "Menu Item 01"
+msgstr "মেনু আইটেম 01"
+
+#: options/opt_header.php:503 options/opt_header.php:527
+msgid "Add Item"
+msgstr "আইটেম যোগ করুন"
+
+#: options/opt_header.php:510
+msgid "Right Items"
+msgstr "সঠিক আইটেম"
+
+#: options/opt_header.php:511
+msgid "Add your menu items for the right side Top Header."
+msgstr "ডান পাশের শীর্ষ শিরোনামের জন্য আপনার মেনু আইটেমগুলি যুক্ত করুন।"
+
+#: options/opt_header.php:539 options/opt_header.php:546
+msgid "Title-bar"
+msgstr "টাইটেল-বার"
+
+#: options/opt_header.php:550
+msgid "Ornaments"
+msgstr "অলঙ্কার"
+
+#: options/opt_header.php:561 options/opt_header.php:715
+msgid "Banner Background Style"
+msgstr "ব্যানার ব্যাকগ্রাউন্ড স্টাইল"
+
+#: options/opt_header.php:570
+msgid "Left Ornament"
+msgstr "বাম অলঙ্কার"
+
+#: options/opt_header.php:571
+msgid "Upload here the default left ornament image"
+msgstr "এখানে ডিফল্ট বাম অলঙ্কার চিত্র আপলোড করুন"
+
+#: options/opt_header.php:582
+msgid "Right Ornament"
+msgstr "সঠিক অলঙ্কার"
+
+#: options/opt_header.php:583
+msgid "Upload here the default right ornament image"
+msgstr "এখানে ডিফল্ট ডান অলঙ্কার চিত্র আপলোড করুন"
+
+#: options/opt_header.php:594
+msgid "Title-bar padding"
+msgstr "শিরোনাম-বার প্যাডিং"
+
+#: options/opt_header.php:595
+msgid "Padding around the Title-bar."
+msgstr "টাইটেল-বারের চারপাশে প্যাডিং।"
+
+#: options/opt_header.php:607
+msgid "Alignment"
+msgstr "শ্রেণীবিন্যাস"
+
+#: options/opt_header.php:623 options/opt_header.php:631
+#: options/opt_header.php:643
+msgid "Search Banner"
+msgstr "ব্যানার অনুসন্ধান করুন"
+
+#: options/opt_header.php:637 options/opt_header.php:1036
+#: options/opt_typo.php:22 options/opt_typo.php:62
+msgid "Important Note:"
+msgstr "গুরুত্বপূর্ণ দ্রষ্টব্য:"
+
+#: options/opt_header.php:639
+msgid "Search Banner located on the Doc details, Forum, and Blog pages."
+msgstr "ডক বিশদ, ফোরাম এবং ব্লগ পৃষ্ঠাগুলিতে অবস্থিত ব্যানার অনুসন্ধান করুন।"
+
+#: options/opt_header.php:653
+msgid "Search Banner Show on page"
+msgstr "পৃষ্ঠায় ব্যানার শো অনুসন্ধান করুন"
+
+#: options/opt_header.php:654
+msgid "Show the search banner on the page."
+msgstr "পৃষ্ঠায় অনুসন্ধান ব্যানারটি দেখান।"
+
+#: options/opt_header.php:665
+msgid "Search Banner Layout"
+msgstr "ব্যানার লেআউট অনুসন্ধান করুন"
+
+#: options/opt_header.php:670
+msgid "Elementor Template"
+msgstr "এলিমেন্টর টেমপ্লেট"
+
+#: options/opt_header.php:677
+msgid "Select Elementor Layout"
+msgstr "এলিমেন্টর লেআউট চয়ন করো"
+
+#: options/opt_header.php:689
+msgid "Search Banner Design"
+msgstr "ব্যানার ডিজাইন অনুসন্ধান করুন"
+
+#: options/opt_header.php:706
+msgid "Page Title"
+msgstr "পৃষ্ঠার শিরোনাম"
+
+#: options/opt_header.php:707
+msgid "Show / Hide the page title"
+msgstr "পৃষ্ঠার শিরোনাম দেখান / লুকান"
+
+#: options/opt_header.php:728
+msgid "Focus Search"
+msgstr "ফোকাস অনুসন্ধান"
+
+#: options/opt_header.php:729
+msgid ""
+"When you enter the cursor in the search field, a transparent overlay color "
+"will appear on other elements of the page."
+msgstr ""
+"আপনি যখন অনুসন্ধান ক্ষেত্রে কার্সারটি প্রবেশ করেন, পৃষ্ঠার অন্যান্য উপাদানগুলিতে একটি "
+"স্বচ্ছ ওভারলে রঙ উপস্থিত হবে।"
+
+#: options/opt_header.php:744
+msgid "Focus Search by /"
+msgstr "দ্বারা ফোকাস অনুসন্ধান /"
+
+#: options/opt_header.php:745
+msgid ""
+"If you enable this setting, your website visitors can focus (enter the mouse "
+"cursor) on the search form by pressing the \"/\" key of the keyboard."
+msgstr ""
+"আপনি যদি এই সেটিংটি সক্ষম করেন তবে আপনার ওয়েবসাইট দর্শকরা কীবোর্ডের \"/\" কী "
+"টিপে অনুসন্ধান ফর্মটিতে ফোকাস করতে (মাউস কার্সারটি প্রবেশ করান) করতে পারে।"
+
+#: options/opt_header.php:760
+msgid "Search Keywords"
+msgstr "কীওয়ার্ড অনুসন্ধান করুন"
+
+#: options/opt_header.php:773
+msgid "Keywords Label"
+msgstr "কীওয়ার্ড লেবেল"
+
+#: options/opt_header.php:776
+msgid "Popular Searches"
+msgstr "জনপ্রিয় অনুসন্ধান"
+
+#: options/opt_header.php:784
+msgid "Keywords"
+msgstr "মূলশব্দ"
+
+#: options/opt_header.php:792
+msgid "Text"
+msgstr "লেখা"
+
+#: options/opt_header.php:796
+msgid "Add Keyword"
+msgstr "কীওয়ার্ড যোগ করুন"
+
+#: options/opt_header.php:806
+msgid "Search Placeholder"
+msgstr "স্থানধারক অনুসন্ধান করুন"
+
+#: options/opt_header.php:807
+msgid "Search (\"/\" to focus)"
+msgstr "অনুসন্ধান করুন (ফোকাস করতে \"/\")"
+
+#: options/opt_header.php:817
+msgid "Breadcrumb"
+msgstr "ব্রেডক্রাম্ব"
+
+#: options/opt_header.php:818
+msgid "Show / Hide the breadcrumbs in search results"
+msgstr "অনুসন্ধানের ফলাফলগুলিতে ব্রেডক্রাম্বগুলি দেখান/লুকান"
+
+#: options/opt_header.php:832
+msgid "Thumbnail"
+msgstr "থাম্বনেইল"
+
+#: options/opt_header.php:833
+msgid "Show / Hide the thumbnail in search results"
+msgstr "অনুসন্ধানের ফলাফলগুলিতে থাম্বনেলটি দেখান/লুকান"
+
+#: options/opt_header.php:846
+msgid ""
+"Padding around the Search Banner. Input the padding as clockwise (Top Right "
+"Bottom Left)"
+msgstr ""
+"সার্চ ব্যানারের চারপাশে প্যাডিং। প্যাডিংটি ঘড়ির কাঁটার দিকে ইনপুট করুন (উপরের ডান, "
+"নীচে বাম)"
+
+#: options/opt_header.php:889
+msgid "Left Leaf Image"
+msgstr "বাম পাতার চিত্র"
+
+#: options/opt_header.php:903
+msgid "Right Leaf Image"
+msgstr "ডান পাতার চিত্র"
+
+#: options/opt_header.php:917
+msgid "Man Image"
+msgstr "ম্যান ইমেজ"
+
+#: options/opt_header.php:931
+msgid "Flower Image"
+msgstr "ফুলের ছবি"
+
+#: options/opt_header.php:945
+msgid "Background Shape Image"
+msgstr "পটভূমি আকৃতি চিত্র"
+
+#: options/opt_header.php:946
+msgid ""
+"We used here a transparent image that are containing stars. So you can use "
+"here similar transparent image or any other image."
+msgstr ""
+"আমরা এখানে একটি স্বচ্ছ চিত্র ব্যবহার করেছি যাতে তারা রয়েছে। তাই আপনি এখানে অনুরূপ "
+"স্বচ্ছ ইমেজ বা অন্য কোন ইমেজ ব্যবহার করতে পারেন।"
+
+#: options/opt_header.php:961
+msgid "Wave Shape 01"
+msgstr "তরঙ্গ আকৃতি 01"
+
+#: options/opt_header.php:962 options/opt_header.php:978
+msgid ""
+"We used here a transparent wave shape image. You can use here similar "
+"transparent shape image or any other image."
+msgstr ""
+"আমরা এখানে একটি স্বচ্ছ তরঙ্গ আকৃতির চিত্র ব্যবহার করেছি। আপনি এখানে অনুরূপ স্বচ্ছ "
+"আকৃতির চিত্র বা অন্য কোনও চিত্র ব্যবহার করতে পারেন।"
+
+#: options/opt_header.php:977
+msgid "Wave Shape 02"
+msgstr "তরঙ্গ আকৃতি 02"
+
+#: options/opt_header.php:1000
+msgid "Breadcrumbs"
+msgstr "ব্রেডক্রাম্বস"
+
+#: options/opt_header.php:1008
+msgid "Show/Hide Breadcrumb"
+msgstr "ব্রেডক্রাম্ব দেখান/লুকান"
+
+#: options/opt_header.php:1009
+msgid "Toggle this switch to Show/Hide the Breadcrumb bar."
+msgstr "ব্রেডক্রাম্ব বারটি দেখান/লুকানাতে এই স্যুইচটি টগল করুন।"
+
+#: options/opt_header.php:1019
+msgid "Frontpage Name"
+msgstr "প্রথম পাতার নাম"
+
+#: options/opt_header.php:1027
+msgid "Updated Text"
+msgstr "আপডেট করা পাঠ্য"
+
+#: options/opt_header.php:1028
+#: template-parts/header-elements/search-banner/breadcrumb.php:6
+msgid "Updated on"
+msgstr "আপডেট করা হয়েছে"
+
+#: options/opt_header.php:1038
+msgid ""
+"The breadcrumbs (except the On/Off switch and Updated Text options) in the "
+"Docs page getting from the EazyDocs > Settings > Single Doc > Breadcrumbs. "
+"Change the texts from there to see changes on the Docs page."
+msgstr ""
+"ডক্স পৃষ্ঠায় ব্রেডক্রাম্বগুলি (অন / অফ স্যুইচ এবং আপডেট হওয়া পাঠ্য বিকল্পগুলি ব্যতীত) "
+"ইজিডক্স > সেটিংস > সিঙ্গল ডক > ব্রেডক্রাম্বস থেকে পাচ্ছে। ডক্স পৃষ্ঠায় পরিবর্তনগুলি "
+"দেখতে সেখান থেকে পাঠ্যগুলি পরিবর্তন করুন।"
+
+#: options/opt_menu.php:5
+msgid "Menu"
+msgstr "মেনু "
+
+#: options/opt_menu.php:27
+msgid "Navbar Meu Alignment"
+msgstr "নববার মেউ প্রান্তিককরণ"
+
+#: options/opt_menu.php:42
+msgid "Normal menu colors"
+msgstr "সাধারণ মেনু রং"
+
+#: options/opt_menu.php:43
+msgid "The following settings will only apply on the normal header mode.."
+msgstr "নিম্নলিখিত সেটিংস কেবল সাধারণ শিরোনাম মোডে প্রযোজ্য হবে।।"
+
+#: options/opt_menu.php:48
+msgid "Item Color"
+msgstr "আইটেম রং"
+
+#: options/opt_menu.php:49
+msgid "This is the menu item font color."
+msgstr "এটি মেনু আইটেম ফন্টের রঙ।"
+
+#: options/opt_menu.php:59
+msgid "Item Hover Color"
+msgstr "আইটেম হোভার রঙ"
+
+#: options/opt_menu.php:60
+msgid "Menu item's font color on hover stats."
+msgstr "হোভার পরিসংখ্যানে মেনু আইটেমের ফন্টের রঙ।"
+
+#: options/opt_menu.php:73
+msgid "Item Active Color"
+msgstr "আইটেম সক্রিয় রঙ"
+
+#: options/opt_menu.php:74
+msgid "Menu item's font color on active stats."
+msgstr "সক্রিয় পরিসংখ্যানে মেনু আইটেমের ফন্টের রঙ।"
+
+#: options/opt_menu.php:88
+msgid "Sticky menu colors"
+msgstr "স্টিকি মেনু রং"
+
+#: options/opt_menu.php:89
+msgid "The following settings will only apply on the sticky header mode.."
+msgstr "নিম্নলিখিত সেটিংস কেবল স্টিকি হেডার মোডে প্রযোজ্য হবে।।"
+
+#: options/opt_menu.php:94 options/opt_menu.php:136
+msgid "Menu Color"
+msgstr "মেনু রঙ"
+
+#: options/opt_menu.php:95
+msgid "Menu item font color on sticky menu mode."
+msgstr "স্টিকি মেনু মোডে মেনু আইটেম ফন্টের রঙ।"
+
+#: options/opt_menu.php:105
+msgid "Menu Hover Color"
+msgstr "মেনু হোভার রঙ"
+
+#: options/opt_menu.php:106
+msgid "Menu item hover font color on header sticky mode"
+msgstr "হেডার স্টিকি মোডে মেনু আইটেম হোভার ফন্টের রঙ"
+
+#: options/opt_menu.php:116
+msgid "Menu Active Color"
+msgstr "মেনু সক্রিয় রঙ"
+
+#: options/opt_menu.php:117
+msgid "Menu item active font color on header sticky mode"
+msgstr "শিরোনাম স্টিকি মোডে মেনু আইটেম সক্রিয় ফন্টের রঙ"
+
+#: options/opt_menu.php:130
+msgid "Dropdown menu colors"
+msgstr "ড্রপডাউন মেনু রং"
+
+#: options/opt_menu.php:131
+msgid "The following settings will only apply on the dropdown header mode.."
+msgstr "নিম্নলিখিত সেটিংস কেবল ড্রপডাউন শিরোনাম মোডে প্রযোজ্য হবে।।"
+
+#: options/opt_menu.php:146
+msgid "Menu Hover/Active Color"
+msgstr "মেনু ঘোরান/সক্রিয় রঙ"
+
+#: options/opt_menu.php:184
+msgid "Menu item padding"
+msgstr "মেনু আইটেম প্যাডিং"
+
+#: options/opt_menu.php:185
+msgid ""
+"Padding around menu item. Default is 37px 0px 37px 0px. You can reduce the "
+"top and bottom padding to make the menu bar height smaller."
+msgstr ""
+"মেনু আইটেমের চারপাশে প্যাডিং। ডিফল্ট 37px 0px 37px 0px। মেনু বারের উচ্চতা ছোট "
+"করতে আপনি উপরের এবং নীচের প্যাডিং হ্রাস করতে পারেন।"
+
+#: options/opt_menu.php:195
+msgid "Menu item margin"
+msgstr "মেনু আইটেম মার্জিন"
+
+#: options/opt_menu.php:196
+msgid "Margin around menu item."
+msgstr "মেনু আইটেমের চারপাশে মার্জিন।"
+
+#: options/opt_privacy.php:3
+msgid "Privacy"
+msgstr "গোপনীয়তা"
+
+#: options/opt_privacy.php:10
+msgid "Privacy Bar"
+msgstr "প্রাইভেসি বার"
+
+#: options/opt_privacy.php:11
+msgid "Turn on to enable a privacy bar at the bottom of the page."
+msgstr "পৃষ্ঠার নীচে একটি গোপনীয়তা বার সক্ষম করতে চালু করুন।"
+
+#: options/opt_privacy.php:23
+msgid "Privacy Bar Text"
+msgstr "প্রাইভেসি বার টেক্সট"
+
+#: options/opt_privacy.php:26
+msgid "By using this website, you automatically accept that we use cookies."
+msgstr ""
+"এই ওয়েবসাইটটি ব্যবহার করে, আপনি স্বয়ংক্রিয়ভাবে স্বীকার করেন যে আমরা কুকি ব্যবহার "
+"করি।"
+
+#: options/opt_privacy.php:37
+msgid "Privacy Bar Button Text"
+msgstr "গোপনীয়তা বার বোতাম পাঠ্য"
+
+#: options/opt_privacy.php:40
+msgid "Understood"
+msgstr "বুঝেছি"
+
+#: options/opt_privacy.php:45
+msgid "Privacy Bar Padding"
+msgstr "প্রাইভেসি বার প্যাডিং"
+
+#: options/opt_privacy.php:55
+msgid "Privacy Bar Background Color"
+msgstr "প্রাইভেসি বার ব্যাকগ্রাউন্ড কালার"
+
+#: options/opt_shop.php:4 options/opt_shop.php:13 options/opt_shop.php:18
+#: options/opt_shop.php:27
+msgid "Shop"
+msgstr "দোকান"
+
+#: options/opt_shop.php:22
+msgid "Page title"
+msgstr "পৃষ্ঠার শিরোনাম"
+
+#: options/opt_shop.php:23
+msgid "Give here the shop page title"
+msgstr "এখানে দোকান পৃষ্ঠার শিরোনাম দিন"
+
+#: options/opt_shop.php:24
+msgid "This text will show on the shop page banner"
+msgstr "এই পাঠ্যটি দোকান পৃষ্ঠার ব্যানারে প্রদর্শিত হবে"
+
+#: options/opt_shop.php:31
+msgid "Shop Page Subtitle"
+msgstr "দোকান পৃষ্ঠা সাবটাইটেল"
+
+#: options/opt_shop.php:37
+msgid "Sidebar"
+msgstr "সাইডবার"
+
+#: options/opt_shop.php:38
+msgid "Select the sidebar position of Shop page"
+msgstr "শপ পৃষ্ঠার সাইডবারের অবস্থান চয়ন করো"
+
+#: options/opt_shop.php:54 options/opt_shop.php:61
+msgid "Product Single"
+msgstr "প্রোডাক্ট সিঙ্গেল"
+
+#: options/opt_shop.php:65
+msgid "Related Products Title"
+msgstr "সম্পর্কিত পণ্য শিরোনাম"
+
+#: options/opt_shop.php:68
+msgid "Related products"
+msgstr "একই রকম পণ্য"
+
+#: options/opt_shop.php:71
+msgid "Related Products Subtitle"
+msgstr "সম্পর্কিত পণ্য সাবটাইটেল"
+
+#: options/opt_shop.php:82
+msgid "Checkout Page"
+msgstr "চেকআউট পৃষ্ঠা"
+
+#: options/opt_shop.php:89
+msgid "Checkout Fields"
+msgstr "চেকআউট ফিল্ডস"
+
+#: options/opt_shop.php:93
+msgid "Remove Checkout Fields"
+msgstr "চেকআউট ফিল্ডস রিমুভ"
+
+#: options/opt_shop.php:94
+msgid "Select fields the specific fields to remove from the checkout page. "
+msgstr "চেকআউট পৃষ্ঠা থেকে অপসারণ করতে নির্দিষ্ট ফিল্ড নির্বাচন করুন। "
+
+#: options/opt_shop.php:95
+msgid ""
+"This option will not work with the wooCommerce block based checkout page."
+msgstr "এই বিকল্পটি উকমার্স ব্লক ভিত্তিক চেকআউট পৃষ্ঠার সাথে কাজ করবে না।"
+
+#: options/opt_shop.php:102
+msgid "Company"
+msgstr "কোম্পানি"
+
+#: options/opt_shop.php:103
+msgid "Country"
+msgstr "দেশ"
+
+#: options/opt_shop.php:104
+msgid "Address 1"
+msgstr "ঠিকানার লাইন ১"
+
+#: options/opt_shop.php:105
+msgid "Address 2"
+msgstr "ঠিকানার লাইন ২"
+
+#: options/opt_shop.php:106
+msgid "City"
+msgstr "শহর"
+
+#: options/opt_shop.php:107
+msgid "State"
+msgstr "প্রদেশ"
+
+#: options/opt_shop.php:108
+msgid "Postcode"
+msgstr "পোস্ট কোড"
+
+#: options/opt_shop.php:109
+msgid "Phone"
+msgstr "মোবাইল"
+
+#: options/opt_shop.php:120
+msgid "Gutenberg Blocks"
+msgstr "গুটেনবার্গ ব্লক"
+
+#: options/opt_shop.php:127
+msgid "Blocks"
+msgstr "ব্লকস"
+
+#: options/opt_shop.php:131
+msgid "Unload WC Gutenberg Assets"
+msgstr "ডব্লিউসি গুটেনবার্গ সম্পদ আনলোড করুন"
+
+#: options/opt_shop.php:132
+msgid ""
+"WC gutenberg assets loads globally. If you don't use wooCommerce gutenberg "
+"blocks, it's recommended to unload the unnecessary assets."
+msgstr ""
+"বিশ্বজুড়ে গুটেনবার্গের সম্পদের বোঝা বইছে। আপনি যদি উকমার্স গুটেনবার্গ ব্লকগুলি ব্যবহার "
+"না করেন তবে অপ্রয়োজনীয় সম্পদগুলি আনলোড করার পরামর্শ দেওয়া হচ্ছে।"
+
+#: options/opt_social_links.php:3 options/opt_social_links.php:11
+msgid "Social links"
+msgstr "সামাজিক লিংক"
+
+#: options/opt_social_links.php:16 woocommerce/single-product/meta.php:51
+msgid "Facebook"
+msgstr "ফেসবুক"
+
+#: options/opt_social_links.php:23 woocommerce/single-product/meta.php:52
+msgid "Twitter"
+msgstr "টুইটার"
+
+#: options/opt_social_links.php:30
+msgid "Instagram"
+msgstr "ইনস্টাগ্রাম"
+
+#: options/opt_social_links.php:36
+msgid "LinkedIn"
+msgstr "লিঙ্কডইন"
+
+#: options/opt_social_links.php:43
+msgid "Youtube"
+msgstr "ইউটিউব"
+
+#: options/opt_social_links.php:49
+msgid "Dribbble"
+msgstr "Dribbble"
+
+#: options/opt_social_links.php:55
+msgid "GitHub"
+msgstr "গিটহাব"
+
+#: options/opt_typo.php:3 options/opt_typo.php:10 options/opt_typo.php:15
+msgid "Typography Settings"
+msgstr "টাইপোগ্রাফি সেটিংস"
+
+#: options/opt_typo.php:24 options/opt_typo.php:64
+msgid ""
+"This tab contains general typography options. Additional typography options "
+"for specific areas can be found within other tabs. Example: For menu "
+"typography options go to the Menu Settings tab."
+msgstr ""
+"এই ট্যাবে সাধারণ টাইপোগ্রাফি বিকল্প রয়েছে। নির্দিষ্ট এলাকার জন্য অতিরিক্ত "
+"টাইপোগ্রাফি বিকল্পগুলি অন্যান্য ট্যাবগুলির মধ্যে পাওয়া যাবে। উদাহরণ: মেনু টাইপোগ্রাফি "
+"বিকল্পগুলির জন্য মেনু সেটিংস ট্যাবে যান।"
+
+#: options/opt_typo.php:30
+msgid "Body Typography"
+msgstr "বডি টাইপোগ্রাফি"
+
+#: options/opt_typo.php:31
+msgid "These settings control the typography for the body text globally."
+msgstr "এই সেটিংস বিশ্বব্যাপী বডি টেক্সটের জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: options/opt_typo.php:48 options/opt_typo.php:55
+msgid "Headers Typography"
+msgstr "হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:70
+msgid "H1 Headers Typography"
+msgstr "H1 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:71
+msgid "These settings control the typography for all H1 Headers."
+msgstr "এই সেটিংস সমস্ত এইচ 1 হেডারগুলির জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: options/opt_typo.php:85
+msgid "H2 Headers Typography"
+msgstr "H2 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:86
+msgid ""
+"These settings control the typography for all H2 Headers. The h2 title tag "
+"used in the most section title."
+msgstr ""
+"এই সেটিংস সমস্ত এইচ 2 হেডারের জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে। সর্বাধিক বিভাগের "
+"শিরোনামে এইচ 2 শিরোনাম ট্যাগ ব্যবহৃত হয়েছে।"
+
+#: options/opt_typo.php:100
+msgid "H3 Headers Typography"
+msgstr "H3 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:101
+msgid "These settings control the typography for all H3 Headers."
+msgstr "এই সেটিংস সমস্ত এইচ 3 হেডারের জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: options/opt_typo.php:115
+msgid "H4 Headers Typography"
+msgstr "H4 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:116
+msgid "These settings control the typography for all H4 Headers."
+msgstr "এই সেটিংস সমস্ত এইচ 4 হেডারের জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: options/opt_typo.php:130
+msgid "H5 Headers Typography"
+msgstr "H5 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:138
+msgid "These settings control the typography for all H5 Headers."
+msgstr "এই সেটিংস সমস্ত এইচ 5 হেডারগুলির জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: options/opt_typo.php:152
+msgid "H6 Headers Typography"
+msgstr "H6 হেডার টাইপোগ্রাফি"
+
+#: options/opt_typo.php:153
+msgid "These settings control the typography for all H6 Headers."
+msgstr "এই সেটিংস সমস্ত এইচ 6 হেডারগুলির জন্য টাইপোগ্রাফি নিয়ন্ত্রণ করে।"
+
+#: page-signin.php:39 page-signup.php:39
+msgid "top ornament"
+msgstr "শীর্ষ অলঙ্কার"
+
+#: page-signin.php:45 page-signup.php:45
+msgid "bottom ornament"
+msgstr "নীচের অলঙ্কার"
+
+#: page-signin.php:51
+msgid "door"
+msgstr "দরজা"
+
+#: page-signin.php:70
+msgid "Enter the username here."
+msgstr "এখানে ইউজারনেম লিখুন।"
+
+#: page-signin.php:77
+msgid "Forgotten password?"
+msgstr "পাসওয়ার্ড ভুলে গেছেন?"
+
+#: page-signin.php:83
+msgid "Sign in"
+msgstr "প্রবেশ করুন"
+
+#: page-signin.php:90
+msgid "Welcome "
+msgstr "স্বাগতম "
+
+#: page-signin.php:93
+msgid "You are logged in"
+msgstr "আপনি লগ ইন করেছেন"
+
+#: page-signup.php:51
+msgid "man image with lock"
+msgstr "লক সহ ম্যান ইমেজ"
+
+#: page.php:51 single-elementor_library.php:11 single.php:59
+msgid "Pages:"
+msgstr "পৃষ্ঠাসমূহ:"
+
+#: page.php:55 single-elementor_library.php:15 single.php:63
+msgid "Page"
+msgstr "পেজ"
+
+#: search.php:21
+msgid "All"
+msgstr "সকল"
+
+#: search.php:37
+msgid "Faq"
+msgstr "এফএকিউ"
+
+#: single.php:72
+msgid "Tags : "
+msgstr "ট্যাগ: "
+
+#: template-parts/contents/content-none.php:14
+msgid "Nothing Found"
+msgstr "কিছুই পাওয়া যায়নি"
+
+#: template-parts/contents/content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "আপনার প্রথম পোস্ট প্রকাশ করতে প্রস্তুত? <a href=\"%1$s\">এখানে শুরু করুন</a>."
+
+#: template-parts/contents/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"দুঃখিত, তবে কিছুই আপনার অনুসন্ধানের পদগুলির সাথে মেলে না। কিছু ভিন্ন কীওয়ার্ড দিয়ে "
+"আবার চেষ্টা করুন।"
+
+#: template-parts/contents/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"মনে হচ্ছে আমরা বুঝতে পারছি না আপনার কি প্রয়োজন। আপনি অনুসন্ধান করলে তা সহায়ক হতে "
+"পারে।"
+
+#: template-parts/contents/content-search.php:15
+#: template-parts/contents/content.php:21
+msgid "Featured"
+msgstr "আলোচিত"
+
+#: template-parts/footers/footer-normal.php:3
+#: template-parts/footers/footer-normal.php:38
+msgid "© 2021 Spider-Themes. All rights reserved"
+msgstr "© ২০২১ স্পাইডার-থিমস। সর্বস্বত্ব সংরক্ষিত"
+
+#: template-parts/footers/footer-simple.php:6
+msgid "Leaf Illustration"
+msgstr "পাতার চিত্রণ"
+
+#: template-parts/footers/footer-simple.php:12
+msgid "© 2023 Spider-Themes. All rights reserved"
+msgstr "© ২০২৩ স্পাইডার-থিমস। সর্বস্বত্ব সংরক্ষিত"
+
+#: template-parts/header-elements/action-button.php:57
+#: template-parts/header-elements/dark-switcher.php:7
+msgid "Toggle dark mode"
+msgstr "ডার্ক মোড টগল করুন"
+
+#: template-parts/header-elements/search-banner/ajax-search-results.php:1
+msgid "No Results Found"
+msgstr "কোন ফলাফল পাওয়া যায়নি"
+
+#: template-parts/header-elements/search-banner/breadcrumb.php:33
+msgid "Search results for \""
+msgstr "\" এর জন্য অনুসন্ধানের ফলাফল"
+
+#: template-parts/header-elements/search-banner/breadcrumb.php:44
+msgid "Published on: "
+msgstr "প্রকাশিতঃ "
+
+#: template-parts/header-elements/search-banner/search-spinner.php:2
+msgid "loading"
+msgstr "লোড"
+
+#: template-parts/single-post/banner-colorful.php:19
+#: template-parts/single-post/banner-colorful.php:24
+#: template-parts/single-post/banner-colorful.php:25
+#: template-parts/single-post/banner-colorful.php:34
+msgid "banner shape"
+msgstr "ব্যানার আকৃতি"
+
+#: template-parts/single-post/banner-colorful.php:40
+#: template-parts/single-post/banner-colorful.php:41
+msgid "plus icon"
+msgstr "প্লাস আইকন"
+
+#: template-parts/single-post/banner-curved.php:56
+#: template-parts/single-post/banner-curved.php:57
+msgid "Overlay Image"
+msgstr "ওভারলে ইমেজ"
+
+#: template-parts/single-post/post-meta.php:22
+msgid " to read this post"
+msgstr " এই পোস্টটি পড়তে"
+
+#: template-parts/single-post/post-meta.php:47
+msgid " Views"
+msgstr " মতামত"
+
+#: woocommerce/cart/cart-totals.php:28
+msgid "Cart Totals"
+msgstr "কার্ট টোটাল"
+
+#: woocommerce/cart/cart-totals.php:31
+msgid "Subtotal"
+msgstr "মোট"
+
+#: woocommerce/cart/cart-totals.php:52
+msgid "Shipping "
+msgstr "শিপিং "
+
+#: woocommerce/cart/cart-totals.php:67
+#, php-format
+msgid "(estimated for %s)"
+msgstr "(%s জন্য অনুমান)"
+
+#: woocommerce/cart/cart-totals.php:86
+msgid "Total"
+msgstr "মোট"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:51
+#: woocommerce/cart/cart.php:62
+msgid "PRODUCT"
+msgstr "পণ্য"
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:82
+msgid "PRICE"
+msgstr "দাম"
+
+#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:85
+msgid "QUANTITY"
+msgstr "পরিমাণ"
+
+#: woocommerce/cart/cart.php:35 woocommerce/cart/cart.php:105
+msgid "TOTAL"
+msgstr "মোট"
+
+#: woocommerce/cart/cart.php:78 woocommerce/cart/mini-cart.php:69
+msgid "Available on backorder"
+msgstr "ব্যাকঅর্ডার এ পাওয়া যাবে"
+
+#: woocommerce/cart/cart.php:118 woocommerce/cart/mini-cart.php:83
+msgid "Remove this item"
+msgstr "এটি  অপসারণ করুন"
+
+#: woocommerce/cart/cart.php:133
+msgid "Continue Shopping"
+msgstr "কেনাকাটা চালিয়ে যান"
+
+#: woocommerce/cart/cart.php:135
+msgid "Update cart"
+msgstr "কার্ট আপডেট করুন"
+
+#: woocommerce/cart/cart.php:141
+msgid "Discount Code:"
+msgstr "ডিসকাউন্ট কোড:"
+
+#: woocommerce/cart/cart.php:145
+msgid "Enter your coupon code"
+msgstr "আপনার কুপন কোড লিখুন"
+
+#: woocommerce/cart/cart.php:146 woocommerce/checkout/form-coupon.php:81
+#: woocommerce/checkout/form-coupon.php:82
+msgid "Apply coupon"
+msgstr "কুপন প্রয়োগ করুন"
+
+#: woocommerce/cart/cart.php:146
+msgid "Apply"
+msgstr "আবেদন"
+
+#: woocommerce/cart/cross-sells.php:27
+msgid "You may be interested in&hellip;"
+msgstr "আপনার হয়তো পছন্দ হবে&hellip;"
+
+#: woocommerce/cart/mini-cart.php:100
+msgid "Subtotal :"
+msgstr "উপমোট :"
+
+#: woocommerce/cart/mini-cart.php:103
+msgid "View Cart"
+msgstr "কার্ট দেখুন"
+
+#: woocommerce/cart/mini-cart.php:104
+msgid "Checkout"
+msgstr "চেকআউট"
+
+#: woocommerce/cart/mini-cart.php:110
+msgid "No products in the cart."
+msgstr "কার্টে কোনো পণ্য নাই।"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:26
+msgid "Proceed to checkout"
+msgstr "কেনাকাটা শেষ করুন"
+
+#: woocommerce/checkout/form-billing.php:26
+msgid "Billing &amp; Shipping"
+msgstr "বিলিং ও শিপিং"
+
+#: woocommerce/checkout/form-billing.php:30
+msgid "Billing details"
+msgstr "Billing বিস্তারিত"
+
+#: woocommerce/checkout/form-billing.php:60
+msgid "Create an account?"
+msgstr "একটি অ্যাকাউন্ট তৈরি করবেন?"
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr "আপনাকে অবশ্যই লগ ইন করতে হবে."
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr "আপনার অর্ডার"
+
+#: woocommerce/checkout/form-coupon.php:36
+msgid "Returning customer?"
+msgstr "রিটার্নিং ক্রেতা?"
+
+#: woocommerce/checkout/form-coupon.php:37
+msgid "Click here to login"
+msgstr "লগইন করতে এখানে ক্লিক করুন"
+
+#: woocommerce/checkout/form-coupon.php:40
+msgid ""
+"If you have shopped with us before, please enter your details below. If you "
+"are a new customer, please proceed to the Billing & Shipping section."
+msgstr ""
+"আপনি যদি আগে আমাদের সাথে কেনাকাটা করে থাকেন তবে দয়া করে নীচে আপনার বিশদটি "
+"লিখুন। আপনি যদি নতুন গ্রাহক হন তবে দয়া করে বিলিং এবং শিপিং বিভাগে এগিয়ে যান।"
+
+#: woocommerce/checkout/form-coupon.php:52
+msgid "Remember Me"
+msgstr "পাসওয়ার্ড সেভ করে রাখুন"
+
+#: woocommerce/checkout/form-coupon.php:71
+msgid "Have a coupon?"
+msgstr "একটি কুপন আছে?"
+
+#: woocommerce/checkout/form-coupon.php:72
+msgid "Click here to enter your code"
+msgstr "এখানে ক্লিক করে আপনার কোডটি লিখুন"
+
+#: woocommerce/checkout/form-coupon.php:77
+msgid "If you have a coupon code, please apply it below."
+msgstr "আপনার যদি একটি কুপন কোড থাকে তবে দয়া করে নীচে এটি প্রয়োগ করুন।"
+
+#: woocommerce/checkout/form-coupon.php:80
+msgid "Coupon code"
+msgstr "কুপন কোড"
+
+#: woocommerce/checkout/form-shipping.php:26
+msgid "Ship to a different address?"
+msgstr "অন্য ঠিকানায় পাঠাতে চান?"
+
+#: woocommerce/checkout/form-shipping.php:60
+#: woocommerce/single-product/tabs/additional-information.php:25
+msgid "Additional information"
+msgstr "অতিরিক্ত তথ্য"
+
+#: woocommerce/checkout/payment.php:34
+msgid ""
+"Sorry, it seems that there are no available payment methods. Please contact "
+"us if you require assistance or wish to make alternate arrangements."
+msgstr ""
+"দুঃখিত, মনে হচ্ছে কোনও অর্থপ্রদানের পদ্ধতি উপলব্ধ নেই। আপনার যদি সহায়তার প্রয়োজন হয় "
+"বা বিকল্প ব্যবস্থা করতে চান তবে দয়া করে আমাদের সাথে যোগাযোগ করুন।"
+
+#: woocommerce/checkout/payment.php:34
+msgid "Please fill in your details above to see available payment methods."
+msgstr "উপলব্ধ অর্থ প্রদানের পদ্ধতিগুলি দেখতে দয়া করে উপরের আপনার বিবরণ পূরণ করুন।"
+
+#. translators: $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:44
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"যেহেতু আপনার ব্রাউজার জাভাস্ক্রিপ্ট সমর্থন করে না, বা এটি অক্ষম, দয়া করে নিশ্চিত করুন "
+"যে আপনি আপনার অর্ডার দেওয়ার আগে %1$sআপডেট টোটালস%2$s বোতামটি ক্লিক করেছেন। "
+"আপনি যদি এটি করতে ব্যর্থ হন তবে আপনাকে উপরে উল্লিখিত পরিমাণের চেয়ে বেশি চার্জ "
+"করা হতে পারে।"
+
+#: woocommerce/checkout/payment.php:46
+msgid "Update totals"
+msgstr "মোট আপডেট করুন"
+
+#. translators: %s: Quantity.
+#: woocommerce/global/quantity-input.php:28
+#, php-format
+msgid "%s quantity"
+msgstr "%s পরিমান"
+
+#: woocommerce/global/quantity-input.php:41
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "সংখ্যা"
+
+#: woocommerce/loop/no-products-found.php:24
+msgid "No products were found matching your selection."
+msgstr "কোন পণ্য ম্যাচিং খুঁজে পাওয়া যায়নি."
+
+#. translators: %d: total results
+#: woocommerce/loop/result-count.php:30
+#, php-format
+msgid "Showing the single result"
+msgid_plural "Showing all %d results"
+msgstr[0] "একক ফলাফল দেখানো হচ্ছে"
+msgstr[1] "সমস্ত % d ফলাফল দেখানো হচ্ছে"
+
+#. translators: 1: first result 2: last result 3: total results
+#: woocommerce/loop/result-count.php:35
+#, php-format
+msgctxt "with first and last result"
+msgid "Showing the single result"
+msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr[0] "একক ফলাফল দেখানো হচ্ছে"
+msgstr[1] "%3$d ফলাফলের %1$d-%2$d দেখানো হচ্ছে"
+
+#: woocommerce/loop/sale-flash.php:28
+#: woocommerce/single-product/sale-flash.php:28
+msgid "Sale!"
+msgstr "অফার!"
+
+#. translators: 1: reviews count 2: product name
+#: woocommerce/single-product-reviews.php:31
+#, php-format
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] "%2$s জন্য %1$s পর্যালোচনা"
+msgstr[1] "%2$s জন্য %1$s পর্যালোচনা"
+
+#: woocommerce/single-product-reviews.php:33
+msgid "Reviews"
+msgstr "রিভিউ"
+
+#: woocommerce/single-product-reviews.php:59
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "উত্তর দিন %s"
+
+#: woocommerce/single-product-reviews.php:60
+msgid "Add your Review"
+msgstr "আপনার পর্যালোচনা যোগ করুন"
+
+#: woocommerce/single-product-reviews.php:60
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "\"%s\" পর্যালোচনা করার জন্য প্রথম হন"
+
+#: woocommerce/single-product-reviews.php:66
+msgid "Name *"
+msgstr "নাম*"
+
+#: woocommerce/single-product-reviews.php:81
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+"একটি পর্যালোচনা পোস্ট করতে আপনাকে অবশ্যই <a href=\"%s\">লগ ইন</a> করতে হবে।"
+
+#: woocommerce/single-product-reviews.php:86
+msgid "Your Review"
+msgstr "আপনার পর্যালোচনা"
+
+#: woocommerce/single-product-reviews.php:92
+msgid "Your rating:"
+msgstr "আপনার রেটিং:"
+
+#: woocommerce/single-product-reviews.php:94
+msgid "Rate&hellip;"
+msgstr "হার।।।"
+
+#: woocommerce/single-product-reviews.php:95
+msgid "Perfect"
+msgstr "সঠিক"
+
+#: woocommerce/single-product-reviews.php:96
+msgid "Good"
+msgstr "ভালো"
+
+#: woocommerce/single-product-reviews.php:97
+msgid "Average"
+msgstr "গড়"
+
+#: woocommerce/single-product-reviews.php:98
+msgid "Not that bad"
+msgstr "মন্দ নয়"
+
+#: woocommerce/single-product-reviews.php:99
+msgid "Very poor"
+msgstr "খুব গরিব"
+
+#: woocommerce/single-product-reviews.php:109
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"শুধুমাত্র লগ ইন করা গ্রাহকরা যারা এই পণ্যটি কিনেছেন তারা একটি পর্যালোচনা ছেড়ে যেতে "
+"পারেন।"
+
+#: woocommerce/single-product/add-to-cart/variable.php:32
+msgid "This product is currently out of stock and unavailable."
+msgstr "এই পণ্যটি বর্তমানে স্টকের বাইরে এবং অনুপলব্ধ।"
+
+#: woocommerce/single-product/add-to-cart/variation.php:23
+msgid ""
+"Sorry, this product is unavailable. Please choose a different combination."
+msgstr "দুঃখিত, এই পণ্যটি অনুপলব্ধ। অনুগ্রহ করে একটি ভিন্ন সংমিশ্রণ চয়ন করুন।"
+
+#: woocommerce/single-product/meta.php:25
+msgid "N/A"
+msgstr "প্রযোজ্য নয়"
+
+#: woocommerce/single-product/meta.php:36
+msgid "SKU:"
+msgstr "পণ্যের কোড:"
+
+#: woocommerce/single-product/meta.php:40
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] "ক্যাটাগরিসমূহ:"
+msgstr[1] "ক্যাটাগরি সমূহ:"
+
+#: woocommerce/single-product/meta.php:42
+msgid "Tag:"
+msgid_plural "Tags: "
+msgstr[0] "ট্যাগসমূহ:"
+msgstr[1] "ট্যাগ: "
+
+#: woocommerce/single-product/meta.php:49
+msgid "Share ON:"
+msgstr "শেয়ার করুন:"
+
+#: woocommerce/single-product/meta.php:53
+msgid "Pinterest"
+msgstr "পিন্টারেস্ট"
+
+#: woocommerce/single-product/meta.php:54
+msgid "Linkedin"
+msgstr "লিঙ্কডইন"
+
+#: woocommerce/single-product/photoswipe.php:35
+msgid "Close (Esc)"
+msgstr "বন্ধ (ইএসসি)"
+
+#: woocommerce/single-product/photoswipe.php:36
+msgid "Share"
+msgstr "শেয়ার"
+
+#: woocommerce/single-product/photoswipe.php:37
+msgid "Toggle fullscreen"
+msgstr "পূর্ণ স্ক্রিন টগল করুন"
+
+#: woocommerce/single-product/photoswipe.php:38
+msgid "Zoom in/out"
+msgstr "জুম ইন/আউট করুন"
+
+#: woocommerce/single-product/photoswipe.php:50
+msgid "Previous (arrow left)"
+msgstr "পূর্ববর্তী (বাম তীর)"
+
+#: woocommerce/single-product/photoswipe.php:51
+msgid "Next (arrow right)"
+msgstr "পরবর্তী (ডান তীর)"
+
+#: woocommerce/single-product/product-attributes.php:29
+msgid "Weight"
+msgstr "ওজন"
+
+#: woocommerce/single-product/product-attributes.php:36
+msgid "Dimensions"
+msgstr "মাপ"
+
+#: woocommerce/single-product/product-image.php:43
+msgid "Awaiting product image"
+msgstr "পণ্যের ছবির জন্য অপেক্ষা করছে"
+
+#: woocommerce/single-product/rating.php:42
+msgid " reviews"
+msgstr " পর্যালোচনা"
+
+#: woocommerce/single-product/review-meta.php:27
+msgid "Your review is awaiting approval"
+msgstr "আপনার পর্যালোচনা অনুমোদনের অপেক্ষায় আছে"
+
+#: woocommerce/single-product/review-meta.php:37
+msgid "verified owner"
+msgstr "যাচাইকৃত মালিক"
+
+#: woocommerce/single-product/tabs/description.php:25
+msgid "Description"
+msgstr "বর্ণনা"
+
+#: woocommerce/single-product/up-sells.php:27
+msgid "You may also like&hellip;"
+msgstr "আপনি হয়তবা পছন্দ করবেন&hellip;"
+
+#: woocommerce/wc-template-parts/content-list.php:27
+msgid "Add to cart"
+msgstr "ঝুড়িতে যুক্ত করুন"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress-theme.spider-themes.net/docy/"
+msgstr "https://wordpress-theme.spider-themes.net/docy/"
+
+#. Description of the plugin/theme
+msgid ""
+"Docy is a WordPress theme for documentation and knowledge base with forum. "
+"It is a perfect theme for any kind of documentation, knowledge base, "
+"helpdesk, support center, FAQ, community forum, etc. It is a responsive "
+"theme and looks great on all devices. It is a powerful theme with tons of "
+"features. It has a powerful admin panel with tons of options to customize "
+"the theme."
+msgstr ""
+"ডসি ফোরামের সাথে ডকুমেন্টেশন এবং জ্ঞান বেসের জন্য একটি ওয়ার্ডপ্রেস থিম। এটি যে "
+"কোনও ধরণের ডকুমেন্টেশন, জ্ঞান বেস, হেল্পডেস্ক, সহায়তা কেন্দ্র, প্রায়শই জিজ্ঞাসিত "
+"প্রশ্নাবলী, সম্প্রদায় ফোরাম ইত্যাদির জন্য একটি নিখুঁত থিম। এটি একটি প্রতিক্রিয়াশীল থিম "
+"এবং সমস্ত ডিভাইসে দুর্দান্ত দেখায়। এটি প্রচুর বৈশিষ্ট্য সহ একটি শক্তিশালী থিম। এটিতে "
+"থিমটি কাস্টমাইজ করার জন্য প্রচুর বিকল্প সহ একটি শক্তিশালী অ্যাডমিন প্যানেল রয়েছে।"
+
+#. Author of the plugin/theme
+msgid "spider-themes"
+msgstr "মাকড়সা-থিম"
+
+#. Author URI of the plugin/theme
+msgid "https://themeforest.net/user/spider-themes"
+msgstr "https://themeforest.net/user/spider-themes"
+
+#. Template Name of the plugin/theme
+msgid "Sign in Page"
+msgstr "পৃষ্ঠায় সাইন ইন করুন"
+
+#. Template Name of the plugin/theme
+msgid "Sign up Page"
+msgstr "পৃষ্ঠা সাইন আপ করুন"

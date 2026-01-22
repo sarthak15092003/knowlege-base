@@ -1,0 +1,233 @@
+//Forum Widget
+.forum-with-topics {
+  border-radius: 30px;
+  .thumb-area {
+    .forum-thumbnail {
+      border-radius: 8px 8px 0 0;
+      width: 100%;
+      height: 170px;
+
+      img {
+        width: 100%;
+        z-index: -1;
+      }
+    }
+  }
+
+  .topic-table {
+    .topic-heading {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--bs-white);
+      box-shadow: 0 20px 60px -5px rgba(51, 77, 114, 0.12);
+      padding: 16px 30px;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid var(--black_50);
+      border-top: none;
+      .icon-text {
+        color: var(--black_600);
+        font-size: 14px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 5px;
+        }
+      }
+
+      .topic {
+        width: 50%;
+      }
+
+      .voice {
+        width: 13%;
+      }
+
+      .replies {
+        width: 8%;
+      }
+
+      .freshness {
+        width: 25%;
+      }
+
+    }
+
+    .topic-contents {
+      display: flex;
+      background: var(--bs-white);
+      box-shadow: 0 20px 60px -5px rgba(51, 77, 114, 0.12);
+      margin: 10px 0;
+      border-radius: 8px;
+      padding: 16px 30px;
+      border: 1px solid var(--black_50);
+      .title {
+        width: 45%;
+        p {
+          margin-bottom: 0;
+          font-size: 15px;
+        }
+        h3 {
+          font-size: 16px;
+          margin-bottom: 5px;
+          line-height: 20px;
+          &:hover {
+            color: var(--brand_color);
+          }
+        }
+      }
+
+      .voice {
+        width: 12%;
+      }
+      .topics {
+        width: 14%;
+      }
+      .voice,
+      .topics {
+        text-align: center;
+      }
+      .user {
+        width: 29%;
+        margin-top: 2px;
+        .user-img {
+          margin-right: 10px;
+          img {
+            border-radius: 50%;
+          }
+        }
+        .user-info {
+          span.bbp-author-name {
+            font-size: 16px;
+            font-weight: 400;
+          }
+          .date {
+            font-size: 13px;
+            margin-bottom: 0;
+          }
+
+          h3 {
+            line-height: 0.5;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      h3 a {
+        color: #171D24 !important;
+        font-size: 16px;
+
+        &:hover {
+          color: var(--brand_color) !important;
+        }
+      }
+    }
+  }
+}
+
+.forum-info {
+  padding: 50px 30px;
+
+  .title-area {
+    .title,
+    .subtitle {
+      color: #fff;
+    }
+    .title {
+      font-size: 28px;
+      margin-right: 10px;
+    }
+    .subtitle {
+      font-style: italic;
+    }
+  }
+}
+
+.forum-card {
+  background: var(--bs-white);
+  border-radius: 8px 8px 8px 8px;
+  border: 1px solid var(--black_50);
+
+  .card-body {
+    padding: 25px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-title {
+    h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+
+      &:hover {
+        color: var(--brand_color);
+      }
+    }
+  }
+
+  .forum-card-thumbnail-area {
+    position: relative;
+  }
+
+  .forum-meta {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    top: auto;
+
+    .topics,
+    .replies {
+      background: rgba(23, 29, 36, 0.7);
+
+      &:hover {
+        background: rgba(23, 29, 36, 0.8);
+      }
+    }
+  }
+}
+
+@media all and (max-width: 560px) {
+  .topic-contents {
+    .voice,
+    .topics,
+    .user {
+      display: none;
+    }
+  }
+
+  .topic-table {
+    .topic-heading {
+      .voice,
+      .replies,
+      .freshness {
+        display: none !important;
+      }
+    }
+    .topic-heading .topic,
+    .topic-contents .title {
+      width: 100% !important;
+    }
+  }
+}
+
+.home-forum-counter {
+  .elementor-element-populated {
+    background-color: var(--bs-white);
+
+    .elementor-counter-number {
+      color: var(--black_900);
+    }
+  }
+}
+
+.home-forum-posts {
+  .elementor-post__card {
+    background-color: var(--bs-white) !important;
+
+    .elementor-post__title a {
+      color: var(--black_900);
+    }
+  }
+}

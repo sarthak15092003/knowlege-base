@@ -1,0 +1,84 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  .top_header {
+    background-color: #282E4B;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 767px) {
+      .left_contents {
+        display: none;
+      }
+    }
+    .left_contents, .right_contents {
+      ul {
+        display: flex;
+        margin-bottom: 0;
+        li {
+          position: relative;
+          &.is-active {
+            background-color: var(--brand_color);
+            height: 4px;
+            a {
+              color: #ffffff;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            width: 100%;
+            background-color: var(--brand_color);
+            transition: all .25s ease;
+          }
+          &:hover::after {
+            height: 4px;
+          }
+          a {
+            color: #f1f1f1;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 15px;
+            letter-spacing: .05rem;
+            img {
+              width: auto;
+              max-height: 25px;
+              margin-right: 6px;
+            }
+            &:hover {
+              background-color: #0d1635;
+            }
+          }
+        }
+      }
+    }
+    .right_contents {
+      ul {
+        justify-content: flex-end;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    .top_header {
+      display: none;
+    }
+  }
+  &+.navbar {
+    position: relative;
+  }
+}
+.top_header + .navbar {
+  position: relative;
+}
+body.docy_top_header .search-banner-light .container {
+	padding-top: 50px;
+}
+
