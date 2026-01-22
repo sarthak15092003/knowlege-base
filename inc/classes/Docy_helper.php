@@ -45,10 +45,6 @@ class Docy_Helper_Class {
                     <img class="white_logo" src="<?php echo esc_url($sticky_logo) ?>" alt="<?php bloginfo('name'); ?>" <?php echo $retina_sticky_logo ?>>
                 <?php endif; ?>
                 <?php
-            else:
-                ?>
-                <h3><?php echo get_bloginfo( 'name' ) ?></h3>
-                <?php
             endif;
         echo '</a>';
     }

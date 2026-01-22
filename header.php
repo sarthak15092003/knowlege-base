@@ -94,7 +94,7 @@
                     ?>
                     <nav <?php docy_navbar_class() ?> id="<?php docy_sticky_navbar('id') ?>">
                         <div class="<?php docy_nav_container() ?>">
-                            <?php Docy_helper()->logo(); ?>
+                            <?php // Docy_helper()->logo(); ?>
                             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'docy'); ?>">
