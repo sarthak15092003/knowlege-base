@@ -159,9 +159,9 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ${{ secrets.PRODUCTION_FTP_SERVER }}
-          username: ${{ secrets.PRODUCTION_FTP_USERNAME }}
-          password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
+          server: ${{ secrets.STAGING_FTP_SERVER }}
+          username: ${{ secrets.STAGING_FTP_USERNAME }}
+          password: ${{ secrets.STAGING_FTP_PASSWORD }}
           local-dir: deploy-package/
           server-dir: /wp-content/themes/docy/
           dangerous-clean-slate: false
