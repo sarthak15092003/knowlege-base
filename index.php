@@ -252,7 +252,7 @@ if ( ! function_exists( 'docy_render_category_header_card' ) ) {
             if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
                 $is_breadcrumb = docy_opt('is_breadcrumb', '1');
                 if ( $is_breadcrumb == '1' ) {
-                    $cat_id = intval( $_GET['cat'] );
+                    $cat_id = (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) ? intval( $_GET['cat'] ) : $data['id'];
                     $category = get_category( $cat_id );
                     if ( $category && ! is_wp_error( $category ) ) {
                         ?>
