@@ -91,7 +91,7 @@ jobs:
           fi
           
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: theme-build
           path: |
@@ -141,7 +141,7 @@ jobs:
           cd ..
           
       - name: Upload package artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docy-theme-package
           path: docy-theme.zip
