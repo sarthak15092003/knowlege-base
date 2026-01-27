@@ -572,14 +572,14 @@ body {
 
 /* Add padding to push content down from navbar */
 .body_wrapper {
-    margin-top: 38px !important; /* Space for fixed navbar */
+    margin-top: 120px !important; /* Space for fixed navbar (approx 119px) */
     padding-top: 20px !important; /* Additional padding to prevent content hiding */
 }
 
 /* Adjust for mobile */
 @media (max-width: 767px) {
     .body_wrapper {
-        margin-top: 70px !important;
+        margin-top: 140px !important;
         padding-top: 20px !important;
     }
     
