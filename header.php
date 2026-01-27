@@ -119,6 +119,7 @@
             }
 
             // Search Banner
+            echo '<!-- CMG_DEPLOY_CHECK_VER_101 -->';
             $meta_value   = docy_meta_apply( 'is_banner', '1');
             $is_cat_query = (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() || is_archive() || is_tag() || is_tax();
 
@@ -126,8 +127,10 @@
                 $is_banner_meta = docy_meta('is_banner');
                 $homepage_ids = docy_homepage_ids();
                 if ( isset($is_banner_meta) && $is_banner_meta != '1' && in_array( get_the_ID(), $homepage_ids ) ) {
-                    echo '';
+                    echo '<!-- BANNER_SKIPPED_BY_META -->';
                 } else {
                     get_template_part( 'template-parts/header-elements/search-banner/sbnr', docy_search_banner() );
                 }
+            } else {
+                echo "<!-- BANNER_HIDDEN: cat_query=" . ($is_cat_query?'Y':'N') . " -->";
             }
