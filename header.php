@@ -126,8 +126,10 @@
                 $is_banner_meta = docy_meta('is_banner');
                 $homepage_ids = docy_homepage_ids();
                 if ( isset($is_banner_meta) && $is_banner_meta != '1' && in_array( get_the_ID(), $homepage_ids ) ) {
-                    echo '';
+                    echo '<!-- BANNER_SKIPPED_HOMEPAGE_META -->';
                 } else {
                     get_template_part( 'template-parts/header-elements/search-banner/sbnr', docy_search_banner() );
                 }
+            } else {
+                echo "<!-- BANNER_HIDDEN: meta=$meta_value, is_post=" . (is_singular('post')?'Y':'N') . ", is_404=" . (is_404()?'Y':'N') . ", is_cat_query=" . ($is_cat_query?'Y':'N') . " -->";
             }
