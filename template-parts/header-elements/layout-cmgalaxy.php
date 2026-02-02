@@ -593,15 +593,15 @@ body {
     
     /* Content column adjustments */
     .category-main-col {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     /* Right sidebar adjustments */
     .category-right-sidebar-col {
         margin-top: 2rem;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     /* Bootstrap column stacking - only on mobile */
