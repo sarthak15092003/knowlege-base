@@ -124,6 +124,11 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 flex: 0 0 55% !important;
                 width: 55% !important;
             }
+            .blog_area.tip_doc_area .container {
+                padding-left: 30px !important;
+                padding-right: 30px !important;
+                max-width: 100% !important;
+            }
         }
     </style>
     <div class="container">

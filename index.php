@@ -51,12 +51,12 @@ if ( isset( $_GET['cat'] ) && intval( $_GET['cat'] ) === 3 ) : ?>
 
 // Add custom container width for category pages
 if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
-    <style id="cat-page-container-width">
-        @media (min-width: 1400px) {
+        /* Add custom container width for category pages */
+        @media (min-width: 992px) {
             .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
                 max-width: 100% !important;
-                padding-left: 30px;
-                padding-right: 30px;
+                padding-left: 30px !important;
+                padding-right: 30px !important;
             }
         }
 

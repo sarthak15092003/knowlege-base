@@ -321,6 +321,12 @@ $s_value = get_search_query() ? get_search_query() : '';
 
 /* Desktop Header Main Padding */
 @media (min-width: 992px) {
+    #sticky .container {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        max-width: 100% !important;
+    }
+
     .cmgalaxy-header {
         padding-bottom: 0 !important;
     }
