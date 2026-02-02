@@ -157,7 +157,7 @@ jobs:
         run: unzip docy-theme.zip -d deploy-package
 
       - name: Deploy via FTP/SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.STAGING_FTP_SERVER }}
           username: ${{ secrets.STAGING_FTP_USERNAME }}
