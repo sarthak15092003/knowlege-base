@@ -327,12 +327,12 @@ $s_value = get_search_query() ? get_search_query() : '';
 
     .cmgalaxy-header-main {
         padding-left: 0px;
-        padding-right: 20px;
+        padding-right: 0px; /* Removed individual padding */
     }
     
     .cmgalaxy-nav-menu {
         padding-left: 0px;
-        padding-right: 20px;
+        padding-right: 0px; /* Removed individual padding */
     }
 }
 
