@@ -196,3 +196,25 @@ require get_template_directory() . '/inc/sidebars.php';
  * Admin Page
  */
 require get_template_directory() . '/inc/Admin.php';
+
+/**
+ * Dynamically fix broken localhost image paths in blog content
+ * This is useful if posts were created in a local environment and moved to production
+ */
+function docy_fix_localhost_paths($content) {
+    if (is_admin()) return $content;
+    
+    // Get current site URL
+    $site_url = get_site_url();
+    
+    // Define the local path to search for
+    $local_path = 'http://localhost/knowlege'; 
+    
+    // Replace hardcoded localhost paths with dynamic site URL
+    $content = str_replace($local_path, $site_url, $content);
+    
+    return $content;
+}
+add_filter('the_content', 'docy_fix_localhost_paths', 99);
+add_filter('the_excerpt', 'docy_fix_localhost_paths', 99);
+add_filter('post_thumbnail_html', 'docy_fix_localhost_paths', 99);
