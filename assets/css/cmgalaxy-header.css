@@ -1101,7 +1101,7 @@ body.category-id-3 .body_wrapper {
 @media (min-width: 992px) {
     .body_wrapper {
         margin-top: 88px !important;
-        padding-top: 20px !important;
+        padding-top: 0px !important;
     }
 }
 
@@ -1129,8 +1129,8 @@ body.category-id-3 .body_wrapper {
 /* Banner container margin-top */
 .doc_banner_area .container {
 
-    padding-bottom: 50px;
-    padding-top: 50px;
+    padding-bottom: 70px;
+    padding-top: 70px;
 }
 
 /* Category main column margin-top */
@@ -1228,7 +1228,7 @@ footer {
 /* Blog single item margin for laptop screens */
 @media (min-width: 1200px) {
     .blog_single_item {
-        margin-top: 70px !important;
+        margin-top: 20px !important;
     }
 }
 
@@ -1242,7 +1242,7 @@ footer {
 /* TOC sidebar positioning for detail blog page */
 .left_sidebarlist {
     margin-left: 0;
-    margin-top: 60px;
+    margin-top: 0px;
 }
 
 /* Ensure TOC nav is visible and displays properly */

@@ -136,7 +136,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         background: #ffffff;
                         
                         border-radius: 8px;
-                        padding: 0 10px 0 0;
+                        padding: 0 0px 0 0;
                         margin-bottom: 0;
                         position: sticky;
                         top: 130px;
@@ -351,12 +351,32 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         /* Make right sidebar (TOC) sticky like left sidebar */
                         .doc-sidebar {
                             position: sticky;
-                            top: 70px;
+                            top: 130px;
                             align-self: flex-start;
                             max-height: 100%;
                             overflow-y: auto;
                             margin-top: 50px; /* Align with left sidebar */
                             padding-right: 20px !important; /* Add right padding to prevent sticking */
+                        }
+                        
+                        /* Keep TOC title visible on scroll */
+                        body.scrolled .doc-sidebar .toc-title,
+                        body.scrolled .left_sidebarlist .toc-title,
+                        body.scrolled .toc-title,
+                        body.scrolled .table_content {
+                            display: block !important;
+                            height: auto !important;
+                            opacity: 1 !important;
+                        }
+                        
+                        /* Adjust sidebar margin and padding on scroll */
+                        body.scrolled .doc-sidebar {
+                            margin-top: 0px !important;
+                            top: 140px !important; /* Move below the 119px sticky header */
+                        }
+                        
+                        body.scrolled .left_sidebarlist {
+                            padding-top: 0px !important;
                         }
                         
                         .doc-sidebar .left_sidebarlist {
@@ -368,8 +388,11 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         /* TOC Active Section Color */
                         #docy-toc .nav-link.active,
                         #docy-toc li.active > a,
-                        #docy-toc li.active {
+                        #docy-toc li.active,
+                        #docy-toc li:has(li.active) > a,
+                        #docy-toc li:has(.nav-link.active) > a {
                             color: #000000 !important;
+                            font-weight: 500 !important;
                         }
                         
                         /* Smooth scrollbar for right sidebar */
@@ -543,9 +566,13 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         (function() {
             function updateScrolledClass() {
                 if (window.scrollY > 50) {
-                    document.body.classList.add('scrolled');
+                    if (!document.body.classList.contains('scrolled')) {
+                        document.body.classList.add('scrolled');
+                    }
                 } else {
-                    document.body.classList.remove('scrolled');
+                    if (document.body.classList.contains('scrolled')) {
+                        document.body.classList.remove('scrolled');
+                    }
                 }
             }
             
