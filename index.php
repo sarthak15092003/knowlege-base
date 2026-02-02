@@ -850,7 +850,7 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 			align-self: flex-start;
 			max-height: calc(100vh - 170px);
 			overflow-y: auto;
-			margin-top: 38px; /* Align with left sidebar and main content */
+			margin-top: 0px; /* Align with left sidebar and main content */
 		}	
 			
 			.cat-3-right-sidebar {
