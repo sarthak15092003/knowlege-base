@@ -157,7 +157,7 @@ jobs:
         run: unzip docy-theme.zip -d deploy-package
 
       - name: Deploy via FTP/SFTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
           server: ${{ secrets.STAGING_FTP_SERVER }}
           username: ${{ secrets.STAGING_FTP_USERNAME }}
@@ -165,9 +165,13 @@ jobs:
           local-dir: deploy-package/
           server-dir: /wp-content/themes/docy/
           dangerous-clean-slate: false
-          timeout: 90000
-          # Increase timeout and force active mode if needed, though usually passive is better for FTP.
-          # For SFTP, 'server' secret should ideally start with sftp://
+          # Increased timeout significantly for large transfers/slow control sockets
+          timeout: 300000 
+          # Verbose logging to identify the exact file causing the timeout
+          log-level: verbose
+          # Optional: If you know your server uses SFTP (Port 22), add:
+          # port: 22
+          # protocol: sftp
 
       - name: Success Message
         if: success()
