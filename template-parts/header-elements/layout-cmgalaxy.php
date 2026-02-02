@@ -329,8 +329,8 @@ $s_value = get_search_query() ? get_search_query() : '';
 
     /* Target single post page specifically for 40px header padding */
     body.single-post #sticky .container {
-        padding-left: 40px !important;
-        padding-right: 40px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
 
     .cmgalaxy-header {
@@ -485,8 +485,6 @@ $s_value = get_search_query() ? get_search_query() : '';
         max-width: 25%;
         position: relative;
         width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
     }
     
     .col-lg-6 {
@@ -495,8 +493,6 @@ $s_value = get_search_query() ? get_search_query() : '';
         max-width: 50%;
         position: relative;
         width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
     }
     
     /* Specific targeting for category columns */

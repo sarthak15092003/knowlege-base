@@ -125,8 +125,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 width: 55% !important;
             }
             .blog_area.tip_doc_area .container {
-                padding-left: 40px !important;
-                padding-right: 40px !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
                 max-width: 100% !important;
             }
         }
