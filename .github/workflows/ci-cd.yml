@@ -156,7 +156,7 @@ jobs:
       - name: Unzip package
         run: unzip docy-theme.zip -d deploy-package
 
-      - name: Deploy via FTP
+      - name: Deploy via FTP/SFTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.STAGING_FTP_SERVER }}
@@ -165,6 +165,9 @@ jobs:
           local-dir: deploy-package/
           server-dir: /wp-content/themes/docy/
           dangerous-clean-slate: false
+          timeout: 90000
+          # Increase timeout and force active mode if needed, though usually passive is better for FTP.
+          # For SFTP, 'server' secret should ideally start with sftp://
 
       - name: Success Message
         if: success()
