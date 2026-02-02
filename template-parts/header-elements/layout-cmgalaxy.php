@@ -327,6 +327,12 @@ $s_value = get_search_query() ? get_search_query() : '';
         max-width: 100% !important;
     }
 
+    /* Target single post page specifically for 40px header padding */
+    body.single-post #sticky .container {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
     .cmgalaxy-header {
         padding-bottom: 0 !important;
     }
