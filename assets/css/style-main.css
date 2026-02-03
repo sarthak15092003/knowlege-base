@@ -16837,8 +16837,7 @@ blockquote .author {
 #toc_stick.stick .left_sidebarlist {
   position: sticky;
   top: 130px;
-  width: 240px;
-  margin-top: 20px;
+  width: 100%;
 }
 
 #toc_stick.stick .left_sidebarlist .nav-sidebar:before {
