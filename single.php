@@ -217,9 +217,6 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 color: #ffffff !important;
                 opacity: 1;
             }
-            #toc-overlay {
-                z-index: 9998 !important;
-            }
 
             /* Responsive Width Fixes */
             .blog_single_info,
@@ -227,6 +224,23 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 max-width: 100% !important;
                 flex: 0 0 100% !important;
                 width: 100% !important;
+            }
+
+            /* Remove shadow from share part */
+            #share-modal {
+                box-shadow: none !important;
+            }
+
+            /* Requested TOC Overlay Styles */
+            .jrBzsJ .eYVFtH #toc-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 10;
             }
         }
     </style>

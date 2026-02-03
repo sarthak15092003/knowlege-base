@@ -206,7 +206,7 @@
                     'color': '#fff', // Text color
                     'padding': '24px 24px 12px 24px', // Padding for better appearance
                     'border-radius': '10px 10px 0 0', // Rounded corners
-                    'box-shadow': '0px 4px 8px rgba(0, 0, 0, 0.1)' // Optional shadow for better look
+                    'box-shadow': 'none' // Removed shadow
                 }).slideDown(300); // Show with smooth slide-down effect
 
                 container.css('border-radius', '0'); // Remove border-radius when modal is visible
