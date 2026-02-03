@@ -49,7 +49,10 @@
                 // Scroll to target with offset for sticky header
                 var adminBarHeight = $('#wpadminbar').length > 0 ? $('#wpadminbar').height() : 0;
                 var scrollOffset = ($(window).width() <= 1024 ? 70 : 120) + adminBarHeight;
-                var targetPosition = target.offset().top - scrollOffset;
+
+                // Fix: Account for body scrolling by adding current scrollTop
+                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
+                var targetPosition = target[0].getBoundingClientRect().top + scrollingElement.scrollTop - scrollOffset;
 
                 $('html, body').stop().animate({
                     scrollTop: targetPosition
@@ -67,13 +70,15 @@
         function updateTocOnScroll() {
             if (isManualScroll) return;
 
-            var scrollPos = $(window).scrollTop() + 150; // Offset for detection
+            var scrollingElement = document.scrollingElement || document.body || document.documentElement;
+            var scrollPos = scrollingElement.scrollTop + 150; // Offset for detection
             var currentSection = null;
 
             // Find all headings with IDs
             $('.blog_single_item h1[id], .blog_single_item h2[id], .blog_single_item h3[id], .blog_single_item h4[id], .blog_single_item h5[id]').each(function () {
                 var $heading = $(this);
-                var headingTop = $heading.offset().top;
+                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
+                var headingTop = $heading[0].getBoundingClientRect().top + scrollingElement.scrollTop;
 
                 if (scrollPos >= headingTop) {
                     currentSection = $heading.attr('id');
@@ -86,7 +91,7 @@
         }
 
         // Throttled scroll handler
-        $(window).on('scroll', function () {
+        $(window).add(document.body).on('scroll', function () {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(updateTocOnScroll, 100);
         });
@@ -123,7 +128,10 @@
             if (target.length) {
                 var adminBarHeight = $('#wpadminbar').length > 0 ? $('#wpadminbar').height() : 0;
                 var scrollOffset = ($(window).width() <= 1024 ? 70 : 120) + adminBarHeight;
-                var targetPosition = target.offset().top - scrollOffset;
+
+                // Fix: Account for body scrolling by adding current scrollTop
+                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
+                var targetPosition = target[0].getBoundingClientRect().top + scrollingElement.scrollTop - scrollOffset;
 
                 $('html, body').stop().animate({
                     scrollTop: targetPosition
