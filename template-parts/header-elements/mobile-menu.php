@@ -21,11 +21,13 @@ $opt = get_option( 'docy_opt' );
         </div>
         <div class="mobile_menu_right">
             <!-- Right Hamburger for Modern Sidebar -->
-            <button type="button" class="navbar-toggler modern_sidebar_btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 12H21M3 6H21M3 18H21" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <?php if ( !is_front_page() && !is_home() ) : ?>
+                <button type="button" class="navbar-toggler modern_sidebar_btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            <?php endif; ?>
         </div>
     </div>
 </div>
