@@ -99,8 +99,8 @@ if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
             }
         }
 
-        /* Mobile Layout (767px and below) */
-        @media (max-width: 767px) {
+        /* Mobile Layout (1024px and below) */
+        @media (max-width: 1024px) {
             .category-left-sidebar-col,
             .category-main-col,
             .category-right-sidebar-col {
@@ -126,6 +126,79 @@ if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
                 margin-bottom: 1.5rem;
                 border-right: none !important;
             }
+            
+            /* Remove row margins on mobile */
+            .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            /* Hide sidebars on mobile for category page */
+            .category-left-sidebar-col,
+            .category-right-sidebar-col {
+                display: none !important;
+            }
+            
+            /* Make main content full width when sidebars hidden */
+            .category-main-col {
+                -ms-flex: 0 0 100% !important;
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            
+            /* Mobile breadcrumb for category page */
+            nav[aria-label="breadcrumb"] {
+                display: block !important;
+                visibility: visible !important;
+                padding: 0 !important;
+            }
+            
+            .breadcrumb {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                font-size: 13px !important;
+                gap: 5px !important;
+                padding-left: 0 !important;
+            }
+            
+            .breadcrumb .breadcrumb-item,
+            .breadcrumb li {
+                display: inline-flex !important;
+                visibility: visible !important;
+            }
+            
+            .breadcrumb .breadcrumb-item+.breadcrumb-item {
+                padding-left: 0 !important;
+            }
+            
+            /* Breadcrumb link colors */
+            .breadcrumb .breadcrumb-item a {
+                color: #000000 !important;
+                text-decoration: none !important;
+            }
+            
+            .breadcrumb .breadcrumb-item a:hover {
+                text-decoration: underline !important;
+            }
+            
+            .breadcrumb .breadcrumb-item.active {
+                color: #007bff !important;
+            }
+        }
+        
+        /* Desktop breadcrumb colors */
+        .breadcrumb .breadcrumb-item a {
+            color: #000000 !important;
+            text-decoration: none !important;
+        }
+        
+        .breadcrumb .breadcrumb-item a:hover {
+            text-decoration: underline !important;
+        }
+        
+        .breadcrumb .breadcrumb-item.active {
+            color: #007bff !important;
         }
 
         /* Large screen adjustments (1440px and above) */
@@ -774,7 +847,7 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 			</div>
 							
 							<!-- Content Column for Cat 3 -->
-				<div class="category-main-col category-main-with-right" style="flex: 0 0 55% !important; max-width: 55% !important;">
+				<div class="category-main-col category-main-with-right">
 								<?php
 								if ( isset( $GLOBALS['cat_header_data'] ) && ! empty( $GLOBALS['cat_header_data'] ) ) {
 									docy_render_category_header_card( $GLOBALS['cat_header_data'] );

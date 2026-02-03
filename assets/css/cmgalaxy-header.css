@@ -1,4 +1,4 @@
-/* CMGALAXY Header Custom Styles */
+﻿/* CMGALAXY Header Custom Styles */
 
 /* Main Header Container */
 .cmgalaxy-header {
@@ -743,9 +743,9 @@ section:first-of-type {
 /* Force breadcrumb to align with content */
 nav[aria-label="breadcrumb"] {
     max-width: 1300px !important;
-    margin: 0 auto !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 @media (min-width: 1400px) {
@@ -977,6 +977,7 @@ nav[aria-label="breadcrumb"] {
         height: 45px !important;
         display: flex !important;
         align-items: center !important;
+        gap: 0 !important;
     }
 
     .stylish-search__sparkle {
@@ -1045,12 +1046,12 @@ nav[aria-label="breadcrumb"] {
     }
 }
 
-/* Add margin-top to category page body */
+/* Category page body spacing */
 body.category .body_wrapper,
 body.category.archive .body_wrapper,
 body.archive.category .body_wrapper {
-    margin-top: 40px !important;
-    padding-top: 40px !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* Ensure banner has 0 padding */
@@ -1111,9 +1112,17 @@ body.category-id-3 .body_wrapper {
     padding-top: 70px;
 }
 
-/* Category main column margin-top */
+/* Mobile: reduce banner padding */
+@media (max-width: 1024px) {
+    .doc_banner_area .container {
+        padding-bottom: 20px !important;
+        padding-top: 20px !important;
+    }
+}
+
+/* Category main column */
 .category-main-col {
-    margin-top: 40px !important;
+    margin-top: 0 !important;
 }
 
 /* Category main column margin-top for tablets and desktop */

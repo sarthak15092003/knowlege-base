@@ -241,6 +241,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 .blog_single_item .breadcrumb {
                                     list-style: none !important;
                                     padding-left: 0 !important;
+                                    display: flex !important;
+                                    flex-wrap: wrap !important;
                                 }
                                 .blog_single_item .breadcrumb li {
                                     list-style: none !important;
@@ -254,6 +256,35 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 }
                                 .blog_single_item .breadcrumb li.active {
                                     color: #007bff !important;
+                                }
+                                /* Mobile breadcrumb visibility */
+                                @media (max-width: 1024px) {
+                                    .blog_single_item nav[aria-label="breadcrumb"] {
+                                        display: block !important;
+                                        visibility: visible !important;
+                                        margin-bottom: 15px !important;
+                                        padding: 0 !important;
+                                    }
+                                    .blog_single_item .breadcrumb {
+                                        font-size: 13px !important;
+                                        gap: 5px !important;
+                                        display: flex !important;
+                                        flex-wrap: wrap !important;
+                                    }
+                                    .blog_single_item .breadcrumb li,
+                                    .blog_single_item .breadcrumb .breadcrumb-item {
+                                        display: inline-flex !important;
+                                        visibility: visible !important;
+                                    }
+                                    .blog_single_item .breadcrumb .breadcrumb-item+.breadcrumb-item {
+                                        padding-left: 0 !important;
+                                    }
+                                    .blog_single_item .breadcrumb li.active,
+                                    .blog_single_item .breadcrumb .breadcrumb-item.active {
+                                        display: inline-flex !important;
+                                        visibility: visible !important;
+                                        color: #007bff !important;
+                                    }
                                 }
                             </style>';
                             echo '<nav aria-label="breadcrumb" class="mb-4">';
