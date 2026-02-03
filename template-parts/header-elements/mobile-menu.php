@@ -35,9 +35,7 @@ $opt = get_option( 'docy_opt' );
 <!-- Left Side Menu (Main Navigation) -->
 <div class="side_menu dark_menu">
     <div class="mobile_menu_header">
-        <div class="mobile_logo">
-            <h3 class="cmgalaxy-brand mb-0" style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin: 0;">CMGALAXY</h3>
-        </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kblogo.svg" alt="CMGalaxy Logo" style="height: 25px;">
         <div class="close_nav">
             <i class="icon_close"></i>
         </div>
@@ -65,7 +63,7 @@ $opt = get_option( 'docy_opt' );
 <div class="modern_sidebar_drawer">
     <div class="mobile_menu_header">
         <div class="mobile_logo">
-            <h3 class="cmgalaxy-brand mb-0" style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin: 0;">Navigate</h3>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kblogo.svg" alt="Navigate" style="height: 25px;">
         </div>
         <div class="close_modern_sidebar">
             <i class="icon_close"></i>
@@ -80,6 +78,7 @@ $opt = get_option( 'docy_opt' );
             'hide_empty' => false,
         ));
         
+
         if (!empty($categories)) :
             foreach ($categories as $category) :
                 // Get posts in this category
@@ -89,22 +88,35 @@ $opt = get_option( 'docy_opt' );
                     'orderby' => 'date',
                     'order' => 'DESC'
                 ));
+
+                // Check if active
+                $is_active = false;
+                if ( is_single() && in_category($category->term_id) ) {
+                    $is_active = true;
+                } elseif ( is_category($category->term_id) ) {
+                    $is_active = true;
+                }
+
+                $header_class = $is_active ? 'active' : '';
+                $content_class = $is_active ? 'open' : '';
+                $content_style = $is_active ? 'style="display: block;"' : '';
         ?>
             <div class="mobile-category-accordion">
-                <div class="mobile-category-header" data-category="<?php echo esc_attr($category->slug); ?>">
+                <div class="mobile-category-header <?php echo esc_attr($header_class); ?>" data-category="<?php echo esc_attr($category->slug); ?>">
                     <span class="category-name"><?php echo esc_html($category->name); ?></span>
                     <span class="category-toggle">
-                        <span class="category-count"><?php echo esc_html($category->count); ?></span>
                         <svg class="toggle-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
                             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
                 </div>
-                <div class="mobile-category-posts" id="cat-<?php echo esc_attr($category->slug); ?>">
+                <div class="mobile-category-posts <?php echo esc_attr($content_class); ?>" id="cat-<?php echo esc_attr($category->slug); ?>" <?php echo $content_style; ?>>
                     <?php if (!empty($cat_posts)) : ?>
-                        <?php foreach ($cat_posts as $post) : ?>
-                            <a href="<?php echo esc_url(get_permalink($post->ID)); ?>" class="mobile-post-item">
-                                <?php echo esc_html($post->post_title); ?>
+                        <?php foreach ($cat_posts as $cat_post) : 
+                             $active_post_class = ( get_the_ID() == $cat_post->ID ) ? 'active-post' : ''; 
+                        ?>
+                            <a href="<?php echo esc_url(get_permalink($cat_post->ID)); ?>" class="mobile-post-item <?php echo esc_attr($active_post_class); ?>">
+                                <?php echo esc_html($cat_post->post_title); ?>
                             </a>
                         <?php endforeach; ?>
                     <?php else : ?>
@@ -123,6 +135,10 @@ $opt = get_option( 'docy_opt' );
 <div class="click_capture"></div>
 
 <style>
+.mobile-post-item.active-post {
+    color: #007bff;
+    font-weight: 600;
+}
 /* LEFT SIDE MENU - Slide from left */
 .side_menu.dark_menu {
     position: fixed !important;
@@ -203,35 +219,46 @@ $opt = get_option( 'docy_opt' );
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 15px;
-    background: #f8fafc;
+    padding: 16px 20px;
+    background: #ffffff;
     cursor: pointer;
     transition: all 0.2s ease;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin-bottom: 2px;
 }
 
 .mobile-category-header:hover {
-    background: #e5e7eb;
+    background: #f8fafc;
 }
 
 .mobile-category-header.active {
-    background: #3b82f6;
-    color: white;
-    border-radius: 8px 8px 0 0;
+    background: #f0f7ff;
+    position: relative;
+    border-radius: 10px;
 }
 
-.mobile-category-header.active .category-count {
-    background: white;
-    color: #3b82f6;
+/* Active Indicator Line */
+.mobile-category-header.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #007bff;
+    border-radius: 0 2px 2px 0;
 }
 
-.mobile-category-header.active .toggle-arrow {
-    transform: rotate(90deg);
+.mobile-category-header.active .category-name {
+    color: #007bff;
+    font-weight: 600;
 }
 
 .category-name {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    flex: 1;
 }
 
 .category-toggle {
@@ -241,24 +268,34 @@ $opt = get_option( 'docy_opt' );
 }
 
 .category-count {
-    background: #3b82f6;
-    color: white;
+    background: #e2e8f0;
+    color: #64748b;
     font-size: 11px;
     padding: 2px 8px;
     border-radius: 12px;
     font-weight: 600;
 }
 
+.mobile-category-header.active .category-count {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
 .toggle-arrow {
     transition: transform 0.2s ease;
+    color: #9ca3af;
+}
+
+.mobile-category-header.active .toggle-arrow {
+    transform: rotate(90deg);
+    color: #3b82f6;
 }
 
 /* Posts List */
 .mobile-category-posts {
     display: none;
-    background: #f8fafc;
-    border-radius: 0 0 8px 8px;
-    padding: 0;
+    background: #ffffff;
+    padding: 5px 0;
 }
 
 .mobile-category-posts.open {
@@ -267,27 +304,25 @@ $opt = get_option( 'docy_opt' );
 
 .mobile-post-item {
     display: block;
-    padding: 12px 15px 12px 25px;
-    color: #374151;
+    padding: 12px 20px 12px 35px; /* Indented like desktop */
+    color: #475569;
     text-decoration: none;
-    font-size: 13px;
-    border-bottom: 1px solid #e5e7eb;
-    transition: all 0.2s ease;
-}
-
-.mobile-post-item:last-child {
+    font-size: 0.9rem;
     border-bottom: none;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
 }
 
 .mobile-post-item:hover {
-    background: #e5e7eb;
-    color: #1f2937;
-    padding-left: 30px;
+    color: #007bff;
+    background: #f8fafc;
+    border-left-color: #007bff;
+    padding-left: 35px; /* Keep consistent padding on hover */
 }
 
 .no-posts {
     display: block;
-    padding: 12px 15px;
+    padding: 12px 15px 12px 35px;
     color: #9ca3af;
     font-size: 13px;
     font-style: italic;

@@ -45,6 +45,17 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         html, body {
             scroll-padding-top: 120px !important;
         }
+        .admin-bar html, .admin-bar body {
+            scroll-padding-top: 152px !important;
+        }
+        @media (max-width: 1024px) {
+            html, body {
+                scroll-padding-top: 70px !important;
+            }
+            .admin-bar html, .admin-bar body {
+                scroll-padding-top: 116px !important;
+            }
+        }
         
         /* Add scroll margin to headings for better scrollspy accuracy */
         .blog_single_item h1, 
@@ -53,6 +64,29 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         .blog_single_item h4, 
         .blog_single_item h5 {
             scroll-margin-top: 120px !important;
+        }
+        .admin-bar .blog_single_item h1, 
+        .admin-bar .blog_single_item h2, 
+        .admin-bar .blog_single_item h3, 
+        .admin-bar .blog_single_item h4, 
+        .admin-bar .blog_single_item h5 {
+            scroll-margin-top: 152px !important;
+        }
+        @media (max-width: 1024px) {
+            .blog_single_item h1, 
+            .blog_single_item h2, 
+            .blog_single_item h3, 
+            .blog_single_item h4, 
+            .blog_single_item h5 {
+                scroll-margin-top: 70px !important;
+            }
+            .admin-bar .blog_single_item h1, 
+            .admin-bar .blog_single_item h2, 
+            .admin-bar .blog_single_item h3, 
+            .admin-bar .blog_single_item h4, 
+            .admin-bar .blog_single_item h5 {
+                scroll-margin-top: 116px !important;
+            }
         }
         
         /* Prevent TOC from showing active state when at page top */
