@@ -7,7 +7,7 @@ $footer_visibility = docy_meta('footer_visibility', '1');
 footer {
     background-color: #041543 !important;
     color: rgba(250, 250, 250, 0.5) !important;
-    padding: 40px 80px !important;
+    padding: 40px 0px !important;
     font-family: Arial, sans-serif !important;
    
 }
