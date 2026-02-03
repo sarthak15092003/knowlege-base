@@ -1,0 +1,8 @@
+TAXONOMIES:
+Tax: category | Label: Categories
+  - Getting started | Slug: getting-started
+  - Uncategorized | Slug: uncategorized
+  - UTM Parameters Guidelines | Slug: utm-parameters-guidelines
+Tax: post_format | Label: Formats
+Tax: topic-tag | Label: Topic Tags
+Tax: doc_tag | Label: Tags

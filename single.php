@@ -130,11 +130,76 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 max-width: 100% !important;
             }
         }
+        
+        /* Mobile Optimization */
+        @media (max-width: 1024px) {
+            /* Specifically target the desktop sidebars to hide them, avoiding conflicts with mobile TOC */
+            .col-lg-3.category-left-sidebar-col,
+            .col-lg-2.doc-sidebar {
+                display: none !important;
+            }
+            
+            .blog_single_info {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .blog_area.tip_doc_area .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+            
+            /* Ensure the mobile TOC bar and its content are above everything */
+            .jrBzsJ {
+                z-index: 9999 !important;
+                overflow: visible !important; /* Prevent clipping of slide-up menu */
+                box-shadow: none !important; /* Remove shadow */
+            }
+            .bottom_table_content {
+                z-index: 10000 !important;
+                box-shadow: none !important; /* Remove shadow */
+            }
+            .bottom_table_content .toc-title {
+                color: #ffffff !important;
+            }
+            /* Apply white color to all TOC related links on mobile */
+            #docy-toc .nav-link, 
+            #docy-toc a, 
+            .doc-nav .nav-link, 
+            .doc-nav a, 
+            .nav-sidebar.doc-nav .nav-link, 
+            .nav-sidebar.doc-nav a, 
+            .left_sidebarlist .nav-link, 
+            .left_sidebarlist a {
+                position: relative !important;
+                transition: all 0.3s ease !important;
+                padding-left: 15px !important;
+                color: #ffffff !important;
+                background-color: transparent !important;
+            }
+            .bottom_table_content nav ul li a:hover {
+                color: #ffffff !important;
+                opacity: 1;
+            }
+            #toc-overlay {
+                z-index: 9998 !important;
+            }
+
+            /* Responsive Width Fixes */
+            .blog_single_info,
+            .doc-sidebar {
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                width: 100% !important;
+            }
+        }
     </style>
     <div class="container">
         <div class="row">
             <!-- Left Modern Sidebar (20%) -->
-            <div class="col-lg-3 category-left-sidebar-col" style="border-right: 1px solid #e5e7eb; max-width: 20% !important; flex: 0 0 20% !important; width: 20% !important; background: #ffffff !important;">
+            <div class="col-lg-3 category-left-sidebar-col" style="border-right: 1px solid #e5e7eb; background: #ffffff !important;">
                 <style>
                     /* Align single-post sidebar with category layout */
                     .modern-sidebar {
@@ -166,7 +231,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
             endif; ?>
             <?php // TOC will render after the content column ?>
 
-            <div class="col-lg-<?php echo esc_attr( $blog_column ) ?> blog_single_info pe-lg-3" style="max-width: 55% !important; flex: 0 0 55% !important; width: 55% !important;">
+            <div class="col-lg-<?php echo esc_attr( $blog_column ) ?> blog_single_info pe-lg-3" style="">
                 <div class="main-post <?php echo docy_toc('post') == '1' ? 'anchor-enabled' : ''; ?>">
                     <div class="blog_single_item editor-content" style=" margin-top:20px; ">
                         <?php
@@ -351,7 +416,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
             <?php
             // Render TOC on the right side after the content column
             if ( docy_toc('post') == '1' ) : ?>
-                <div class="col-lg-2 doc-sidebar pe-lg-0 ps-lg-2" style="margin-top:20px; max-width: 25% !important; flex: 0 0 25% !important; width: 25% !important;">
+                <div class="col-lg-2 doc-sidebar pe-lg-0 ps-lg-2" style="margin-top:20px;">
                     <style>
                         /* Make right sidebar (TOC) sticky like left sidebar */
                         .doc-sidebar {
@@ -466,7 +531,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         }
                         
                         /* Disable sticky on mobile/tablet */
-                        @media (max-width: 991px) {
+                        @media (max-width: 1024px) {
                             .doc-sidebar {
                                 position: static !important;
                                 max-height: none !important;

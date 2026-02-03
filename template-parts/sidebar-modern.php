@@ -18,6 +18,7 @@ $has_utm_params = !empty($utm_source) || !empty($utm_medium) || !empty($utm_camp
 $has_utm_params = true;
 
 // Function to get articles related to UTM parameters
+if ( ! function_exists( 'get_utm_related_articles' ) ) :
 function get_utm_related_articles($utm_params) {
     $articles = array();
     
@@ -67,6 +68,7 @@ function get_utm_related_articles($utm_params) {
     
     return $articles;
 }
+endif;
 
 $utm_articles = array();
 if ($has_utm_params) {

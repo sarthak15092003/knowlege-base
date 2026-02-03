@@ -90,64 +90,92 @@ $s_value = get_search_query() ? get_search_query() : '';
     </div>
 </div>
 
+</script>
+
 <script>
-// Force navbar to stay visible and fixed - ONLY ON DESKTOP
-(function() {
+// CMGALAXY Mobile Menu Toggle - Left Hamburger Only
+(function($) {
     'use strict';
     
-    function forceNavbar() {
-        // Only run on desktop (992px and above)
-        if (window.innerWidth < 992) {
-            return;
-        }
+    $(document).ready(function() {
+        // Only target LEFT hamburger (not the modern_sidebar_btn)
+        $(document).on('click', '.mobile_menu_btn:not(.modern_sidebar_btn), .close_nav', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var body = $('body');
+            var sideMenu = $('.side_menu.dark_menu');
+            var overlay = $('.click_capture');
+            
+            if (sideMenu.hasClass('menu-opened') || body.hasClass('menu-is-opened')) {
+                sideMenu.removeClass('menu-opened');
+                body.removeClass('menu-is-opened').addClass('menu-is-closed');
+                overlay.fadeOut(300);
+            } else {
+                // Close right sidebar if open
+                $('.modern_sidebar_drawer').removeClass('open');
+                
+                sideMenu.addClass('menu-opened');
+                body.removeClass('menu-is-closed').addClass('menu-is-opened');
+                overlay.fadeIn(300);
+            }
+        });
         
-        var nav = document.getElementById('sticky');
-        if (nav) {
-            // Force inline styles - highest specificity
-            nav.style.cssText = 'position:fixed!important;top:0px!important;left:0px!important;right:0px!important;width:100%!important;z-index:9999!important;display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;';
-            
-            // Remove bad classes
-            nav.classList.remove('fadeInUp');
-            nav.classList.add('navbar_fixed', 'fadeInDown');
-            
-            // Fix body
-            document.body.classList.remove('navbar-hidden');
-            document.body.classList.add('navbar-shown');
-        }
-    }
-    
-    // Run immediately
-    forceNavbar();
-    
-    // Run on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', forceNavbar);
-    } else {
-        forceNavbar();
-    }
-    
-    // Run on load
-    window.addEventListener('load', forceNavbar);
-    
-    // Run continuously every 100ms to override ANY theme script - ONLY ON DESKTOP
-    setInterval(forceNavbar, 100);
-    
-    // Run on every scroll
-    var scrolling = false;
-    window.addEventListener('scroll', function() {
-        if (!scrolling) {
-            scrolling = true;
-            requestAnimationFrame(function() {
-                forceNavbar();
-                scrolling = false;
-            });
-        }
-    }, { passive: true });
-    
-    // Run on window resize
-    window.addEventListener('resize', forceNavbar);
-})();
+        // Close menu on overlay click
+        $(document).on('click', '.click_capture', function() {
+            $('.side_menu').removeClass('menu-opened');
+            $('.modern_sidebar_drawer').removeClass('open');
+            $('body').removeClass('menu-is-opened').addClass('menu-is-closed');
+            $(this).fadeOut(300);
+        });
+    });
+})(jQuery);
 </script>
+
+<style>
+/* CSS Fixes for Mobile Menu Visibility and Interaction */
+@media (max-width: 1024px) {
+    /* Ensure the mobile bar is ALWAYS on top */
+    .mobile_main_menu {
+        z-index: 100000 !important;
+        background: #ffffff !important;
+    }
+    
+    /* Ensure the hamburger button is clickable */
+    .mobile_menu_btn {
+        position: relative !important;
+        z-index: 100001 !important;
+        cursor: pointer !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 10px !important;
+    }
+    
+    /* Hide desktop items absolutely */
+    #sticky, .header, .cmgalaxy-header {
+        display: none !important;
+    }
+    
+    /* Show the mobile menu bar if theme hid it */
+    .mobile_main_menu.display_none {
+        display: block !important;
+    }
+}
+
+/* Side Menu and Overlay z-index */
+.side_menu {
+    z-index: 100002 !important;
+}
+
+.click_capture {
+    z-index: 100001 !important;
+    background: rgba(0,0,0,0.5) !important;
+}
+
+/* Ensure body doesn't scroll when menu is open */
+body.menu-is-opened {
+    overflow: hidden !important;
+}
 
 <style>
 /* CMGALAXY Header Styles */
@@ -320,7 +348,7 @@ $s_value = get_search_query() ? get_search_query() : '';
 }
 
 /* Desktop Header Main Padding */
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
     #sticky .container {
         padding-left: 30px !important;
         padding-right: 30px !important;
@@ -476,64 +504,28 @@ $s_value = get_search_query() ? get_search_query() : '';
     }
 }
 
-/* Force desktop 3-column layout at 768px and above */
-@media (min-width: 768px) {
-    /* Override Bootstrap col-lg classes */
-    .col-lg-3 {
-        -ms-flex: 0 0 25%;
-        flex: 0 0 25%;
-        max-width: 25%;
-        position: relative;
-        width: 100%;
-    }
-    
-    .col-lg-6 {
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
-        position: relative;
-        width: 100%;
-    }
-    
-    /* Specific targeting for category columns */
-    .category-left-sidebar-col.col-lg-3 {
-        flex: 0 0 300px !important;
-        max-width: 300px !important;
-        width: 300px !important;
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    .category-main-col.col-lg-6 {
-        flex: 0 0 53% !important;
-        max-width: 53% !important;
-        width: 53% !important;
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    .category-right-sidebar-col.col-lg-3 {
-        flex: 0 0 25% !important;
-        max-width: 25% !important;
-        width: 25% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    /* TOC Sidebar (right sidebar on single posts) */
-    .doc-sidebar.col-lg-3 {
-        flex: 0 0 350px !important;
-        max-width: 350px !important;
-        width: 350px !important;
-        display: block !important;
-        visibility: visible !important;
+@media (max-width: 1024px) {
+    /* NUCLEAR HIDE: Ensure desktop header layout NEVER shows on mobile */
+    #sticky,
+    .header,
+    .navbar-collapse.cmgalaxy-header,
+    .cmgalaxy-header-main,
+    .cmgalaxy-nav-menu,
+    #navbarSupportedContent {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
     }
 }
 
-/* Override default navbar styles */
-.navbar-collapse.cmgalaxy-header {
-    display: flex !important;
+/* Desktop Header Visibility */
+@media (min-width: 1025px) {
+    .navbar-collapse.cmgalaxy-header {
+        display: flex !important;
+    }
 }
 
 /* Sticky/Fixed Navbar - Using position: fixed for better browser support */
@@ -552,14 +544,13 @@ nav.menu_one,
     width: 100% !important;
     z-index: 9999 !important;
     background-color: #ffffff !important;
-    /* box-shadow removed */
-    border-bottom: 1px solid #e5e7eb !important; /* Add border to connect divider lines */
+    border-bottom: 1px solid #e5e7eb !important;
     padding: 0px !important;
     margin: 0 !important;
-    display: block !important; /* Override display_none class */
-    visibility: visible !important; /* Ensure always visible */
-    opacity: 1 !important; /* Ensure always visible */
-    transform: none !important; /* Prevent any transform animations */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Super aggressive override for inline styles */
@@ -575,65 +566,18 @@ nav#sticky[style] {
 
 /* Add padding to body to prevent content from hiding under fixed navbar */
 body {
-    padding-top: 0 !important;
-}
-
-/* Add padding to push content down from navbar */
-.body_wrapper {
-    margin-top: 120px !important; /* Space for fixed navbar (approx 119px) */
-    padding-top: 0px !important; /* Additional padding to prevent content hiding */
+    padding-top: 120px !important; /* Space for fixed navbar */
 }
 
 /* Adjust for mobile */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+    body {
+        padding-top: 70px !important; /* Smaller space for mobile header */
+    }
+    
     .body_wrapper {
-        margin-top: 140px !important;
-        padding-top: 20px !important;
-    }
-    
-    /* Content column adjustments */
-    .category-main-col {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    /* Right sidebar adjustments */
-    .category-right-sidebar-col {
-        margin-top: 2rem;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    /* Bootstrap column stacking - only on mobile */
-    .col-lg-3,
-    .col-lg-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .body_wrapper {
-        margin-top: 60px !important;
-        padding-top: 15px !important;
-    }
-    
-    .category-main-col {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .category-right-sidebar-col {
-        margin-top: 1.5rem;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .body_wrapper {
-        margin-top: 50px !important;
-        padding-top: 10px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
 
@@ -644,3 +588,4 @@ body {
     color: #9ca3af;
 }
 </style>
+

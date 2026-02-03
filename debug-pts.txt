@@ -1,0 +1,11 @@
+POST TYPES AND COUNTS:
+post: 6 published
+page: 2 published
+attachment: 0 published
+forum: 0 published
+topic: 0 published
+reply: 0 published
+e-floating-buttons: 0 published
+elementor_library: 1 published
+docs: 0 published
+onepage-docs: 0 published

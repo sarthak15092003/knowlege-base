@@ -317,7 +317,7 @@ section:first-of-type {
 }
 
 /* Desktop: always show */
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
     .navbar-collapse.cmgalaxy-header {
         display: flex !important;
     }
@@ -594,47 +594,25 @@ section:first-of-type {
 }
 
 /* Mobile Responsive - 991px and below */
-@media (max-width: 991px) {
-    .cmgalaxy-header-main {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-    }
-
-    .cmgalaxy-logo-section,
-    .cmgalaxy-search-section,
-    .cmgalaxy-actions {
-        width: 100%;
-        min-width: auto;
-        max-width: none;
-    }
-
-    .cmgalaxy-actions {
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .cmgalaxy-main-nav {
-        flex-direction: column;
-        gap: 0;
-        text-align: center;
-    }
-
-    .cmgalaxy-main-nav .nav-item {
-        border-bottom: 1px solid #f3f4f6;
-    }
-
-    .cmgalaxy-main-nav .nav-item:last-child {
-        border-bottom: none;
-    }
-
-    .cmgalaxy-nav-menu {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
+@media (max-width: 1024px) {
+    .cmgalaxy-header {
+        display: none !important;
     }
 }
 
 @media (max-width: 576px) {
+    .cmgalaxy-header-main {
+        padding: 0.5rem 5px;
+    }
+
+    .cmgalaxy-logo-section {
+        order: 2;
+    }
+
+    .cmgalaxy-actions {
+        order: 3;
+    }
+
     .cmgalaxy-brand {
         font-size: 1.5rem;
     }
@@ -661,7 +639,7 @@ section:first-of-type {
 
     .blog_area,
     .tip_doc_area {
-        padding-top: 1.5rem !important;
+        padding-top: 0rem !important;
     }
 
     /* Mobile admin bar adjustments */
@@ -788,7 +766,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Hide mobile dropdown arrow icons when navbar is collapsed */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
 
     /* Hide the dropdown icon in CMGALAXY header when collapsed */
     .navbar-collapse.cmgalaxy-header:not(.show) .mobile_dropdown_icon,
@@ -871,7 +849,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Show mobile menu on tablets and mobile devices */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .navbar-toggler {
         display: none !important;
     }
@@ -882,7 +860,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Navbar collapse menu styling on mobile */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .navbar-collapse.cmgalaxy-header.show {
         position: fixed;
         top: 0;
@@ -912,7 +890,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Ensure mobile menu button is visible on mobile/tablet */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .mobile_menu_btn {
         display: block !important;
         visibility: visible !important;
@@ -926,7 +904,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Force mobile menu bar to show on mobile/tablet */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
     .mobile_main_menu {
         display: block !important;
         position: fixed !important;
@@ -972,7 +950,7 @@ nav[aria-label="breadcrumb"] {
 }
 
 /* Hide main navbar on mobile and tablet, show only mobile menu bar */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
 
     .header .navbar,
     nav.menu_one,
@@ -1098,9 +1076,9 @@ body.category-id-3 .body_wrapper {
 }
 
 /* Desktop margin-top for body_wrapper */
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
     .body_wrapper {
-        margin-top: 88px !important;
+        margin-top: 0px !important;
         padding-top: 0px !important;
     }
 }
@@ -1233,7 +1211,7 @@ footer {
 }
 
 /* Ensure TOC sidebar is visible on desktop */
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
     .doc-sidebar.display_none {
         display: block !important;
     }
@@ -1246,68 +1224,17 @@ footer {
 }
 
 /* Ensure TOC nav is visible and displays properly */
-#docy-toc {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-#docy-toc ul {
-    display: block !important;
-    list-style: none;
-    padding-left: 0;
-}
-
-#docy-toc li {
-    display: block !important;
-}
-
-/* Stylish Search Button Gradient */
-.stylish-search__body {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.stylish-search__submit {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    width: 43px !important;
-    height: 43px !important;
-    padding: 0 !important;
-
-    /* Gradient Background */
-    background: radial-gradient(36.82% 41.72% at 49.73% 100%, rgba(175, 244, 251, 0.45) 0%, rgba(58, 125, 255, 0) 100%),
-        radial-gradient(50.19% 67.5% at 49.73% 50%, #3A7DFF 0%, #3A7DFF 100%) !important;
-    background-blend-mode: plus-lighter, normal !important;
-
-    /* Box Shadow */
-    /* Box Shadow - Further Reduced Height */
-    box-shadow: 0px 1px 2px rgba(58, 125, 255, 0.08),
-        0px 2px 4px rgba(58, 125, 255, 0.12),
-        0px 4px 8px rgba(58, 125, 255, 0.21),
-        inset 0px 0px 6.81546px rgba(255, 255, 255, 0.5),
-        inset 0px -1.70386px 2.72618px rgba(255, 255, 255, 0.1),
-        inset 0px 0px 10.2232px rgba(255, 255, 255, 0.2),
-        inset 0px -20.4464px 27.2618px rgba(255, 255, 255, 0.22),
-        inset 0px 6.81546px 20.4464px rgba(255, 255, 255, 0.24) !important;
-
-    border-radius: 50% !important;
-    /* 43px width/height makes it circle */
-    border: none !important;
-    cursor: pointer;
-
-    /* Positioning */
-    position: absolute !important;
-    right: 7px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    z-index: 10;
-}
-
-.stylish-search__submit svg {
-    width: 20px;
-    height: 20px;
-    color: white;
+#docy-toc .nav-link,
+#docy-toc a,
+.doc-nav .nav-link,
+.doc-nav a,
+.nav-sidebar.doc-nav .nav-link,
+.nav-sidebar.doc-nav a,
+.left_sidebarlist .nav-link,
+.left_sidebarlist a {
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    padding-left: 15px !important;
+    color: #ffffff !important;
+    background-color: transparent !important;
 }

@@ -213,7 +213,7 @@ function docy_scripts() {
 	$banner_type = docy_meta('banner_type');
 
 	// Re-enabled main.js for mobile menu functionality
-	wp_enqueue_script( 'docy-main', DOCY_DIR_JS . '/main.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'docy-main', DOCY_DIR_JS . '/main.js', array( 'jquery' ), '1.0.1', true );
 	
 	// Enqueue sticky navbar fix script - loads independently now
 	wp_enqueue_script( 'sticky-navbar-fix', DOCY_DIR_JS . '/sticky-navbar-fix.js', array( 'jquery' ), '1.0.0', true );

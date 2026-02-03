@@ -449,7 +449,7 @@ button:focus {
   .search-main,
   .comment_inner#comments,
   .blog_comment_box {
-    padding: 35px 20px !important;
+    padding: 0px 20px !important;
   }
 }
 
@@ -16864,7 +16864,7 @@ blockquote .author {
   line-height: 160%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .jrBzsJ {
     display: none;
   }
