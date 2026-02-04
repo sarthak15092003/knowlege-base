@@ -51,8 +51,8 @@
                 var scrollOffset = ($(window).width() <= 1024 ? 70 : 120) + adminBarHeight;
 
                 // Fix: Account for body scrolling by adding current scrollTop
-                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
-                var targetPosition = target[0].getBoundingClientRect().top + scrollingElement.scrollTop - scrollOffset;
+                var currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                var targetPosition = target[0].getBoundingClientRect().top + currentScroll - scrollOffset;
 
                 $('html, body').stop().animate({
                     scrollTop: targetPosition
@@ -70,15 +70,15 @@
         function updateTocOnScroll() {
             if (isManualScroll) return;
 
-            var scrollingElement = document.scrollingElement || document.body || document.documentElement;
-            var scrollPos = scrollingElement.scrollTop + 150; // Offset for detection
+            var currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollPos = currentScroll + 150; // Offset for detection
             var currentSection = null;
 
             // Find all headings with IDs
             $('.blog_single_item h1[id], .blog_single_item h2[id], .blog_single_item h3[id], .blog_single_item h4[id], .blog_single_item h5[id]').each(function () {
                 var $heading = $(this);
-                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
-                var headingTop = $heading[0].getBoundingClientRect().top + scrollingElement.scrollTop;
+                var currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                var headingTop = $heading[0].getBoundingClientRect().top + currentScroll;
 
                 if (scrollPos >= headingTop) {
                     currentSection = $heading.attr('id');
@@ -130,8 +130,8 @@
                 var scrollOffset = ($(window).width() <= 1024 ? 70 : 120) + adminBarHeight;
 
                 // Fix: Account for body scrolling by adding current scrollTop
-                var scrollingElement = document.scrollingElement || document.body || document.documentElement;
-                var targetPosition = target[0].getBoundingClientRect().top + scrollingElement.scrollTop - scrollOffset;
+                var currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                var targetPosition = target[0].getBoundingClientRect().top + currentScroll - scrollOffset;
 
                 $('html, body').stop().animate({
                     scrollTop: targetPosition
