@@ -38,6 +38,13 @@
     width: auto;
 }
 
+/* Mobile Header Logo Override */
+.mobile_main_menu .mobile_menu_left img {
+    max-width: 191px !important;
+    height: 51px !important;
+    width: 191px !important;
+}
+
 /* Close Button */
 .close_nav {
     width: 40px;

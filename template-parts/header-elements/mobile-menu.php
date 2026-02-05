@@ -15,7 +15,7 @@ $opt = get_option( 'docy_opt' );
             </button>
             <div class="cmgalaxy-mobile-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kblogo.svg" alt="CMGALAXY Knowledge Base" style="height: 32px; width: auto;">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kblogo.svg" alt="CMGALAXY Knowledge Base" style="height: 51px !important; width: 90% !important; max-width: none !important;">
                 </a>
             </div>
         </div>
