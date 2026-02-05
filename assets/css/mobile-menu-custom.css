@@ -40,9 +40,9 @@
 
 /* Mobile Header Logo Override */
 .mobile_main_menu .mobile_menu_left img {
-    max-width: 191px !important;
+    max-width: none !important;
     height: 51px !important;
-    width: 191px !important;
+    width: 90% !important;
 }
 
 /* Close Button */
