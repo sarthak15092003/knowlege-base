@@ -15395,7 +15395,7 @@ body.category .doc_blog_grid_area {
   order: 0;
   flex-grow: 0;
   z-index: 0;
-  
+
   /* Retain positioning for visibility */
   position: absolute;
   right: 6px;
@@ -15403,7 +15403,8 @@ body.category .doc_blog_grid_area {
   transform: translateY(-50%);
   border: none;
   cursor: pointer;
-  padding: 0; /* Override padding to center icon */
+  padding: 0;
+  /* Override padding to center icon */
 }
 
 .header_search_form.focused-form .stylish-search__shell {
@@ -16841,7 +16842,7 @@ blockquote .author {
 .left_sidebarlist .nav-link {
   color: inherit;
   position: relative;
-  padding: 8px 5px;
+  padding: 5px 5px;
   font-size: 15px;
 }
 
@@ -16850,9 +16851,9 @@ blockquote .author {
   width: 2px;
   background: var(--brand_color);
   position: absolute;
-  top: 0;
-  left: -15px;
-  bottom: 0;
+  top: 10px;
+  left: 0;
+  bottom: 10px;
 }
 
 .left_sidebarlist .nav-link.active+ul.nav {
@@ -16886,7 +16887,7 @@ blockquote .author {
 }
 
 #toc_stick.stick .left_sidebarlist .nav-sidebar:before {
-  left: -15px;
+  left: 0;
   bottom: 0;
 }
 

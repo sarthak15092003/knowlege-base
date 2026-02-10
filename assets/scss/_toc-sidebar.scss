@@ -24,7 +24,7 @@
   .nav-link {
     color: inherit;
     position: relative;
-    padding: 8px 5px;
+    padding: 5px 5px;
     font-size: 15px;
 
     &.active {
@@ -33,9 +33,9 @@
         width: 2px;
         background: var(--brand_color);
         position: absolute;
-        top: 0;
-        left: -15px;
-        bottom: 0;
+        top: 10px;
+        left: 0;
+        bottom: 10px;
       }
 
       +ul.nav {
@@ -74,7 +74,7 @@
 
       .nav-sidebar {
         &:before {
-          left: -15px;
+          left: 0;
           bottom: 0;
         }
       }

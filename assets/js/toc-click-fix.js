@@ -14,10 +14,10 @@
             $('#docy-toc a, .doc-nav a, .nav-sidebar a').removeClass('active');
             $('#docy-toc li, .doc-nav li, .nav-sidebar li').removeClass('active');
 
-            // Add active to the target
+            // Add active to the target and all its parent list items
             var $targetLink = $('#docy-toc a[href="#' + targetId + '"], .doc-nav a[href="#' + targetId + '"], .nav-sidebar a[href="#' + targetId + '"]');
             $targetLink.addClass('active');
-            $targetLink.parent('li').addClass('active');
+            $targetLink.parents('li').addClass('active'); // Bubbles active class up to first-level steps
         }
 
         // Handle TOC link clicks
@@ -119,9 +119,9 @@
             $('#docy-tocs a, .bottom_table_content a').removeClass('active');
             $('#docy-tocs li, .bottom_table_content li').removeClass('active');
 
-            // Add to clicked
+            // Add to clicked and all its parent list items
             $clickedLink.addClass('active');
-            $clickedLink.parent('li').addClass('active');
+            $clickedLink.parents('li').addClass('active');
 
             var target = $(href);
 

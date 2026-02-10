@@ -110,6 +110,36 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         body:not(.scrolled) .doc-nav .nav-link.active::before {
             display: none !important;
         }
+
+        /* Show and style the blue indicator line when scrolled - TOP LEVEL ONLY */
+        body.scrolled .doc-sidebar #docy-toc > ul > li.active > a::before,
+        body.scrolled #docy-toc > ul > li.active > a::before,
+        body.scrolled .doc-nav > ul > li.active > a::before {
+            display: block !important;
+            content: "" !important;
+            width: 2px !important;
+            background: #3B82F6 !important;
+            position: absolute !important;
+            top: 10px !important;
+            left: 0 !important;
+            bottom: 10px !important;
+            z-index: 1 !important;
+        }
+
+        /* Hide indicator for any nested links */
+        #docy-toc ul ul .nav-link::before,
+        .doc-nav ul ul .nav-link::before {
+            display: none !important;
+        }
+
+        /* Adjust spacing between TOC items */
+        #docy-toc li, .doc-nav li {
+            margin-bottom: 5px !important;
+        }
+        #docy-toc .nav-link, .doc-nav .nav-link {
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
         
         /* Ensure the active TOC item is always visible and correctly highlighted */
         #docy-toc .nav-link.active,
@@ -505,7 +535,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                             max-height: 100%;
                             overflow-y: auto;
                             margin-top: 50px; /* Align with left sidebar */
-                            padding-right: 20px !important; /* Add right padding to prevent sticking */
+                            padding: 0 20px 0 25px !important; /* Added left padding for indicator */
                         }
                         
                         /* Keep TOC title visible on scroll */
@@ -600,7 +630,13 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         
                         /* Add padding to TOC container for consistent spacing */
                         .left_sidebarlist {
-                            /* padding: 0 !important; Removed to inspect alignment */
+                            padding: 0 0 0 10px !important; /* Space for the blue indicator */
+                        }
+                        
+                        /* Ensure indicator is correctly sized in SCSS context as well */
+                        .left_sidebarlist .nav-link.active::before {
+                            top: 10px !important;
+                            bottom: 10px !important;
                         }
                         
                         .left_sidebarlist #docy-toc,
