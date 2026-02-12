@@ -1,4 +1,4 @@
-﻿:is(.single-courses, .single-lesson) .tutor-wrap {
+:is(.single-courses, .single-lesson) .tutor-wrap {
   margin-top: 50px;
 }
 :is(.single-courses, .single-lesson) .navbar {

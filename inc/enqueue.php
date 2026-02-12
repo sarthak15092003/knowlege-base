@@ -12,7 +12,7 @@ function docy_fonts_url(): string
 
 	/* Body font */
 	if ( 'off' !== 'on' ) {
-		$fonts[] = "Poppins:300,400,500,600,700";
+		$fonts[] = "Inter:300,400,500,600,700,800";
 	}
 
 	$is_ssl = is_ssl() ? 'https' : 'http';
@@ -74,7 +74,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'mobile-menu-custom', DOCY_DIR_CSS . '/mobile-menu-custom.css', array(), DOCY_VERSION );
 	
 	// Typography Schema - Global typography system
-	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION );
+	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION . '.1' );
 
 	// bbPress forum plugin styles
 	if ( in_array( 'bbpress', get_body_class() ) && class_exists( 'bbPress' ) ) {

@@ -20,6 +20,7 @@ Text Domain: docy
   --p_color: var(--paragraph_color_opt, #364553);
   --gradient_bg_color1: var(--gradient_bg_color-from, #fffbf2);
   --gradient_bg_color2: var(--gradient_bg_color-to, #edfffd);
+  --font-family-primary: 'Inter', 'Inter Fallback';
   --border_on_white: #e6edf0;
   --border_on_highlight: #e6edf0;
   --body_bg: #fff;
@@ -137,35 +138,39 @@ Text Domain: docy
 .breadcrumb .breadcrumb-item,
 .page_breadcrumb .date,
 .bbpress a.bbp-breadcrumb-home,
-.breadcrumb .breadcrumb-item + .breadcrumb-item:before {
+.breadcrumb .breadcrumb-item+.breadcrumb-item:before {
   color: #3A7DFF !important;
 }
 
 .breadcrumb .breadcrumb-item a:hover {
-  color: #2e69d6 !important; /* slightly darker on hover */
+  color: #2e69d6 !important;
+  /* slightly darker on hover */
 }
 
 /* Breadcrumb background to white and text to black */
 .page_breadcrumb {
   background-color: #ffffff !important;
 }
+
 .page_breadcrumb .breadcrumb .breadcrumb-item a,
 .page_breadcrumb .breadcrumb .breadcrumb-item,
-.page_breadcrumb .breadcrumb .breadcrumb-item + .breadcrumb-item:before,
+.page_breadcrumb .breadcrumb .breadcrumb-item+.breadcrumb-item:before,
 .page_breadcrumb .date {
   color: #000000 !important;
 }
+
 .page_breadcrumb .breadcrumb .breadcrumb-item a:hover,
-.page_breadcrumb .breadcrumb .active { 
-  color: #3A7DFF !important; 
+.page_breadcrumb .breadcrumb .active {
+  color: #3A7DFF !important;
 }
 
 /* Menu navigation link color */
-.menu > .nav-item > .nav-link {
+.menu>.nav-item>.nav-link {
   color: #242729 !important;
 }
-.menu > .nav-item.active > .nav-link,
-.menu > .nav-item:hover > .nav-link {
+
+.menu>.nav-item.active>.nav-link,
+.menu>.nav-item:hover>.nav-link {
   color: #3A7DFF !important;
 }
 

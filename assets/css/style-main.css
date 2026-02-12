@@ -1,3 +1,7 @@
+:root {
+  --font-family-primary: 'Inter', 'Inter Fallback';
+}
+
 .footer-centered .doc_footer_bottom {
   background: #0a3b78;
   /* deep blue */
@@ -229,7 +233,7 @@ body {
   line-height: 1.8;
   font-size: 16px;
   height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 400;
   letter-spacing: 0.15px;
 }
@@ -291,7 +295,7 @@ h6,
 .h5,
 .h6 {
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--black_900);
   line-height: 1.3;
 }
@@ -560,7 +564,7 @@ p kbd {
   margin: 2px;
   font-weight: 400;
   font-size: 0.85rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   text-align: center;
   text-decoration: none;
   line-height: 0.6rem;
@@ -1295,7 +1299,7 @@ textarea {
 
 .bbp-login-form legend,
 #new-post legend {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--secondary_color);
   font-size: 20px;
   font-weight: 500;
@@ -1350,7 +1354,7 @@ textarea {
 .bbp-login-form label,
 #new-post label {
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--secondary_color);
   font-size: 14px;
   margin-bottom: 2px;
@@ -2289,7 +2293,7 @@ button.wp-block-search__button.wp-element-button {
 
 .wc-block-components-checkout-place-order-button,
 .fill-brand {
-  font: 500 14px "Poppins", sans-serif;
+  font: 500 14px var(--font-family-primary);
   color: #fff;
   margin: 0;
   background: rgba(8, 102, 255, 0.8);
@@ -2737,7 +2741,7 @@ button.wp-block-search__button.wp-element-button {
 .menu>.nav-item.submenu .dropdown-menu .nav-item .nav-link {
   padding: 0;
   white-space: nowrap;
-  font: 400 14px/16px "Poppins", sans-serif;
+  font: 400 14px/16px var(--font-family-primary);
   color: var(--black_700);
   transition: color 0.2s linear;
   position: relative;
@@ -4898,7 +4902,7 @@ body.search-focused .sbnr-aesthetic .container {
 .page_breadcrumb .date {
   color: #000000;
   float: right;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .page_breadcrumb .date i {
@@ -4915,11 +4919,12 @@ body.search-focused .sbnr-aesthetic .container {
   border-radius: 0;
   padding: 0;
   align-items: center;
+  font-size: 14px;
 }
 
 .page_breadcrumb .breadcrumb .breadcrumb-item {
   color: #000000;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 21px;
   padding-left: 0px;
   display: flex;
@@ -6625,7 +6630,7 @@ body.body_dark .tutor-toggle-more-collapsed:before {
 }
 
 .h_item p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: normal;
@@ -10149,7 +10154,7 @@ button.swiper-pagination-bullet {
 }
 
 .explanation::after {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   content: "Hey!";
   text-transform: uppercase;
   font-weight: 700;
@@ -11144,7 +11149,7 @@ body.remove .header_tabs_area.tab_fixed .header_tab_items {
   letter-spacing: 5.2px;
   text-transform: uppercase;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   margin: 5% 0 2% 0;
   padding: 0;
 }
@@ -13222,7 +13227,7 @@ button.mfp-close {
 .img_pointing_content p {
   font-size: 14px;
   line-height: 22px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: #6b707f;
   margin-bottom: 0;
 }
@@ -14115,7 +14120,7 @@ ul.ordered-list li::before {
   color: #fc5bc1;
   font-weight: 700;
   line-height: 55px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .dropcap_content p .r_dropcap {
@@ -16843,7 +16848,7 @@ blockquote .author {
   color: inherit;
   position: relative;
   padding: 5px 5px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .left_sidebarlist .nav-link.active::before {
@@ -17296,7 +17301,7 @@ blockquote .author {
   font-size: 14px;
   color: var(--secondary_color);
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   height: 60px;
   line-height: 60px;
   padding: 2px 30px 0 25px;
@@ -17307,22 +17312,22 @@ blockquote .author {
 
 .login_form .form-group .form-control.placeholder {
   color: #878b99;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .login_form .form-group .form-control:-moz-placeholder {
   color: #878b99;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .login_form .form-group .form-control::-moz-placeholder {
   color: #878b99;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .login_form .form-group .form-control::-webkit-input-placeholder {
   color: #878b99;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 .login_form .form-group .form-control:focus {
@@ -18004,7 +18009,7 @@ blockquote .author {
 .doc_features_item h4 {
   font-size: 16px;
   line-height: 26px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 700;
   margin-bottom: 2px;
 }
@@ -18241,7 +18246,7 @@ blockquote .author {
 
 .doc_testimonial_slider .item:before {
   content: "â€œ";
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 400;
   font-size: 150px;
   color: var(--brand_color);
@@ -19243,7 +19248,7 @@ footer {
   background-color: #fafafa !important;
   color: #1f2937 !important;
   padding: 40px 80px !important;
-  font-family: Arial, sans-serif !important;
+  font-family: var(--font-family-primary) !important;
 }
 
 .simple_footer {

@@ -4,15 +4,19 @@
  * This file defines consistent typography across all posts and pages
  */
 
-/* Import Onest Font */
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family-primary: 'Inter', 'Inter Fallback';
+}
 
 /* ========== Headings ========== */
 
 /* Heading 1 */
 h1,
 .h1 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 42px;
     line-height: 150%;
     font-weight: 600;
@@ -22,7 +26,7 @@ h1,
 /* Heading 2 */
 h2,
 .h2 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 32px;
     line-height: 150%;
     font-weight: 600;
@@ -32,7 +36,7 @@ h2,
 /* Heading 3 */
 h3,
 .h3 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 28px;
     line-height: 150%;
     font-weight: 600;
@@ -42,7 +46,7 @@ h3,
 /* Heading 4 */
 h4,
 .h4 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 22px;
     line-height: 150%;
     font-weight: 600;
@@ -52,7 +56,7 @@ h4,
 /* Heading 5 */
 h5,
 .h5 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 18px;
     line-height: 150%;
     font-weight: 600;
@@ -62,7 +66,7 @@ h5,
 /* Heading 6 */
 h6,
 .h6 {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 16px;
     line-height: 150%;
     font-weight: 600;
@@ -90,7 +94,7 @@ h6 strong,
 /* Large Paragraph */
 p.paragraph-large,
 .paragraph-large {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 18px;
     line-height: 150%;
     font-weight: 400;
@@ -100,7 +104,7 @@ p.paragraph-large,
 /* Default Paragraph */
 p,
 .paragraph {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-family-primary) !important;
     font-size: 16px;
     line-height: 150%;
     font-weight: 400;
@@ -244,7 +248,7 @@ article {
 
     h1,
     .h1 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 42px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -253,7 +257,7 @@ article {
 
     h2,
     .h2 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 32px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -262,7 +266,7 @@ article {
 
     h3,
     .h3 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 28px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -271,7 +275,7 @@ article {
 
     h4,
     .h4 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 22px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -280,7 +284,7 @@ article {
 
     h5,
     .h5 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 18px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -289,7 +293,7 @@ article {
 
     h6,
     .h6 {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 16px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
@@ -297,7 +301,7 @@ article {
     }
 
     p {
-        font-family: 'Onest', sans-serif !important;
+        font-family: var(--font-family-primary) !important;
         font-size: 16px !important;
         line-height: 150% !important;
         font-weight: 400 !important;
@@ -476,4 +480,27 @@ article {
     font-weight: normal !important;
     color: #000000 !important;
     background-color: transparent !important;
+}
+
+/* NUCLEAR: Final override to ensure Inter is used everywhere and Onest is killed */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 *,
+p,
+.paragraph,
+.paragraph-large,
+.f_p,
+.breadcrumb_content h1,
+.job_details_area h3,
+.job_info .info_item h6 {
+    font-family: var(--font-family-primary) !important;
 }

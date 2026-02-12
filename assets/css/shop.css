@@ -1,4 +1,4 @@
-﻿/*----------------------------------------------------*/
+/*----------------------------------------------------*/
 /*font Variables*/
 /**=== Functions ===**/
 .col-md-offset-right-1,
@@ -54,7 +54,7 @@ form.woocommerce-ordering.docy_select {
 .woocommerce span.onsale {
   height: 50px;
   width: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 400;
 }
 
@@ -80,7 +80,7 @@ form.woocommerce-ordering.docy_select {
 
 .aditional_info p {
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 400;
 }
 
@@ -136,7 +136,7 @@ body.woocommerce-cart .woocommerce .coupon .button {
   position: absolute !important;
   right: 4px;
   top: 50%;
-  font: 400 14px/38px "Poppins", sans-serif;
+  font: 400 14px/38px var(--font-family-primary);
   color: #282835;
   height: 48px;
   padding: 0 25px;
@@ -308,7 +308,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 
 .shop_menu_left p {
   margin-bottom: 0;
-  font: 300 16px "Poppins", sans-serif;
+  font: 300 16px var(--font-family-primary);
 }
 
 @media (max-width: 480px) {
@@ -321,7 +321,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
   align-items: center;
 }
 .shop_menu_right h5 {
-  font: 500 16px "Poppins", sans-serif;
+  font: 500 16px var(--font-family-primary);
   margin-bottom: 5px;
   margin-right: 10px;
 }
@@ -343,7 +343,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 }
 
 .shop_menu_right .selectpickers .current {
-  font: 300 16px "Poppins", sans-serif;
+  font: 300 16px var(--font-family-primary);
   color: #677294;
 }
 
@@ -544,7 +544,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  font: 400 18px/28px "Poppins", sans-serif;
+  font: 400 18px/28px var(--font-family-primary);
   color: var(--black_800);
   margin-top: 5px;
 }
@@ -719,7 +719,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
   font-size: 30px;
 }
 .woocommerce.single-product .product .price del {
-  font: 400 20px "Poppins", sans-serif;
+  font: 400 20px var(--font-family-primary);
   color: #677294;
   padding-left: 18px;
 }
@@ -730,7 +730,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
   margin: 2em 0;
 }
 .woocommerce.single-product .stock {
-  font: 400 16px "Poppins", sans-serif;
+  font: 400 16px var(--font-family-primary);
   vertical-align: middle;
   padding: 20px 0 0;
   display: inline-block;
@@ -779,7 +779,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
   margin-bottom: 0;
 }
 .woocommerce.single-product .product_meta li {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   font-weight: 300;
   color: var(--black_600);
   margin-bottom: 10px;
@@ -797,7 +797,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 .woocommerce.single-product .share-link label {
   margin-bottom: 0;
   padding-right: 8px;
-  font: 400 15px "Poppins", sans-serif;
+  font: 400 15px var(--font-family-primary);
 }
 .woocommerce.single-product .share-link .social-icon {
   margin-bottom: 0;
@@ -866,7 +866,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 .woocommerce .product-type-subscription .cart .button,
 .pr_details .cart_button .cart_btn {
   border-radius: 5px;
-  font: 500 15px/48px "Poppins", sans-serif;
+  font: 500 15px/48px var(--font-family-primary);
   color: #fff;
   border: 1px solid var(--black_50);
   background: rgba(8, 102, 255, 0.9);
@@ -935,7 +935,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 }
 
 .product_info_details .pr_tab .nav-item .nav-link {
-  font: 300 16px/40px "Poppins", sans-serif;
+  font: 300 16px/40px var(--font-family-primary);
   color: var(--black_700) !important;
   padding: 5px 25px;
   min-width: 148px;
@@ -975,7 +975,7 @@ body.woocommerce-cart .woocommerce .coupon .button:hover {
 }
 
 .product_info_details .comment-box .comment-content .comment-header {
-  font: 300 14px "Poppins", sans-serif;
+  font: 300 14px var(--font-family-primary);
   display: inline-block;
 }
 
@@ -1192,7 +1192,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
 }
 .woocommerce-cart .cart_table td {
   vertical-align: middle;
-  font: 500 16px/28px "Poppins", sans-serif;
+  font: 500 16px/28px var(--font-family-primary);
   color: var(--black_800);
   border: 0;
   padding: 0 0 15px 10px;
@@ -1217,7 +1217,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
   border-radius: 5px;
 }
 .woocommerce-cart .cart_table .product-thumbnail .product-name a {
-  font: 500 16px/28px "Poppins", sans-serif;
+  font: 500 16px/28px var(--font-family-primary);
 }
 .woocommerce-cart .cart_table .product-qty {
   position: relative;
@@ -1311,7 +1311,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
   width: 140px;
 }
 .woocommerce-cart .wislist_table .add_cart {
-  font: 400 14px "Poppins", sans-serif;
+  font: 400 14px var(--font-family-primary);
   border: 1px solid #e7e7f6;
   background: transparent;
   color: #5c6789;
@@ -1350,7 +1350,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
   border: 1px solid var(--black_50);
   border-radius: 4px;
   background-color: var(--bs-white);
-  font: 300 15px "Poppins", sans-serif;
+  font: 300 15px var(--font-family-primary);
   color: #9ca3b9;
   height: 55px;
   padding-left: 25px;
@@ -1368,7 +1368,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
   position: absolute;
   right: 4px;
   top: 50%;
-  font: 400 14px/38px "Poppins", sans-serif;
+  font: 400 14px/38px var(--font-family-primary);
   color: var(--black_800);
   height: 48px;
   padding: 0 25px;
@@ -1434,7 +1434,7 @@ table.wc-block-cart-items td, table.wc-block-cart-items th {
 .pr_sidebar .filter_slider_area .filter_content {
   font-size: 16px;
   text-transform: capitalize;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--black_800);
   display: -webkit-box;
   display: -ms-flexbox;

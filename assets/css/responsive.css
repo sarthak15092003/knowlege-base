@@ -1,4 +1,4 @@
-﻿@media (min-width: 1440px) {
+@media (min-width: 1440px) {
   .doc_rightsidebar .bootstrap-select:not([class*="col-"], [class*="form-control"], .input-group-btn) {
     width: 100%;
   }

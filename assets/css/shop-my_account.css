@@ -1,4 +1,4 @@
-﻿@media (min-width: 768px) {
+@media (min-width: 768px) {
   .woocommerce-MyAccount-navigation {
     width: 29%;
     float: left;
@@ -50,7 +50,7 @@ ul li.woocommerce-MyAccount-navigation-link {
 }
 
 ul li.woocommerce-MyAccount-navigation-link a {
-  font: 400 16px/22px "Poppins", sans-serif;
+  font: 400 16px/22px var(--font-family-primary);
   color: var(--black_800);
   padding: 0;
   border: 0;
@@ -114,7 +114,7 @@ fieldset legend {
 .woocommerce-account #customer_login .button {
   width: auto;
   margin-top: 0;
-  font: 500 14px "Poppins", sans-serif;
+  font: 500 14px var(--font-family-primary);
   background: var(--brand_color);
   color: #fff;
   border-radius: 3px;

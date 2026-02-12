@@ -139,6 +139,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         #docy-toc .nav-link, .doc-nav .nav-link {
             padding-top: 5px !important;
             padding-bottom: 5px !important;
+            font-size: 14px !important;
         }
         
         /* Ensure the active TOC item is always visible and correctly highlighted */
@@ -242,6 +243,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                 padding-left: 15px !important;
                 color: #ffffff !important;
                 background-color: transparent !important;
+                font-size: 14px !important;
             }
             .bottom_table_content nav ul li a:hover {
                 color: #ffffff !important;
@@ -321,6 +323,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     padding-left: 0 !important;
                                     display: flex !important;
                                     flex-wrap: wrap !important;
+                                    font-size: 14px !important;
                                 }
                                 .blog_single_item .breadcrumb li {
                                     list-style: none !important;
@@ -344,7 +347,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                         padding: 0 !important;
                                     }
                                     .blog_single_item .breadcrumb {
-                                        font-size: 13px !important;
+                                        font-size: 14px !important;
                                         gap: 5px !important;
                                         display: flex !important;
                                         flex-wrap: wrap !important;

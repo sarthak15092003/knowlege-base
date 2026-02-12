@@ -1,4 +1,4 @@
-﻿/*----------------------------------------------------*/
+/*----------------------------------------------------*/
 /*font Variables*/
 /**=== Functions ===**/
 .col-md-offset-right-1,
@@ -931,7 +931,7 @@ ul.forum-titles .forum-freshness .freshness-box .freshness-btm .bbp-author-avata
   font-size: 14px;
   font-weight: 400;
   color: #848996;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 .search_forum input:focus {
   border: 1px solid #f1f1f8;
@@ -943,25 +943,25 @@ ul.forum-titles .forum-freshness .freshness-box .freshness-btm .bbp-author-avata
   font-size: 14px;
   font-weight: 400;
   color: #848996;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 .search_forum input:-moz-placeholder {
   font-size: 14px;
   font-weight: 400;
   color: #848996;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 .search_forum input::-moz-placeholder {
   font-size: 14px;
   font-weight: 400;
   color: #848996;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 .search_forum input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 400;
   color: #848996;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
 }
 .search_forum .input-group-append button {
   position: relative;
@@ -1554,7 +1554,7 @@ input[type=number] {
 
 .bbp-login-form legend,
 #new-post legend {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--secondary_color);
   font-size: 20px;
   font-weight: 500;
@@ -1743,7 +1743,7 @@ form.bbp-login-form {
 .bbp-login-form label,
 #new-post label {
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-primary);
   color: var(--secondary_color);
   font-size: 14px;
   margin-bottom: 2px;
