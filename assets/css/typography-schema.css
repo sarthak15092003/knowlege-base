@@ -37,7 +37,7 @@ h2,
 h3,
 .h3 {
     font-family: var(--font-family-primary) !important;
-    font-size: 28px;
+    font-size: 18px;
     line-height: 150%;
     font-weight: 600;
     margin-bottom: 1.25rem;
@@ -152,7 +152,7 @@ button.btn-medium {
 
     h3,
     .h3 {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     h4,
@@ -196,7 +196,7 @@ button.btn-medium {
 
     h3,
     .h3 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     h4,
@@ -267,7 +267,7 @@ article {
     h3,
     .h3 {
         font-family: var(--font-family-primary) !important;
-        font-size: 28px !important;
+        font-size: 18px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
         margin-bottom: 1.25rem !important;
@@ -323,7 +323,7 @@ article {
 
         h3,
         .h3 {
-            font-size: 24px !important;
+            font-size: 18px !important;
         }
 
         h4,
@@ -360,7 +360,7 @@ article {
 
         h3,
         .h3 {
-            font-size: 22px !important;
+            font-size: 18px !important;
         }
 
         h4,
