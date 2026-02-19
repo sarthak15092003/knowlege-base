@@ -17,7 +17,7 @@
 h1,
 .h1 {
     font-family: var(--font-family-primary) !important;
-    font-size: 42px;
+    font-size: 32px;
     line-height: 150%;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -27,7 +27,7 @@ h1,
 h2,
 .h2 {
     font-family: var(--font-family-primary) !important;
-    font-size: 32px;
+    font-size: 20px;
     line-height: 150%;
     font-weight: 600;
     margin-bottom: 1.25rem;
@@ -142,12 +142,12 @@ button.btn-medium {
 
     h1,
     .h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     h2,
     .h2 {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     h3,
@@ -191,7 +191,7 @@ button.btn-medium {
 
     h2,
     .h2 {
-        font-size: 26px;
+        font-size: 20px;
     }
 
     h3,
@@ -249,7 +249,7 @@ article {
     h1,
     .h1 {
         font-family: var(--font-family-primary) !important;
-        font-size: 42px !important;
+        font-size: 32px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
         margin-bottom: 1.5rem !important;
@@ -258,7 +258,7 @@ article {
     h2,
     .h2 {
         font-family: var(--font-family-primary) !important;
-        font-size: 32px !important;
+        font-size: 20px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
         margin-bottom: 1.25rem !important;
@@ -313,12 +313,12 @@ article {
 
         h1,
         .h1 {
-            font-size: 36px !important;
+            font-size: 32px !important;
         }
 
         h2,
         .h2 {
-            font-size: 28px !important;
+            font-size: 20px !important;
         }
 
         h3,
@@ -355,7 +355,7 @@ article {
 
         h2,
         .h2 {
-            font-size: 26px !important;
+            font-size: 20px !important;
         }
 
         h3,

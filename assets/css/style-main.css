@@ -2,6 +2,17 @@
   --font-family-primary: 'Inter', 'Inter Fallback';
 }
 
+/* === Global Heading Size Overrides === */
+h1,
+.h1 {
+  font-size: 32px !important;
+}
+
+h2,
+.h2 {
+  font-size: 20px !important;
+}
+
 .footer-centered .doc_footer_bottom {
   background: #0a3b78;
   /* deep blue */
