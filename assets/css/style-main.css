@@ -26,6 +26,17 @@ hr,
   height: auto !important;
 }
 
+/* === Blog / Post Content Image Borders === */
+.editor-content img,
+.entry-content img,
+.post-content img,
+article img,
+.wp-block-image img,
+.wp-block-image figure img {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 4px !important;
+}
+
 .footer-centered .doc_footer_bottom {
   background: #0a3b78;
   /* deep blue */
