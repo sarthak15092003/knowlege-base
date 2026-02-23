@@ -13,6 +13,19 @@ h2,
   font-size: 20px !important;
 }
 
+/* === Default Divider / HR Style === */
+hr,
+.wp-block-separator,
+.wp-block-separator.is-style-default,
+.wp-block-separator.is-style-wide,
+.wp-block-separator.is-style-dots {
+  border: none !important;
+  border-top: 1px solid #e5e7eb !important;
+  opacity: 0.5 !important;
+  background: none !important;
+  height: auto !important;
+}
+
 .footer-centered .doc_footer_bottom {
   background: #0a3b78;
   /* deep blue */
