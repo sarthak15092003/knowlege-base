@@ -19,8 +19,8 @@ li * {
   font-weight: 400 !important;
 }
 
-/* Hide AnchorJS anchor icon inside engagement block (Related Articles, nav cards, etc.) */
-.cmgalaxy-engagement-block .anchorjs-link {
+/* Hide AnchorJS anchor icons everywhere */
+.anchorjs-link {
   display: none !important;
 }
 
@@ -20169,8 +20169,24 @@ h2 *,
   font-weight: 600 !important;
 }
 
+h2,
+.h2 {
+  font-size: 28px !important;
+}
+
+
 /* === Blog Content Font Size Override (14px, except headings) === */
-.blog_single_item *:not(h1):not(.h1):not(h2):not(.h2):not(h3):not(.h3):not(h4):not(.h4):not(h5):not(.h5):not(h6):not(.h6):not(.related-articles-section):not(.cmgalaxy-engagement-block),
-.page:not(.page-template-page-onepage) .page_wrapper *:not(h1):not(.h1):not(h2):not(.h2):not(h3):not(.h3):not(h4):not(.h4):not(h5):not(.h5):not(h6):not(.h6) {
+.blog_single_item p,
+.blog_single_item li,
+.blog_single_item .paragraph,
+.blog_single_item div:not(.related-articles-section):not(.cmgalaxy-engagement-block):not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6),
+.blog_single_item span:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6),
+.blog_single_item a:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6),
+.blog_single_item blockquote,
+.blog_single_item table,
+.blog_single_item td,
+.blog_single_item th,
+.page:not(.page-template-page-onepage) .page_wrapper p,
+.page:not(.page-template-page-onepage) .page_wrapper li {
   font-size: 14px !important;
 }

@@ -27,7 +27,7 @@ h1,
 h2,
 .h2 {
     font-family: var(--font-family-primary) !important;
-    font-size: 20px;
+    font-size: 28px;
     line-height: 150%;
     font-weight: 600;
     margin-bottom: 1.25rem;
@@ -67,7 +67,7 @@ h5,
 h6,
 .h6 {
     font-family: var(--font-family-primary) !important;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     font-weight: 600;
     margin-bottom: 0.875rem;
@@ -132,7 +132,7 @@ li,
 /* Large Button */
 .btn-large,
 button.btn-large {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     font-weight: 500;
     padding: 12px 32px;
@@ -188,7 +188,7 @@ button.btn-medium {
 
     p.paragraph-large,
     .paragraph-large {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     p,
@@ -222,7 +222,7 @@ button.btn-medium {
 
     h5,
     .h5 {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     h6,
@@ -232,7 +232,7 @@ button.btn-medium {
 
     p.paragraph-large,
     .paragraph-large {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     p,
@@ -274,7 +274,7 @@ article {
     h2,
     .h2 {
         font-family: var(--font-family-primary) !important;
-        font-size: 20px !important;
+        font-size: 28px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
         margin-bottom: 1.25rem !important;
@@ -310,7 +310,7 @@ article {
     h6,
     .h6 {
         font-family: var(--font-family-primary) !important;
-        font-size: 16px !important;
+        font-size: 14px !important;
         line-height: 150% !important;
         font-weight: 600 !important;
         margin-bottom: 0.875rem !important;
