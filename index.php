@@ -885,23 +885,25 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 										</div>
 									</div>
 
-									<div class="sidebar-cta-card">
-										<div class="sidebar-cta-icon" aria-hidden="true">
-											<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect x="4" y="8" width="36" height="32" rx="8" stroke="#3B82F6" stroke-width="2" />
-												<path d="M12 18H16" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-												<path d="M12 23H20" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-												<path d="M12 28H20" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-												<path d="M28 18H32" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-												<path d="M28 23H34" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-												<path d="M28 28H34" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
-											</svg>
-										</div>
-										<div class="sidebar-cta-text">
-											<p class="sidebar-cta-eyebrow">New to CMGalaxy?</p>
-											<p class="sidebar-cta-body">Check our <a href="#" class="sidebar-cta-link">Get Started</a> guides.</p>
-										</div>
-									</div>
+									<?php /* Sidebar CTA Card - commented out
+					<div class="sidebar-cta-card">
+						<div class="sidebar-cta-icon" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="4" y="8" width="36" height="32" rx="8" stroke="#3B82F6" stroke-width="2" />
+								<path d="M12 18H16" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+								<path d="M12 23H20" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+								<path d="M12 28H20" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+								<path d="M28 18H32" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+								<path d="M28 23H34" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+								<path d="M28 28H34" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</div>
+						<div class="sidebar-cta-text">
+							<p class="sidebar-cta-eyebrow">New to CMGalaxy?</p>
+							<p class="sidebar-cta-body">Check our <a href="#" class="sidebar-cta-link">Get Started</a> guides.</p>
+						</div>
+					</div>
+				*/ ?>
 									
 									<!-- <div class="sidebar-widget mt-4">
 										<h5 class="widget-title">Quick Info</h5>

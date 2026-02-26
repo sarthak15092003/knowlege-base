@@ -402,7 +402,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                             Thanks for being here with us! We are beyond excited to see how you'll use CMGalaxy to drive growth for your business.
                         </p>
 
-                        <div class="related-articles-section mb-4">
+                        <div class="related-articles-section" style="margin-top: 5rem; margin-bottom: 1.5rem;">
                             <h5 class="fw-semibold mb-3" style="color: #374151; font-size: 1.125rem;">Related Articles</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-3">
@@ -458,7 +458,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         if ( $prev_post || $next_post ) : ?>
                             <div class="post-navigation-cards mt-4 d-flex gap-3">
                                 <?php if ( $prev_post ) : ?>
-                                    <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="nav-card prev-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 0 0 260px; max-width: 260px;">
+                                    <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="nav-card prev-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 1 1 45%; max-width: 48%;">
                                         <div class="nav-card-content">
                                             <h5 class="mb-3" style="color: #1f2937; font-weight: 600; font-size: 1rem;"><?php echo esc_html( get_the_title( $prev_post ) ); ?></h5>
                                             <div class="nav-direction d-flex align-items-center" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500;">
@@ -472,7 +472,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 <?php endif; ?>
 
                                 <?php if ( $next_post ) : ?>
-                                    <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="nav-card next-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 0 0 260px; max-width: 260px; margin-left: auto;">
+                                    <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="nav-card next-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 1 1 45%; max-width: 48%; margin-left: auto;">
                                         <div class="nav-card-content text-end">
                                             <h5 class="mb-3" style="color: #1f2937; font-weight: 600; font-size: 1rem;"><?php echo esc_html( get_the_title( $next_post ) ); ?></h5>
                                             <div class="nav-direction d-flex align-items-center justify-content-end" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500;">
@@ -667,6 +667,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         <div class="toc-sidebar-image mt-4">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/sidebarimg.png' ); ?>" alt="Sidebar CTA" class="img-fluid rounded-3" style="width: 100%;">
                         </div>
+                        <?php /* Sidebar CTA Card - commented out
                         <div class="sidebar-cta-card" style="display: flex; align-items: center; gap: 16px; margin-top: 20px; padding: 1px 2px; border: 2px solid #3B82F6; border-radius: 18px; background: #f4f8ff; width: 100%; box-sizing: border-box;">
                             <div class="sidebar-cta-icon" aria-hidden="true">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -684,6 +685,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 <p class="sidebar-cta-body" style="margin: 0;">Check our <a href="#" class="sidebar-cta-link">Get Started</a> guides.</p>
                             </div>
                         </div>
+                        */ ?>
                     </aside>
                 </div>
 
