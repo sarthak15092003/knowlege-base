@@ -386,17 +386,6 @@ article {
     }
 }
 
-/* ========================
-   Base Typography Schema
-   ======================== */
-
-/* === Global font-weight 300 override (high specificity) === */
-html body *,
-html body *::before,
-html body *::after {
-    font-weight: 300 !important;
-}
-
 
 /* Table of Contents - Blue Line Only on Active Items */
 

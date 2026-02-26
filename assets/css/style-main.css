@@ -7,6 +7,12 @@
   font-weight: 300 !important;
 }
 
+/* H1 and H2 exception - 600 */
+h1,
+h2 {
+  font-weight: 600 !important;
+}
+
 /* Hide AnchorJS anchor icon inside engagement block (Related Articles, nav cards, etc.) */
 .cmgalaxy-engagement-block .anchorjs-link {
   display: none !important;
