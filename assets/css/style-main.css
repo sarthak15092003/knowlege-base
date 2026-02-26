@@ -20168,3 +20168,15 @@ h2 *,
 .h2 * {
   font-weight: 600 !important;
 }
+
+/* === Blog Content Font Size Override (14px, except headings) === */
+.blog_single_item,
+.blog_single_item p,
+.blog_single_item li,
+.blog_single_item .paragraph,
+.blog_single_item div:not(.related-articles-section):not(.cmgalaxy-engagement-block):not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6),
+.blog_single_item span:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6),
+.page:not(.page-template-page-onepage) .page_wrapper p,
+.page:not(.page-template-page-onepage) .page_wrapper li {
+  font-size: 14px !important;
+}
