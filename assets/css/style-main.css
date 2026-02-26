@@ -20154,7 +20154,11 @@ button[aria-expanded] img[src*="emoji"] {
 /* === H1 and H2 font-weight override — must stay at end of file === */
 h1,
 .h1,
+h1 *,
+.h1 *,
 h2,
-.h2 {
+.h2,
+h2 *,
+.h2 * {
   font-weight: 600 !important;
 }
