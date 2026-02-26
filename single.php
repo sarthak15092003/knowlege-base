@@ -120,9 +120,9 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
             width: 2px !important;
             background: #3B82F6 !important;
             position: absolute !important;
-            top: 10px !important;
+            top: 0 !important;
             left: 0 !important;
-            bottom: 10px !important;
+            bottom: 0 !important;
             z-index: 1 !important;
         }
 
