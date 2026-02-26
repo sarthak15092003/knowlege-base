@@ -13,6 +13,12 @@ h2 {
   font-weight: 600 !important;
 }
 
+/* Restore LI and children to 400 */
+li,
+li * {
+  font-weight: 400 !important;
+}
+
 /* Hide AnchorJS anchor icon inside engagement block (Related Articles, nav cards, etc.) */
 .cmgalaxy-engagement-block .anchorjs-link {
   display: none !important;
