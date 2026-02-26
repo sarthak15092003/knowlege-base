@@ -113,6 +113,16 @@ li,
     color: #161c52;
 }
 
+/* Blog Content Font Size Override - 14px except headings */
+.blog_single_item p,
+.blog_single_item li,
+.blog_single_item .paragraph,
+.page:not(.page-template-page-onepage) .page_wrapper p,
+.page:not(.page-template-page-onepage) .page_wrapper li {
+    font-size: 14px !important;
+}
+
+
 /* ========== Buttons ========== */
 
 /* Large Button */
