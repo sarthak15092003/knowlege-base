@@ -103,12 +103,14 @@ p.paragraph-large,
 
 /* Default Paragraph */
 p,
+li,
 .paragraph {
     font-family: var(--font-family-primary) !important;
     font-size: 16px;
     line-height: 150%;
     font-weight: 400;
     margin-bottom: 1rem;
+    color: #161c52;
 }
 
 /* ========== Buttons ========== */

@@ -11857,7 +11857,7 @@ section.doc_blog_classic_area {
 .page:not(.page-template-page-onepage) .page_wrapper ul:not(.ordered-list),
 .blog_single_item ul:not(.ordered-list) {
   list-style: disc;
-  padding-left: 40px;
+  padding-left: 15px;
 }
 
 .page:not(.page-template-page-onepage) .page_wrapper ul:not(.ordered-list) ul,

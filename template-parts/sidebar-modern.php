@@ -138,7 +138,7 @@ if ($has_utm_params) {
                         $item_class = $is_current ? 'subsection-item current-page' : 'subsection-item';
                 ?>
                     <div class="<?php echo esc_attr($item_class); ?>">
-                        <a href="<?php the_permalink(); ?>" class="subsection-title"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>" class="subsection-title" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a>
                         <span class="subsection-arrow">▶</span>
                     </div>
                 <?php
@@ -188,7 +188,7 @@ if ($has_utm_params) {
                         $item_class = $is_current ? 'subsection-item current-page' : 'subsection-item';
                 ?>
                     <div class="<?php echo esc_attr($item_class); ?>">
-                        <a href="<?php the_permalink(); ?>" class="subsection-title"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>" class="subsection-title" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a>
                         <span class="subsection-arrow">▶</span>
                     </div>
                 <?php

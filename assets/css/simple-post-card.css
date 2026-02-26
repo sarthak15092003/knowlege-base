@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    border-radius: 6px;
+    border-radius: 30px;
     border: 1px solid #D5E1FC;
     padding: 4px 8px;
 }
