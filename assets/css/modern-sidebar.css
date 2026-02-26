@@ -3,7 +3,7 @@
     background: #ffffff;
     border-radius: 12px;
     padding: 0 10px 0 0;
-    margin: 0 0 2rem;
+    margin: 0 0 3rem;
     overflow: hidden;
     border: 0px;
     /* Changed from 1px to 0px */
@@ -134,31 +134,6 @@
     font-weight: 500;
 }
 
-/* Bracket indicator [ with curves at top and bottom */
-.section-header.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 10px;
-    border-left: 3px solid #007bff;
-    border-top: 3px solid #007bff;
-    border-bottom: 3px solid #007bff;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    background: transparent;
-}
-
-/* Remove ::after - no longer needed */
-.section-header.active::after {
-    content: none;
-}
-
-/* Extend the blue border down through the expanded content - curved at the bottom */
-.section-header.active+.section-content.expanded {
-    position: relative;
-}
 
 
 .section-icon {
@@ -185,7 +160,7 @@
 
 .section-title {
     flex: 1;
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 500;
     color: #1e293b;
     line-height: 1.4;
@@ -193,7 +168,7 @@
 
 .section-title-link {
     flex: 1;
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 500;
     color: #1e293b;
     line-height: 1.4;
@@ -282,7 +257,7 @@
 
 .subsection-title {
     flex: 1;
-    font-size: 0.8125rem;
+    font-size: 13px;
     font-weight: 400;
     color: #3b82f6;
     text-decoration: none;
@@ -418,7 +393,7 @@
 
 .subsection-title {
     flex: 1;
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 500;
     color: #475569;
 }

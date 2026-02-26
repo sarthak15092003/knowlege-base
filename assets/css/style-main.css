@@ -2,6 +2,11 @@
   --font-family-primary: 'Inter', 'Inter Fallback';
 }
 
+/* === Global Font Weight 300 === */
+* {
+  font-weight: 300 !important;
+}
+
 /* Hide AnchorJS anchor icon inside engagement block (Related Articles, nav cards, etc.) */
 .cmgalaxy-engagement-block .anchorjs-link {
   display: none !important;
