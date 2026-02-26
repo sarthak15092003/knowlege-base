@@ -2,6 +2,11 @@
   --font-family-primary: 'Inter', 'Inter Fallback';
 }
 
+/* Hide AnchorJS anchor icon inside engagement block (Related Articles, nav cards, etc.) */
+.cmgalaxy-engagement-block .anchorjs-link {
+  display: none !important;
+}
+
 /* === Global Heading Size Overrides === */
 h1,
 .h1 {

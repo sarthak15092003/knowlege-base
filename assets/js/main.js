@@ -44,6 +44,7 @@
          */
         if (typeof anchors != "undefined") {
             anchors.add(".anchor-enabled :is(h1, h2, h3, h4, h5)");
+            anchors.remove(".cmgalaxy-engagement-block :is(h1, h2, h3, h4, h5)");
         }
 
         /**
