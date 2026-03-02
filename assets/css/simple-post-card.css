@@ -90,6 +90,7 @@
 
 .post-card-title a:hover {
     color: #3b82f6;
+    text-decoration: none !important;
 }
 
 .post-card-excerpt {
