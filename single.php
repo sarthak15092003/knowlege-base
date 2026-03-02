@@ -408,38 +408,41 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         <div class="related-articles-section" style="margin-top: 5rem; margin-bottom: 1.5rem;">
                             <h5 class="fw-semibold mb-3" style="color: #374151; font-size: 1.125rem;">Related Articles</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-3">
-                                    <a href="#" class="d-flex justify-content-between align-items-center p-3" style="border: 1px solid #e5e7eb; border-radius: 8px; color: #374151; text-decoration: none; transition: all 0.2s ease;">
-                                        <span>Summary Dashboard Metrics Library</span>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #3b82f6;">
-                                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="mb-3">
-                                    <a href="#" class="d-flex justify-content-between align-items-center p-3" style="border: 1px solid #e5e7eb; border-radius: 8px; color: #374151; text-decoration: none; transition: all 0.2s ease;">
-                                        <span>Customizing Your Attribution Dashboard</span>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #3b82f6;">
-                                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="mb-3">
-                                    <a href="#" class="d-flex justify-content-between align-items-center p-3" style="border: 1px solid #e5e7eb; border-radius: 8px; color: #374151; text-decoration: none; transition: all 0.2s ease;">
-                                        <span>Pinterest Integration</span>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #3b82f6;">
-                                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="mb-3">
-                                    <a href="#" class="d-flex justify-content-between align-items-center p-3" style="border: 1px solid #e5e7eb; border-radius: 8px; color: #374151; text-decoration: none; transition: all 0.2s ease;">
-                                        <span>Google Ads Integration</span>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #3b82f6;">
-                                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </li>
+                                <?php
+                                $categories = get_the_category();
+                                if ($categories) {
+                                    $category_ids = array();
+                                    foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+                                    
+                                    $args = array(
+                                        'category__in' => $category_ids,
+                                        'post__not_in' => array(get_the_ID()),
+                                        'posts_per_page' => 4,
+                                        'ignore_sticky_posts' => 1
+                                    );
+                                    
+                                    $related_query = new WP_Query($args);
+                                    
+                                    if ($related_query->have_posts()) {
+                                        while ($related_query->have_posts()) {
+                                            $related_query->the_post();
+                                            ?>
+                                            <li class="mb-3">
+                                                <a href="<?php the_permalink(); ?>" class="d-flex justify-content-between align-items-center p-3" style="border: 1px solid #e5e7eb; border-radius: 8px; color: #374151; text-decoration: none; transition: all 0.2s ease;">
+                                                    <span><?php the_title(); ?></span>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #3b82f6;">
+                                                        <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <?php
+                                        }
+                                        wp_reset_postdata();
+                                    } else {
+                                        echo '<li class="text-muted" style="font-size: 0.875rem;">No related articles found in this category.</li>';
+                                    }
+                                }
+                                ?>
                             </ul>
                         </div>
 
