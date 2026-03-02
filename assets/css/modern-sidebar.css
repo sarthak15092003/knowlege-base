@@ -122,7 +122,7 @@
 }
 
 .section-header.active {
-    background: #f0f7ff;
+    background: #dbeafe2b;
     /* border-left removed */
     position: relative;
     border-radius: 10px;
@@ -695,7 +695,7 @@
 
 /* Active States */
 .section-header.active {
-    background: #dbeafe;
+    background: #dbeafe2b;
     color: #1d4ed8;
 }
 

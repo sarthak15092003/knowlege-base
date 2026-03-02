@@ -14,7 +14,7 @@ $p0                 = '';
 
 if ( docy_toc('post') == '1' ) {
     wp_enqueue_script('anchor');
-    wp_enqueue_script('bootstrap-toc');
+    // Custom H2 TOC is built inline below — bootstrap-toc is NOT needed here
 }
 $blog_column = '8'; // Main content fixed at 8 columns for 2-8-2 layout
 
@@ -156,6 +156,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         
         /* Make the sidebar column extend to full viewport height */
         .category-left-sidebar-col {
+            align-self: flex-start;
             min-height: 100vh !important;
         }
         
@@ -335,7 +336,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     font-size: 12px !important;
                                 }
                                 .blog_single_item .breadcrumb li a:hover {
-                                    text-decoration: underline;
+                                    text-decoration: none;
                                 }
                                 .blog_single_item .breadcrumb li.active {
                                     color: #007bff !important;
@@ -664,8 +665,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         }
                     </style>
                     <aside class="left_sidebarlist">
-                        <h6 class="toc-title mb-3"><?php esc_html_e('Table of Contents', 'docy'); ?></h6>
-                        <nav data-toggle="toc" class="list-unstyled nav-sidebar doc-nav" id="docy-toc"> </nav>
+                        <h6 class="toc-title mb-3"><?php esc_html_e('On this Page', 'docy'); ?></h6>
+                        <nav class="list-unstyled nav-sidebar doc-nav" id="docy-toc"> </nav>
                         <div class="toc-sidebar-image mt-4">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/sidebarimg.png' ); ?>" alt="Sidebar CTA" class="img-fluid rounded-3" style="width: 100%;">
                         </div>
@@ -695,7 +696,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                     <div class="sc-eldieg eYVFtH">
                         <div class="overlay" id="toc-overlay"></div>
                         <button class="sc-kiIyQV fqmceZ table_content" aria-expanded="false" aria-controls="docy-toc">
-                            <?php esc_html_e('Table of Contents', 'docy'); ?>
+                            <?php esc_html_e('On this Page', 'docy'); ?>
                         </button>
                         <aside class="bottom_table_content" id="docy-tocs" aria-hidden="true">
                             <button class="close-toc">
@@ -703,8 +704,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     <path d="M20.707 4.707a1 1 0 0 0-1.414-1.414L12 10.586 4.707 3.293a1 1 0 0 0-1.414 1.414L10.586 12l-7.293 7.293a1 1 0 1 0 1.414 1.414L12 13.414l7.293 7.293a1 1 0 0 0 1.414-1.414L13.414 12l7.293-7.293Z" shape-rendering="geometricPrecision"></path>
                                 </svg>
                             </button>
-                            <h6 class="toc-title mb-3"><?php esc_html_e('Table of Contents', 'docy'); ?></h6>
-                            <nav data-toggle="toc" class="nav-sidebar doc-nav"></nav>
+                            <h6 class="toc-title mb-3"><?php esc_html_e('On this Page', 'docy'); ?></h6>
+                            <nav class="nav-sidebar doc-nav" id="docy-tocs-mobile"></nav>
                         </aside>
                         <button class="sc-kiIyQV fqmceZ table_share_btn">
                             <svg aria-hidden="true" tabindex="-1" disabled="" class="___SIcon_pchrv_gg_ sc-cLpAjG cfZGuc" data-ui-name="Share" width="16" height="16" viewBox="0 0 16 16" data-name="Share" data-group="m">
@@ -754,27 +755,172 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
     </div>
     
     <script>
-        // Add 'scrolled' class to body when user scrolls down from top
-        (function() {
-            function updateScrolledClass() {
-                if (window.scrollY > 50) {
-                    if (!document.body.classList.contains('scrolled')) {
-                        document.body.classList.add('scrolled');
-                    }
+        (function($) {
+            "use strict";
+
+            // 1. UNIFIED SCROLL STATE WRAPPER
+            function handleAllScrollEvents() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+                
+                // Toggle 'scrolled' class on body
+                if (scrollTop > 10) {
+                    document.body.classList.add('scrolled');
                 } else {
-                    if (document.body.classList.contains('scrolled')) {
-                        document.body.classList.remove('scrolled');
-                    }
+                    document.body.classList.remove('scrolled');
+                }
+                
+                // Trigger ScrollSpy
+                if (typeof updateActiveTocOnScroll === 'function') {
+                    updateActiveTocOnScroll(scrollTop);
                 }
             }
             
-            // Check on load
-            updateScrolledClass();
-            
-            // Check on scroll
-            window.addEventListener('scroll', updateScrolledClass);
-        })();
+            window.addEventListener('scroll', handleAllScrollEvents);
+            handleAllScrollEvents(); // Run on load
+
+            // 2. RELIABLE H1+H2 TOC GENERATOR & SCROLLSPY
+            $(document).ready(function() {
+                var isClickScrolling = false;
+                var clickTimeout;
+                var lastActiveId = ''; 
+
+                function buildTOC() {
+                    var $content = $('.blog_single_item, .main-post, .editor-content, article').first();
+                    var $headings = $content.find('h1, h2');
+                    
+                    if ($headings.length > 0) {
+                        var tocHtml = '<ul class="nav flex-column">';
+                        $headings.each(function(index) {
+                            var $h = $(this);
+                            var id = $h.attr('id');
+                            if (!id) {
+                                id = 'toc-section-' + (index + 1);
+                                $h.attr('id', id);
+                            }
+                            var text = $h.text().trim();
+                            var level = this.tagName.toLowerCase(); // 'h1' or 'h2'
+                            tocHtml += '<li class="nav-item toc-' + level + '"><a class="nav-link" href="#' + id + '">' + text + '</a></li>';
+                        });
+                        tocHtml += '</ul>';
+                        $('#docy-toc, #docy-tocs-mobile').empty().html(tocHtml);
+                        
+                        // Initial high-fidelity activation
+                        setTimeout(function() { 
+                            window.updateActiveTocOnScroll = function(overriddenScroll) {
+                                if (isClickScrolling) return;
+                                
+                                var scrollPos = (overriddenScroll !== undefined ? overriddenScroll : $(window).scrollTop()) + 175;
+                                var $headings = $content.find('h1, h2');
+                                var currentId = '';
+                                
+                                if ($headings.length > 0) {
+                                    // Default to first item (H1 mimic)
+                                    currentId = $headings.first().attr('id');
+                                    
+                                    $headings.each(function() {
+                                        if (scrollPos >= $(this).offset().top) {
+                                            currentId = $(this).attr('id');
+                                        }
+                                    });
+                                }
+
+                                if (currentId && currentId !== lastActiveId) {
+                                    lastActiveId = currentId;
+                                    highlightTOC(currentId);
+                                }
+                            };
+                            updateActiveTocOnScroll(); 
+                        }, 100);
+                    }
+                }
+
+                function highlightTOC(id) {
+                    var $targets = $('#docy-toc, #docy-tocs-mobile');
+                    $targets.find('.nav-link, a').removeClass('active');
+                    $targets.find('li').removeClass('active');
+                    
+                    var $activeLink = $targets.find('a[href="#' + id + '"]');
+                    if ($activeLink.length > 0) {
+                        $activeLink.addClass('active');
+                        $activeLink.closest('li').addClass('active');
+                    }
+                }
+
+                // Smooth click handler
+                $(document).on('click', '#docy-toc a, #docy-tocs-mobile a', function(e) {
+                    var href = $(this).attr('href');
+                    if (href && href.startsWith('#')) {
+                        var id = href.substring(1);
+                        isClickScrolling = true;
+                        lastActiveId = id;
+                        highlightTOC(id);
+                        
+                        if (clickTimeout) clearTimeout(clickTimeout);
+                        clickTimeout = setTimeout(function() {
+                            isClickScrolling = false;
+                        }, 2000);
+                    }
+                });
+                
+                setTimeout(buildTOC, 600);
+            });
+        })(jQuery);
     </script>
-</section>
+
+    <style>
+        /* Force indicator visibility and smooth transition */
+        #docy-toc .nav-link, #docy-tocs-mobile .nav-link {
+            position: relative !important;
+            display: block !important;
+            transition: color 0.3s ease !important;
+        }
+        
+        /* The blue line indicator - Always show when active, regardless of scroll-class */
+        #docy-toc .nav-item.active > .nav-link::before,
+        #docy-tocs-mobile .nav-item.active > .nav-link::before {
+            display: block !important;
+            content: "" !important;
+            width: 2px !important;
+            background: #3B82F6 !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            z-index: 10 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        /* Ensure the sidebar nav itself has proper spacing for the indicator */
+        #docy-toc, #docy-tocs-mobile {
+            padding-left: 0 !important;
+        }
+        
+        /* H1 items in TOC - top-level style */
+        #docy-toc .toc-h1 > .nav-link,
+        #docy-tocs-mobile .toc-h1 > .nav-link {
+            font-weight: 400 !important;
+            font-size: 14px !important;
+            color: #64748b !important;
+            padding-left: 24px !important;
+        }
+        
+        /* H2 items in TOC - indented sub-level style */
+        #docy-toc .toc-h2 > .nav-link,
+        #docy-tocs-mobile .toc-h2 > .nav-link {
+            font-weight: 400 !important;
+            font-size: 14px !important;
+            color: #64748b !important;
+            padding-left: 24px !important;
+        }
+        
+        /* Active state override for both H1 and H2 */
+        #docy-toc .toc-h1.active > .nav-link,
+        #docy-toc .toc-h2.active > .nav-link,
+        #docy-tocs-mobile .toc-h1.active > .nav-link,
+        #docy-tocs-mobile .toc-h2.active > .nav-link {
+            color: #000000 !important;
+            font-weight: 500 !important;
+        }
+    </style>
 <?php
 get_footer();

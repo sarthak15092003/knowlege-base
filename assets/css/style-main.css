@@ -9,8 +9,46 @@
 
 /* H1 and H2 exception - 600 */
 h1,
-h2 {
+h1 *,
+.h1,
+.h1 *,
+h2,
+h2 *,
+.h2,
+.h2 *,
+h4,
+h4 *,
+.h4,
+.h4 *,
+.post-card-title,
+.post-card-title *,
+.banner-support-title,
+.card-title {
   font-weight: 600 !important;
+}
+
+/* H3 exception - 500 */
+h3,
+.h3,
+h3 *,
+.h3 * {
+  font-weight: 500 !important;
+}
+
+/* === All Headings Color === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #161c52 !important;
 }
 
 /* Restore LI and children to 400 */
@@ -293,6 +331,7 @@ body {
   font-family: var(--font-family-primary);
   font-weight: 400;
   letter-spacing: 0.15px;
+
 }
 
 body.topic .body_wrapper,
@@ -15545,7 +15584,7 @@ body.category .doc_blog_grid_area {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.2;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 16px;
 }
 
@@ -19700,9 +19739,9 @@ footer {
 
 /* Table of Contents Title Styling */
 .toc-title {
-  color: var(--black_800);
-  font-weight: 600;
-  font-size: 16px;
+  color: #041543;
+  font-weight: 400 !important;
+  font-size: 12px;
   margin-bottom: 15px !important;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--black_50);
@@ -20188,5 +20227,5 @@ h2,
 .blog_single_item th,
 .page:not(.page-template-page-onepage) .page_wrapper p,
 .page:not(.page-template-page-onepage) .page_wrapper li {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }

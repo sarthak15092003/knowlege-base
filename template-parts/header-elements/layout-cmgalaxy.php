@@ -566,7 +566,7 @@ nav#sticky[style] {
 
 /* Add padding to body to prevent content from hiding under fixed navbar */
 body {
-    padding-top: 120px !important; /* Space for fixed navbar */
+    padding-top: 114px !important; /* Space for fixed navbar */
 }
 
 /* Adjust for mobile */

@@ -56,7 +56,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'elegant-icon', DOCY_DIR_VEND . '/elegant-icon/style.css' );
 	wp_enqueue_style( 'font-awesome', DOCY_DIR_VEND . '/font-awesome/css/all.css' );
 	wp_enqueue_style( 'animate', DOCY_DIR_VEND . '/animation/animate.css' );
-	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.1' );
+	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.2' );
 	
 	// CMGALAXY Custom Header Styles
 	wp_enqueue_style( 'cmgalaxy-header', DOCY_DIR_CSS . '/cmgalaxy-header.css', array(), DOCY_VERSION );
@@ -229,8 +229,10 @@ function docy_scripts() {
 	// Enqueue arrow removal script
 	wp_enqueue_script( 'docy-remove-arrows', DOCY_DIR_JS . '/remove-arrows.js', array( 'jquery' ), '1.0.0', true );
 	
-	// Enqueue TOC click fix script
-	wp_enqueue_script( 'docy-toc-click-fix', DOCY_DIR_JS . '/toc-click-fix.js', array( 'jquery' ), '1.0.2', true );
+	// Enqueue TOC click fix script (NOT on single posts — single.php has its own custom TOC handler)
+	if ( ! is_singular('post') ) {
+		wp_enqueue_script( 'docy-toc-click-fix', DOCY_DIR_JS . '/toc-click-fix.js', array( 'jquery' ), '1.0.2', true );
+	}
 
 	// Localize the script with new data
 	$ajax_url              = admin_url( 'admin-ajax.php' );
