@@ -65,7 +65,7 @@ li * {
 /* === Global Heading Size Overrides === */
 h1,
 .h1 {
-  font-size: 32px !important;
+  font-size: 36px !important;
 }
 
 h2,
@@ -813,12 +813,12 @@ p kbd {
 
 #back-to-top.show {
   opacity: 1;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .search-focused .click_capture {
   opacity: 1;
-  visibility: visible;
+  /* visibility: visible; */
 }
 
 .search-focused .banner_search_form {
@@ -5814,7 +5814,8 @@ body.search-focused .sbnr-aesthetic .container {
 }
 
 #docy-search-result .search-result-item a.title {
-  color: var(--black_800);
+  color: #041543;
+  font-size: 20px;
 }
 
 #docy-search-result .search-result-item:last-child {
@@ -5826,7 +5827,7 @@ body.search-focused .sbnr-aesthetic .container {
 }
 
 #docy-search-result .search-result-item:hover {
-  background: var(--brand_color);
+  background: none;
 }
 
 #docy-search-result .search-result-item:hover .breadcrumb-item,
@@ -5837,7 +5838,7 @@ body.search-focused .sbnr-aesthetic .container {
 
 #docy-search-result .search-result-item:hover .title,
 #docy-search-result .search-result-item:hover .topic-section {
-  color: #fff;
+  color: #041543;
 }
 
 #docy-search-result .search-result-item:hover .price {
@@ -15439,6 +15440,22 @@ body.category .doc_blog_grid_area {
   color: #0b1f4f;
 }
 
+/* Remove search cancel button (cross) */
+.stylish-search__input::-webkit-search-cancel-button,
+.stylish-search__input::-webkit-search-decoration,
+.stylish-search__input::-webkit-search-results-button,
+.stylish-search__input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none !important;
+}
+
+/* Remove loading spinner */
+.stylish-search .spinner,
+#search-preloader {
+  display: none !important;
+}
+
 .stylish-search__input::placeholder {
   color: rgba(11, 31, 79, 0.45);
 }
@@ -15583,17 +15600,17 @@ body.category .doc_blog_grid_area {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.2;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 16px;
 }
 
 .home-cta-banner__title span {
-  color: #3ddc97;
+  color: #3ddc97 !important;
 }
 
 .home-cta-banner__subtitle {
   font-size: 1.0625rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff !important;
   margin: 0;
 }
 

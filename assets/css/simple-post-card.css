@@ -1,6 +1,6 @@
 /* Simple Post Card Styles for Category Pages */
 .simple-post-card {
-    padding: 1.5rem;
+    padding: 1rem;
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
@@ -11,6 +11,15 @@
 .simple-post-card:hover {
     border-color: #3b82f6;
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.simple-post-card:hover .post-card-title a {
+    color: #3b82f6;
+}
+
+.simple-post-card:hover .post-card-link {
+    color: #1d4ed8;
+    gap: 0.75rem;
 }
 
 .post-card-content {
@@ -114,7 +123,7 @@
 .post-card-link:hover {
     color: #1d4ed8;
     gap: 0.75rem;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 /* Responsive adjustments */

@@ -7,7 +7,7 @@
  * @package docy
  */
 
-if ( ! is_active_sidebar( 'sidebar_widgets' ) ) {
+if ( ! is_active_sidebar( 'sidebar_widgets' ) || is_search() ) {
 	return;
 }
 

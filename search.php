@@ -8,7 +8,7 @@
  */
 
 get_header();
-$blog_column        = is_active_sidebar( 'sidebar_widgets' ) ? '8' : '12';
+$blog_column        = '12';
 $blog_layout        = ! empty ( $opt['blog_layout'] ) ? $opt['blog_layout'] : 'list';
 $sbnr_post_types    = ! empty ( $opt['sbnr_post_types'] ) ?  $opt['sbnr_post_types'] : ['post', 'page'];
 ?>
@@ -65,7 +65,7 @@ $sbnr_post_types    = ! empty ( $opt['sbnr_post_types'] ) ?  $opt['sbnr_post_typ
                     ?>
                 </div>
             </div>
-            <?php get_sidebar(); ?>
+            <?php // get_sidebar(); ?>
         </div>
     </div>
 </section>

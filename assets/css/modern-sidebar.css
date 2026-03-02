@@ -108,7 +108,7 @@
 .section-header {
     display: flex;
     align-items: center;
-    padding: 16px 0px 16px 20px;
+    padding: 16px 20px 16px 20px;
     cursor: pointer;
     transition: all 0.2s ease;
     background: #ffffff;
@@ -132,7 +132,7 @@
 /* Add blue color to active section title */
 .section-header.active .section-title {
     color: #007bff !important;
-    font-weight: 500;
+    font-weight: 500 !important;
 }
 
 
@@ -162,15 +162,15 @@
 .section-title {
     flex: 1;
     font-size: 13px;
-    font-weight: 500;
-    color: #1e293b;
+    font-weight: 500 !important;
+    color: #161c52;
     line-height: 1.4;
 }
 
 .section-title-link {
     flex: 1;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 500 !important;
     color: #1e293b;
     line-height: 1.4;
     text-decoration: none;

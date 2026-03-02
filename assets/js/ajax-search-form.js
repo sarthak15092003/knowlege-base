@@ -1,4 +1,4 @@
-;(function ($) {
+; (function ($) {
     "use strict";
 
     /**
@@ -62,10 +62,10 @@
         });
     }
 
-    $('div.tab-item').on('click', function(e) {
+    $('div.tab-item').on('click', function (e) {
         e.preventDefault();
         var postType = $(this).data('post-type'); // Assuming your tabs have a data attribute for the post type
-        $('#search-results').removeClass(function(index, className) {
+        $('#search-results').removeClass(function (index, className) {
             return (className.match(/(^|\s)post-type-\S+/g) || []).join(' '); // Remove previous post type classes
         }).addClass(postType); // Add the new post type class
     });
@@ -89,10 +89,10 @@
     // Event listener for keyup on search input
     $('#searchInput').on('keyup', function () {
         $(this).focus();
-        $('.header_search_form').css( 'z-index', '99' );
+        $('.header_search_form').css('z-index', '99');
         $('#search-preloader').hide();
-        if ( $(this).val() ) {
-        handleSearch($(this).val());
+        if ($(this).val()) {
+            handleSearch($(this).val());
         }
     });
 
@@ -102,7 +102,7 @@
         const searchTerm = $(this).text();
         $("#searchInput").val(searchTerm).focus();
         handleSearch(searchTerm);
-        $('.header_search_form').css( 'z-index', '99' );
+        $('.header_search_form').css('z-index', '99');
     });
 
     // Update results when switching tabs if search term exists
@@ -144,6 +144,7 @@
     $(document).on('click', function (e) {
         if (!$(e.target).closest('#ajax-search-form, .banner_search_form, .header_search_form, .focused-form, #search-tabs, #search-results').length) {
             removeActiveClass();
+            $("#docy-search-result").removeClass("ajax-search");
         }
     });
 
