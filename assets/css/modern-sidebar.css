@@ -11,6 +11,31 @@
     max-width: 240px;
 }
 
+/* Custom scrollbar for modern sidebar */
+.modern-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modern-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb {
+    background: #dbeafe2b;
+    border-radius: 10px;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #dbeafe55;
+}
+
+/* Firefox support */
+.modern-sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #dbeafe2b transparent;
+}
+
+
 .sidebar-content {
     padding-right: 10px;
 }
