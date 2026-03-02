@@ -42,7 +42,7 @@ $sidebar_sections = array(
     array(
         'slug'  => 'reporting-hub',
         'title' => 'Reporting Hub',
-        'icon'  => 'dashboard.svg',
+        'icon'  => 'sonar.svg',
         'id'    => 'reporting-hub',
     ),
     array(
