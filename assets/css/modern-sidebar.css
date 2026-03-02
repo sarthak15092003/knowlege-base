@@ -11,29 +11,7 @@
     max-width: 240px;
 }
 
-/* Custom scrollbar for modern sidebar */
-.modern-sidebar::-webkit-scrollbar {
-    width: 6px;
-}
 
-.modern-sidebar::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.modern-sidebar::-webkit-scrollbar-thumb {
-    background: #dbeafe2b;
-    border-radius: 10px;
-}
-
-.modern-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #dbeafe55;
-}
-
-/* Firefox support */
-.modern-sidebar {
-    scrollbar-width: thin;
-    scrollbar-color: #dbeafe2b transparent;
-}
 
 
 .sidebar-content {
@@ -693,22 +671,36 @@
     animation: slideDown 0.3s ease;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Pill shape, visible on hover only */
 .modern-sidebar::-webkit-scrollbar {
-    width: 4px;
+    width: 4px !important;
 }
 
 .modern-sidebar::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: transparent !important;
 }
 
 .modern-sidebar::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 2px;
+    background: transparent !important;
+    border-radius: 20px !important;
+}
+
+.modern-sidebar:hover::-webkit-scrollbar-thumb {
+    background: #dbeafe2b !important;
 }
 
 .modern-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #dbeafe55 !important;
+}
+
+/* Firefox support */
+.modern-sidebar {
+    scrollbar-width: none !important;
+}
+
+.modern-sidebar:hover {
+    scrollbar-width: thin !important;
+    scrollbar-color: #dbeafe2b transparent !important;
 }
 
 /* Focus States for Accessibility */
@@ -758,6 +750,32 @@
         transform: rotate(360deg);
     }
 }
+
+/* Custom scrollbar for modern sidebar - Forced with !important */
+.modern-sidebar::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.modern-sidebar::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    border-radius: 10px !important;
+}
+
+.modern-sidebar:hover::-webkit-scrollbar-thumb {
+    background: #dbeafe !important;
+    /* Made more visible for verification */
+    border-radius: 10px !important;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1 !important;
+    border-radius: 10px !important;
+}
+
 
 /* Prevent horizontal scroll on mobile - Fix for 767px and below */
 @media (max-width: 767px) {
