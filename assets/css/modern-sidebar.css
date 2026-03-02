@@ -118,7 +118,8 @@
 }
 
 .section-header:hover {
-    background: #f8fafc;
+    background: #dbeafe55;
+    border-radius: 10px;
 }
 
 .section-header.active {
@@ -196,6 +197,7 @@
     justify-content: center;
     flex-shrink: 0;
     transition: transform 0.2s ease;
+    transform: rotate(180deg);
 }
 
 .expand-icon svg {
@@ -205,12 +207,12 @@
 
 /* Expanded state rotation */
 .expand-icon.expanded {
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 
 /* Active section arrow rotation */
 .section-header.active .expand-icon {
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 
 /* Section Content (Expandable areas) */

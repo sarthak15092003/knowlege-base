@@ -151,8 +151,7 @@ $sidebar_sections = array(
         .single-post-sidebar .active-cat-header .cat-title {
             flex: 1;
             font-size: 14px;
-            font-weight: 600 !important;
-            color: #1e40af;
+            color: #007bff !important;
             line-height: 1.3;
             white-space: nowrap;
         }
@@ -165,9 +164,10 @@ $sidebar_sections = array(
             flex-shrink: 0;
             color: #94a3b8;
             transition: transform 0.3s ease, color 0.2s ease;
+            transform: rotate(180deg);
         }
         .single-post-sidebar .active-cat-header .cat-toggle.open {
-            transform: rotate(90deg);
+            transform: rotate(270deg);
             color: #1e40af;
         }
 
@@ -217,8 +217,7 @@ $sidebar_sections = array(
             color: #1e293b;
         }
         .single-post-sidebar .cat-article-item.active-article a {
-            color: #1e40af;
-            font-weight: 600 !important;
+            color: #007bff !important;
         }
 
         /* Divider */
@@ -265,8 +264,8 @@ $sidebar_sections = array(
                     </div>
                     <div class="cat-title"><?php echo esc_html($section['title']); ?></div>
                     <span class="cat-toggle open">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 6L9 12.0001L15 18" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
                 </div>
@@ -314,8 +313,8 @@ $sidebar_sections = array(
                     </div>
                     <div class="cat-title"><?php echo esc_html($first_cat->name); ?></div>
                     <span class="cat-toggle open">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 6L9 12.0001L15 18" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
                 </div>
@@ -388,8 +387,8 @@ function toggleCatArticles(header) {
                 </div>
                 <span class="section-title"><?php echo esc_html($section['title']); ?></span>
                 <span class="<?php echo esc_attr($expand_class); ?>">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 6L9 12.0001L15 18" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
             </div>
@@ -446,10 +445,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.classList.toggle('active');
 
                 if (content.classList.contains('expanded')) {
-                    expandIcon.style.transform = 'rotate(90deg)';
+                    expandIcon.style.transform = 'rotate(270deg)';
                     expandIcon.classList.add('expanded');
                 } else {
-                    expandIcon.style.transform = 'rotate(0deg)';
+                    expandIcon.style.transform = 'rotate(180deg)';
                     expandIcon.classList.remove('expanded');
                 }
             }

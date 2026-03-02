@@ -737,6 +737,7 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 								/* Sticky left sidebar for cat=2 and cat=3 */
 		.category-left-sidebar-col {
 			align-self: flex-start;
+			min-height: 100vh;
 		}	
 
         .category-left-sidebar-col .modern-sidebar {
