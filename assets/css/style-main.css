@@ -1,9 +1,10 @@
 :root {
-  --font-family-primary: 'Inter', 'Inter Fallback';
+  --font-family-primary: 'Onest', sans-serif;
 }
 
 /* === Global Font Weight 300 === */
 * {
+  font-family: 'Onest', sans-serif !important;
   font-weight: 300 !important;
 }
 
@@ -27,11 +28,19 @@ h4 *,
   font-weight: 600 !important;
 }
 
-/* H3 exception - 500 */
+/* H3, H5, H6 exception - 500 */
 h3,
 .h3,
 h3 *,
-.h3 * {
+.h3 *,
+h5,
+.h5,
+h5 *,
+.h5 *,
+h6,
+.h6,
+h6 *,
+.h6 * {
   font-weight: 500 !important;
 }
 

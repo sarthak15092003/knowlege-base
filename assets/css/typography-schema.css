@@ -4,11 +4,11 @@
  * This file defines consistent typography across all posts and pages
  */
 
-/* Import Inter Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Import Onest Font */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --font-family-primary: 'Inter', 'Inter Fallback';
+    --font-family-primary: 'Onest', sans-serif;
 }
 
 /* ========== Headings ========== */
@@ -498,7 +498,7 @@ article {
     background-color: transparent !important;
 }
 
-/* NUCLEAR: Final override to ensure Inter is used everywhere and Onest is killed */
+/* NUCLEAR: Final override to ensure Onest is used everywhere */
 h1,
 h2,
 h3,

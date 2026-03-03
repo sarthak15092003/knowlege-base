@@ -466,8 +466,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 <?php if ( $prev_post ) : ?>
                                     <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="nav-card prev-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 1 1 45%; max-width: 48%;">
                                         <div class="nav-card-content">
-                                            <h5 class="mb-3" style="color: #1f2937; font-weight: 600; font-size: 1rem;"><?php echo esc_html( get_the_title( $prev_post ) ); ?></h5>
-                                            <div class="nav-direction d-flex align-items-center" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500;">
+                                            <h5 class="mb-3" style="color: #1f2937; font-weight: 500 !important; font-size: 1rem;"><?php echo esc_html( get_the_title( $prev_post ) ); ?></h5>
+                                            <div class="nav-direction d-flex align-items-center" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500 !important;">
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
                                                     <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
@@ -480,8 +480,8 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                 <?php if ( $next_post ) : ?>
                                     <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="nav-card next-card p-4" style="border: 1px solid #e5e7eb; border-radius: 16px; text-decoration: none; background: #ffffff; transition: all 0.2s ease; flex: 1 1 45%; max-width: 48%; margin-left: auto;">
                                         <div class="nav-card-content text-end">
-                                            <h5 class="mb-3" style="color: #1f2937; font-weight: 600; font-size: 1rem;"><?php echo esc_html( get_the_title( $next_post ) ); ?></h5>
-                                            <div class="nav-direction d-flex align-items-center justify-content-end" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500;">
+                                            <h5 class="mb-3" style="color: #1f2937; font-weight: 500 !important; font-size: 1rem;"><?php echo esc_html( get_the_title( $next_post ) ); ?></h5>
+                                            <div class="nav-direction d-flex align-items-center justify-content-end" style="color: #3b82f6; font-size: 0.875rem; font-weight: 500 !important;">
                                                 Next
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-2">
                                                     <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />

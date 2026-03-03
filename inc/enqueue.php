@@ -12,7 +12,7 @@ function docy_fonts_url(): string
 
 	/* Body font */
 	if ( 'off' !== 'on' ) {
-		$fonts[] = "Inter:300,400,500,600,700,800";
+		$fonts[] = "Onest:300,400,500,600,700,800";
 	}
 
 	$is_ssl = is_ssl() ? 'https' : 'http';
