@@ -433,8 +433,7 @@ a {
 
 a:not(.elementor-button-link):hover {
   text-decoration-color: var(--brand_color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none !important;
 }
 
 p {
