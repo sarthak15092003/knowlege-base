@@ -1,16 +1,31 @@
 jQuery(document).ready(function ($) {
+    if (typeof DocyInfinite === 'undefined') {
+        console.error('DocyInfinite is not defined!');
+        return;
+    }
+
     var isLoading = false;
     var catsLoaded = [];
     var sequence = DocyInfinite.sequence;
 
+    console.log('Infinite Scroll V2 Initializing...');
+    console.log('Sequence:', sequence);
+
     // Initialize with current category slug
-    var initialCat = $('#category-posts-container').data('cat-slug');
+    var $container = $('#category-posts-container');
+    var initialCat = $container.data('cat-slug');
+    console.log('Initial Category Slug:', initialCat);
+
     if (initialCat) {
         catsLoaded.push(initialCat);
+    } else {
+        console.warn('No initial category slug found in #category-posts-container');
     }
 
     // Loader element check
     var loader = document.getElementById('infinite-scroll-loader');
+    console.log('Bottom Loader found:', !!loader);
+    console.log('Top Loader found:', !!document.getElementById('infinite-scroll-loader-up'));
 
     function loadNextCategory() {
         if (isLoading) return;
