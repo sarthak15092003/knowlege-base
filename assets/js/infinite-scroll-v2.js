@@ -34,13 +34,13 @@ jQuery(document).ready(function ($) {
         var currentIndex = sequence.indexOf(lastCat);
 
         if (currentIndex === -1 || currentIndex >= sequence.length - 1) {
-            // Already at the end or not in sequence
             return;
         }
 
         var nextCat = sequence[currentIndex + 1];
         if (catsLoaded.indexOf(nextCat) !== -1) return;
 
+        console.log('Attempting to load NEXT category:', nextCat);
         fetchCategory(nextCat, 'append');
     }
 
@@ -50,11 +50,17 @@ jQuery(document).ready(function ($) {
         var firstCat = catsLoaded[0];
         var currentIndex = sequence.indexOf(firstCat);
 
-        if (currentIndex <= 0) return; // Already at the first category
+        console.log('loadPrevCategory check. First loaded:', firstCat, 'at index:', currentIndex, 'in sequence:', sequence);
+
+        if (currentIndex <= 0) {
+            console.log('No previous category in sequence.');
+            return;
+        }
 
         var prevCat = sequence[currentIndex - 1];
         if (catsLoaded.indexOf(prevCat) !== -1) return;
 
+        console.log('Attempting to load PREVIOUS category:', prevCat);
         fetchCategory(prevCat, 'prepend');
     }
 
