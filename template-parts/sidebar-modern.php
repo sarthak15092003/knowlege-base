@@ -41,7 +41,7 @@ $icon_map = array(
 
 // Get top-level categories that have posts
 $dynamic_categories = get_categories(array(
-    'orderby'    => 'name',
+    'orderby'    => 'ID',
     'order'      => 'ASC',
     'hide_empty' => true,
     'parent'     => 0,

@@ -272,10 +272,10 @@ function docy_scripts() {
 
     // Infinite Scroll for Category Pages
     if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
-        wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.5', true );
+        wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.6', true );
         
         $dynamic_cats = get_categories(array(
-            'orderby'    => 'name',
+            'orderby'    => 'ID',
             'order'      => 'ASC',
             'hide_empty' => true,
             'parent'     => 0,
