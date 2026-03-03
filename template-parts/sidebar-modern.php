@@ -37,13 +37,13 @@ $sidebar_sections = array(
         'slug'  => 'utm-parameters-guidelines',
         'title' => 'UTM Parameters Guidelines',
         'icon'  => 'link.svg',
-        'id'    => 'utm-articles',
+        'id'    => 'utm-parameters-guidelines',
     ),
     array(
         'slug'  => 'sonar',
         'title' => 'Reporting Hub',
         'icon'  => 'sonar.svg',
-        'id'    => 'reporting-hub',
+        'id'    => 'sonar',
     ),
     array(
         'slug'  => 'dashboard-guides',
@@ -262,24 +262,24 @@ $sidebar_sections = array(
             if (in_array($section['slug'], $current_categories)) :
                 $active_section_found = true;
         ?>
-                <!-- Active Category Header -->
-                <div class="active-cat-header" onclick="toggleCatArticles(this)">
+                <!-- Active Category Header (Always expanded) -->
+                <div class="active-cat-header">
                     <div class="cat-icon">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/' . $section['icon']); ?>" alt="<?php echo esc_attr($section['title']); ?>">
                     </div>
-                    <div class="cat-title"><?php echo esc_html($section['title']); ?></div>
-                    <span class="cat-toggle open">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 6L9 12.0001L15 18" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
+                    <div class="cat-title">
+                        <?php echo esc_html($section['title']); ?>
+                    </div>
                 </div>
 
                 <!-- Articles in this category -->
                 <div class="cat-articles">
                     <?php
+                    $cat_obj = get_category_by_slug($section['slug']);
+                    $cat_id = $cat_obj ? $cat_obj->term_id : 0;
+                    
                     $cat_args = array(
-                        'category_name'  => $section['slug'],
+                        'cat'            => $cat_id,
                         'posts_per_page' => 20,
                         'orderby'        => 'date',
                         'order'          => 'DESC',
@@ -312,16 +312,13 @@ $sidebar_sections = array(
             $first_cat = get_category_by_slug($current_categories[0]);
             if ($first_cat) :
         ?>
-                <div class="active-cat-header" onclick="toggleCatArticles(this)">
+                <div class="active-cat-header">
                     <div class="cat-icon">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/link.svg'); ?>" alt="<?php echo esc_attr($first_cat->name); ?>">
                     </div>
-                    <div class="cat-title"><?php echo esc_html($first_cat->name); ?></div>
-                    <span class="cat-toggle open">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 6L9 12.0001L15 18" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
+                    <div class="cat-title">
+                        <?php echo esc_html($first_cat->name); ?>
+                    </div>
                 </div>
 
                 <div class="cat-articles">
@@ -400,20 +397,43 @@ function toggleCatArticles(header) {
 
             <div class="<?php echo esc_attr($content_class); ?>" id="<?php echo esc_attr($section['id']); ?>">
                 <?php
+                // Get the category object to ensure we have the correct ID
+                $slug_to_check = $section['slug'];
+                $cat_obj = get_category_by_slug($slug_to_check);
+                
+                // Fallback for case sensitivity or common Slug variations
+                if ( ! $cat_obj ) {
+                    $cat_obj = get_category_by_slug(strtolower($slug_to_check));
+                }
+                
+                if ( ! $cat_obj && is_numeric($section['id']) ) {
+                    $cat_obj = get_term($section['id'], 'category');
+                }
+                
+                // Final fallback if slug is mismatched
+                if ( ! $cat_obj ) {
+                    $cat_obj = get_term_by('name', $section['title'], 'category');
+                }
+
+                $cat_id = $cat_obj ? $cat_obj->term_id : 0;
+                
                 $args = array(
-                    'category_name'  => $section['slug'],
-                    'posts_per_page' => 10,
+                    'cat'            => $cat_id,
+                    'posts_per_page' => 15,
                     'orderby'        => 'date',
                     'order'          => 'DESC',
                 );
+                
                 $query = new WP_Query($args);
+                
+                echo "<!-- DEBUG: Section: {$section['slug']} | Cat ID: {$cat_id} | Posts Found: {$query->found_posts} -->";
 
                 if ($query->have_posts()) :
                     while ($query->have_posts()) : $query->the_post();
-                        $is_current = (get_the_ID() == $current_post_id);
-                        $item_class = $is_current ? 'subsection-item current-page' : 'subsection-item';
+                        $is_current_post = (get_the_ID() == $current_post_id);
+                        $item_wrapper_class = $is_current_post ? 'subsection-item current-page' : 'subsection-item';
                 ?>
-                    <div class="<?php echo esc_attr($item_class); ?>">
+                    <div class="<?php echo esc_attr($item_wrapper_class); ?>">
                         <a href="<?php the_permalink(); ?>" class="subsection-title" title="<?php echo esc_attr(get_the_title()); ?>"><?php the_title(); ?></a>
                         <span class="subsection-arrow">▶</span>
                     </div>
@@ -421,9 +441,10 @@ function toggleCatArticles(header) {
                     endwhile;
                     wp_reset_postdata();
                 else :
-                ?>
+                    // No posts found in this category
+                    ?>
                     <div class="subsection-item">
-                        <span class="subsection-title-plain">No articles found</span>
+                        <span class="subsection-title-plain" style="color: #94a3b8; font-size: 13px; padding-left: 20px;">No articles found</span>
                     </div>
                 <?php endif; ?>
             </div>
@@ -446,6 +467,27 @@ document.addEventListener('DOMContentLoaded', function() {
             const expandIcon = this.querySelector('.expand-icon');
 
             if (content) {
+                const isExpanding = !content.classList.contains('expanded');
+
+                // If we are opening a section, close all others first
+                if (isExpanding) {
+                    expandableHeaders.forEach(otherHeader => {
+                        if (otherHeader !== this) {
+                            const otherTargetId = otherHeader.getAttribute('data-target');
+                            const otherContent = document.getElementById(otherTargetId);
+                            const otherIcon = otherHeader.querySelector('.expand-icon');
+                            
+                            otherHeader.classList.remove('active');
+                            if (otherContent) otherContent.classList.remove('expanded');
+                            if (otherIcon) {
+                                otherIcon.style.transform = 'rotate(180deg)';
+                                otherIcon.classList.remove('expanded');
+                            }
+                        }
+                    });
+                }
+
+                // Toggle the clicked section
                 content.classList.toggle('expanded');
                 this.classList.toggle('active');
 

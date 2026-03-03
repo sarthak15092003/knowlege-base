@@ -280,7 +280,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
     <div class="container">
         <div class="row">
             <!-- Left Modern Sidebar (20%) -->
-            <div class="col-lg-3 category-left-sidebar-col" style="border-right: 1px solid #e5e7eb; background: #ffffff !important; position: sticky; top: 10px;">
+            <div class="col-lg-3 category-left-sidebar-col" style="border-right: 1px solid #e5e7eb; background: #ffffff !important; position: sticky; top: 110px;">
                 <style>
                     /* Align single-post sidebar with category layout */
                     .modern-sidebar {
@@ -290,10 +290,15 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         padding: 0 0px 0 0;
                         margin-bottom: 0;
                         position: sticky;
-                        top: 130px;
+                        top: 110px;
                         width: 100%;
                         max-width: 240px;
-                        margin-top: 20px;
+                        margin-top: 5px;
+                    }
+
+                    .active-cat-header .cat-title {
+                        color: #161c52 !important;
+                        font-weight: 600; /* Making it a bit more prominent */
                     }
 
                     @media (max-width: 1199.98px) {
@@ -331,15 +336,15 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     font-size: 12px !important;
                                 }
                                 .blog_single_item .breadcrumb li a {
-                                    color: #000000 !important;
+                                    color: #161c52 !important;
                                     text-decoration: none;
                                     font-size: 12px !important;
                                 }
                                 .blog_single_item .breadcrumb li a:hover {
-                                    text-decoration: none;
+                                    text-decoration: underline;
                                 }
                                 .blog_single_item .breadcrumb li.active {
-                                    color: #007bff !important;
+                                    color: #6c757d !important;
                                 }
                                 /* Mobile breadcrumb visibility */
                                 @media (max-width: 1024px) {
@@ -367,7 +372,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     .blog_single_item .breadcrumb .breadcrumb-item.active {
                                         display: inline-flex !important;
                                         visibility: visible !important;
-                                        color: #007bff !important;
+                                        color: #6c757d !important;
                                     }
                                 }
                             </style>';

@@ -217,11 +217,14 @@
 
 /* Section Content (Expandable areas) */
 .section-content {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
 
 .section-content.expanded {
-    display: block;
+    max-height: 1000px;
+    /* Sufficient height for many items */
 }
 
 /* Subsection Items */
@@ -363,16 +366,9 @@
     font-size: 0.7rem;
 }
 
-/* Hide CSS arrow when Font Awesome icon is present */
-.section-content {
-    max-height: 0;
-    overflow-y: hidden;
-    overflow-x: visible;
-    transition: max-height 0.3s ease;
-}
-
+/* Section Content extra styling */
 .section-content.expanded {
-    max-height: 500px;
+    max-height: 2000px;
     padding-bottom: 0.5rem;
 }
 

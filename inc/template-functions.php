@@ -971,3 +971,133 @@ function docy_get_youtube_video_id( $url ): string {
 	preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
 	return $matches[1] ?? '';
 }
+
+/**
+ * Prepare data for category header card
+ */
+function docy_prepare_category_header_data( $cat_id ) {
+    $current_category = get_category( $cat_id );
+    if ( ! $current_category || is_wp_error( $current_category ) ) {
+        return null;
+    }
+
+    $cat_name = $current_category->name;
+    $cat_desc = '';
+    $raw_description = category_description( $current_category );
+    if ( $raw_description ) {
+        $cat_desc = wp_trim_words( wp_strip_all_tags( $raw_description ), 24, '…' );
+    }
+
+    $cat_count = (int) $current_category->count;
+
+    // Collect up to 3 author display names from recent posts in this category
+    $author_names = [];
+    $author_ids   = [];
+    $author_query = new WP_Query(
+        [
+            'post_type'           => 'post',
+            'posts_per_page'      => 20,
+            'cat'                 => $cat_id,
+            'ignore_sticky_posts' => true,
+            'fields'              => 'ids',
+        ]
+    );
+
+    if ( $author_query->have_posts() ) {
+        foreach ( $author_query->posts as $post_id ) {
+            $aid = (int) get_post_field( 'post_author', $post_id );
+            if ( $aid && ! in_array( $aid, $author_ids, true ) ) {
+                $author_ids[]   = $aid;
+                $author_names[] = get_the_author_meta( 'display_name', $aid );
+            }
+            if ( count( $author_names ) >= 3 ) {
+                break;
+            }
+        }
+    }
+    wp_reset_postdata();
+
+    $byline = '';
+    $author_count_total = count( $author_ids );
+    if ( $author_count_total === 1 ) {
+        $byline = sprintf( __( 'By %s', 'docy' ), esc_html( $author_names[0] ) );
+    } elseif ( $author_count_total === 2 ) {
+        $byline = sprintf( __( 'By %1$s and %2$s', 'docy' ), esc_html( $author_names[0] ), esc_html( $author_names[1] ) );
+    } elseif ( $author_count_total > 2 ) {
+        $byline = sprintf( __( 'By %1$s and %2$s others', 'docy' ), esc_html( $author_names[0] ), number_format_i18n( $author_count_total - 1 ) );
+    }
+
+    $author_icon_url = '';
+    $author_icon_relatives = [ '/assets/img/author-icon.png', '/assets/images/author-icon.png', '/assets/extra/user.png' ];
+    foreach ( $author_icon_relatives as $rel ) {
+        if ( file_exists( get_template_directory() . $rel ) ) {
+            $author_icon_url = get_template_directory_uri() . $rel;
+            break;
+        }
+    }
+
+    $category_icon_url = '';
+    if ( file_exists( get_template_directory() . '/assets/img/knowledge.png' ) ) {
+        $category_icon_url = get_template_directory_uri() . '/assets/img/knowledge.png';
+    }
+
+    return [
+        'id'                => $cat_id,
+        'name'              => $cat_name,
+        'desc'              => $cat_desc,
+        'count'             => $cat_count,
+        'byline'            => $byline,
+        'author_icon_url'   => $author_icon_url,
+        'category_icon_url' => $category_icon_url,
+    ];
+}
+
+/**
+ * Render category header card
+ */
+if ( ! function_exists( 'docy_render_category_header_card' ) ) {
+    function docy_render_category_header_card( $data ) {
+        if ( empty( $data ) || ! is_array( $data ) ) {
+            return;
+        }
+        $count_text = sprintf( _n( '%s article', '%s articles', $data['count'], 'docy' ), number_format_i18n( $data['count'] ) );
+        ?>
+        <div class="card border shadow-sm p-4 mb-4 category-header-card" data-cat-id="<?php echo esc_attr($data['id']); ?>">
+            <?php
+            $is_breadcrumb = docy_opt('is_breadcrumb', '1');
+            if ( $is_breadcrumb == '1' ) {
+                $category = get_category( $data['id'] );
+                if ( $category && ! is_wp_error( $category ) ) {
+                    ?>
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb" style="font-size: 12px !important;">
+                            <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ) ?>">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( $category->name ); ?></li>
+                        </ol>
+                    </nav>
+                    <?php
+                }
+            }
+            ?>
+            <h1 class="mb-2"><?php echo esc_html( $data['name'] ); ?></h1>
+            <?php if ( ! empty( $data['desc'] ) ) : ?>
+                <p class="text-muted mb-3"><?php echo esc_html( $data['desc'] ); ?></p>
+            <?php endif; ?>
+            <div class="small text-muted d-flex align-items-center gap-2">
+                <?php if ( ! empty( $data['byline'] ) ) : ?>
+                    <span class="d-flex align-items-center gap-1">
+                        <?php if ( ! empty( $data['author_icon_url'] ) ) : ?>
+                            <img src="<?php echo esc_url( $data['author_icon_url'] ); ?>" alt="<?php esc_attr_e( 'Author icon', 'docy' ); ?>" width="14" height="14" />
+                        <?php else : ?>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-4.418 0-8 2.239-8 5v2h16v-2c0-2.761-3.582-5-8-5z" fill="currentColor" /></svg>
+                        <?php endif; ?>
+                        <?php echo esc_html( $data['byline'] ); ?>
+                    </span>
+                    <span>•</span>
+                <?php endif; ?>
+                <span><?php echo esc_html( $count_text ); ?></span>
+            </div>
+        </div>
+        <?php
+    }
+}

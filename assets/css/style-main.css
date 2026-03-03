@@ -1509,6 +1509,15 @@ textarea {
   font-size: 12px;
 }
 
+.breadcrumb-item a {
+  color: #161c52 !important;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d !important;
+  font-size: 12px;
+}
+
 .search .search-post-item .breadcrumb .breadcrumb-item+.breadcrumb-item {
   padding-left: 0;
 }

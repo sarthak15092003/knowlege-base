@@ -270,6 +270,29 @@ function docy_scripts() {
 
 	wp_localize_script( 'jquery', 'DocyForum', $localized_settings );
 
+    // Infinite Scroll for Category Pages
+    if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
+        wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.0', true );
+        
+        $cat_sequence = [
+            'getting-started',
+            'utm-parameters-guidelines',
+            'sonar',
+            'dashboard-guides',
+            'chat-data',
+            'data-library',
+            'faq',
+            'global-filters',
+            'navigation'
+        ];
+
+        wp_localize_script( 'docy-infinite-scroll', 'DocyInfinite', array(
+            'ajax_url'    => admin_url( 'admin-ajax.php' ),
+            'sequence'    => $cat_sequence,
+            'nonce'       => wp_create_nonce( 'docy-nonce' )
+        ));
+    }
+
 	/**
 	 * Inline Scripts
 	 */

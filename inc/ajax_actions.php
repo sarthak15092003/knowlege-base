@@ -672,3 +672,58 @@ function docy_tooltip_post() {
 	<?php
 	die();
 }
+
+/**
+ * Get next category posts for infinite scroll
+ */
+add_action( 'wp_ajax_docy_get_category_posts_ajax', 'docy_get_category_posts_ajax' );
+add_action( 'wp_ajax_nopriv_docy_get_category_posts_ajax', 'docy_get_category_posts_ajax' );
+
+function docy_get_category_posts_ajax() {
+    if ( ! wp_verify_nonce( $_POST['security'], 'docy-nonce' ) ) {
+        wp_send_json_error( 'Security check failed' );
+    }
+
+    $cat_slug = sanitize_text_field( $_POST['cat_slug'] );
+    $category = get_category_by_slug( $cat_slug );
+
+    if ( ! $category ) {
+        wp_send_json_error( 'Category not found' );
+    }
+
+    $cat_id = $category->term_id;
+    $cat_data = docy_prepare_category_header_data( $cat_id );
+
+    ob_start();
+    
+    // Render Header Card
+    docy_render_category_header_card( $cat_data );
+
+    // Render Posts
+    echo '<div class="row category-posts-row" data-cat-slug="' . esc_attr($cat_slug) . '">';
+    $args = array(
+        'cat'            => $cat_id,
+        'posts_per_page' => -1, // Load all posts for this category
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    );
+    $query = new WP_Query($args);
+
+    if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post();
+            get_template_part('template-parts/contents/content-grid');
+        endwhile;
+        wp_reset_postdata();
+    else:
+        echo '<div class="col-12"><p>No articles found in this category.</p></div>';
+    endif;
+    echo '</div>';
+
+    $html = ob_get_clean();
+
+    wp_send_json_success( array(
+        'html' => $html,
+        'cat_id' => $cat_id,
+        'cat_name' => $category->name
+    ));
+}
