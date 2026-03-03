@@ -129,10 +129,10 @@
     border-radius: 10px;
 }
 
-/* Add blue color to active section title */
+/* Add dark blue color to active section title */
 .section-header.active .section-title {
-    color: #007bff !important;
-    font-weight: 500 !important;
+    color: #161c52 !important;
+    font-weight: 600 !important;
 }
 
 
@@ -278,9 +278,9 @@
     text-decoration: none;
 }
 
-/* Highlight current page in sidebar - text only, no background */
+/* Highlight current page in sidebar - using darker blue for visibility */
 .subsection-item.current-page .subsection-title {
-    color: #007bff !important;
+    color: #1d4ed8 !important;
     font-weight: 600 !important;
 }
 

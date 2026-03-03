@@ -156,7 +156,8 @@ $sidebar_sections = array(
         .single-post-sidebar .active-cat-header .cat-title {
             flex: 1;
             font-size: 14px;
-            color: #007bff !important;
+            color: #161c52 !important;
+            font-weight: 500 !important;
             line-height: 1.3;
             white-space: nowrap;
         }

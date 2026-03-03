@@ -51,10 +51,17 @@ h6,
   color: #161c52 !important;
 }
 
-/* Restore LI and children to 400 */
+p,
+li,
+li a {
+  color: #6c757d !important;
+  font-weight: 500 !important;
+}
+
+/* Restore LI and children to 500 */
 li,
 li * {
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 /* Hide AnchorJS anchor icons everywhere */

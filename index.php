@@ -535,6 +535,10 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 									max-height: calc(100vh - 120px);
 									overflow-y: auto;
 								}
+								.cat-title {
+									color: #161c52 !important;
+									font-weight: 500 !important;
+								}
 							</style>
 							<?php get_template_part( 'template-parts/sidebar-modern' ); ?>
 						</div>
@@ -603,7 +607,12 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 		.category-left-sidebar-col {
 			align-self: flex-start;
 			min-height: 100vh;
-		}	
+		}
+
+		.cat-title {
+			color: #161c52 !important;
+			font-weight: 500 !important;
+		}
 
         .category-left-sidebar-col .modern-sidebar {
             position: sticky;
