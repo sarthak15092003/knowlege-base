@@ -38,7 +38,7 @@ $s_value = get_search_query() ? get_search_query() : '';
                 
                 <!-- Ask Lex Button -->
                 <a href="#" class="cmgalaxy-ask-lex-btn" style="height: 40px;">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/lexlogo.png' ); ?>" alt="Lex Logo" class="cmgalaxy-ask-lex-logo me-2">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/lexlogo.svg' ); ?>" alt="Lex Logo" class="cmgalaxy-ask-lex-logo me-2">
                     Ask Lex
                 </a>
             </div>
