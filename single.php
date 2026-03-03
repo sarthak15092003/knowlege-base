@@ -43,10 +43,10 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
     <style>
         /* Fix TOC anchor scrolling - prevent content from going under header */
         html, body {
-            scroll-padding-top: 120px !important;
+            scroll-padding-top: 85px !important;
         }
         .admin-bar html, .admin-bar body {
-            scroll-padding-top: 152px !important;
+            scroll-padding-top: 117px !important;
         }
         @media (max-width: 1024px) {
             html, body {
@@ -63,14 +63,14 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
         .blog_single_item h3, 
         .blog_single_item h4, 
         .blog_single_item h5 {
-            scroll-margin-top: 120px !important;
+            scroll-margin-top: 85px !important;
         }
         .admin-bar .blog_single_item h1, 
         .admin-bar .blog_single_item h2, 
         .admin-bar .blog_single_item h3, 
         .admin-bar .blog_single_item h4, 
         .admin-bar .blog_single_item h5 {
-            scroll-margin-top: 152px !important;
+            scroll-margin-top: 117px !important;
         }
         @media (max-width: 1024px) {
             .blog_single_item h1, 
