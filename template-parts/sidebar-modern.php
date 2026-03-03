@@ -40,10 +40,10 @@ $sidebar_sections = array(
         'id'    => 'utm-articles',
     ),
     array(
-        'slug'  => 'reporting-hub',
-        'title' => 'Reporting Hub',
+        'slug'  => 'sonar',
+        'title' => 'Sonar',
         'icon'  => 'sonar.svg',
-        'id'    => 'reporting-hub',
+        'id'    => 'sonar',
     ),
     array(
         'slug'  => 'dashboard-guides',
