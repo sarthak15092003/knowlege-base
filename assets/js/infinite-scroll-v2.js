@@ -9,11 +9,8 @@ jQuery(document).ready(function ($) {
         catsLoaded.push(initialCat);
     }
 
-    // Loader logic for observer
+    // Loader element check
     var loader = document.getElementById('infinite-scroll-loader');
-    if (loader) {
-        $('#infinite-scroll-loader').show();
-    }
 
     function loadNextCategory() {
         if (isLoading) return;
@@ -48,10 +45,10 @@ jQuery(document).ready(function ($) {
 
     function fetchCategory(slug, mode) {
         isLoading = true;
-        if (mode === 'append') {
-            $('#infinite-scroll-loader').find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
-            $('#infinite-scroll-loader').fadeIn();
-        }
+        var activeLoader = (mode === 'append') ? '#infinite-scroll-loader' : '#infinite-scroll-loader-up';
+
+        $(activeLoader).find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
+        $(activeLoader).fadeIn();
 
         $.ajax({
             url: DocyInfinite.ajax_url,
@@ -67,25 +64,31 @@ jQuery(document).ready(function ($) {
                         $('#infinite-scroll-loader').before(response.data.html);
                         catsLoaded.push(slug);
                     } else {
-                        $('#category-posts-container').prepend(response.data.html);
+                        // Prepend after the top loader
+                        $('#infinite-scroll-loader-up').after(response.data.html);
                         catsLoaded.unshift(slug);
+
                         // Prevent scroll jump when prepending
                         var addedHeight = $(response.data.html).filter('.category-header-card, .category-posts-row').map(function () {
                             return $(this).outerHeight();
                         }).get().reduce((a, b) => a + b, 0);
-                        $(window).scrollTop($(window).scrollTop() + addedHeight);
+
+                        // Use a small timeout to let the DOM settle
+                        setTimeout(function () {
+                            $(window).scrollTop($(window).scrollTop() + addedHeight);
+                        }, 10);
                     }
-                    isLoading = false;
                     console.log('Successfully loaded category: ' + slug);
                     updateSidebarHighlight(slug);
                 } else {
-                    isLoading = false;
-                    $('#infinite-scroll-loader').hide();
+                    console.log('Failed to load category: ' + slug);
                 }
+                isLoading = false;
+                $('#infinite-scroll-loader, #infinite-scroll-loader-up').hide();
             },
             error: function () {
                 isLoading = false;
-                $('#infinite-scroll-loader').hide();
+                $('#infinite-scroll-loader, #infinite-scroll-loader-up').hide();
             }
         });
     }
@@ -101,10 +104,10 @@ jQuery(document).ready(function ($) {
         var docHeight = $(document).height();
 
         // 1. Infinite Scroll Loading Triggers
-        if (scrollPos + windowHeight > docHeight - 300) {
+        if (scrollPos + windowHeight > docHeight - 600) {
             loadNextCategory();
         }
-        if (scrollPos < 100) {
+        if (scrollPos < 200) {
             loadPrevCategory();
         }
 
