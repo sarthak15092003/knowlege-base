@@ -748,7 +748,7 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 									docy_render_category_header_card( $GLOBALS['cat_header_data'] );
 								}
 								?>
-								<div class="row category-posts-row" data-cat-slug="<?php echo esc_attr(get_category($current_cat_id)->slug); ?>">
+								<div class="row category-posts-row" data-cat-slug="<?php echo esc_attr($top_cat ? $top_cat->slug : ''); ?>">
 									<?php
 									// Render posts for category page
 									while ( have_posts() ) : the_post();

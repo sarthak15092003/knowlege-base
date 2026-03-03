@@ -6,68 +6,58 @@ jQuery(document).ready(function ($) {
 
     var isLoading = false;
     var catsLoaded = [];
-    var sequence = DocyInfinite.sequence;
+    var sequence = DocyInfinite.sequence || [];
 
-    // Check for debug sequence if localized one is empty
-    if (!sequence || sequence.length === 0) {
+    // Safety: Recover sequence from debug div if needed
+    if (sequence.length === 0) {
         var debugSeq = $('#cat-sequence-debug').data('sequence');
         if (debugSeq) sequence = debugSeq;
     }
 
-    console.log('--- Infinite Scroll V2 Initializing ---');
-    console.log('Category Sequence:', JSON.stringify(sequence));
+    console.log('--- Infinite Scroll V2 ---');
+    console.log('Order:', JSON.stringify(sequence));
 
-    // Initialize with current category slug
+    // Identify current category
     var $container = $('#category-posts-container');
-    var initialCat = $container.attr('data-cat-slug'); // Use attr to be sure
-    console.log('Starting Category:', initialCat);
+    var initialCat = $container.attr('data-cat-slug') || $container.data('cat-slug');
 
     if (initialCat) {
         catsLoaded.push(initialCat);
-    } else {
-        console.warn('No initial category slug found!');
+        console.log('Started at:', initialCat);
     }
 
-    function loadNextCategory() {
-        if (isLoading || sequence.length === 0) return;
+    function loadNext() {
+        if (isLoading || sequence.length < 2) return;
+        var last = catsLoaded[catsLoaded.length - 1];
+        var idx = sequence.indexOf(last);
+        if (idx === -1 || idx >= sequence.length - 1) return;
 
-        var lastCat = catsLoaded[catsLoaded.length - 1];
-        var currentIndex = sequence.indexOf(lastCat);
+        var next = sequence[idx + 1];
+        if (catsLoaded.indexOf(next) !== -1) return;
 
-        console.log('Check Load Next. Last:', lastCat, 'Index:', currentIndex);
-
-        if (currentIndex === -1 || currentIndex >= sequence.length - 1) {
-            return;
-        }
-
-        var nextCat = sequence[currentIndex + 1];
-        if (catsLoaded.indexOf(nextCat) !== -1) return;
-
-        console.log('-> Loading Next Category:', nextCat);
-        fetchCategory(nextCat, 'append');
+        console.log('>> Trigger Next:', next);
+        fetchCat(next, 'append');
     }
 
-    function loadPrevCategory() {
-        if (isLoading || sequence.length === 0) return;
+    function loadPrev() {
+        if (isLoading || sequence.length < 2) return;
+        var first = catsLoaded[0];
+        var idx = sequence.indexOf(first);
+        if (idx <= 0) return;
 
-        var firstCat = catsLoaded[0];
-        var currentIndex = sequence.indexOf(firstCat);
+        var prev = sequence[idx - 1];
+        if (catsLoaded.indexOf(prev) !== -1) return;
 
-        if (currentIndex <= 0) return;
-
-        var prevCat = sequence[currentIndex - 1];
-        if (catsLoaded.indexOf(prevCat) !== -1) return;
-
-        console.log('-> Loading Previous Category:', prevCat);
-        fetchCategory(prevCat, 'prepend');
+        console.log('>> Trigger Prev:', prev);
+        fetchCat(prev, 'prepend');
     }
 
-    function fetchCategory(slug, mode) {
+    function fetchCat(slug, mode) {
         if (isLoading) return;
         isLoading = true;
 
-        var activeLoader = (mode === 'append') ? '#infinite-scroll-loader' : '#infinite-scroll-loader-up';
-        $(activeLoader).fadeIn(200);
+        var loader = (mode === 'append') ? '#infinite-scroll-loader' : '#infinite-scroll-loader-up';
+        $(loader).fadeIn(100).find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
 
         $.ajax({
             url: DocyInfinite.ajax_url,
@@ -77,34 +67,29 @@ jQuery(document).ready(function ($) {
                 cat_slug: slug,
                 security: DocyInfinite.nonce
             },
-            success: function (response) {
-                if (response.success && response.data.html) {
-                    var $html = $(response.data.html);
+            success: function (res) {
+                if (res.success && res.data.html) {
+                    var $newContent = $(res.data.html);
 
                     if (mode === 'append') {
-                        $('#infinite-scroll-loader').before($html);
+                        $('#infinite-scroll-loader').before($newContent);
                         catsLoaded.push(slug);
                     } else {
-                        var oldHeight = $(document).height();
-                        var oldScroll = $(window).scrollTop();
-
-                        $('#infinite-scroll-loader-up').after($html);
+                        var hOld = $(document).height();
+                        var sOld = $(window).scrollTop();
+                        $('#infinite-scroll-loader-up').after($newContent);
                         catsLoaded.unshift(slug);
-
-                        var newHeight = $(document).height();
-                        $(window).scrollTop(oldScroll + (newHeight - oldHeight));
+                        var hNew = $(document).height();
+                        $(window).scrollTop(sOld + (hNew - hOld));
                     }
-
-                    console.log('Loaded Successfully:', slug);
-                    updateSidebarHighlight(slug);
-                    setTimeout(checkAndFill, 600);
+                    console.log('DONE:', slug);
+                    updateSidebar(slug);
+                    setTimeout(checkHeight, 500);
                 } else {
-                    console.error('Empty response or error for slug:', slug);
+                    console.error('AJAX OK but no HTML', slug);
                 }
             },
-            error: function (xhr, status, error) {
-                console.error('AJAX Fail:', error);
-            },
+            error: function (e) { console.error('AJAX Error', e); },
             complete: function () {
                 isLoading = false;
                 $('#infinite-scroll-loader, #infinite-scroll-loader-up').hide();
@@ -112,74 +97,64 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function checkAndFill() {
-        var scrollPos = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var docHeight = $(document).height();
+    function checkHeight() {
+        if (isLoading) return;
+        var s = $(window).scrollTop();
+        var wh = $(window).height();
+        var dh = $(document).height();
 
-        if (scrollPos + windowHeight > docHeight - 1200) {
-            loadNextCategory();
-        }
+        if (s + wh > dh - 1200) loadNext();
+        if (s < 600 && s > 20) loadPrev();
     }
 
     $(window).on('scroll', function () {
-        var scrollPos = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        var docHeight = $(document).height();
+        checkHeight();
 
-        // Triggers
-        if (scrollPos + windowHeight > docHeight - 1000) {
-            loadNextCategory();
-        }
-        if (scrollPos < 400 && scrollPos > 20) {
-            loadPrevCategory();
-        }
-
-        // Sidebar Update
-        var threshold = scrollPos + (windowHeight / 2.5);
-        var currentSlug = '';
+        // Sidebar Sync
+        var s = $(window).scrollTop();
+        var wh = $(window).height();
+        var mid = s + (wh / 3);
+        var cur = '';
 
         $('.category-posts-row').each(function () {
-            var $row = $(this);
-            var $header = $row.prev('.category-header-card');
-            var top = $header.length ? $header.offset().top : $row.offset().top;
-            var bottom = $row.offset().top + $row.outerHeight();
-
-            if (threshold >= top && threshold <= bottom + 50) {
-                currentSlug = $row.data('cat-slug');
+            var $r = $(this);
+            var $h = $r.prev('.category-header-card');
+            var t = $h.length ? $h.offset().top : $r.offset().top;
+            var b = $r.offset().top + $r.outerHeight();
+            if (mid >= t && mid <= b) {
+                cur = $r.data('cat-slug');
                 return false;
             }
         });
 
-        if (currentSlug && currentSlug !== lastActiveSlug) {
-            lastActiveSlug = currentSlug;
-            updateSidebarHighlight(currentSlug);
+        if (cur && cur !== lastSlug) {
+            lastSlug = cur;
+            updateSidebar(cur);
         }
     });
 
-    var lastActiveSlug = initialCat || '';
+    var lastSlug = initialCat;
 
-    function updateSidebarHighlight(slug) {
-        var $header = $('.section-header[data-target="' + slug + '"]');
-        if ($header.length && !$header.hasClass('active')) {
+    function updateSidebar(slug) {
+        var $btn = $('.section-header[data-target="' + slug + '"]');
+        if ($btn.length && !$btn.hasClass('active')) {
             $('.section-header.active').removeClass('active');
             $('.section-content.expanded').removeClass('expanded');
             $('.expand-icon.expanded').removeClass('expanded').css('transform', 'rotate(180deg)');
 
-            $header.addClass('active');
+            $btn.addClass('active');
             $('#' + slug).addClass('expanded');
-            $header.find('.expand-icon').addClass('expanded').css('transform', 'rotate(270deg)');
+            $btn.find('.expand-icon').addClass('expanded').css('transform', 'rotate(270deg)');
 
-            var sidebar = $('.modern-sidebar');
-            if (sidebar.length) {
-                var pos = $header.position().top;
-                sidebar.stop().animate({ scrollTop: sidebar.scrollTop() + pos - 60 }, 400);
+            var $sb = $('.modern-sidebar');
+            if ($sb.length) {
+                var p = $btn.position().top;
+                $sb.stop().animate({ scrollTop: $sb.scrollTop() + p - 60 }, 300);
             }
         }
     }
 
-    // Run on startup
-    setTimeout(function () {
-        checkAndFill();
-    }, 1500);
+    // Initial check
+    setTimeout(checkHeight, 1000);
+    setTimeout(checkHeight, 2500);
 });
