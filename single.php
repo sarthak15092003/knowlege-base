@@ -446,7 +446,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                             </ul>
                         </div>
 
-                        <div class="feedback-section" style="margin-top: 5rem; display: flex; flex-direction: column; gap: 24px;">
+                        <div class="feedback-section" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 24px;">
                             <p class="fw-semibold" style="color: #6c757d !important; font-weight: 500 !important; margin-bottom: 0;">Was this helpful?</p>
                             <div class="d-flex gap-2">
                                 <button type="button" class="btn btn-primary">Yes</button>
