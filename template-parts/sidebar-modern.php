@@ -41,9 +41,9 @@ $sidebar_sections = array(
     ),
     array(
         'slug'  => 'sonar',
-        'title' => 'Sonar',
+        'title' => 'Reporting Hub',
         'icon'  => 'sonar.svg',
-        'id'    => 'sonar',
+        'id'    => 'reporting-hub',
     ),
     array(
         'slug'  => 'dashboard-guides',
