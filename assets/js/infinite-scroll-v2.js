@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
     }
 
     console.log('--- Infinite Scroll V2 ---');
-    console.log('Order:', JSON.stringify(sequence));
+    console.log('Sequence:', JSON.stringify(sequence));
 
     // Identify current category
     var $container = $('#category-posts-container');
@@ -23,19 +23,30 @@ jQuery(document).ready(function ($) {
 
     if (initialCat) {
         catsLoaded.push(initialCat);
-        console.log('Started at:', initialCat);
+        console.log('Initial Category:', initialCat);
+    } else {
+        console.warn('No initial cat slug found on #category-posts-container');
     }
 
     function loadNext() {
         if (isLoading || sequence.length < 2) return;
         var last = catsLoaded[catsLoaded.length - 1];
         var idx = sequence.indexOf(last);
-        if (idx === -1 || idx >= sequence.length - 1) return;
+
+        console.log('loadNext check. Last loaded:', last, 'Index:', idx);
+
+        if (idx === -1 || idx >= sequence.length - 1) {
+            console.log('Reached end of sequence or cat not found.');
+            return;
+        }
 
         var next = sequence[idx + 1];
-        if (catsLoaded.indexOf(next) !== -1) return;
+        if (catsLoaded.indexOf(next) !== -1) {
+            console.log('Next category already loaded:', next);
+            return;
+        }
 
-        console.log('>> Trigger Next:', next);
+        console.log('>> FETCHING NEXT:', next);
         fetchCat(next, 'append');
     }
 
@@ -43,12 +54,13 @@ jQuery(document).ready(function ($) {
         if (isLoading || sequence.length < 2) return;
         var first = catsLoaded[0];
         var idx = sequence.indexOf(first);
+
         if (idx <= 0) return;
 
         var prev = sequence[idx - 1];
         if (catsLoaded.indexOf(prev) !== -1) return;
 
-        console.log('>> Trigger Prev:', prev);
+        console.log('>> FETCHING PREV:', prev);
         fetchCat(prev, 'prepend');
     }
 
@@ -57,7 +69,9 @@ jQuery(document).ready(function ($) {
         isLoading = true;
 
         var loader = (mode === 'append') ? '#infinite-scroll-loader' : '#infinite-scroll-loader-up';
-        $(loader).fadeIn(100).find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
+        $(loader).fadeIn(150).find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
+
+        console.log('AJAX call for slug:', slug);
 
         $.ajax({
             url: DocyInfinite.ajax_url,
@@ -68,6 +82,7 @@ jQuery(document).ready(function ($) {
                 security: DocyInfinite.nonce
             },
             success: function (res) {
+                console.log('AJAX Response for', slug, ':', res.success);
                 if (res.success && res.data.html) {
                     var $newContent = $(res.data.html);
 
@@ -82,14 +97,18 @@ jQuery(document).ready(function ($) {
                         var hNew = $(document).height();
                         $(window).scrollTop(sOld + (hNew - hOld));
                     }
-                    console.log('DONE:', slug);
+                    console.log('Successfully Loaded & Appended:', slug);
                     updateSidebar(slug);
-                    setTimeout(checkHeight, 500);
+
+                    // Immediately check if we need to load MORE (e.g. screen still not full)
+                    setTimeout(checkHeight, 300);
                 } else {
-                    console.error('AJAX OK but no HTML', slug);
+                    console.error('AJAX Success but failed to provide HTML for:', slug);
                 }
             },
-            error: function (e) { console.error('AJAX Error', e); },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error for:', slug, error);
+            },
             complete: function () {
                 isLoading = false;
                 $('#infinite-scroll-loader, #infinite-scroll-loader-up').hide();
@@ -103,14 +122,21 @@ jQuery(document).ready(function ($) {
         var wh = $(window).height();
         var dh = $(document).height();
 
-        if (s + wh > dh - 1200) loadNext();
-        if (s < 600 && s > 20) loadPrev();
+        // Downward trigger: Near bottom (within 1200px)
+        if (s + wh > dh - 1200) {
+            loadNext();
+        }
+
+        // Upward trigger: Near top (within 800px)
+        if (s < 800 && s > 10) {
+            loadPrev();
+        }
     }
 
-    $(window).on('scroll', function () {
+    $(window).on('scroll resize', function () {
         checkHeight();
 
-        // Sidebar Sync
+        // Sidebar Highlighting
         var s = $(window).scrollTop();
         var wh = $(window).height();
         var mid = s + (wh / 3);
@@ -154,7 +180,14 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    // Initial check
-    setTimeout(checkHeight, 1000);
-    setTimeout(checkHeight, 2500);
+    // Aggressive initial checks to fill screen
+    var initChecks = 0;
+    var initInterval = setInterval(function () {
+        checkHeight();
+        initChecks++;
+        if (initChecks > 10) clearInterval(initInterval);
+    }, 1000);
+
+    // Immediate check
+    checkHeight();
 });
