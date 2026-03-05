@@ -45,8 +45,7 @@ jQuery(document).ready(function ($) {
     function fetchCategory(slug, mode) {
         isLoading = true;
         if (mode === 'append') {
-            $('#infinite-scroll-loader').find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
-            $('#infinite-scroll-loader').fadeIn();
+            $('#infinite-scroll-loader').show();
         } else {
             $('#infinite-scroll-loader-top').show();
         }
@@ -65,24 +64,35 @@ jQuery(document).ready(function ($) {
                         $('#infinite-scroll-loader').before(response.data.html);
                         catsLoaded.push(slug);
                     } else {
-                        // Find the first content element AFTER the loader to use as an anchor
-                        var $anchor = $('#infinite-scroll-loader-top').nextAll('.category-header-card, .category-posts-row').first();
-                        var oldOffset = $anchor.length ? $anchor.offset().top : 0;
-                        var oldScrollTop = $(window).scrollTop();
+                        // ROBUST PREPEND LOGIC
+                        var $html = $('html');
+                        $html.addClass('no-smooth-scroll');
 
-                        // Prepend the new content
-                        $('#infinite-scroll-loader-top').after(response.data.html);
+                        var oldHeight = document.documentElement.scrollHeight;
+                        var oldScroll = $(window).scrollTop();
 
-                        // Calculate how much the anchor moved down
-                        var newOffset = $anchor.length ? $anchor.offset().top : 0;
-                        var diff = newOffset - oldOffset;
+                        // Prepend content but keep it hidden briefly to avoid visual jump
+                        var $newContent = $(response.data.html).addClass('infinite-item-hidden');
+                        var $loader = $('#infinite-scroll-loader-top');
 
-                        if (diff > 0) {
-                            $(window).scrollTop(oldScrollTop + diff);
-                        }
+                        // Swap loader for content
+                        $loader.hide();
+                        $loader.after($newContent);
+
+                        // Calculate total height change (including loader removal)
+                        var newHeight = document.documentElement.scrollHeight;
+                        var diff = newHeight - oldHeight;
+
+                        // Instant scroll adjustment
+                        window.scrollTo(0, oldScroll + diff);
+
+                        // Reveal content and cleanup
+                        $newContent.removeClass('infinite-item-hidden');
+                        setTimeout(function () {
+                            $html.removeClass('no-smooth-scroll');
+                        }, 50);
 
                         catsLoaded.unshift(slug);
-                        $('#infinite-scroll-loader-top').hide();
                     }
                     console.log('Successfully loaded category: ' + slug);
                     updateSidebarHighlight(slug);

@@ -720,13 +720,24 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 			</style>
 				<?php get_template_part( 'template-parts/sidebar-modern' ); ?>
 			</div>
+            <style>
+                #category-posts-container {
+                    overflow-anchor: none !important;
+                }
+                html.no-smooth-scroll {
+                    scroll-behavior: auto !important;
+                }
+                .infinite-item-hidden {
+                    visibility: hidden !important;
+                }
+            </style>
 							
 							<!-- Content Column for Cat 3 -->
 				<div class="category-main-col category-main-with-right" id="category-posts-container" data-current-cat="<?php echo esc_attr($current_cat_id); ?>" data-cat-slug="<?php echo esc_attr(get_category($current_cat_id)->slug); ?>">
 								<!-- Top Loading Indicator -->
-								<div id="infinite-scroll-loader-top" style="display: none; text-align: center; padding: 20px;">
+								<div id="infinite-scroll-loader-top" style="display: none; text-align: center; height: 100px; padding: 20px 0;">
 									<div class="spinner-border text-primary" role="status"></div>
-									<p class="mt-2 text-muted">Loading previous category...</p>
+									<p class="mt-2 text-muted" style="font-size: 14px;">Loading previous category...</p>
 								</div>
 								<?php
 								if ( isset( $GLOBALS['cat_header_data'] ) && ! empty( $GLOBALS['cat_header_data'] ) ) {
