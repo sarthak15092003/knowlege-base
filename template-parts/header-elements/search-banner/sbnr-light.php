@@ -41,7 +41,7 @@ $is_focus_search      = $is_focus_search == '1' ? 'focused-form' : '';
 				// Title and subtitle
 				include('title.php');
 
-                echo '<p class="banner-support-title" style="color:#161C52;font-weight:600;font-size:40px;line-height:125%;">The Ultimate Space for<br> CMGalaxy Learning and Support</p>';
+                echo '<h1 class="banner-support-title" style="color:#161C52;font-weight:600;font-size:40px;line-height:125%;">The Ultimate Space for<br> CMGalaxy Learning and Support</h1>';
 
                 if ( docy_opt( 'sbnr_search_fieldset', '1', 'is_sbnr_search' ) == '1' ) : ?>
                     <form id="ajax-search-form" action="<?php echo esc_url( site_url() ); ?>" class="header_search_form <?php echo esc_attr( $is_focus_search ) ?>">

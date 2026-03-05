@@ -25,63 +25,48 @@ if ($is_single_post) {
     }
 }
 
-// Define all sidebar sections with their category slugs
-$sidebar_sections = array(
-    array(
-        'slug'  => 'getting-started',
-        'title' => 'Getting Started',
-        'icon'  => 'getting start.svg',
-        'id'    => 'getting-started',
-    ),
-    array(
-        'slug'  => 'utm-parameters-guidelines',
-        'title' => 'UTM Parameters Guidelines',
-        'icon'  => 'link.svg',
-        'id'    => 'utm-parameters-guidelines',
-    ),
-    array(
-        'slug'  => 'sonar',
-        'title' => 'Reporting Hub',
-        'icon'  => 'sonar.svg',
-        'id'    => 'sonar',
-    ),
-    array(
-        'slug'  => 'dashboard-guides',
-        'title' => 'Dashboard Guides',
-        'icon'  => 'dashboard.svg',
-        'id'    => 'dashboard-guides',
-    ),
-    array(
-        'slug'  => 'chat-data',
-        'title' => 'Chat with Data',
-        'icon'  => 'chat.svg',
-        'id'    => 'chat-data',
-    ),
-    array(
-        'slug'  => 'data-library',
-        'title' => 'Data Library',
-        'icon'  => 'clone.svg',
-        'id'    => 'data-library',
-    ),
-    array(
-        'slug'  => 'faq',
-        'title' => 'FAQ',
-        'icon'  => 'faq.svg',
-        'id'    => 'faq',
-    ),
-    array(
-        'slug'  => 'global-filters',
-        'title' => 'Global Filters',
-        'icon'  => 'global.svg',
-        'id'    => 'global-filters',
-    ),
-    array(
-        'slug'  => 'navigation',
-        'title' => 'Navigation',
-        'icon'  => 'navigation.svg',
-        'id'    => 'navigation',
-    ),
+// Define icons mapping for dynamic categories
+$icon_mapping = array(
+    'getting-started'            => 'getting start.svg',
+    'utm-parameters-guidelines'  => 'link.svg',
+    'reporting-hub'              => 'sonar.svg',
+    'dashboard-guides'           => 'dashboard.svg',
+    'chat-data'                  => 'chat.svg',
+    'data-library'               => 'clone.svg',
+    'faq'                        => 'faq.svg',
+    'global-filters'             => 'global.svg',
+    'navigation'                 => 'navigation.svg',
 );
+
+// Fetch categories dynamically
+$wp_categories = get_categories(array(
+    'hide_empty' => 1, // Only show categories with articles
+    'exclude'    => array(1), // Exclude 'Uncategorized' (usually ID 1)
+    'orderby'    => 'ID',
+    'order'      => 'ASC'
+));
+
+$sidebar_sections = array();
+foreach ($wp_categories as $cat) {
+    $sidebar_sections[] = array(
+        'slug'  => $cat->slug,
+        'title' => $cat->name,
+        'icon'  => isset($icon_mapping[$cat->slug]) ? $icon_mapping[$cat->slug] : 'clone.svg', // Fallback icon
+        'id'    => $cat->slug
+    );
+}
+
+// Fallback if no categories are found (unlikely but safe)
+if (empty($sidebar_sections)) {
+    $sidebar_sections = array(
+        array(
+            'slug'  => 'getting-started',
+            'title' => 'Getting Started',
+            'icon'  => 'getting start.svg',
+            'id'    => 'getting-started',
+        )
+    );
+}
 ?>
 
 <?php if ($is_single_post) : ?>

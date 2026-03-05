@@ -2,17 +2,12 @@ jQuery(document).ready(function ($) {
     var isLoading = false;
     var catsLoaded = [];
     var sequence = DocyInfinite.sequence;
+    var lastScrollPos = $(window).scrollTop();
 
     // Initialize with current category slug
     var initialCat = $('#category-posts-container').data('cat-slug');
     if (initialCat) {
         catsLoaded.push(initialCat);
-    }
-
-    // Loader logic for observer
-    var loader = document.getElementById('infinite-scroll-loader');
-    if (loader) {
-        $('#infinite-scroll-loader').show();
     }
 
     function loadNextCategory() {
@@ -23,6 +18,7 @@ jQuery(document).ready(function ($) {
 
         if (currentIndex === -1 || currentIndex >= sequence.length - 1) {
             // Already at the end or not in sequence
+            $('#infinite-scroll-loader').hide();
             return;
         }
 
@@ -51,6 +47,8 @@ jQuery(document).ready(function ($) {
         if (mode === 'append') {
             $('#infinite-scroll-loader').find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
             $('#infinite-scroll-loader').fadeIn();
+        } else {
+            $('#infinite-scroll-loader-top').fadeIn();
         }
 
         $.ajax({
@@ -62,30 +60,34 @@ jQuery(document).ready(function ($) {
                 security: DocyInfinite.nonce
             },
             success: function (response) {
-                if (response.success) {
+                if (response.success && response.data && response.data.html) {
                     if (mode === 'append') {
                         $('#infinite-scroll-loader').before(response.data.html);
                         catsLoaded.push(slug);
                     } else {
-                        $('#category-posts-container').prepend(response.data.html);
+                        $('#infinite-scroll-loader-top').after(response.data.html);
                         catsLoaded.unshift(slug);
                         // Prevent scroll jump when prepending
                         var addedHeight = $(response.data.html).filter('.category-header-card, .category-posts-row').map(function () {
                             return $(this).outerHeight();
                         }).get().reduce((a, b) => a + b, 0);
                         $(window).scrollTop($(window).scrollTop() + addedHeight);
+                        $('#infinite-scroll-loader-top').hide();
                     }
-                    isLoading = false;
                     console.log('Successfully loaded category: ' + slug);
                     updateSidebarHighlight(slug);
                 } else {
-                    isLoading = false;
+                    console.error('Failed to load category: ' + slug, response);
                     $('#infinite-scroll-loader').hide();
+                    $('#infinite-scroll-loader-top').hide();
                 }
+                isLoading = false;
             },
-            error: function () {
+            error: function (xhr, status, error) {
+                console.error('AJAX Error loading category: ' + slug, error);
                 isLoading = false;
                 $('#infinite-scroll-loader').hide();
+                $('#infinite-scroll-loader-top').hide();
             }
         });
     }
@@ -104,9 +106,13 @@ jQuery(document).ready(function ($) {
         if (scrollPos + windowHeight > docHeight - 300) {
             loadNextCategory();
         }
-        if (scrollPos < 100) {
+
+        // Only load previous category if we are scrolling UP and near the top
+        if (scrollPos < 100 && scrollPos < lastScrollPos) {
             loadPrevCategory();
         }
+
+        lastScrollPos = scrollPos;
 
         // 2. Sidebar Highlighting Logic
         var threshold = scrollPos + 250;
@@ -163,7 +169,5 @@ jQuery(document).ready(function ($) {
     }
 
     // Set initial state
-    setTimeout(function () {
-        $(window).trigger('scroll');
-    }, 500);
+    $(window).trigger('scroll');
 });

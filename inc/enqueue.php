@@ -274,17 +274,22 @@ function docy_scripts() {
     if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
         wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.0', true );
         
-        $cat_sequence = [
-            'getting-started',
-            'utm-parameters-guidelines',
-            'sonar',
-            'dashboard-guides',
-            'chat-data',
-            'data-library',
-            'faq',
-            'global-filters',
-            'navigation'
-        ];
+        // Generate dynamic sequence from categories
+        $wp_categories = get_categories(array(
+            'hide_empty' => 1, // Only include categories with posts
+            'exclude'    => array(1), // Exclude Uncategorized
+            'orderby'    => 'ID',
+            'order'      => 'ASC'
+        ));
+
+        $cat_sequence = array();
+        foreach ($wp_categories as $cat) {
+            $cat_sequence[] = $cat->slug;
+        }
+
+        if (empty($cat_sequence)) {
+            $cat_sequence = ['getting-started'];
+        }
 
         wp_localize_script( 'docy-infinite-scroll', 'DocyInfinite', array(
             'ajax_url'    => admin_url( 'admin-ajax.php' ),
