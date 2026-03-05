@@ -56,7 +56,7 @@
 }
 
 .sidebar-cta-link:hover {
-    text-decoration: none !important;
+    text-decoration: underline;
 }
 
 /* Apply TOC-like sticky properties to modern sidebar */
@@ -264,7 +264,7 @@
     flex: 1;
     font-size: 13px;
     font-weight: 400;
-    color: #6c757d;
+    color: #3b82f6;
     text-decoration: none;
     line-height: 1.4;
     white-space: nowrap;
@@ -280,7 +280,7 @@
 
 /* Highlight current page in sidebar - using darker blue for visibility */
 .subsection-item.current-page .subsection-title {
-    color: #161c52 !important;
+    color: #1d4ed8 !important;
     font-weight: 600 !important;
 }
 

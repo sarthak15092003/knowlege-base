@@ -12,7 +12,7 @@ function docy_fonts_url(): string
 
 	/* Body font */
 	if ( 'off' !== 'on' ) {
-		$fonts[] = "Onest:300,400,500,600,700,800";
+		$fonts[] = "Inter:300,400,500,600,700,800";
 	}
 
 	$is_ssl = is_ssl() ? 'https' : 'http';
@@ -56,13 +56,13 @@ function docy_scripts() {
 	wp_enqueue_style( 'elegant-icon', DOCY_DIR_VEND . '/elegant-icon/style.css' );
 	wp_enqueue_style( 'font-awesome', DOCY_DIR_VEND . '/font-awesome/css/all.css' );
 	wp_enqueue_style( 'animate', DOCY_DIR_VEND . '/animation/animate.css' );
-	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.3' );
+	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.2' );
 	
 	// CMGALAXY Custom Header Styles
-	wp_enqueue_style( 'cmgalaxy-header', DOCY_DIR_CSS . '/cmgalaxy-header.css', array(), DOCY_VERSION . '.1' );
+	wp_enqueue_style( 'cmgalaxy-header', DOCY_DIR_CSS . '/cmgalaxy-header.css', array(), DOCY_VERSION );
 	
 	// Modern Sidebar Styles
-	wp_enqueue_style( 'modern-sidebar', DOCY_DIR_CSS . '/modern-sidebar.css', array(), DOCY_VERSION . '.4' );
+	wp_enqueue_style( 'modern-sidebar', DOCY_DIR_CSS . '/modern-sidebar.css', array(), DOCY_VERSION );
 	
 	// Simple Post Card Styles
 	wp_enqueue_style( 'simple-post-card', DOCY_DIR_CSS . '/simple-post-card.css', array(), DOCY_VERSION );
@@ -272,15 +272,19 @@ function docy_scripts() {
 
     // Infinite Scroll for Category Pages
     if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
-        wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.7', true );
+        wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.0', true );
         
-        $dynamic_cats = get_categories(array(
-            'orderby'    => 'ID',
-            'order'      => 'ASC',
-            'hide_empty' => true,
-            'parent'     => 0,
-        ));
-        $cat_sequence = array_map(function($c) { return $c->slug; }, $dynamic_cats);
+        $cat_sequence = [
+            'getting-started',
+            'utm-parameters-guidelines',
+            'sonar',
+            'dashboard-guides',
+            'chat-data',
+            'data-library',
+            'faq',
+            'global-filters',
+            'navigation'
+        ];
 
         wp_localize_script( 'docy-infinite-scroll', 'DocyInfinite', array(
             'ajax_url'    => admin_url( 'admin-ajax.php' ),

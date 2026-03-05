@@ -1,10 +1,9 @@
 :root {
-  --font-family-primary: 'Onest', sans-serif;
+  --font-family-primary: 'Inter', 'Inter Fallback';
 }
 
 /* === Global Font Weight 300 === */
 * {
-  font-family: 'Onest', sans-serif !important;
   font-weight: 300 !important;
 }
 
@@ -28,19 +27,11 @@ h4 *,
   font-weight: 600 !important;
 }
 
-/* H3, H5, H6 exception - 500 */
+/* H3 exception - 500 */
 h3,
 .h3,
 h3 *,
-.h3 *,
-h5,
-.h5,
-h5 *,
-.h5 *,
-h6,
-.h6,
-h6 *,
-.h6 * {
+.h3 * {
   font-weight: 500 !important;
 }
 
@@ -433,7 +424,8 @@ a {
 
 a:not(.elementor-button-link):hover {
   text-decoration-color: var(--brand_color);
-  text-decoration: none !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 p {

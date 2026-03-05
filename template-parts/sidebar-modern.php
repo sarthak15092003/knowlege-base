@@ -25,38 +25,63 @@ if ($is_single_post) {
     }
 }
 
-// Define icon mapping for common categories
-$icon_map = array(
-    'getting-started'            => 'getting start.svg',
-    'utm-parameters-guidelines'  => 'link.svg',
-    'sonar'                      => 'sonar.svg',
-    'dashboard-guides'           => 'dashboard.svg',
-    'chat-data'                  => 'chat.svg',
-    'data-library'               => 'clone.svg',
-    'faq'                        => 'faq.svg',
-    'global-filters'             => 'global.svg',
-    'navigation'                 => 'navigation.svg',
-    'reporting-hub'              => 'sonar.svg', // Alias
+// Define all sidebar sections with their category slugs
+$sidebar_sections = array(
+    array(
+        'slug'  => 'getting-started',
+        'title' => 'Getting Started',
+        'icon'  => 'getting start.svg',
+        'id'    => 'getting-started',
+    ),
+    array(
+        'slug'  => 'utm-parameters-guidelines',
+        'title' => 'UTM Parameters Guidelines',
+        'icon'  => 'link.svg',
+        'id'    => 'utm-parameters-guidelines',
+    ),
+    array(
+        'slug'  => 'sonar',
+        'title' => 'Reporting Hub',
+        'icon'  => 'sonar.svg',
+        'id'    => 'sonar',
+    ),
+    array(
+        'slug'  => 'dashboard-guides',
+        'title' => 'Dashboard Guides',
+        'icon'  => 'dashboard.svg',
+        'id'    => 'dashboard-guides',
+    ),
+    array(
+        'slug'  => 'chat-data',
+        'title' => 'Chat with Data',
+        'icon'  => 'chat.svg',
+        'id'    => 'chat-data',
+    ),
+    array(
+        'slug'  => 'data-library',
+        'title' => 'Data Library',
+        'icon'  => 'clone.svg',
+        'id'    => 'data-library',
+    ),
+    array(
+        'slug'  => 'faq',
+        'title' => 'FAQ',
+        'icon'  => 'faq.svg',
+        'id'    => 'faq',
+    ),
+    array(
+        'slug'  => 'global-filters',
+        'title' => 'Global Filters',
+        'icon'  => 'global.svg',
+        'id'    => 'global-filters',
+    ),
+    array(
+        'slug'  => 'navigation',
+        'title' => 'Navigation',
+        'icon'  => 'navigation.svg',
+        'id'    => 'navigation',
+    ),
 );
-
-// Get top-level categories that have posts
-$dynamic_categories = get_categories(array(
-    'orderby'    => 'ID',
-    'order'      => 'ASC',
-    'hide_empty' => true,
-    'parent'     => 0,
-));
-
-$sidebar_sections = array();
-foreach ($dynamic_categories as $d_cat) {
-    $icon = isset($icon_map[$d_cat->slug]) ? $icon_map[$d_cat->slug] : 'link.svg';
-    $sidebar_sections[] = array(
-        'slug'  => $d_cat->slug,
-        'title' => $d_cat->name,
-        'icon'  => $icon,
-        'id'    => $d_cat->slug,
-    );
-}
 ?>
 
 <?php if ($is_single_post) : ?>

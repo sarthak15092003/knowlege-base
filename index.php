@@ -722,33 +722,13 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
 			</div>
 							
 							<!-- Content Column for Cat 3 -->
-				<div class="category-main-col category-main-with-right" id="category-posts-container" data-current-cat="<?php echo esc_attr($current_cat_id); ?>" data-cat-slug="<?php 
-					$cat_obj = get_category($current_cat_id);
-					$top_cat = $cat_obj;
-					if ($cat_obj && $cat_obj->parent != 0) {
-						$ancestors = get_ancestors($current_cat_id, 'category');
-						$top_cat_id = end($ancestors);
-						$top_cat = get_term($top_cat_id, 'category');
-					}
-					echo esc_attr($top_cat ? $top_cat->slug : ''); 
-				?>">
-								<!-- Debug info for sequence -->
-								<div id="cat-sequence-debug" style="display:none;" 
-									 data-sequence='<?php echo json_encode(array_map(function($c){return $c->slug;}, get_categories(array("hide_empty"=>true,"parent"=>0,"orderby"=>"name","order"=>"ASC")))); ?>'>
-								</div>
-								<!-- Top Loader -->
-								<div id="infinite-scroll-loader-up" style="display: none; text-align: center; padding: 20px;">
-									<div class="spinner-border text-primary" role="status">
-										<span class="visually-hidden">Loading previous category...</span>
-									</div>
-									<p class="mt-2 text-muted">Loading previous category...</p>
-								</div>
+				<div class="category-main-col category-main-with-right" id="category-posts-container" data-current-cat="<?php echo esc_attr($current_cat_id); ?>" data-cat-slug="<?php echo esc_attr(get_category($current_cat_id)->slug); ?>">
 								<?php
 								if ( isset( $GLOBALS['cat_header_data'] ) && ! empty( $GLOBALS['cat_header_data'] ) ) {
 									docy_render_category_header_card( $GLOBALS['cat_header_data'] );
 								}
 								?>
-								<div class="row category-posts-row" data-cat-slug="<?php echo esc_attr($top_cat ? $top_cat->slug : ''); ?>">
+								<div class="row category-posts-row" data-cat-slug="<?php echo esc_attr(get_category($current_cat_id)->slug); ?>">
 									<?php
 									// Render posts for category page
 									while ( have_posts() ) : the_post();
