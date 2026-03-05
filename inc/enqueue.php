@@ -270,8 +270,8 @@ function docy_scripts() {
 
 	wp_localize_script( 'jquery', 'DocyForum', $localized_settings );
 
-    // Infinite Scroll for Category Pages
-    if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) {
+    // Infinite Scroll for Category Pages (Only when navigated from "All Categories" via ?infinite=1)
+    if ( isset( $_GET['infinite'] ) && $_GET['infinite'] == '1' ) {
         wp_enqueue_script( 'docy-infinite-scroll', DOCY_DIR_JS . '/infinite-scroll-v2.js', array( 'jquery' ), '1.0.0', true );
         
         // Generate dynamic sequence from categories

@@ -1056,7 +1056,7 @@ function docy_prepare_category_header_data( $cat_id ) {
  * Render category header card
  */
 if ( ! function_exists( 'docy_render_category_header_card' ) ) {
-    function docy_render_category_header_card( $data ) {
+    function docy_render_category_header_card( $data, $is_ajax = false ) {
         if ( empty( $data ) || ! is_array( $data ) ) {
             return;
         }
@@ -1065,14 +1065,18 @@ if ( ! function_exists( 'docy_render_category_header_card' ) ) {
         <div class="card border shadow-sm p-4 mb-4 category-header-card" data-cat-id="<?php echo esc_attr($data['id']); ?>">
             <?php
             $is_breadcrumb = docy_opt('is_breadcrumb', '1');
-            if ( $is_breadcrumb == '1' ) {
+            $is_infinite = ( isset( $_GET['infinite'] ) && $_GET['infinite'] == '1' );
+            
+            // Show breadcrumb ONLY if it's NOT an ajax load OR it's a regular category page
+            if ( $is_breadcrumb == '1' && ! $is_ajax ) {
                 $category = get_category( $data['id'] );
-                if ( $category && ! is_wp_error( $category ) ) {
+                if ( ( $category && ! is_wp_error( $category ) ) || $is_infinite ) {
+                    $breadcrumb_label = $is_infinite ? 'All Categories' : ( $category ? $category->name : '' );
                     ?>
                     <nav aria-label="breadcrumb" class="mb-3">
                         <ol class="breadcrumb" style="font-size: 12px !important;">
                             <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ) ?>">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( $category->name ); ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( $breadcrumb_label ); ?></li>
                         </ol>
                     </nav>
                     <?php

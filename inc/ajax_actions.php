@@ -696,8 +696,8 @@ function docy_get_category_posts_ajax() {
 
     ob_start();
     
-    // Render Header Card
-    docy_render_category_header_card( $cat_data );
+    // Render Header Card (Pass true to indicate AJAX context)
+    docy_render_category_header_card( $cat_data, true );
 
     // Render Posts
     echo '<div class="row category-posts-row" data-cat-slug="' . esc_attr($cat_slug) . '">';

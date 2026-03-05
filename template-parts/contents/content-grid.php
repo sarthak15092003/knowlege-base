@@ -13,7 +13,7 @@ if ($has_cat_sidebar) {
                     <?php 
                     $categories = get_the_category();
                     if (!empty($categories)) {
-                        $category = $categories[0];
+                        $category = reset($categories);
                         ?>
                         <span class="post-category">
                             <span class="category-dot" aria-hidden="true"></span>
@@ -78,7 +78,7 @@ if ($has_cat_sidebar) {
                         // Add category
                         $categories = get_the_category();
                         if (!empty($categories)) {
-                            $category = $categories[0];
+                            $category = reset($categories);
                             ?>
                             <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="meta-item">
                                 <span class="category-dot" aria-hidden="true"></span>

@@ -298,11 +298,35 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
                 </div>';
 			echo '<div class="container">
 			<div class="row g-4 mb-4">';
+            
+            // Add "All Categories" entry card
+            if ( is_array($docy_categories) && ! empty( $docy_categories ) ) {
+                $first_cat = reset($docy_categories);
+                $all_cat_link = ( $first_cat && isset($first_cat->term_id) ) ? home_url( '/?cat=' . $first_cat->term_id . '&infinite=1' ) : '#';
+                echo '<div class="col-md-6 col-lg-6">';
+                echo '<a class="card h-100 category-card border text-reset text-decoration-none" href="' . esc_url( $all_cat_link ) . '" style="background: #ffffff;">';
+                echo '<div class="card-body">';
+                echo '<div class="category-card__icon custom-icon" aria-hidden="true">'
+                    . '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">'
+                    . '<path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-3-6 3V4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>'
+                    . '</svg>'
+                    . '</div>';
+                echo '<h5 class="card-title mb-2">All Categories</h5>';
+                echo '<p class="card-text text-muted mb-3">Browse all documentation topics in a continuous, easy-to-read scroll.</p>';
+                echo '<div class="category-card__meta small text-primary fw-bold">';
+                echo '<span>Start Reading →</span>';
+                echo '</div>';
+                echo '</div>';
+                echo '</a>';
+                echo '</div>';
+            }
+            
 			foreach ( $docy_categories as $cat ) {
 					$cat_link = get_category_link( $cat->term_id );
 					$cat_name = esc_html( $cat->name );
 					$cat_desc = esc_html( wp_trim_words( category_description( $cat ), 18, '…' ) );
 					$cat_count = intval( $cat->count );
+                    
                     // Build simple author byline from latest posts in this category
                     $author_names = [];
                     $author_ids   = [];
@@ -338,11 +362,11 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
                     echo '<div class="col-md-6 col-lg-6">';
                     echo '<a class="card h-100 category-card border text-reset text-decoration-none" href="' . esc_url( $cat_link ) . '">';
                     echo '<div class="card-body">';
-                    echo '<div class="category-card__icon custom-icon" aria-hidden="true">'
-                        . '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">'
+                    echo '<div class="category-card__icon custom-icon" aria-hidden="true">';
+                    echo '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">'
                         . '<path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-3-6 3V4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-                        . '</svg>'
-                        . '</div>';
+                        . '</svg>';
+                    echo '</div>';
                     echo '<h5 class="card-title mb-2">' . $cat_name . '</h5>';
                     echo '<p class="card-text text-muted mb-3">' . $cat_desc . '</p>';
                     echo '<div class="category-card__meta small text-muted">';
@@ -761,7 +785,12 @@ if ( $blog_layout == 'blog_category' && ! $is_category_page ) {
                                     <p class="mt-2 text-muted">Loading next category...</p>
                                 </div>
 
-								<?php // Docy_helper()->pagination(); // Disable pagination for infinite scroll ?>
+								<?php 
+                                // Show pagination if infinite scroll is NOT active
+                                if ( ! (isset( $_GET['infinite'] ) && $_GET['infinite'] == '1') ) {
+                                    Docy_helper()->pagination(); 
+                                }
+                                ?>
 							</div>
 							
 							<!-- Right Image Sidebar for Cat 3 -->
