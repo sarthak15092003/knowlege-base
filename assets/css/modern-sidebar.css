@@ -298,6 +298,7 @@
 .modern-sidebar a:focus,
 .modern-sidebar a:active {
     text-decoration: none !important;
+    font-weight: 400 !important;
 }
 
 .subsection-title-plain {
