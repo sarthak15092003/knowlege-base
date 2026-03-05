@@ -48,7 +48,7 @@ jQuery(document).ready(function ($) {
             $('#infinite-scroll-loader').find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
             $('#infinite-scroll-loader').fadeIn();
         } else {
-            $('#infinite-scroll-loader-top').fadeIn();
+            $('#infinite-scroll-loader-top').show();
         }
 
         $.ajax({
@@ -65,13 +65,23 @@ jQuery(document).ready(function ($) {
                         $('#infinite-scroll-loader').before(response.data.html);
                         catsLoaded.push(slug);
                     } else {
+                        // Find the first content element AFTER the loader to use as an anchor
+                        var $anchor = $('#infinite-scroll-loader-top').nextAll('.category-header-card, .category-posts-row').first();
+                        var oldOffset = $anchor.length ? $anchor.offset().top : 0;
+                        var oldScrollTop = $(window).scrollTop();
+
+                        // Prepend the new content
                         $('#infinite-scroll-loader-top').after(response.data.html);
+
+                        // Calculate how much the anchor moved down
+                        var newOffset = $anchor.length ? $anchor.offset().top : 0;
+                        var diff = newOffset - oldOffset;
+
+                        if (diff > 0) {
+                            $(window).scrollTop(oldScrollTop + diff);
+                        }
+
                         catsLoaded.unshift(slug);
-                        // Prevent scroll jump when prepending
-                        var addedHeight = $(response.data.html).filter('.category-header-card, .category-posts-row').map(function () {
-                            return $(this).outerHeight();
-                        }).get().reduce((a, b) => a + b, 0);
-                        $(window).scrollTop($(window).scrollTop() + addedHeight);
                         $('#infinite-scroll-loader-top').hide();
                     }
                     console.log('Successfully loaded category: ' + slug);
