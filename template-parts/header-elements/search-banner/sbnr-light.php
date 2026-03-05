@@ -51,7 +51,7 @@ $is_focus_search      = $is_focus_search == '1' ? 'focused-form' : '';
                                 <div class="stylish-search__shell">
                                     <div class="stylish-search__body" style="height:57px;">
                                         <span class="stylish-search__sparkle" aria-hidden="true">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/lexlogo.png' ); ?>" alt="" width="24" height="24" loading="lazy" />
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/lexlogo.svg' ); ?>" alt="" width="24" height="24" loading="lazy" />
                                         </span>
                                         <input type="search" name="s" id="searchInput" class="stylish-search__input" placeholder="<?php echo esc_attr( $placeholder ) ?>" autocomplete="off" value="<?php echo get_search_query() ?>"style="
     border: 0px;

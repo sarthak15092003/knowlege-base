@@ -56,7 +56,7 @@
 }
 
 .sidebar-cta-link:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Apply TOC-like sticky properties to modern sidebar */

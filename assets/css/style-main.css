@@ -423,9 +423,7 @@ a {
 }
 
 a:not(.elementor-button-link):hover {
-  text-decoration-color: var(--brand_color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
 }
 
 p {
@@ -12446,7 +12444,7 @@ form.banner_search_form {
 }
 
 .tag-wrapper .tag-title a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .tag-wrapper .tag-content {
@@ -14668,6 +14666,7 @@ ul.ordered-list li::before {
 .forum-post-content .content a:hover {
   text-decoration-color: var(--brand_color);
   text-decoration-thickness: 3px;
+  text-decoration: none;
 }
 
 .forum-post-content ul li,
@@ -20266,4 +20265,8 @@ h2,
 .page:not(.page-template-page-onepage) .page_wrapper p,
 .page:not(.page-template-page-onepage) .page_wrapper li {
   font-size: 12px !important;
+}
+/* Force remove all hover underlines */
+a:hover {
+  text-decoration: none !important;
 }
