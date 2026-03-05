@@ -139,6 +139,27 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    // 3. Detect INTENT to scroll up at the very top (where scroll event doesn't fire)
+    $(window).on('wheel', function (e) {
+        if ($(window).scrollTop() <= 5 && e.originalEvent.deltaY < 0) {
+            loadPrevCategory();
+        }
+    });
+
+    var touchStartY = 0;
+    $(window).on('touchstart', function (e) {
+        touchStartY = e.originalEvent.touches[0].pageY;
+    });
+    $(window).on('touchmove', function (e) {
+        var touchY = e.originalEvent.touches[0].pageY;
+        if ($(window).scrollTop() <= 5 && touchY > touchStartY + 20) {
+            loadPrevCategory();
+        }
+    });
+
+    /**
+     * Sidebar Syncing & Highlight Updating
+     */
     function updateSidebarHighlight(slug) {
         var targetId = slug;
         var targetHeader = $('.section-header[data-target="' + targetId + '"]');
