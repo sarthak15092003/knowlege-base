@@ -245,8 +245,8 @@ function docy_scripts() {
 	$is_focus_by_slash   = $opt['is_focus_by_slash'] ?? '';
 	$sbnr_post_types   	 = ! empty ( $opt['sbnr_post_types'] ) ?  $opt['sbnr_post_types'] : ['post', 'page', 'docs'];
 	    
-    wp_enqueue_script( 'docy-ajax-search-form', DOCY_DIR_JS . '/ajax-search-form.js', array( 'jquery' ), '1.0.0', true );
-    wp_localize_script('docy-ajax-search-form', 'docy_local_object',
+    wp_enqueue_script( 'docy-ajax-search-form', DOCY_DIR_JS . '/ajax-search-form.js', array( 'jquery', 'docy-main' ), '1.0.0', true );
+    wp_localize_script('docy-main', 'docy_local_object',
         array(
             'ajaxurl'           => $ajax_url,
             'DOCY_DIR_CSS'      => DOCY_DIR_CSS,
