@@ -48,7 +48,7 @@ jQuery(document).ready(function ($) {
             $('#infinite-scroll-loader').find('p').text('Loading ' + slug.replace(/-/g, ' ') + '...');
             $('#infinite-scroll-loader').fadeIn();
         } else {
-            $('#infinite-scroll-loader-top').show();
+            $('#infinite-scroll-loader-top').fadeIn();
         }
 
         $.ajax({
@@ -65,17 +65,13 @@ jQuery(document).ready(function ($) {
                         $('#infinite-scroll-loader').before(response.data.html);
                         catsLoaded.push(slug);
                     } else {
-                        var oldScrollHeight = document.documentElement.scrollHeight;
-                        var oldScrollTop = $(window).scrollTop();
-
                         $('#infinite-scroll-loader-top').after(response.data.html);
-
-                        var newScrollHeight = document.documentElement.scrollHeight;
-                        var heightDiff = newScrollHeight - oldScrollHeight;
-
-                        $(window).scrollTop(oldScrollTop + heightDiff);
-
                         catsLoaded.unshift(slug);
+                        // Prevent scroll jump when prepending
+                        var addedHeight = $(response.data.html).filter('.category-header-card, .category-posts-row').map(function () {
+                            return $(this).outerHeight();
+                        }).get().reduce((a, b) => a + b, 0);
+                        $(window).scrollTop($(window).scrollTop() + addedHeight);
                         $('#infinite-scroll-loader-top').hide();
                     }
                     console.log('Successfully loaded category: ' + slug);
