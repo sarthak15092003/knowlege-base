@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #3A7DFF;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --bg-light: #F8FAFC;
+            --border-color: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: #ffffff;
+            overflow: hidden;
+            color: var(--text-dark);
+        }
+
+        .assistant-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: #fff;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .platforms-dropdown {
+            background: #F1F5F9;
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .connecting-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #D97706;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #F59E0B;
+            border-radius: 50%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-gray);
+            padding: 4px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: var(--bg-light);
+        }
+
+        /* --- Main Content --- */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 20px;
+            padding-bottom: 180px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lex-logo-section {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .lex-logo-circle {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(58, 125, 255, 0.1);
+            border: 1px solid #F1F5F9;
+        }
+
+        .lex-logo-img {
+            width: 45px;
+            height: auto;
+        }
+
+        .greeting-section {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 32px;
+            padding: 0 20px;
+        }
+
+        .greeting-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .greeting-title span {
+            font-weight: 800;
+        }
+
+        .greeting-subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        /* --- Quick Actions --- */
+        .action-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .action-pill {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-pill:hover {
+            border-color: var(--primary-blue);
+            background: #F8FAFF;
+            transform: translateY(-2px);
+        }
+
+        /* --- Suggested Prompts --- */
+        .suggested-section {
+            align-self: flex-start;
+            padding: 0 40px;
+            margin-top: 20px;
+        }
+
+        .suggested-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .prompt-item {
+            font-size: 15px;
+            color: var(--text-dark);
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .prompt-tag {
+            font-weight: 700;
+            color: #94A3B8;
+        }
+
+        /* --- Chat Input --- */
+        .chat-input-container {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 900px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 16px;
+            z-index: 100;
+        }
+
+        .context-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #F1F5F9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .input-box {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            padding: 4px 0;
+        }
+
+        .input-box::placeholder {
+            color: var(--text-gray);
+        }
+
+        .chat-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ask-by-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-gray);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .ask-by-btn:hover {
+            background: var(--bg-light);
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .send-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.2s;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Animation --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .assistant-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="assistant-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="#292D32" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="platforms-dropdown">
+                    All Platforms
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="connecting-status">
+                    <span class="status-dot"></span>
+                    Connecting
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="icon-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="icon-btn" onclick="window.parent.postMessage('close-lex', '*')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="lex-logo-section">
+                <div class="lex-logo-circle">
+                    <img src="/knowlege/wp-content/themes/docy/assets/img/lexlogo.svg" alt="Lex" class="lex-logo-img">
+                </div>
+            </div>
+
+            <div class="greeting-section">
+                <h1 class="greeting-title">Hello, I'm <span>Lex</span></h1>
+                <p class="greeting-subtitle">Your AI Advertising Assistant. To Provide You With Personalized Insights,
+                    I'll Need Access To Your Advertising Accounts.</p>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 10V18M12 6V18M16 14V18" stroke="#3A7DFF" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3A7DFF" stroke-width="1.5" />
+                    </svg>
+                    Create Report
+                </div>
+                <div class="action-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="#F59E0B" stroke-width="1.5" />
+                        <path d="M12 7v10M14 9h-3a1.5 1.5 0 000 3h2a1.5 1.5 0 010 3h-3" stroke="#F59E0B"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Budget Allocation
+                </div>
+                <div class="action-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="#10B981" stroke-width="1.5" />
+                        <circle cx="12" cy="12" r="4" stroke="#10B981" stroke-width="1.5" />
+                        <circle cx="12" cy="12" r="1" fill="#10B981" />
+                    </svg>
+                    Day Wise Performance
+                </div>
+                <div class="action-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 17l6-6 4 4 6-6" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M15 9h5v5" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Analysis Trend
+                </div>
+            </div>
+
+            <div class="suggested-section">
+                <div class="suggested-label">Suggested prompts:</div>
+                <div class="prompt-item">
+                    <span class="prompt-tag">ROAS</span> Show return on ad spend for the past month.
+                </div>
+            </div>
+        </main>
+
+        <!-- Chat Input Section -->
+        <div class="chat-input-container">
+            <div class="context-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Add Context
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <input type="text" class="input-box" placeholder="Ask me anything... (Type / for commands)">
+
+            <div class="chat-footer">
+                <div class="footer-left">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5v14M5 12h14" stroke="var(--text-gray)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <div class="ask-by-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                            <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <path d="M12 15l3-3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Ask by Lex
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" fill="var(--text-gray)" />
+                        <path d="M19 10v2a7 7 0 01-14 0v-2" stroke="var(--text-gray)" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 19v4M8 23h8" stroke="var(--text-gray)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <button class="send-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

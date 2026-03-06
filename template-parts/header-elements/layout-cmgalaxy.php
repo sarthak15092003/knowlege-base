@@ -90,7 +90,6 @@ $s_value = get_search_query() ? get_search_query() : '';
     </div>
 </div>
 
-<!-- Lex Side Trigger -->
 <button id="lex-side-trigger" class="lex-side-trigger" aria-label="Open Lex Assistant">
     <svg width="12" height="20" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 2l-8 10 8 10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -101,9 +100,12 @@ $s_value = get_search_query() ? get_search_query() : '';
 <div id="lex-drawer" class="lex-drawer" role="dialog" aria-modal="true" aria-label="Lex Assistant">
     <div class="lex-drawer-overlay"></div>
     <div class="lex-drawer-panel">
-        <button class="lex-drawer-expand" id="lex-drawer-expand" aria-label="Expand Lex">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 19l-7-7 7-7" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <button class="lex-drawer-expand" id="lex-drawer-expand" aria-label="Toggle Lex Expansion">
+            <svg class="lex-icon-expand" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="lex-icon-collapse" width="12" height="20" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2l8 10-8 10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </button>
         <div class="lex-drawer-body">
@@ -115,7 +117,7 @@ $s_value = get_search_query() ? get_search_query() : '';
                 </button>
             </div>
             <div class="lex-drawer-content">
-                <iframe src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-content.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Content"></iframe>
+                <iframe id="lex-assistant-frame" src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-assistant.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Assistant"></iframe>
             </div>
         </div>
     </div>
@@ -165,6 +167,13 @@ $s_value = get_search_query() ? get_search_query() : '';
             e.preventDefault();
             // Trigger the main Lex button click functionality
             $('.cmgalaxy-ask-lex-btn').first().click();
+        });
+
+        // Listen for messages from Lex Assistant iframe
+        window.addEventListener('message', function(event) {
+            if (event.data === 'close-lex') {
+                $('#lex-drawer-close').click();
+            }
         });
     });
 })(jQuery);
@@ -301,8 +310,16 @@ $s_value = get_search_query() ? get_search_query() : '';
     transition: transform 0.3s ease;
 }
 
-.lex-drawer-panel.expanded .lex-drawer-expand svg {
-    transform: rotate(180deg);
+.lex-icon-collapse {
+    display: none;
+}
+
+.lex-drawer-panel.expanded .lex-icon-expand {
+    display: none;
+}
+
+.lex-drawer-panel.expanded .lex-icon-collapse {
+    display: flex;
 }
 
 .lex-drawer-expand:hover {
