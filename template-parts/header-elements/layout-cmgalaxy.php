@@ -221,9 +221,9 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Sliding panel */
 .lex-drawer-panel {
     position: absolute;
-    top: 2%;
+    top: 15%; /* Large gap at top */
     right: 15px;
-    height: 96%;
+    height: 85%; /* Reduced height */
     width: 375px;
     max-width: 95vw;
     overflow: visible;
