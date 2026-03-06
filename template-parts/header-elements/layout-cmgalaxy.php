@@ -205,6 +205,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     background: transparent;
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
     animation: lex-fade-in 0.3s ease forwards;
+    pointer-events: none; /* Never block background in sidebar mode */
 }
 
 .lex-drawer-panel.expanded ~ .lex-drawer-overlay {
@@ -221,9 +222,9 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Sliding panel */
 .lex-drawer-panel {
     position: absolute;
-    top: 15%; /* Large gap at top */
-    right: 15px;
-    height: 85%; /* Reduced height */
+    top: 15%; /* Keep gap at top */
+    right: 0; /* Removed gap from right */
+    height: 85%; 
     width: 375px;
     max-width: 95vw;
     overflow: visible;
@@ -248,7 +249,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     background: #ffffff;
     box-shadow: -12px 0 48px rgba(58, 125, 255, 0.18);
     border: 1.5px solid #e0e9f9;
-    border-radius: 24px;
+    border-radius: 24px 0 0 24px; /* Rounded only on the left side */
     display: flex;
     flex-direction: column;
     overflow: hidden;
