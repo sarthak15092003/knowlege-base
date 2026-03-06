@@ -120,11 +120,37 @@
             }
         });
 
-        // Ask Lex button click handler
-        $('.cmgalaxy-ask-lex-btn').on('click', function (e) {
+        // Ask Lex button click handler — opens the right-side drawer
+        $(document).on('click', '.cmgalaxy-ask-lex-btn', function (e) {
             e.preventDefault();
-            // Future: Add Ask Lex functionality
-            alert('Ask Lex feature coming soon!');
+            var $drawer = $('#lex-drawer');
+            if ($drawer.length) {
+                $drawer.removeClass('closing').addClass('open');
+                $('body').addClass('lex-drawer-open');
+            }
+        });
+
+        // Close Lex Drawer
+        $(document).on('click', '#lex-drawer-close, .lex-drawer-overlay', function (e) {
+            e.preventDefault();
+            var $drawer = $('#lex-drawer');
+            if ($drawer.length) {
+                $drawer.addClass('closing');
+                setTimeout(function () {
+                    $drawer.removeClass('open closing');
+                    $drawer.find('.lex-drawer-panel').removeClass('expanded'); // Reset expansion state
+                    $('body').removeClass('lex-drawer-open');
+                }, 300); // Matches the CSS transition time
+            }
+        });
+
+        // Toggle Expand Lex Drawer
+        $(document).on('click', '#lex-drawer-expand', function (e) {
+            e.preventDefault();
+            var $panel = $('.lex-drawer-panel');
+            if ($panel.length) {
+                $panel.toggleClass('expanded');
+            }
         });
 
         // Community and Sign In link handlers

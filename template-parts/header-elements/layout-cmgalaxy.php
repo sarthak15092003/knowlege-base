@@ -90,6 +90,37 @@ $s_value = get_search_query() ? get_search_query() : '';
     </div>
 </div>
 
+<!-- Lex Side Trigger -->
+<button id="lex-side-trigger" class="lex-side-trigger" aria-label="Open Lex Assistant">
+    <svg width="12" height="20" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2l-8 10 8 10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</button>
+
+<!-- Lex Drawer -->
+<div id="lex-drawer" class="lex-drawer" role="dialog" aria-modal="true" aria-label="Lex Assistant">
+    <div class="lex-drawer-overlay"></div>
+    <div class="lex-drawer-panel">
+        <button class="lex-drawer-expand" id="lex-drawer-expand" aria-label="Expand Lex">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 19l-7-7 7-7" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="lex-drawer-body">
+            <div class="lex-drawer-header">
+                <button class="lex-drawer-close" id="lex-drawer-close" aria-label="Close Lex">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="lex-drawer-content">
+                <iframe src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-content.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Content"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
 </script>
 
 <script>
@@ -128,12 +159,294 @@ $s_value = get_search_query() ? get_search_query() : '';
             $('body').removeClass('menu-is-opened').addClass('menu-is-closed');
             $(this).fadeOut(300);
         });
+
+        // Lex Side Trigger Click
+        $(document).on('click', '#lex-side-trigger', function(e) {
+            e.preventDefault();
+            // Trigger the main Lex button click functionality
+            $('.cmgalaxy-ask-lex-btn').first().click();
+        });
     });
 })(jQuery);
 </script>
 
 <style>
-/* CSS Fixes for Mobile Menu Visibility and Interaction */
+/* =============================================
+   LEX DRAWER STYLES
+   ============================================= */
+
+/* Drawer container — hidden by default, covers the full viewport when open */
+.lex-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    pointer-events: none;
+}
+
+.lex-drawer.open {
+    display: block;
+    pointer-events: auto;
+}
+
+/* Semi-transparent backdrop */
+.lex-drawer-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    animation: lex-fade-in 0.3s ease forwards;
+}
+
+.lex-drawer-panel.expanded ~ .lex-drawer-overlay {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: auto;
+}
+
+.lex-drawer.closing .lex-drawer-overlay {
+    animation: lex-fade-out 0.28s ease forwards;
+}
+
+/* Sliding panel */
+.lex-drawer-panel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 375px;
+    max-width: 95vw;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                right 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: lex-slide-in 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateX(100%);
+    z-index: 999999;
+}
+
+.lex-drawer-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -12px 0 48px rgba(58, 125, 255, 0.18);
+    border: 1.5px solid #e0e9f9;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.lex-drawer-panel.expanded {
+    width: 85vw;
+    height: 90vh;
+    max-width: 90vw;
+    max-height: 95vh;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) !important;
+}
+
+.lex-drawer-panel.expanded .lex-drawer-body {
+    border-radius: 20px;
+}
+
+.lex-drawer-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 14px;
+    background: transparent;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.lex-drawer-header .lex-drawer-close {
+    pointer-events: auto;
+}
+
+.lex-drawer-expand {
+    position: absolute;
+    top: 50%;
+    left: -18px; /* Half of width to sit on the line */
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1.5px solid #e0e9f9;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    transition: background 0.2s ease, transform 0.25s ease, left 0.3s ease;
+    flex-shrink: 0;
+}
+
+.lex-drawer-expand svg {
+    transition: transform 0.3s ease;
+}
+
+.lex-drawer-panel.expanded .lex-drawer-expand svg {
+    transform: rotate(180deg);
+}
+
+.lex-drawer-expand:hover {
+    background: #f8fafc;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lex-drawer.closing .lex-drawer-panel {
+    animation: lex-slide-out 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Side Trigger Button - Minimalist Circular */
+.lex-side-trigger {
+    position: fixed;
+    right: -18px; /* Sit halfway off the screen edge */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lex-side-trigger:hover {
+    right: -10px;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Vertical line behind the button */
+.lex-side-trigger::before {
+    content: '';
+    position: absolute;
+    right: 17px;
+    top: -100vh;
+    height: 200vh;
+    width: 2px;
+    background: #e2e8f0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.lex-side-trigger svg {
+    transition: transform 0.3s ease;
+}
+
+.lex-side-trigger:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Hide side trigger when drawer is open */
+body.lex-drawer-open .lex-side-trigger {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) translateX(100%);
+}
+
+/* Keyframe animations */
+@keyframes lex-slide-in {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(0); }
+}
+
+@keyframes lex-slide-out {
+    from { transform: translateX(0); }
+    to   { transform: translateX(100%); }
+}
+
+@keyframes lex-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes lex-fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Close button */
+.lex-drawer-close {
+    position: relative;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.lex-drawer-close:hover {
+    background: #dbeafe;
+    transform: rotate(90deg);
+}
+
+.lex-drawer-content {
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.lex-drawer-content iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lex-drawer-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Prevent body scroll while drawer is open */
+body.lex-drawer-open {
+    overflow: hidden !important;
+}
+
+/* =============================================
+   CSS Fixes for Mobile Menu Visibility and Interaction
+   ============================================= */
 @media (max-width: 1024px) {
     /* Ensure the mobile bar is ALWAYS on top */
     .mobile_main_menu {

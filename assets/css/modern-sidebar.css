@@ -93,7 +93,7 @@
     max-height: none !important;
     overflow-y: visible !important;
     width: 100% !important;
-    max-width: 240px !important;
+    max-width: 100% !important;
 }
 
 /* Section Styles */
