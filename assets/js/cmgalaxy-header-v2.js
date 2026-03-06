@@ -11,6 +11,26 @@
         console.log('Mobile menu button found:', $('.mobile_menu_btn').length);
         console.log('Side menu found:', $('.side_menu').length);
 
+        // --- LEX DRAWER PERSISTENCE ---
+        var lexState = localStorage.getItem('lex_drawer_state');
+        var lexExpanded = localStorage.getItem('lex_drawer_expanded');
+        var $drawer = $('#lex-drawer');
+        var $panel = $('.lex-drawer-panel');
+
+        if (lexState === 'open' && $drawer.length) {
+            // Apply immediately but suppress initial animation to prevent flicker
+            $drawer.addClass('open lex-no-animation');
+            if (lexExpanded === 'true' && $panel.length) {
+                $panel.addClass('expanded');
+            }
+
+            // Remove the suppression class after a frame to allow future animations
+            setTimeout(function () {
+                $drawer.removeClass('lex-no-animation');
+            }, 100);
+        }
+        // --- END PERSISTENCE ---
+
         // Search shortcut functionality - Press '/' to focus search
         $(document).on('keydown', function (e) {
             // Check if '/' key is pressed and no input is focused
@@ -126,6 +146,7 @@
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
                 $drawer.removeClass('closing').addClass('open');
+                localStorage.setItem('lex_drawer_state', 'open');
                 // $('body').addClass('lex-drawer-open'); // Allow background scroll
             }
         });
@@ -136,9 +157,11 @@
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
                 $drawer.addClass('closing');
+                localStorage.setItem('lex_drawer_state', 'closed');
                 setTimeout(function () {
                     $drawer.removeClass('open closing');
                     $drawer.find('.lex-drawer-panel').removeClass('expanded'); // Reset expansion state
+                    localStorage.setItem('lex_drawer_expanded', 'false');
                     $('body').removeClass('lex-drawer-open');
                 }, 300); // Matches the CSS transition time
             }
@@ -150,6 +173,8 @@
             var $panel = $('.lex-drawer-panel');
             if ($panel.length) {
                 $panel.toggleClass('expanded');
+                var isExpanded = $panel.hasClass('expanded');
+                localStorage.setItem('lex_drawer_expanded', isExpanded ? 'true' : 'false');
             }
         });
 

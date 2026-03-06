@@ -255,6 +255,13 @@ $s_value = get_search_query() ? get_search_query() : '';
     overflow: hidden;
 }
 
+/* Suppress initial animation for persistence */
+.lex-drawer.lex-no-animation .lex-drawer-panel,
+.lex-drawer.lex-no-animation .lex-drawer-overlay {
+    animation: none !important;
+    transition: none !important;
+}
+
 .lex-drawer-panel.expanded {
     width: 85vw;
     height: 80vh; /* Reduced from 90vh */
