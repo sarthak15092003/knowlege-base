@@ -126,12 +126,12 @@
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
                 $drawer.removeClass('closing').addClass('open');
-                $('body').addClass('lex-drawer-open');
+                // $('body').addClass('lex-drawer-open'); // Allow background scroll
             }
         });
 
         // Close Lex Drawer
-        $(document).on('click', '#lex-drawer-close, .lex-drawer-overlay', function (e) {
+        $(document).on('click', '#lex-drawer-close', function (e) {
             e.preventDefault();
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {

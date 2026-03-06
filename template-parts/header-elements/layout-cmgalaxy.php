@@ -195,7 +195,7 @@ $s_value = get_search_query() ? get_search_query() : '';
 
 .lex-drawer.open {
     display: block;
-    pointer-events: auto;
+    /* Do not set pointer-events: auto; here so background remains interactive */
 }
 
 /* Semi-transparent backdrop */
@@ -211,7 +211,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    pointer-events: auto;
+    pointer-events: auto; /* Blocking interaction only when expanded */
 }
 
 .lex-drawer.closing .lex-drawer-overlay {
@@ -238,6 +238,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     animation: lex-slide-in 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     transform: translateX(100%);
     z-index: 999999;
+    pointer-events: auto; /* Ensure panel is always interactive */
 }
 
 .lex-drawer-body {
