@@ -221,9 +221,9 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Sliding panel */
 .lex-drawer-panel {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    height: 100%;
+    top: 2%;
+    right: 15px;
+    height: 96%;
     width: 375px;
     max-width: 95vw;
     overflow: visible;
@@ -255,7 +255,7 @@ $s_value = get_search_query() ? get_search_query() : '';
 
 .lex-drawer-panel.expanded {
     width: 85vw;
-    height: 90vh;
+    height: 80vh; /* Reduced from 90vh */
     max-width: 90vw;
     max-height: 95vh;
     top: 50%;
@@ -604,6 +604,7 @@ body.menu-is-opened {
     width: 20px;
     height: auto;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .cmgalaxy-ask-lex-btn:hover {
