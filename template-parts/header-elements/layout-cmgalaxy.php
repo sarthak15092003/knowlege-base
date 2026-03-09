@@ -101,7 +101,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     <div class="lex-drawer-panel">
         <div class="lex-drawer-body">
             <div class="lex-drawer-content">
-                <iframe id="lex-assistant-frame" src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-assistant.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Assistant"></iframe>
+                <iframe id="lex-assistant-frame" src="<?php echo esc_url( add_query_arg('ajax_url', admin_url('admin-ajax.php'), get_template_directory_uri() . '/assets/html/lex-assistant.html') ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Assistant"></iframe>
             </div>
         </div>
     </div>

@@ -746,7 +746,9 @@
         const typingIndicator = document.getElementById('typing-indicator');
         const chatContent = document.getElementById('chat-content');
 
-        const AJAX_URL = window.location.origin + '/knowlege/wp-admin/admin-ajax.php';
+        // Dynamically get AJAX URL from query param or fallback
+        const urlParams = new URLSearchParams(window.location.search);
+        const AJAX_URL = urlParams.get('ajax_url') || (window.location.origin + '/knowlege/wp-admin/admin-ajax.php');
 
         function saveMessages() {
             const messages = [];
