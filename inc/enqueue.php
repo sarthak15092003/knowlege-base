@@ -74,7 +74,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'mobile-menu-custom', DOCY_DIR_CSS . '/mobile-menu-custom.css', array(), DOCY_VERSION );
 	
 	// Typography Schema - Global typography system
-	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION . '.3' );
+	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION . '.4' );
 
 	// bbPress forum plugin styles
 	if ( in_array( 'bbpress', get_body_class() ) && class_exists( 'bbPress' ) ) {
