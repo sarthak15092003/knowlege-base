@@ -160,22 +160,33 @@ function lex_chat_query_handler() {
             'open article in', 'open article', 'find article about', 'find article in', 
             'find article', 'tell me about', 'search for', 'look for', 'how to', 
             'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to', 
-            'can you', 'please', 'help me with', 'about', 'the', 'a', 'an'
+            'can you', 'please', 'help me with', 'about'
         ];
         
+        // Remove long phrases first (literal match)
         $q = str_ireplace($stop_phrases, '', $q);
+
+        // Remove short stop words only as whole words
+        $short_stops = ['the', 'a', 'an', 'in', 'on', 'to', 'for', 'of', 'with', 'at', 'by', 'is'];
+        foreach($short_stops as $word) {
+            $q = preg_replace('/\b' . $word . '\b/i', '', $q);
+        }
         
-        // Map common variations and typos to improve relevance
+        // Map common variations and typos (whole phrase or word)
         $mappings = [
             'on board' => 'onboarding',
             'platfrom' => 'platform',
             'getting stated' => 'getting started',
             'on board on' => 'onboarding',
+            'onboarding on' => 'onboarding',
         ];
         
         foreach($mappings as $wrong => $right) {
             $q = str_ireplace($wrong, $right, $q);
         }
+        
+        // Clean up multiple spaces
+        $q = preg_replace('/\s+/', ' ', $q);
         
         return trim($q);
     };
