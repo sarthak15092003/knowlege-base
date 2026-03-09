@@ -147,6 +147,117 @@ function ajax_search_handler() {
     wp_die();
 }
 
+add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
+add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
+
+function lex_chat_query_handler() {
+    $original_query = sanitize_text_field($_POST['query']);
+    
+    // Function to strip conversational phrases
+    $clean_query = function($q) {
+        $stop_phrases = [
+            'open article in', 'open article about', 'open article',
+            'find article about', 'find article in', 'find article',
+            'tell me about', 'search for', 'look for', 'how to', 
+            'where is', 'what is', 'show me'
+        ];
+        $q = str_ireplace($stop_phrases, '', $q);
+        return trim($q);
+    };
+
+    $search_term = $clean_query($original_query);
+    if (empty($search_term)) $search_term = $original_query;
+
+    // Dynamically get ALL public post types on the site
+    $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
+    
+    // First attempt with cleaned query
+    $args = [
+        's'              => $search_term,
+        'post_type'      => array_values($post_types),
+        'posts_per_page' => 5,
+        'orderby'        => 'relevance',
+    ];
+    
+    $query = new WP_Query($args);
+    $results = [];
+    
+    // Fallback: If no literal search matches, try searching by Category/Taxonomy name
+    if (!$query->have_posts()) {
+        $taxonomies = get_taxonomies(['public' => true]);
+        
+        // Helper function for term search
+        $find_terms = function($term_name) use ($taxonomies) {
+            return get_terms([
+                'taxonomy' => $taxonomies,
+                'name__like' => $term_name,
+                'hide_empty' => false,
+            ]);
+        };
+
+        $terms = $find_terms($search_term);
+        
+        // If no match, try splitting words (Fuzzy fallback)
+        if (empty($terms) || is_wp_error($terms)) {
+            $words = explode(' ', $search_term);
+            if (count($words) > 1) {
+                // Try the last word (usually the most specific, e.g., 'started' in 'getting started')
+                $terms = $find_terms(end($words));
+                if (empty($terms) || is_wp_error($terms)) {
+                    // Try the first word
+                    $terms = $find_terms($words[0]);
+                }
+            }
+        }
+        
+        if (!empty($terms) && !is_wp_error($terms)) {
+            $args['s'] = '';
+            $args['tax_query'] = ['relation' => 'OR'];
+            foreach ($terms as $term) {
+                $args['tax_query'][] = [
+                    'taxonomy' => $term->taxonomy,
+                    'field'    => 'slug',
+                    'terms'    => $term->slug,
+                ];
+            }
+            $query = new WP_Query($args);
+        }
+    }
+
+    // Second Fallback: Original query
+    if (!$query->have_posts() && $search_term !== $original_query) {
+        unset($args['tax_query']);
+        $args['s'] = $original_query;
+        $query = new WP_Query($args);
+    }
+    
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+                'excerpt' => wp_trim_words(get_the_excerpt(), 20),
+                'type' => get_post_type()
+            ];
+        }
+        wp_reset_postdata();
+    }
+    
+    if (!empty($results)) {
+        wp_send_json_success([
+            'message' => "I found some articles that might help you:",
+            'results' => $results
+        ]);
+    } else {
+        wp_send_json_success([
+            'message' => "I couldn't find a specific article for that. Could you try rephrasing or asking something else? Or search for keywords like '" . esc_html($search_term) . "'.",
+            'results' => []
+        ]);
+    }
+    
+    wp_die();
+}
 
 /**
  * Set searched keywords
