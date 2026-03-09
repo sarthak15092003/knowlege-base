@@ -38,7 +38,7 @@
 
 .post-category {
     font-size: 12px;
-    color: #64748b;
+    color: #484a61;
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -74,7 +74,7 @@
 
 .post-date {
     font-size: 12px;
-    color: #64748b;
+    color: #484a61;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -92,7 +92,7 @@
 }
 
 .post-card-title a {
-    color: #161c52;
+    color: #484a61;
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -104,7 +104,7 @@
 
 .post-card-excerpt {
     font-size: 0.9375rem;
-    color: #475569;
+    color: #484a61;
     line-height: 1.6;
     margin-bottom: 1rem;
 }

@@ -48,7 +48,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  color: #161c52 !important;
+  color: #484a61 !important;
 }
 
 p,
@@ -15725,7 +15725,7 @@ body.category .doc_blog_grid_area {
 .highest-rated-section .highest-rated-title {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #161c52;
+  color: #484a61;
 }
 
 .highest-rated-section .highest-card {
@@ -15764,7 +15764,7 @@ body.category .doc_blog_grid_area {
 .highest-rated-section .highest-card__title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #161c52;
+  color: #484a61;
   margin-bottom: 16px;
 }
 

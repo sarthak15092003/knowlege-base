@@ -144,7 +144,7 @@
     align-items: center;
     justify-content: center;
     margin-right: 12px;
-    color: #6b7280;
+    color: #484a61;
     flex-shrink: 0;
 }
 
@@ -163,7 +163,7 @@
     flex: 1;
     font-size: 13px;
     font-weight: 500 !important;
-    color: #161c52;
+    color: #484a61;
     line-height: 1.4;
 }
 
@@ -305,7 +305,7 @@
     flex: 1;
     font-size: 0.8125rem;
     font-weight: 400;
-    color: #64748b;
+    color: #484a61;
     line-height: 1.4;
 }
 
