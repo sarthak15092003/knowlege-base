@@ -153,15 +153,30 @@ add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
 function lex_chat_query_handler() {
     $original_query = sanitize_text_field($_POST['query']);
     
-    // Function to strip conversational phrases
+    // Function to strip conversational phrases and normalize keywords
     $clean_query = function($q) {
         $stop_phrases = [
-            'open article in', 'open article about', 'open article',
-            'find article about', 'find article in', 'find article',
-            'tell me about', 'search for', 'look for', 'how to', 
-            'where is', 'what is', 'show me'
+            'open article which tell', 'open article which tells', 'open article about', 
+            'open article in', 'open article', 'find article about', 'find article in', 
+            'find article', 'tell me about', 'search for', 'look for', 'how to', 
+            'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to', 
+            'can you', 'please', 'help me with', 'about', 'the', 'a', 'an'
         ];
+        
         $q = str_ireplace($stop_phrases, '', $q);
+        
+        // Map common variations and typos to improve relevance
+        $mappings = [
+            'on board' => 'onboarding',
+            'platfrom' => 'platform',
+            'getting stated' => 'getting started',
+            'on board on' => 'onboarding',
+        ];
+        
+        foreach($mappings as $wrong => $right) {
+            $q = str_ireplace($wrong, $right, $q);
+        }
+        
         return trim($q);
     };
 
