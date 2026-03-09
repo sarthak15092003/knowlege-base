@@ -324,7 +324,7 @@ article {
     p,
     li {
         font-family: var(--font-family-primary) !important;
-        font-size: 14px !important;
+        font-size: 16px !important;
         line-height: 150% !important;
         font-weight: 400 !important;
         margin-bottom: 1rem !important;
@@ -365,7 +365,7 @@ article {
         }
 
         p {
-            font-size: 13px !important;
+            font-size: 15px !important;
         }
     }
 
@@ -402,7 +402,7 @@ article {
         }
 
         p {
-            font-size: 13px !important;
+            font-size: 14px !important;
         }
     }
 }

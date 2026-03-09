@@ -100,14 +100,6 @@ $s_value = get_search_query() ? get_search_query() : '';
 <div id="lex-drawer" class="lex-drawer" role="dialog" aria-modal="true" aria-label="Lex Assistant">
     <div class="lex-drawer-overlay"></div>
     <div class="lex-drawer-panel">
-        <button class="lex-drawer-expand" id="lex-drawer-expand" aria-label="Toggle Lex Expansion">
-            <svg class="lex-icon-expand" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg class="lex-icon-collapse" width="12" height="20" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 2l8 10-8 10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </button>
         <div class="lex-drawer-body">
             <div class="lex-drawer-content">
                 <iframe id="lex-assistant-frame" src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-assistant.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Assistant"></iframe>
@@ -140,7 +132,10 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Semi-transparent backdrop */
 .lex-drawer-overlay {
     position: absolute;
-    inset: 0;
+    top: 118px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: transparent;
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
     animation: lex-fade-in 0.3s ease forwards;
@@ -161,10 +156,10 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Sliding panel */
 .lex-drawer-panel {
     position: absolute;
-    top: 15%; /* Keep gap at top */
-    right: 0; /* Removed gap from right */
-    height: 85%; 
-    width: 375px;
+    top: 118px; /* Reduced to match the navigation menu line */
+    right: 0;
+    height: calc(100vh - 118px); /* Adjusted for the new top offset */
+    width: 400px;
     max-width: 95vw;
     overflow: visible;
     display: flex;
@@ -187,8 +182,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     height: 100%;
     background: #ffffff;
     box-shadow: -12px 0 48px rgba(58, 125, 255, 0.18);
-    border: 1.5px solid #e0e9f9;
-    border-radius: 24px 0 0 0; /* Rounded only on the left side */
+    border-radius: 0; /* Removed radius to match the straight line of header */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -202,17 +196,27 @@ $s_value = get_search_query() ? get_search_query() : '';
 }
 
 .lex-drawer-panel.expanded {
-    width: 85vw;
-    height: 80vh; /* Reduced from 90vh */
-    max-width: 90vw;
-    max-height: 95vh;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%) !important;
+    width: 800px; /* Increased width from 375px */
+    height: calc(100vh - 118px);
+    max-width: 95vw;
+    max-height: calc(100vh - 118px);
+    top: 118px;
+    right: 0;
+    transform: none !important;
 }
 
 .lex-drawer-panel.expanded .lex-drawer-body {
-    border-radius: 20px;
+    border-radius: 0;
+}
+
+@media (max-width: 1024px) {
+    .lex-drawer-panel, 
+    .lex-drawer-overlay,
+    .lex-drawer-panel.expanded {
+        top: 60px; /* Reduced for mobile/tablet header */
+        height: calc(100vh - 60px);
+        max-height: calc(100vh - 60px);
+    }
 }
 
 /* Removed redundant parent header */

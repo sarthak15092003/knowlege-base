@@ -56,7 +56,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'elegant-icon', DOCY_DIR_VEND . '/elegant-icon/style.css' );
 	wp_enqueue_style( 'font-awesome', DOCY_DIR_VEND . '/font-awesome/css/all.css' );
 	wp_enqueue_style( 'animate', DOCY_DIR_VEND . '/animation/animate.css' );
-	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.5' );
+	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.6' );
 	
 	// CMGALAXY Custom Header Styles
 	wp_enqueue_style( 'cmgalaxy-header', DOCY_DIR_CSS . '/cmgalaxy-header.css', array(), DOCY_VERSION );
@@ -74,7 +74,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'mobile-menu-custom', DOCY_DIR_CSS . '/mobile-menu-custom.css', array(), DOCY_VERSION );
 	
 	// Typography Schema - Global typography system
-	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION . '.5' );
+	wp_enqueue_style( 'typography-schema', DOCY_DIR_CSS . '/typography-schema.css', array(), DOCY_VERSION . '.6' );
 
 	// bbPress forum plugin styles
 	if ( in_array( 'bbpress', get_body_class() ) && class_exists( 'bbPress' ) ) {

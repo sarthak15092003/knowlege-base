@@ -164,6 +164,16 @@
             if (event.data === 'close-lex') {
                 $(document).trigger('lex:close');
             }
+            if (event.data === 'expand-lex') {
+                $('#lex-drawer-expand').click(); // Try to trigger the hidden button if it exists
+                // Or directly toggle expansion
+                var $panel = $('.lex-drawer-panel');
+                if ($panel.length) {
+                    $panel.toggleClass('expanded');
+                    var isExpanded = $panel.hasClass('expanded');
+                    localStorage.setItem('lex_drawer_expanded', isExpanded ? 'true' : 'false');
+                }
+            }
         });
 
         // Unified Lex Closing Logic
