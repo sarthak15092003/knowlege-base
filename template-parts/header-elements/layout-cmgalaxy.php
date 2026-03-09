@@ -188,7 +188,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     background: #ffffff;
     box-shadow: -12px 0 48px rgba(58, 125, 255, 0.18);
     border: 1.5px solid #e0e9f9;
-    border-radius: 24px 0 0 24px; /* Rounded only on the left side */
+    border-radius: 24px 0 0 0; /* Rounded only on the left side */
     display: flex;
     flex-direction: column;
     overflow: hidden;
