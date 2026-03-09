@@ -184,7 +184,7 @@ if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
             }
             
             .breadcrumb .breadcrumb-item.active {
-                color: #6c757d !important;
+                color: #484a61 !important;
             }
         }
         
@@ -199,7 +199,7 @@ if ( (isset( $_GET['cat'] ) && ! empty( $_GET['cat'] )) || is_category() ) : ?>
         }
         
         .breadcrumb .breadcrumb-item.active {
-            color: #6c757d !important;
+            color: #484a61 !important;
         }
 
         /* Large screen adjustments (1440px and above) */

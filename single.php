@@ -339,7 +339,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     text-decoration: underline;
                                 }
                                 .blog_single_item .breadcrumb li.active {
-                                    color: #6c757d !important;
+                                    color: #484a61 !important;
                                 }
                                 /* Mobile breadcrumb visibility */
                                 @media (max-width: 1024px) {
@@ -367,7 +367,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                     .blog_single_item .breadcrumb .breadcrumb-item.active {
                                         display: inline-flex !important;
                                         visibility: visible !important;
-                                        color: #6c757d !important;
+                                        color: #484a61 !important;
                                     }
                                 }
                             </style>';
@@ -401,12 +401,12 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
 
                     <!-- CMGalaxy Engagement Block -->
                     <div class="cmgalaxy-engagement-block mt-5 p-4" style=" border-radius: 12px; background: #ffffff;">
-                        <p class="lead mb-4" style="color: #6c757d !important; font-size: 1.125rem; line-height: 1.75;">
+                        <p class="lead mb-4" style="color: #484a61 !important; font-size: 1.125rem; line-height: 1.75;">
                             Thanks for being here with us! We are beyond excited to see how you'll use CMGalaxy to drive growth for your business.
                         </p>
 
                         <div class="related-articles-section" style="margin-top: 5rem; margin-bottom: 1.5rem;">
-                            <h5 class="fw-semibold mb-3" style="color: #6c757d !important; font-size: 1.125rem;">Related Articles</h5>
+                            <h5 class="fw-semibold mb-3" style="color: #484a61 !important; font-size: 1.125rem;">Related Articles</h5>
                             <ul class="list-unstyled mb-0">
                                 <?php
                                 $categories = get_the_category();
@@ -447,7 +447,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         </div>
 
                         <div class="feedback-section">
-                            <p class="fw-semibold mb-2" style="color: #6c757d !important;">Was this helpful?</p>
+                            <p class="fw-semibold mb-2" style="color: #484a61 !important;">Was this helpful?</p>
                             <div class="d-flex gap-2 mb-3">
                                 <button type="button" class="btn btn-primary">Yes</button>
                                 <button type="button" class="btn btn-outline-secondary">No</button>

@@ -231,7 +231,7 @@
 .subsection-item {
     display: flex;
     align-items: center;
-    padding: 7px 20px 7px 52px;
+    padding: 10px 20px 10px 52px;
     cursor: pointer;
     transition: all 0.2s ease;
 }

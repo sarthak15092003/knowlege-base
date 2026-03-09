@@ -110,7 +110,7 @@ li,
     line-height: 150%;
     font-weight: 400;
     margin-bottom: 1rem;
-    color: #161c52;
+    color: #484a61 !important;
 }
 
 /* Blog Content Font Size Override - 14px except headings */
@@ -323,6 +323,7 @@ article {
         line-height: 150% !important;
         font-weight: 400 !important;
         margin-bottom: 1rem !important;
+        color: #484a61 !important;
     }
 
     /* Responsive for post content */

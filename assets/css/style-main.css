@@ -54,7 +54,7 @@ h6,
 p,
 li,
 li a {
-  color: #6c757d !important;
+  color: #484a61 !important;
   font-weight: 400 !important;
 }
 
@@ -1519,7 +1519,7 @@ textarea {
 }
 
 .breadcrumb-item.active {
-  color: #6c757d !important;
+  color: #484a61 !important;
   font-size: 12px;
 }
 
@@ -19967,18 +19967,18 @@ header *:not(.form-control):not(.search_form *):not(.breadcrumb *) {
 }
 
 .category-header-card .breadcrumb-item.active {
-  color: #6c757d !important;
+  color: #484a61 !important;
   font-weight: 500;
 }
 
 .category-header-card .breadcrumb-item.active,
 .category-header-card .breadcrumb-item.active * {
-  color: #6c757d !important;
+  color: #484a61 !important;
 }
 
 .category-header-card .breadcrumb-item+.breadcrumb-item::before {
   content: "/" !important;
-  color: #6c757d;
+  color: #484a61;
   padding: 0 0.5rem;
   display: inline-block;
 }
@@ -19993,8 +19993,8 @@ header *:not(.form-control):not(.search_form *):not(.breadcrumb *) {
   display: block !important;
   width: 12px !important;
   height: 12px !important;
-  border-right: 2px solid #6c757d !important;
-  border-bottom: 2px solid #6c757d !important;
+  border-right: 2px solid #484a61 !important;
+  border-bottom: 2px solid #484a61 !important;
   transform: rotate(45deg) !important;
   transition: transform 0.3s ease !important;
   position: absolute !important;
@@ -20128,8 +20128,8 @@ button[aria-expanded] i,
   display: block !important;
   width: 12px !important;
   height: 12px !important;
-  border-right: 2px solid #6c757d !important;
-  border-bottom: 2px solid #6c757d !important;
+  border-right: 2px solid #484a61 !important;
+  border-bottom: 2px solid #484a61 !important;
   position: absolute !important;
   right: 20px !important;
   top: 50% !important;
@@ -20266,6 +20266,7 @@ h2,
 .page:not(.page-template-page-onepage) .page_wrapper li {
   font-size: 12px !important;
 }
+
 /* Force remove all hover underlines */
 a:hover {
   text-decoration: none !important;
