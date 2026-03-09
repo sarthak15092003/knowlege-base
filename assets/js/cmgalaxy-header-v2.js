@@ -151,9 +151,21 @@
             }
         });
 
-        // Close Lex Drawer
-        $(document).on('click', '#lex-drawer-close', function (e) {
+        // Lex Side Trigger Click
+        $(document).on('click', '#lex-side-trigger', function (e) {
             e.preventDefault();
+            $('.cmgalaxy-ask-lex-btn').first().click();
+        });
+
+        // Listen for messages from Lex Assistant iframe (e.g., closing from inside)
+        window.addEventListener('message', function (event) {
+            if (event.data === 'close-lex') {
+                $(document).trigger('lex:close');
+            }
+        });
+
+        // Unified Lex Closing Logic
+        $(document).on('lex:close', function () {
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
                 $drawer.addClass('closing');
@@ -165,6 +177,12 @@
                     $('body').removeClass('lex-drawer-open');
                 }, 300); // Matches the CSS transition time
             }
+        });
+
+        // Close Lex Drawer button (if still present or for developer use)
+        $(document).on('click', '#lex-drawer-close', function (e) {
+            e.preventDefault();
+            $(document).trigger('lex:close');
         });
 
         // Toggle Expand Lex Drawer

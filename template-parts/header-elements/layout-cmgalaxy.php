@@ -109,13 +109,6 @@ $s_value = get_search_query() ? get_search_query() : '';
             </svg>
         </button>
         <div class="lex-drawer-body">
-            <div class="lex-drawer-header">
-                <button class="lex-drawer-close" id="lex-drawer-close" aria-label="Close Lex">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
             <div class="lex-drawer-content">
                 <iframe id="lex-assistant-frame" src="<?php echo esc_url( get_template_directory_uri() . '/assets/html/lex-assistant.html' ); ?>" style="width: 100%; height: 100%; border: none;" title="Lex Assistant"></iframe>
             </div>
@@ -123,61 +116,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     </div>
 </div>
 
-</script>
-
-<script>
-// CMGALAXY Mobile Menu Toggle - Left Hamburger Only
-(function($) {
-    'use strict';
-    
-    $(document).ready(function() {
-        // Only target LEFT hamburger (not the modern_sidebar_btn)
-        $(document).on('click', '.mobile_menu_btn:not(.modern_sidebar_btn), .close_nav', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            var body = $('body');
-            var sideMenu = $('.side_menu.dark_menu');
-            var overlay = $('.click_capture');
-            
-            if (sideMenu.hasClass('menu-opened') || body.hasClass('menu-is-opened')) {
-                sideMenu.removeClass('menu-opened');
-                body.removeClass('menu-is-opened').addClass('menu-is-closed');
-                overlay.fadeOut(300);
-            } else {
-                // Close right sidebar if open
-                $('.modern_sidebar_drawer').removeClass('open');
-                
-                sideMenu.addClass('menu-opened');
-                body.removeClass('menu-is-closed').addClass('menu-is-opened');
-                overlay.fadeIn(300);
-            }
-        });
-        
-        // Close menu on overlay click
-        $(document).on('click', '.click_capture', function() {
-            $('.side_menu').removeClass('menu-opened');
-            $('.modern_sidebar_drawer').removeClass('open');
-            $('body').removeClass('menu-is-opened').addClass('menu-is-closed');
-            $(this).fadeOut(300);
-        });
-
-        // Lex Side Trigger Click
-        $(document).on('click', '#lex-side-trigger', function(e) {
-            e.preventDefault();
-            // Trigger the main Lex button click functionality
-            $('.cmgalaxy-ask-lex-btn').first().click();
-        });
-
-        // Listen for messages from Lex Assistant iframe
-        window.addEventListener('message', function(event) {
-            if (event.data === 'close-lex') {
-                $('#lex-drawer-close').click();
-            }
-        });
-    });
-})(jQuery);
-</script>
+<!-- Lex Logic moved to assets/js/cmgalaxy-header-v2.js -->
 
 <style>
 /* =============================================
@@ -276,24 +215,9 @@ $s_value = get_search_query() ? get_search_query() : '';
     border-radius: 20px;
 }
 
-.lex-drawer-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 14px;
-    background: transparent;
-    z-index: 100;
-    pointer-events: none;
-}
+/* Removed redundant parent header */
 
-.lex-drawer-header .lex-drawer-close {
-    pointer-events: auto;
-}
+/* Removed redundant parent styles */
 
 .lex-drawer-expand {
     position: absolute;
@@ -417,26 +341,7 @@ body.lex-drawer-open .lex-side-trigger {
 }
 
 /* Close button */
-.lex-drawer-close {
-    position: relative;
-    background: #f3f4f6;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.2s ease, transform 0.25s ease;
-    flex-shrink: 0;
-}
-
-.lex-drawer-close:hover {
-    background: #dbeafe;
-    transform: rotate(90deg);
-}
+/* Removed redundant parent close button styles */
 
 .lex-drawer-content {
     flex: 1;
