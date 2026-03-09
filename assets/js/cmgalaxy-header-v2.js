@@ -145,6 +145,7 @@
             e.preventDefault();
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
+                console.log('Action: OPENING Lex Drawer');
                 $drawer.removeClass('closing').addClass('open');
                 localStorage.setItem('lex_drawer_state', 'open');
                 // $('body').addClass('lex-drawer-open'); // Allow background scroll
@@ -159,6 +160,7 @@
 
         // Listen for messages from Lex Assistant iframe (e.g., closing from inside)
         window.addEventListener('message', function (event) {
+            console.log('Message received from iframe:', event.data);
             if (event.data === 'close-lex') {
                 $(document).trigger('lex:close');
             }
@@ -166,6 +168,7 @@
 
         // Unified Lex Closing Logic
         $(document).on('lex:close', function () {
+            console.log('Action: CLOSING Lex Drawer');
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
                 $drawer.addClass('closing');
@@ -190,6 +193,7 @@
             e.preventDefault();
             var $panel = $('.lex-drawer-panel');
             if ($panel.length) {
+                console.log('Action: TOGGLING Lex Expansion');
                 $panel.toggleClass('expanded');
                 var isExpanded = $panel.hasClass('expanded');
                 localStorage.setItem('lex_drawer_expanded', isExpanded ? 'true' : 'false');

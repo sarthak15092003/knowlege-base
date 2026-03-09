@@ -208,7 +208,7 @@ function docy_scripts() {
 	
 	// CMGALAXY Header JavaScript - renamed file to force cache refresh
 	// Force reload: v2 file loaded
-	wp_enqueue_script( 'cmgalaxy-header', DOCY_DIR_JS . '/cmgalaxy-header-v2.js', array( 'jquery' ), '1.0.2', true );
+	wp_enqueue_script( 'cmgalaxy-header', DOCY_DIR_JS . '/cmgalaxy-header-v2.js', array( 'jquery' ), '1.0.3', true );
 
 	$banner_type = docy_meta('banner_type');
 
