@@ -27,6 +27,20 @@
             // Remove the suppression class after a frame to allow future animations
             setTimeout(function () {
                 $drawer.removeClass('lex-no-animation');
+
+                // Also update iframe body if expanded
+                if (lexExpanded === 'true') {
+                    var $iframe = $('#lex-assistant-frame');
+                    $iframe.on('load', function () {
+                        if (this.contentDocument) {
+                            $(this.contentDocument.body).addClass('is-expanded');
+                        }
+                    });
+                    // If already loaded
+                    if ($iframe[0] && $iframe[0].contentDocument) {
+                        $($iframe[0].contentDocument.body).addClass('is-expanded');
+                    }
+                }
             }, 100);
         }
         // --- END PERSISTENCE ---
@@ -172,6 +186,12 @@
                     $panel.toggleClass('expanded');
                     var isExpanded = $panel.hasClass('expanded');
                     localStorage.setItem('lex_drawer_expanded', isExpanded ? 'true' : 'false');
+
+                    // Toggle class on iframe body to change icon
+                    var $iframe = $('#lex-assistant-frame');
+                    if ($iframe.length && $iframe[0].contentDocument) {
+                        $($iframe[0].contentDocument.body).toggleClass('is-expanded', isExpanded);
+                    }
                 }
             }
         });

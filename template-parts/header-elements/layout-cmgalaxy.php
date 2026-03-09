@@ -98,7 +98,6 @@ $s_value = get_search_query() ? get_search_query() : '';
 
 <!-- Lex Drawer -->
 <div id="lex-drawer" class="lex-drawer" role="dialog" aria-modal="true" aria-label="Lex Assistant">
-    <div class="lex-drawer-overlay"></div>
     <div class="lex-drawer-panel">
         <div class="lex-drawer-body">
             <div class="lex-drawer-content">
@@ -106,6 +105,7 @@ $s_value = get_search_query() ? get_search_query() : '';
             </div>
         </div>
     </div>
+    <div class="lex-drawer-overlay"></div>
 </div>
 
 <!-- Lex Logic moved to assets/js/cmgalaxy-header-v2.js -->
@@ -132,7 +132,7 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Semi-transparent backdrop */
 .lex-drawer-overlay {
     position: absolute;
-    top: 118px;
+    top: 117px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -156,10 +156,10 @@ $s_value = get_search_query() ? get_search_query() : '';
 /* Sliding panel */
 .lex-drawer-panel {
     position: absolute;
-    top: 118px; /* Reduced to match the navigation menu line */
+    top: 117px; /* Reduced to match the navigation menu line */
     right: 0;
-    height: calc(100vh - 118px); /* Adjusted for the new top offset */
-    width: 400px;
+    height: calc(100vh - 117px); /* Adjusted for the new top offset */
+    width: 390px;
     max-width: 95vw;
     overflow: visible;
     display: flex;
@@ -182,6 +182,7 @@ $s_value = get_search_query() ? get_search_query() : '';
     height: 100%;
     background: #ffffff;
     box-shadow: -12px 0 48px rgba(58, 125, 255, 0.18);
+    border-left: 1.5px solid #e0e9f9;
     border-radius: 0; /* Removed radius to match the straight line of header */
     display: flex;
     flex-direction: column;
@@ -196,11 +197,11 @@ $s_value = get_search_query() ? get_search_query() : '';
 }
 
 .lex-drawer-panel.expanded {
-    width: 800px; /* Increased width from 375px */
-    height: calc(100vh - 118px);
+    width: 1000px; /* Increased width */
+    height: calc(100vh - 117px);
     max-width: 95vw;
-    max-height: calc(100vh - 118px);
-    top: 118px;
+    max-height: calc(100vh - 117px);
+    top: 117px;
     right: 0;
     transform: none !important;
 }
