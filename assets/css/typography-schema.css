@@ -109,6 +109,8 @@ p.paragraph-large,
 /* Default Paragraph */
 p,
 li,
+strong,
+b,
 .paragraph {
     font-family: var(--font-family-primary) !important;
     font-size: 16px !important;

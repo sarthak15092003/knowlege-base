@@ -150,11 +150,50 @@ function ajax_search_handler() {
 add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
 add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
 
+function lex_gemini_extract_keywords($query) {
+    $api_key = 'AIzaSyC9XIGZQ0IZC4kwxIBimlZ-YUHKY8_0UpY';
+    $api_url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $api_key;
+    
+    $prompt = "You are a search keyword extractor for a software knowledge base / documentation site. " .
+              "The user query may have typos, be conversational, or be in broken English. " .
+              "Extract ONLY the key search terms (1-4 words) that would find the most relevant documentation article. " .
+              "Return ONLY the keywords, nothing else. No punctuation, no explanation. " .
+              "Examples:\n" .
+              "User: 'open article which tell how to on board on platfrom' → 'onboarding platform'\n" .
+              "User: 'how do i setup my acount' → 'account setup'\n" .
+              "User: 'UTM paramters guidlines' → 'UTM parameters'\n" .
+              "User: 'getting statred guide' → 'getting started'\n\n" .
+              "Now extract keywords for: \"" . addslashes($query) . "\"";
+
+    $body = json_encode([
+        'contents' => [['parts' => [['text' => $prompt]]]]
+    ]);
+
+    $response = wp_remote_post($api_url, [
+        'headers' => ['Content-Type' => 'application/json'],
+        'body'    => $body,
+        'timeout' => 8,
+    ]);
+
+    if (is_wp_error($response)) return null;
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+    $text = $data['candidates'][0]['content']['parts'][0]['text'] ?? null;
+    
+    if ($text) {
+        return trim(sanitize_text_field($text));
+    }
+    return null;
+}
+
 function lex_chat_query_handler() {
     $original_query = sanitize_text_field($_POST['query']);
     
-    // Function to strip conversational phrases and normalize keywords
-    $clean_query = function($q) {
+    // Try Gemini first to extract clean keywords
+    $gemini_keywords = lex_gemini_extract_keywords($original_query);
+
+    // Fallback: Manual cleaning if Gemini fails
+    $manual_clean = function($q) {
         $stop_phrases = [
             'open article which tell', 'open article which tells', 'open article about', 
             'open article in', 'open article', 'find article about', 'find article in', 
@@ -162,42 +201,31 @@ function lex_chat_query_handler() {
             'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to', 
             'can you', 'please', 'help me with', 'about'
         ];
-        
-        // Remove long phrases first (literal match)
         $q = str_ireplace($stop_phrases, '', $q);
-
-        // Remove short stop words only as whole words
         $short_stops = ['the', 'a', 'an', 'in', 'on', 'to', 'for', 'of', 'with', 'at', 'by', 'is'];
         foreach($short_stops as $word) {
             $q = preg_replace('/\b' . $word . '\b/i', '', $q);
         }
-        
-        // Map common variations and typos (whole phrase or word)
         $mappings = [
-            'on board' => 'onboarding',
-            'platfrom' => 'platform',
-            'getting stated' => 'getting started',
-            'on board on' => 'onboarding',
+            'on board' => 'onboarding', 'platfrom' => 'platform',
+            'getting stated' => 'getting started', 'on board on' => 'onboarding',
             'onboarding on' => 'onboarding',
         ];
-        
         foreach($mappings as $wrong => $right) {
             $q = str_ireplace($wrong, $right, $q);
         }
-        
-        // Clean up multiple spaces
         $q = preg_replace('/\s+/', ' ', $q);
-        
         return trim($q);
     };
 
-    $search_term = $clean_query($original_query);
+    // Use Gemini result if available, else manual cleaning, else original
+    $search_term = $gemini_keywords ?: $manual_clean($original_query);
     if (empty($search_term)) $search_term = $original_query;
 
     // Dynamically get ALL public post types on the site
     $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
     
-    // First attempt with cleaned query
+    // First attempt with cleaned/AI-extracted query
     $args = [
         's'              => $search_term,
         'post_type'      => array_values($post_types),
@@ -212,7 +240,6 @@ function lex_chat_query_handler() {
     if (!$query->have_posts()) {
         $taxonomies = get_taxonomies(['public' => true]);
         
-        // Helper function for term search
         $find_terms = function($term_name) use ($taxonomies) {
             return get_terms([
                 'taxonomy' => $taxonomies,
@@ -223,14 +250,11 @@ function lex_chat_query_handler() {
 
         $terms = $find_terms($search_term);
         
-        // If no match, try splitting words (Fuzzy fallback)
         if (empty($terms) || is_wp_error($terms)) {
             $words = explode(' ', $search_term);
             if (count($words) > 1) {
-                // Try the last word (usually the most specific, e.g., 'started' in 'getting started')
                 $terms = $find_terms(end($words));
                 if (empty($terms) || is_wp_error($terms)) {
-                    // Try the first word
                     $terms = $find_terms($words[0]);
                 }
             }
@@ -284,6 +308,9 @@ function lex_chat_query_handler() {
     
     wp_die();
 }
+
+
+
 
 /**
  * Set searched keywords

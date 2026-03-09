@@ -48,12 +48,14 @@ h6,
 .h4,
 .h5,
 .h6 {
-  color: #484a61 !important;
+  color: #1F2937 !important;
 }
 
 p,
 li,
-li a {
+li a,
+strong,
+b {
   color: #484a61 !important;
   font-weight: 400 !important;
   font-size: 16px !important;
