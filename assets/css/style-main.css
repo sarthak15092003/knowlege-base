@@ -943,7 +943,7 @@ img.litespeed-loaded {
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: 500 !important;
 }
 
 .h1,

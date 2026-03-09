@@ -89,6 +89,11 @@ h6 strong,
     font-weight: inherit;
 }
 
+strong,
+b {
+    font-weight: 500 !important;
+}
+
 /* ========== Paragraphs ========== */
 
 /* Large Paragraph */
