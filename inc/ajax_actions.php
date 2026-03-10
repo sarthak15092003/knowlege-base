@@ -463,10 +463,13 @@ function lex_live_search_handler() {
     }
 
     $args = [
-        's'              => $q,
-        'post_type'      => ['post', 'docs'],
-        'posts_per_page' => 5,
-        'orderby'        => 'relevance'
+        's'                      => $q,
+        'post_type'              => ['post', 'docs'],
+        'posts_per_page'         => 5,
+        'orderby'                => 'relevance',
+        'no_found_rows'          => true,   // skip COUNT(*) query — big speed boost
+        'update_post_meta_cache' => false,  // skip loading post meta
+        'update_post_term_cache' => false,  // skip loading terms
     ];
 
     $query = new WP_Query($args);

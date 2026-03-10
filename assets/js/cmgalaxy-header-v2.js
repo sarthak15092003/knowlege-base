@@ -179,7 +179,7 @@
                         }
                     }
                 });
-            }, 300);
+            }, 150);
         });
 
         $searchInput.on('focus click', function () {
