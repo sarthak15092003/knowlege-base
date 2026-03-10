@@ -158,10 +158,10 @@ function lex_call_openai($query, $force_direct = false) {
     if ($force_direct) {
         $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform. " .
                   "A user asked: \"" . addslashes($query) . "\". " .
-                  "We searched our knowledge base but couldn't find a matching article. " .
-                  "Please answer the user's question directly and helpfully based on your knowledge. " .
-                  "If it's about a specific feature (like DV360 or onboarding), explain how it typically works or give general expert advice. " .
-                  "Always respond in this exact JSON format only:\n" .
+                  "We searched our internal knowledge base but could not find a specific article matching this request.\n\n" .
+                  "IMPORTANT: Please answer the user's question directly and comprehensively using your own knowledge. " .
+                  "Provide a clear, step-by-step solution if possible. Do not just say you don't know - give the best possible advice for an advertising expert.\n\n" .
+                  "Always respond in this exact JSON format only, no extra text:\n" .
                   "{\"type\":\"answer\",\"text\":\"your helpful direct answer here\"}";
     } else {
         $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
@@ -199,7 +199,7 @@ function lex_call_openai($query, $force_direct = false) {
             'Content-Type'  => 'application/json'
         ],
         'body'      => $body,
-        'timeout'   => 15,
+        'timeout'   => 25,
         'sslverify' => false,
     ]);
 
@@ -209,26 +209,29 @@ function lex_call_openai($query, $force_direct = false) {
     }
 
     $status_code = wp_remote_retrieve_response_code($response);
-    $body_response = wp_remote_retrieve_body($response);
-    $data = json_decode($body_response, true);
-    
-    // Check for API-level errors (like 401 Unauthorized / invalid key)
-    if ($status_code !== 200 && isset($data['error'])) {
-        error_log('Lex OpenAI API Error: ' . print_r($data['error'], true));
-        return [
-            'type' => 'error', 
-            'text' => 'My built-in AI (OpenAI) encountered an error: ' . sanitize_text_field($data['error']['message'])
-        ];
-    }
+    $body_response = trim(wp_remote_retrieve_body($response));
 
-    $text = $data['choices'][0]['message']['content'] ?? null;
+    if (empty($body_response)) return null;
+
+    // Is it a direct JSON string? (Sometimes proxies like Pollinations return text directly)
+    if (strpos($body_response, '{') === 0) {
+        $json_body = json_decode($body_response, true);
+        if (isset($json_body['choices'][0]['message']['content'])) {
+            $text = $json_body['choices'][0]['message']['content'];
+        } else {
+            // Assume the body itself is the JSON command
+            $text = $body_response; 
+        }
+    } else {
+        // Assume raw text response
+        $text = $body_response;
+    }
 
     if (!$text) return null;
 
     // Strip markdown code fences if wrapped in ```json
     $clean = trim($text);
-    $clean = preg_replace('/^```json\s*/i', '', $clean);
-    $clean = preg_replace('/^```\s*/i', '', $clean);
+    $clean = preg_replace('/^```(?:json)?\s*/i', '', $clean);
     $clean = preg_replace('/\s*```$/i', '', $clean);
     
     // Extract just the JSON object if there's extra text
@@ -364,16 +367,24 @@ function lex_chat_query_handler() {
         ]);
     } else {
         // AI Fallback: If no articles found, ask the AI to answer directly
+        // Use a longer timeout for the fallback to ensure it finishes
         $fallback = lex_call_openai($original_query, true);
         
-        if ($fallback && $fallback['type'] === 'answer' && !empty($fallback['text'])) {
+        if ($fallback && isset($fallback['type']) && $fallback['type'] === 'answer' && !empty($fallback['text'])) {
             wp_send_json_success([
-                'message' => "I couldn't find a specific article, but here is an answer based on what I know: \n\n" . wp_strip_all_tags($fallback['text']),
+                'message' => "I couldn't find a specific article, but here is a direct answer based on what I know:\n\n" . wp_strip_all_tags($fallback['text']),
                 'results' => []
             ]);
         } else {
+            // Log fallback failure for debugging
+            if (!$fallback) {
+                error_log('Lex Fallback Failed: No response from AI.');
+            } else {
+                error_log('Lex Fallback Failed: Unexpected response format: ' . print_r($fallback, true));
+            }
+
             wp_send_json_success([
-                'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Try asking differently, or search for keywords like '" . esc_html($search_term) . "'.",
+                'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Please try rephrasing or asking another question.",
                 'results' => []
             ]);
         }
