@@ -464,6 +464,15 @@ body.menu-is-opened {
     padding: 1rem 0;
 }
 
+/* Search input — taller only when popup is open */
+.cmgalaxy-search-section.popup-active .cmgalaxy-search-input {
+    height: 50px !important;
+    line-height: 50px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
 
 
 .cmgalaxy-logo-section {

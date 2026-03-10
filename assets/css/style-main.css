@@ -4116,7 +4116,7 @@ body.docy_top_header .search-banner-light .container {
 
 .box_input_hero .banner_search_form .form-control,
 .sbnr-aesthetic .banner_search_form .form-control {
-  height: 80px;
+  height: 66px;
   padding-left: 30px;
   font-size: 14px;
   border: 0;
@@ -4304,7 +4304,7 @@ body.docy_top_header .search-banner-light .container {
   background: transparent;
   border: 0;
   padding: 15px 30px;
-  height: 80px;
+  height: 60px;
 }
 
 .hero_community .banner_search_form .input-group input:focus {

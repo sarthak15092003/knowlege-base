@@ -199,14 +199,22 @@
             }
         });
 
+        function highlightText(text, query) {
+            if (!query) return text;
+            var escaped = query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+            var regex = new RegExp('(' + escaped + ')', 'gi');
+            return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+        }
+
         function renderSuggestions(query, results) {
             $suggestions.empty();
 
             if (results.length > 0) {
                 results.forEach(function (res) {
+                    var highlightedTitle = highlightText(res.title, query);
                     var $item = $('<a href="' + res.url + '" class="suggestion-item">' +
                         '<div class="suggestion-content">' +
-                        '<div class="suggestion-title">' + res.title + '</div>' +
+                        '<div class="suggestion-title">' + highlightedTitle + '</div>' +
                         '<div class="suggestion-meta">Article in ' + res.type + '</div>' +
                         '</div>' +
                         '</a>');
@@ -227,6 +235,7 @@
             $suggestions.append($askLex);
             $suggestions.show();
         }
+
 
         // Close suggestions when clicking outside or on backdrop
         $(document).on('click', function (e) {

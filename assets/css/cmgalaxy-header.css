@@ -1251,3 +1251,28 @@ footer {
     color: #ffffff !important;
     background-color: transparent !important;
 }
+
+/* =============================================
+   Search Input — taller height only when popup is open
+   ============================================= */
+.cmgalaxy-search-section.popup-active .cmgalaxy-search-input {
+    height: 50px !important;
+    line-height: 50px !important;
+    padding: 0 1.5rem !important;
+    font-size: 1rem !important;
+    transition: height 0.25s ease, padding 0.25s ease !important;
+}
+
+/* =============================================
+   Search Suggestion — highlight matched letters
+   ============================================= */
+.suggestion-title {
+    font-weight: 400 !important;
+}
+
+mark.search-highlight {
+    background: none !important;
+    color: inherit !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+}
