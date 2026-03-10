@@ -86,7 +86,9 @@ h6 strong,
 .h4 strong,
 .h5 strong,
 .h6 strong {
-    font-weight: inherit;
+    font-weight: inherit !important;
+    font-size: inherit !important;
+    color: inherit !important;
 }
 
 strong,
