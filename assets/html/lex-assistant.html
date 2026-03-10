@@ -137,8 +137,8 @@
         }
 
         .icon-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
         }
 
         body.is-expanded .lex-expand-icon {
@@ -744,14 +744,6 @@
         <!-- Header -->
         <header class="header">
             <div class="header-left">
-                <button class="icon-btn header-new-chat-btn" onclick="clearChat()" title="Clear Chat History">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </button>
                 <div class="header-main-info" style="display: flex; align-items: center; gap: 12px;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.221893 11.4087C3.6994 11.6055 6.9089 13.3398 8.97921 16.1408L9.23264 16.4837"
@@ -782,6 +774,14 @@
                             xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="icon-btn header-new-chat-btn" onclick="clearChat()" title="Clear Chat History">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </button>
                     <button class="icon-btn" onclick="window.parent.postMessage('close-lex', '*')">

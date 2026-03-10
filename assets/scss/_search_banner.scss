@@ -207,7 +207,8 @@
   }
 }
 
-.box_input_hero, .sbnr-aesthetic {
+.box_input_hero,
+.sbnr-aesthetic {
   h1 {
     color: #fff;
     position: relative;
@@ -226,7 +227,7 @@
     display: block;
 
     .form-control {
-      height: 66px;
+      height: 80px;
       padding-left: 30px;
       font-size: 14px;
       border: 0;
@@ -419,8 +420,9 @@
         background: transparent;
         border: 0;
         padding: 15px 30px;
-        height: 60px;
-        &:focus{
+        height: 80px;
+
+        &:focus {
           outline: none;
           box-shadow: none;
         }
@@ -438,6 +440,7 @@
 
   @media (max-width: 991px) {
     padding: 150px 0;
+
     .partical-animation {
       z-index: 0;
     }
@@ -495,7 +498,7 @@
         background: transparent;
         border: 0;
         padding: 15px 30px;
-        height: 60px;
+        height: 80px;
 
         &::placeholder {
           color: #6b707f;
@@ -535,10 +538,10 @@ body:not(.search-focused) {
   }
 }
 
-body{
-  &.search-focused{
+body {
+  &.search-focused {
     .sbnr-aesthetic {
-      .container{
+      .container {
         color: #fff;
         position: relative;
         z-index: 999;
@@ -873,7 +876,7 @@ body{
 
 /*=========== Aesthetic search banner ============*/
 
-.banner-video-wrap{
+.banner-video-wrap {
   .sbnr-aesthetic {
     padding: 180px 0 275px;
   }
@@ -1178,7 +1181,7 @@ body{
       }
     }
 
-    & + .breadcrumb-item {
+    &+.breadcrumb-item {
       &:before {
         content: "\35";
         font-family: eleganticons;
@@ -1435,7 +1438,7 @@ body{
       ul {
         margin-bottom: 0;
 
-        > li {
+        >li {
           font-size: 16px;
           color: var(--secondary_color);
 
@@ -1460,7 +1463,7 @@ body{
                 padding-right: 15px;
               }
 
-              > a {
+              >a {
                 line-height: 26px;
                 font-weight: 400;
                 color: #6b707f;
@@ -1554,6 +1557,7 @@ body{
     top: 0;
     width: 100%;
   }
+
   &.search-banner-light {
     background-color: #ffffff00 !important;
     padding-top: 130px;
@@ -1585,7 +1589,7 @@ body{
     padding-bottom: 85px;
 
     .doc_banner_content {
-      > .title {
+      >.title {
         margin-bottom: 0;
         font-size: 46px;
         font-weight: 700;
@@ -1622,6 +1626,7 @@ body{
       margin-top: 10px;
     }
   }
+
   .header_search_form {
     max-width: 650px;
 
@@ -1642,10 +1647,11 @@ body{
             height: 50px;
             line-height: 50px;
             box-shadow: 0 1px 1px rgba(11, 80, 115, 0.3),
-            0 1px 5px rgba(60, 64, 67, 0.1);
+              0 1px 5px rgba(60, 64, 67, 0.1);
             padding-right: 30px;
 
-            &:focus, &:hover {
+            &:focus,
+            &:hover {
               box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 2px 6px 2px rgba(60, 64, 67, .15);
             }
 
@@ -1826,7 +1832,8 @@ body{
   margin-top: 45px;
 }
 
-.header_search_form, .doc_banner_text .banner_search_form {
+.header_search_form,
+.doc_banner_text .banner_search_form {
   position: relative;
 }
 
@@ -1869,6 +1876,7 @@ body{
       margin-right: 15px;
       color: var(--black_500);
       cursor: pointer;
+
       &:hover {
         color: var(--brand_color);
       }
@@ -1906,12 +1914,14 @@ body{
       list-style: none;
       color: var(--black_800);
       padding: 0;
+
       +.breadcrumb-item::before {
         content: "5";
         font-family: eleganticons;
         color: #b7b9be;
       }
     }
+
     .breadcrumb-item:last-child {
       display: none;
     }
@@ -1938,8 +1948,11 @@ body{
   .search-results-tab {
     max-height: 100vh;
     overflow: auto;
+
     &.no-thumbnail {
-      .doc-section, .breadcrumb {
+
+      .doc-section,
+      .breadcrumb {
         padding-left: 0px;
       }
 
@@ -1994,11 +2007,14 @@ body{
     &:hover {
       background: var(--brand_color);
 
-      .breadcrumb-item, .cat, .bbp-breadcrumb-root {
+      .breadcrumb-item,
+      .cat,
+      .bbp-breadcrumb-root {
         color: var(--black_100)
       }
 
-      .title, .topic-section {
+      .title,
+      .topic-section {
         color: #fff;
       }
 
@@ -2007,7 +2023,8 @@ body{
       }
     }
 
-    img, svg.block.h-full {
+    img,
+    svg.block.h-full {
       position: absolute;
       top: 12px;
       margin: auto;
@@ -2037,13 +2054,14 @@ body{
       .shop-search-content-wrap {
         flex: 1;
         text-align: left;
+
         .price {
-            color: var(--black_700);
+          color: var(--black_700);
         }
       }
 
       .shop-search-thumbnail-wrap {
-        > img {
+        >img {
           position: unset;
           width: auto;
           max-width: 70px;
@@ -2052,7 +2070,7 @@ body{
           border-radius: 5px;
         }
 
-        > svg.block.h-full.w-auto {
+        >svg.block.h-full.w-auto {
           position: unset;
           width: 70px;
           height: 70px;
@@ -2060,7 +2078,7 @@ body{
       }
 
       .shop-search-content-wrap {
-        a > span {
+        a>span {
           padding-left: 0;
           font-size: 15px;
         }
@@ -2073,7 +2091,7 @@ body{
   }
 }
 
-.docy_search_hero{
+.docy_search_hero {
   #docy-search-result {
     top: 75px
   }
@@ -2087,7 +2105,7 @@ body{
   }
 }
 
-#searchInput + .spinner {
+#searchInput+.spinner {
   position: absolute;
   right: 27px;
   top: 50%;
@@ -2101,7 +2119,9 @@ body{
 }
 
 form {
-  &.header_search_form, &.banner_search_form  {
+
+  &.header_search_form,
+  &.banner_search_form {
     .spinner {
       position: absolute;
       right: 27px;
@@ -2109,6 +2129,7 @@ form {
       transform: translateY(-55%);
       display: none;
       z-index: 999;
+
       img {
         width: 22px;
       }
@@ -2116,13 +2137,13 @@ form {
   }
 }
 
-.hero_cool #searchInput + .spinner,
-.sbnr-aesthetic #searchInput + .spinner {
+.hero_cool #searchInput+.spinner,
+.sbnr-aesthetic #searchInput+.spinner {
   right: 80px;
 }
 
 .has_drop #searchInput {
-  + .spinner {
+  +.spinner {
     right: 130px;
   }
 
@@ -2138,7 +2159,7 @@ form {
   position: relative;
   max-width: 800px;
   z-index: 2;
-  margin:  -220px auto auto;
+  margin: -220px auto auto;
   border-radius: 1rem;
   overflow: hidden;
   width: 100%;
@@ -2146,7 +2167,8 @@ form {
 
   .video-wrapper {
     position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
 
@@ -2192,6 +2214,7 @@ form {
       cursor: pointer;
       font-size: 14px;
       transition: background-color 0.3s ease;
+
       &:hover {
         background-color: rgba(0, 0, 0, 0.8);
       }
@@ -2244,7 +2267,7 @@ form {
           color: #000000;
           font-size: 18px;
           line-height: 20px;
-          text-wrap:nowrap;
+          text-wrap: nowrap;
           letter-spacing: 1px;
           padding-right: 24px;
           margin-left: 5px;
@@ -2265,6 +2288,7 @@ form {
   .banner-bg {
     background: #f5f8ff;
   }
+
   .doc_banner_area {
     padding-bottom: 270px;
   }
@@ -2279,8 +2303,8 @@ form {
 
   .banner-video-container {
     max-width: 720px;
-    padding:0 0.75rem;
-    margin-top:60px;
+    padding: 0 0.75rem;
+    margin-top: 60px;
   }
 
   .banner-video-wrap {
@@ -2324,26 +2348,30 @@ form {
     width: 30px;
     height: 30px;
     border: 4px solid #ccc;
-    border-top-color: #0073e6; /* Accent color */
+    border-top-color: #0073e6;
+    /* Accent color */
     border-radius: 50%;
     animation: searchSpin 1s linear infinite;
     margin-left: 10px;
   }
 
   @keyframes searchSpin {
-      0% {
-          transform: rotate(0deg);
-      }
-      100% {
-          transform: rotate(360deg);
-      }
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
 }
 
 #search-results {
-  position: relative; /* Ensures preloader is within the results section */
-  min-height: 60px; /* Sets minimum height for the results area */
+  position: relative;
+  /* Ensures preloader is within the results section */
+  min-height: 60px;
+  /* Sets minimum height for the results area */
 }
 
 .docy-search-results-heading {
@@ -2357,8 +2385,9 @@ form {
   font-size: 17px;
   margin-top: 10px;
 }
+
 .header_search_keyword {
-  > ul {
+  >ul {
     flex-flow: nowrap;
   }
 }

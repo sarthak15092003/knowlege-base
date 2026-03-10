@@ -4116,7 +4116,7 @@ body.docy_top_header .search-banner-light .container {
 
 .box_input_hero .banner_search_form .form-control,
 .sbnr-aesthetic .banner_search_form .form-control {
-  height: 66px;
+  height: 80px;
   padding-left: 30px;
   font-size: 14px;
   border: 0;
@@ -4304,7 +4304,7 @@ body.docy_top_header .search-banner-light .container {
   background: transparent;
   border: 0;
   padding: 15px 30px;
-  height: 60px;
+  height: 80px;
 }
 
 .hero_community .banner_search_form .input-group input:focus {
@@ -4390,7 +4390,7 @@ body.docy_top_header .search-banner-light .container {
   background: transparent;
   border: 0;
   padding: 15px 30px;
-  height: 60px;
+  height: 80px;
 }
 
 .hero_community .banner-content-wrapper .banner-search-form input::placeholder {
