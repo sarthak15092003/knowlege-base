@@ -113,10 +113,35 @@ $s_value = get_search_query() ? get_search_query() : '';
 <!-- Lex Logic configuration -->
 <script>
     const lexLogoUrl = "<?php echo get_template_directory_uri(); ?>/assets/img/lexlogo.svg";
+    const cmgalaxy_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
 </script>
+<div id="cmgalaxy-search-backdrop" class="cmgalaxy-search-backdrop"></div>
 <!-- Lex Logic moved to assets/js/cmgalaxy-header-v2.js -->
 
 <style>
+.cmgalaxy-search-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cmgalaxy-search-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+.cmgalaxy-search-section {
+    position: relative;
+    z-index: 1001; /* Must be above backdrop */
+}
 /* =============================================
    LEX DRAWER STYLES
    ============================================= */
@@ -506,13 +531,14 @@ body.menu-is-opened {
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 0.75rem;
-    margin-top: 8px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    max-height: 450px;
+    margin-top: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 1002;
+    max-height: 480px;
     overflow-y: auto;
     display: none;
     padding: 8px 0;
+    animation: lex-fade-in 0.2s ease-out;
 }
 
 .cmgalaxy-search-suggestions.active {
@@ -537,13 +563,20 @@ body.menu-is-opened {
 .suggestion-icon {
     width: 32px;
     height: 32px;
-    background: #f1f5f9;
-    border-radius: 6px;
+    background: #eff6ff;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #64748b;
+    color: #3b82f6;
     flex-shrink: 0;
+}
+
+.suggestion-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #3b82f6 !important;
+    display: block;
 }
 
 .suggestion-content {
