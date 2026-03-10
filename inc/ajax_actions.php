@@ -164,15 +164,14 @@ function lex_call_openai($query, $force_direct = false) {
                   "{\"answer\":\"your substantive technical answer here\",\"keywords\":\"\"}";
     } else {
         $prompt = "You are Lex, the AI technical assistant for 'CMGalaxy'.\n\n" .
-                  "GOAL: Provide a detailed DIRECT TECHNICAL ANSWER (step-by-step) AND extract EXACT technical nouns for a documentation search.\n\n" .
+                  "GOAL: Provide a HIGHLY TECHNICAL, EXPERT ANSWER for all search queries (how to, implement, what is, number of articles, etc.) AND extract specific search keywords.\n\n" .
                   "RULES:\n" .
-                  "1. If a user asks about 'dv360', 'pixel', 'UTM', etc., your 'answer' field must contain a substantive 3-5 point technical guide immediately.\n" .
-                  "2. In the 'keywords' field, extract ONLY 1-2 specific technology nouns (e.g., 'dv360', 'pixel', 'utm').\n" .
-                  "3. CRITICAL: NEVER include the following in 'keywords': 'how', 'to', 'the', 'setup', 'implement', 'guide', 'instruction', 'ads', 'digital', 'advertising', 'marketing', 'onboarding'. If no specific product noun is present, return empty string.\n" .
-                  "4. Always format your 'answer' with a professional, expert tone.\n\n" .
+                  "1. If a user asks a question about a feature or technical detail (e.g. 'reporting hub', 'pixel', 'dv360'), your 'answer' field MUST contain a detailed, technical explanation or guide (3-5 bullet points). DO NOT use conversational filler like 'Hello, how can I help?'.\n" .
+                  "2. In the 'keywords' field, extract ONLY 1-2 core nouns (e.g., 'dv360', 'pixel', 'reporting'). NEVER include 'how', 'to', 'the', 'setup', 'total', 'number'.\n" .
+                  "3. For very simple greetings (e.g., 'hi'), keep it brief.\n\n" .
                   "IMPORTANT: Always respond in this exact JSON format only:\n" .
                   "{\n" .
-                  "  \"answer\": \"your expert guide or answer here\",\n" .
+                  "  \"answer\": \"your expert technical answer here\",\n" .
                   "  \"keywords\": \"specific technical noun(s) only\"\n" .
                   "}";
     }
@@ -266,7 +265,8 @@ function lex_chat_query_handler() {
             'open article in', 'open article', 'find article about', 'find article in',
             'find article', 'tell me about', 'search for', 'look for', 'how to',
             'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to',
-            'can you', 'please', 'help me with', 'about'
+            'can you', 'please', 'help me with', 'about', 'total number of', 'total number',
+            'count of', 'how many', 'number of', 'articles in', 'article in', 'articles', 'article'
         ];
         $q = str_ireplace($stop_phrases, '', $original_query);
         $short_stops = ['the', 'a', 'an', 'in', 'on', 'to', 'for', 'of', 'with', 'at', 'by', 'is'];
@@ -290,7 +290,7 @@ function lex_chat_query_handler() {
     $args = [
         's'              => $search_term,
         'post_type'      => array_values($post_types),
-        'posts_per_page' => 5,
+        'posts_per_page' => 100, // Increase for accurate post-filtering
         'orderby'        => 'relevance',
     ];
 
@@ -352,8 +352,8 @@ function lex_chat_query_handler() {
                     $w = trim($w);
                     if (strlen($w) < 3 || in_array($w, $blacklist)) continue; 
                     
-                    if (preg_match('/\b' . preg_quote($w) . '\b/i', $title) || 
-                        preg_match('/\b' . preg_quote($w) . '\b/i', $excerpt)) {
+                    // Use stripos for more flexible matching (allows matching 'report' to 'reporting')
+                    if (stripos($title, $w) !== false || stripos($excerpt, $w) !== false) {
                         $found_keyword = true;
                         break;
                     }
@@ -385,20 +385,20 @@ function lex_chat_query_handler() {
     }
 
     if (!empty($results)) {
-        $display_count = count($results);
-        $actual_total = isset($query->found_posts) ? $query->found_posts : $display_count;
+        $actual_total = count($results);
+        $display_results = array_slice($results, 0, 5); // Still only show top 5 for UI
         $article_text = $actual_total == 1 ? 'article' : 'articles';
         
-        $suggest_msg = " I also found {$display_count} {$article_text} that might help you:";
+        $suggest_msg = " I also found {$actual_total} {$article_text} that might help you:";
         
-        // If user asked for count/total
-        if (preg_match('/(how many|total number|count of|how much)/i', trim($original_query))) {
-            $suggest_msg = " There are {$actual_total} {$article_text} related to \"{$search_term}\". I've listed the most relevant ones below:";
+        // If user asked for count/total (broader regex)
+        if (preg_match('/(how many|total|number|count)/i', trim($original_query))) {
+            $suggest_msg = " There are {$actual_total} {$article_text} related to \"{$search_term}\". Here's the list:";
         }
 
         wp_send_json_success([
             'message' => (!empty($answer) ? $answer . "\n\n" : "") . $suggest_msg,
-            'results' => $results
+            'results' => $display_results
         ]);
     } else {
         // No articles found - use AI answer if we have one
