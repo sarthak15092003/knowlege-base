@@ -197,17 +197,17 @@
 
         .resend-btn {
             display: inline-flex;
+            justify-content: center;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 600;
+            width: 30px;
+            height: 30px;
             color: var(--primary-blue);
             background: rgba(58, 125, 255, 0.1);
             border: none;
             cursor: pointer;
             margin-top: 10px;
-            padding: 6px 14px;
-            border-radius: 8px;
+            padding: 0;
+            border-radius: 50%;
             transition: all 0.2s ease;
         }
 
@@ -1082,11 +1082,12 @@
                     if (userMsgDiv) {
                         const resendBtn = document.createElement('button');
                         resendBtn.className = 'resend-btn';
+                        resendBtn.title = 'Resend Request';
                         resendBtn.innerHTML = `
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 2v6h-6M3 12a9 9 0 102.61-6.17L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                                <path d="M3 3v5h5"/>
                             </svg>
-                            Resend Request
                         `;
                         resendBtn.onclick = () => {
                             resendBtn.remove();
