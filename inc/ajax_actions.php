@@ -150,106 +150,160 @@ function ajax_search_handler() {
 add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
 add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
 
-function lex_gemini_extract_keywords($query) {
-    $api_key = 'AIzaSyC9XIGZQ0IZC4kwxIBimlZ-YUHKY8_0UpY';
-    $api_url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $api_key;
+function lex_call_openai($query) {
+    // Read the OpenAI key
+    $api_key = defined('LEX_OPENAI_KEY') ? LEX_OPENAI_KEY : get_option('lex_openai_key', '');
     
-    $prompt = "You are a search keyword extractor for a software knowledge base / documentation site. " .
-              "The user query may have typos, be conversational, or be in broken English. " .
-              "Extract ONLY the key search terms (1-4 words) that would find the most relevant documentation article. " .
-              "Return ONLY the keywords, nothing else. No punctuation, no explanation. " .
+    if (empty($api_key)) {
+        return [
+            'type' => 'error',
+            'text' => 'My API key is missing. Please add it securely to wp-config.php as LEX_OPENAI_KEY.'
+        ];
+    }
+
+    $api_url = 'https://api.openai.com/v1/chat/completions';
+
+    $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
+              "Your job is to help users find documentation articles OR answer general questions about yourself and CMGalaxy.\n\n" .
+              "When user asks a CONVERSATIONAL question (greetings, 'who are you', 'what can you do', 'tell me about yourself', general small talk, etc.), " .
+              "respond naturally and helpfully as Lex.\n\n" .
+              "When user asks about DOCUMENTATION or wants to find articles (onboarding, UTM, setup, reporting, etc.), " .
+              "extract 1-4 clean search keywords.\n\n" .
+              "IMPORTANT: Always respond in this exact JSON format only, no extra text:\n" .
+              "{\"type\":\"answer\",\"text\":\"your friendly response here\"}\n" .
+              "OR\n" .
+              "{\"type\":\"search\",\"keywords\":\"clean keywords here\"}\n\n" .
               "Examples:\n" .
-              "User: 'open article which tell how to on board on platfrom' → 'onboarding platform'\n" .
-              "User: 'how do i setup my acount' → 'account setup'\n" .
-              "User: 'UTM paramters guidlines' → 'UTM parameters'\n" .
-              "User: 'getting statred guide' → 'getting started'\n\n" .
-              "Now extract keywords for: \"" . addslashes($query) . "\"";
+              "User: 'who are you' → {\"type\":\"answer\",\"text\":\"Hi! I'm Lex, CMGalaxy's AI assistant. I help you find documentation, guides, and answers about the CMGalaxy advertising platform. Ask me anything!\"}\n" .
+              "User: 'hello' → {\"type\":\"answer\",\"text\":\"Hello! How can I help you today? Ask me about onboarding, UTM parameters, reporting, or anything CMGalaxy related!\"}\n" .
+              "User: 'what can you do' → {\"type\":\"answer\",\"text\":\"I can help you find documentation articles, answer questions about CMGalaxy features, and guide you through onboarding and setup. Just ask!\"}\n" .
+              "User: 'how to onboard' → {\"type\":\"search\",\"keywords\":\"onboarding guide\"}\n" .
+              "User: 'UTM paramters guidlines' → {\"type\":\"search\",\"keywords\":\"UTM parameters\"}\n" .
+              "User: 'open article which tell how to on board on platfrom' → {\"type\":\"search\",\"keywords\":\"onboarding platform\"}\n\n" .
+              "Now respond to: \"" . addslashes($query) . "\"";
 
     $body = json_encode([
-        'contents' => [['parts' => [['text' => $prompt]]]]
+        'model' => 'gpt-4o-mini',
+        'messages' => [
+            ['role' => 'system', 'content' => 'You always reply in valid JSON.'],
+            ['role' => 'user', 'content' => $prompt]
+        ],
+        'temperature' => 0.1
     ]);
 
     $response = wp_remote_post($api_url, [
-        'headers' => ['Content-Type' => 'application/json'],
-        'body'    => $body,
-        'timeout' => 8,
+        'headers'   => [
+            'Content-Type'  => 'application/json',
+            'Authorization' => 'Bearer ' . $api_key
+        ],
+        'body'      => $body,
+        'timeout'   => 12,
+        'sslverify' => false,
     ]);
 
-    if (is_wp_error($response)) return null;
-
-    $data = json_decode(wp_remote_retrieve_body($response), true);
-    $text = $data['candidates'][0]['content']['parts'][0]['text'] ?? null;
-    
-    if ($text) {
-        return trim(sanitize_text_field($text));
+    if (is_wp_error($response)) {
+        error_log('Lex OpenAI Error: ' . $response->get_error_message());
+        return null; // Fallback to normal search
     }
-    return null;
+
+    $status_code = wp_remote_retrieve_response_code($response);
+    $body_response = wp_remote_retrieve_body($response);
+    $data = json_decode($body_response, true);
+    
+    // Check for API-level errors (like 401 Unauthorized / invalid key)
+    if ($status_code !== 200 && isset($data['error'])) {
+        error_log('Lex OpenAI API Error: ' . print_r($data['error'], true));
+        return [
+            'type' => 'error', 
+            'text' => 'My built-in AI (OpenAI) encountered an error: ' . sanitize_text_field($data['error']['message'])
+        ];
+    }
+
+    $text = $data['choices'][0]['message']['content'] ?? null;
+
+    if (!$text) return null;
+
+    // Strip markdown code fences if wrapped in ```json
+    $clean = trim($text);
+    $clean = preg_replace('/^```json\s*/i', '', $clean);
+    $clean = preg_replace('/^```\s*/i', '', $clean);
+    $clean = preg_replace('/\s*```$/i', '', $clean);
+    
+    // Extract just the JSON object if there's extra text
+    if (preg_match('/\{.*\}/s', $clean, $matches)) {
+        $clean = $matches[0];
+    }
+
+    $parsed = json_decode(trim($clean), true);
+    return (is_array($parsed) && isset($parsed['type'])) ? $parsed : null;
 }
 
 function lex_chat_query_handler() {
     $original_query = sanitize_text_field($_POST['query']);
-    
-    // Try Gemini first to extract clean keywords
-    $gemini_keywords = lex_gemini_extract_keywords($original_query);
 
-    // Fallback: Manual cleaning if Gemini fails
-    $manual_clean = function($q) {
+    // Ask OpenAI to classify and respond
+    $gemini = lex_call_openai($original_query);
+
+    // If AI returned a direct answer OR an error, send it immediately
+    if ($gemini && in_array($gemini['type'], ['answer', 'error']) && !empty($gemini['text'])) {
+        // Use wp_strip_all_tags instead of sanitize_text_field to preserve apostrophes etc.
+        wp_send_json_success([
+            'message' => wp_strip_all_tags($gemini['text']),
+            'results' => []
+        ]);
+        wp_die();
+    }
+
+    // Otherwise treat as a search — use AI keywords or fall back to manual cleaning
+    $search_term = ($gemini && $gemini['type'] === 'search' && !empty($gemini['keywords']))
+        ? sanitize_text_field($gemini['keywords'])
+        : null;
+
+    // Manual cleaning fallback
+    if (!$search_term) {
         $stop_phrases = [
-            'open article which tell', 'open article which tells', 'open article about', 
-            'open article in', 'open article', 'find article about', 'find article in', 
-            'find article', 'tell me about', 'search for', 'look for', 'how to', 
-            'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to', 
+            'open article which tell', 'open article which tells', 'open article about',
+            'open article in', 'open article', 'find article about', 'find article in',
+            'find article', 'tell me about', 'search for', 'look for', 'how to',
+            'where is', 'what is', 'show me', 'which tell', 'which tells', 'i want to',
             'can you', 'please', 'help me with', 'about'
         ];
-        $q = str_ireplace($stop_phrases, '', $q);
+        $q = str_ireplace($stop_phrases, '', $original_query);
         $short_stops = ['the', 'a', 'an', 'in', 'on', 'to', 'for', 'of', 'with', 'at', 'by', 'is'];
-        foreach($short_stops as $word) {
+        foreach ($short_stops as $word) {
             $q = preg_replace('/\b' . $word . '\b/i', '', $q);
         }
         $mappings = [
             'on board' => 'onboarding', 'platfrom' => 'platform',
-            'getting stated' => 'getting started', 'on board on' => 'onboarding',
-            'onboarding on' => 'onboarding',
+            'getting stated' => 'getting started',
         ];
-        foreach($mappings as $wrong => $right) {
+        foreach ($mappings as $wrong => $right) {
             $q = str_ireplace($wrong, $right, $q);
         }
-        $q = preg_replace('/\s+/', ' ', $q);
-        return trim($q);
-    };
+        $search_term = trim(preg_replace('/\s+/', ' ', $q)) ?: $original_query;
+    }
 
-    // Use Gemini result if available, else manual cleaning, else original
-    $search_term = $gemini_keywords ?: $manual_clean($original_query);
-    if (empty($search_term)) $search_term = $original_query;
-
-    // Dynamically get ALL public post types on the site
+    // Dynamically get ALL public post types
     $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
-    
-    // First attempt with cleaned/AI-extracted query
+
     $args = [
         's'              => $search_term,
         'post_type'      => array_values($post_types),
         'posts_per_page' => 5,
         'orderby'        => 'relevance',
     ];
-    
-    $query = new WP_Query($args);
+
+    $query   = new WP_Query($args);
     $results = [];
-    
-    // Fallback: If no literal search matches, try searching by Category/Taxonomy name
+
+    // Fallback: taxonomy search
     if (!$query->have_posts()) {
         $taxonomies = get_taxonomies(['public' => true]);
-        
         $find_terms = function($term_name) use ($taxonomies) {
-            return get_terms([
-                'taxonomy' => $taxonomies,
-                'name__like' => $term_name,
-                'hide_empty' => false,
-            ]);
+            return get_terms(['taxonomy' => $taxonomies, 'name__like' => $term_name, 'hide_empty' => false]);
         };
 
         $terms = $find_terms($search_term);
-        
         if (empty($terms) || is_wp_error($terms)) {
             $words = explode(' ', $search_term);
             if (count($words) > 1) {
@@ -259,41 +313,37 @@ function lex_chat_query_handler() {
                 }
             }
         }
-        
+
         if (!empty($terms) && !is_wp_error($terms)) {
             $args['s'] = '';
             $args['tax_query'] = ['relation' => 'OR'];
             foreach ($terms as $term) {
-                $args['tax_query'][] = [
-                    'taxonomy' => $term->taxonomy,
-                    'field'    => 'slug',
-                    'terms'    => $term->slug,
-                ];
+                $args['tax_query'][] = ['taxonomy' => $term->taxonomy, 'field' => 'slug', 'terms' => $term->slug];
             }
             $query = new WP_Query($args);
         }
     }
 
-    // Second Fallback: Original query
+    // Second fallback: original query
     if (!$query->have_posts() && $search_term !== $original_query) {
         unset($args['tax_query']);
         $args['s'] = $original_query;
         $query = new WP_Query($args);
     }
-    
+
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
             $results[] = [
-                'title' => get_the_title(),
-                'url'   => get_permalink(),
+                'title'   => get_the_title(),
+                'url'     => get_permalink(),
                 'excerpt' => wp_trim_words(get_the_excerpt(), 20),
-                'type' => get_post_type()
+                'type'    => get_post_type()
             ];
         }
         wp_reset_postdata();
     }
-    
+
     if (!empty($results)) {
         wp_send_json_success([
             'message' => "I found some articles that might help you:",
@@ -301,11 +351,11 @@ function lex_chat_query_handler() {
         ]);
     } else {
         wp_send_json_success([
-            'message' => "I couldn't find a specific article for that. Could you try rephrasing or asking something else? Or search for keywords like '" . esc_html($search_term) . "'.",
+            'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Try asking differently, or search for keywords like '" . esc_html($search_term) . "'.",
             'results' => []
         ]);
     }
-    
+
     wp_die();
 }
 
