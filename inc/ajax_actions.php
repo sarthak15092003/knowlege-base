@@ -151,17 +151,9 @@ add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
 add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
 
 function lex_call_openai($query) {
-    // Read the OpenAI key
-    $api_key = defined('LEX_OPENAI_KEY') ? LEX_OPENAI_KEY : get_option('lex_openai_key', '');
-    
-    if (empty($api_key)) {
-        return [
-            'type' => 'error',
-            'text' => 'My API key is missing. Please add it securely to wp-config.php as LEX_OPENAI_KEY.'
-        ];
-    }
-
-    $api_url = 'https://api.openai.com/v1/chat/completions';
+    // Using Pollinations AI - a free, open OpenAI-compatible endpoint. No API key required!
+    // This circumvents quota limits from standard OpenAI / Gemini
+    $api_url = 'https://text.pollinations.ai/openai';
 
     $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
               "Your job is to help users find documentation articles OR answer general questions about yourself and CMGalaxy.\n\n" .
@@ -183,21 +175,21 @@ function lex_call_openai($query) {
               "Now respond to: \"" . addslashes($query) . "\"";
 
     $body = json_encode([
-        'model' => 'gpt-4o-mini',
+        'model' => 'openai',
         'messages' => [
-            ['role' => 'system', 'content' => 'You always reply in valid JSON.'],
+            ['role' => 'system', 'content' => 'You always reply in valid JSON using the requested schema.'],
             ['role' => 'user', 'content' => $prompt]
         ],
-        'temperature' => 0.1
+        'temperature' => 0.1,
+        'jsonMode' => true
     ]);
 
     $response = wp_remote_post($api_url, [
         'headers'   => [
-            'Content-Type'  => 'application/json',
-            'Authorization' => 'Bearer ' . $api_key
+            'Content-Type'  => 'application/json'
         ],
         'body'      => $body,
-        'timeout'   => 12,
+        'timeout'   => 15,
         'sslverify' => false,
     ]);
 
