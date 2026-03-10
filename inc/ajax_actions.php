@@ -362,11 +362,16 @@ function lex_chat_query_handler() {
                 if (!$found_keyword) continue; // Skip irrelevant result
             }
 
-            // Final safety: if the title is too generic or matches "Meta Ads" when searching for specific tech
-            if (empty($search_term) || strpos(strtolower($search_term), 'meta') === false) {
-                 if (stripos($title, 'Meta Ads') !== false || stripos($title, 'Reporting Hub') !== false || stripos($title, 'Documentation') !== false) {
-                     continue; 
-                 }
+            // Final safety: Block generic high-level articles (like 'Meta Ads' landing page) 
+            // ONLY IF the user isn't explicitly searching for those terms.
+            $generic_terms = ['Meta Ads', 'Reporting Hub', 'Documentation'];
+            foreach ($generic_terms as $gt) {
+                if (stripos($title, $gt) !== false) {
+                    // Only skip if the search term doesn't contain the generic title
+                    if (empty($search_term) || stripos($search_term, $gt) === false) {
+                        continue 2; // skip this result
+                    }
+                }
             }
 
             $results[] = [
@@ -380,13 +385,15 @@ function lex_chat_query_handler() {
     }
 
     if (!empty($results)) {
-        $total_items = count($results);
-        $article_text = $total_items == 1 ? 'article' : 'articles';
-        $suggest_msg = " I also found {$total_items} {$article_text} that might help you:";
+        $display_count = count($results);
+        $actual_total = isset($query->found_posts) ? $query->found_posts : $display_count;
+        $article_text = $actual_total == 1 ? 'article' : 'articles';
         
-        // If user asked "how many"
-        if (preg_match('/^how many/i', trim($original_query))) {
-            $suggest_msg = " There are {$total_items} {$article_text} related to your search. Here they are:";
+        $suggest_msg = " I also found {$display_count} {$article_text} that might help you:";
+        
+        // If user asked for count/total
+        if (preg_match('/(how many|total number|count of|how much)/i', trim($original_query))) {
+            $suggest_msg = " There are {$actual_total} {$article_text} related to \"{$search_term}\". I've listed the most relevant ones below:";
         }
 
         wp_send_json_success([
