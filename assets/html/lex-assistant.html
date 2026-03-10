@@ -35,6 +35,7 @@
             background-color: #ffffff;
             overflow: hidden;
             color: var(--text-dark);
+            font-size: 14px;
         }
 
         #lex-loading-cover {
@@ -135,15 +136,26 @@
         }
 
         .message {
-            max-width: 85%;
-            padding: 14px 18px;
+            max-width: 100%;
+            padding: 10px 14px;
             border-radius: 18px;
-            font-size: 15px;
+            font-size: 14px;
+            font-weight: 400;
             line-height: 1.6;
             margin-bottom: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
             animation: fadeIn 0.35s ease-out;
             border: 1px solid transparent;
+        }
+
+        .message ul,
+        .message ol {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .message li {
+            margin-bottom: 4px;
         }
 
         .message.bot {
@@ -490,7 +502,8 @@
             width: 100%;
             border: none;
             outline: none;
-            font-size: 16px;
+            font-size: 14px;
+            font-weight: 400;
             color: var(--text-dark);
             margin-bottom: 8px;
             padding: 4px 0;
@@ -557,7 +570,7 @@
         }
 
         .message {
-            max-width: 85%;
+            max-width: 100%;
             padding: 12px 16px;
             border-radius: 16px;
             font-size: 15px;
@@ -603,15 +616,48 @@
         .result-title {
             font-weight: 600;
             font-size: 14px;
-            color: var(--primary-blue);
+            color: var(--text-dark);
             margin-bottom: 4px;
-            display: block;
         }
 
         .result-excerpt {
             font-size: 13px;
             color: var(--text-gray);
             line-height: 1.4;
+        }
+
+        .resend-btn {
+            position: absolute;
+            right: 12px;
+            bottom: -15px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            color: #64748B;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transition: all 0.2s;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .message.user:hover .resend-btn {
+            opacity: 1;
+            bottom: -10px;
+            pointer-events: auto;
+        }
+
+        .resend-btn:hover {
+            color: var(--primary-blue);
+            background: #F8FAFC;
+            border-color: var(--primary-blue);
         }
 
         .typing-indicator {
@@ -674,17 +720,12 @@
         <!-- Header -->
         <header class="header">
             <div class="header-left">
-                <button class="icon-btn header-back-btn" onclick="backToDashboard()" title="Go Back">
+                <button class="icon-btn header-new-chat-btn" onclick="clearChat()" title="Clear Chat History">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <button class="icon-btn header-new-chat-btn" onclick="clearChat()" title="Start New Chat">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </button>
                 <div class="header-main-info" style="display: flex; align-items: center; gap: 12px;">
@@ -973,6 +1014,31 @@
                 messageDiv.appendChild(content);
             }
 
+            // ADD SMART RESEND BUTTON TO USER MESSAGES
+            if (isUser) {
+                const queryText = (typeof content === 'string') ? content : content.innerText;
+
+                // Only add if it's a real query (not empty)
+                if (queryText.trim()) {
+                    const resendBtn = document.createElement('button');
+                    resendBtn.className = 'resend-btn';
+                    resendBtn.innerHTML = `
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                            <path d="M3 3v5h5"/>
+                        </svg>
+                        Resend
+                    `;
+                    resendBtn.onclick = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        userInput.value = queryText;
+                        sendMessage();
+                    };
+                    messageDiv.appendChild(resendBtn);
+                }
+            }
+
             chatMessages.appendChild(messageDiv);
             scrollToBottom();
             saveMessages();
@@ -1006,7 +1072,8 @@
             isThinking = false;
             sendBtn.innerHTML = `
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="#fff" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             `;
         }
@@ -1069,10 +1136,28 @@
 
                 if (data.success) {
                     const botResponse = document.createElement('div');
-                    const textP = document.createElement('p');
-                    textP.style.fontWeight = '600';
-                    textP.style.marginBottom = '10px';
-                    textP.textContent = data.data.message;
+                    const textP = document.createElement('div');
+                    textP.style.marginBottom = '12px';
+                    textP.style.lineHeight = '1.6';
+
+                    // Simple Markdown formatting for lists and newlines
+                    let rawMsg = data.data.message || "";
+
+                    // Group blocks of lines starting with * or - into <ul><li>...</li></ul>
+                    let formatted = rawMsg.replace(/(?:^|\n)[\*\-]\s+(.*)/g, function (match, content) {
+                        return '<li>' + content + '</li>';
+                    });
+
+                    // Wrap sequences of <li>...</li> in <ul> tags
+                    formatted = formatted.replace(/(<li>(?:.*?)<\/li>)/gs, '<ul>$1</ul>');
+
+                    // Fix double <ul> from consecutive split lines (naive group)
+                    formatted = formatted.replace(/<\/ul>\s*<ul>/g, '');
+
+                    // Convert remaining newlines to breaks
+                    formatted = formatted.replace(/\n/g, '<br>');
+
+                    textP.innerHTML = formatted;
                     botResponse.appendChild(textP);
 
                     if (data.data.results && data.data.results.length > 0) {

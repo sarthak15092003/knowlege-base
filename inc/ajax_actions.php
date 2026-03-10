@@ -156,32 +156,25 @@ function lex_call_openai($query, $force_direct = false) {
     $api_url = 'https://text.pollinations.ai/openai';
 
     if ($force_direct) {
-        $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform. " .
-                  "A user asked: \"" . addslashes($query) . "\". " .
-                  "We searched our internal knowledge base but could not find a specific article matching this request.\n\n" .
-                  "IMPORTANT: Please answer the user's question directly and comprehensively using your own knowledge. " .
-                  "Provide a clear, step-by-step solution if possible. Do not just say you don't know - give the best possible advice for an advertising expert.\n\n" .
-                  "Always respond in this exact JSON format only, no extra text:\n" .
-                  "{\"type\":\"answer\",\"text\":\"your helpful direct answer here\"}";
+        $prompt = "You are Lex, a technical expert for CMGalaxy. ANSWER THE USER'S QUESTION DIRECTLY AND EXPERTLY: \"" . addslashes($query) . "\".\n\n" .
+                  "1. Provide a clear technical guide or explanation.\n" .
+                  "2. Use bullet points.\n" .
+                  "3. NO greeting filler.\n\n" .
+                  "Always respond in this exact JSON format only:\n" .
+                  "{\"answer\":\"your substantive technical answer here\",\"keywords\":\"\"}";
     } else {
-        $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
-                  "Your job is to help users find documentation articles OR answer general questions about yourself and CMGalaxy.\n\n" .
-                  "When user asks a CONVERSATIONAL question (greetings, 'who are you', 'what can you do', 'tell me about yourself', general small talk, etc.), " .
-                  "respond naturally and helpfully as Lex.\n\n" .
-                  "When user asks about DOCUMENTATION or wants to find articles (onboarding, UTM, setup, reporting, etc.), " .
-                  "extract 1-4 clean search keywords.\n\n" .
-                  "IMPORTANT: Always respond in this exact JSON format only, no extra text:\n" .
-                  "{\"type\":\"answer\",\"text\":\"your friendly response here\"}\n" .
-                  "OR\n" .
-                  "{\"type\":\"search\",\"keywords\":\"clean keywords here\"}\n\n" .
-                  "Examples:\n" .
-                  "User: 'who are you' → {\"type\":\"answer\",\"text\":\"Hi! I'm Lex, CMGalaxy's AI assistant. I help you find documentation, guides, and answers about the CMGalaxy advertising platform. Ask me anything!\"}\n" .
-                  "User: 'hello' → {\"type\":\"answer\",\"text\":\"Hello! How can I help you today? Ask me about onboarding, UTM parameters, reporting, or anything CMGalaxy related!\"}\n" .
-                  "User: 'what can you do' → {\"type\":\"answer\",\"text\":\"I can help you find documentation articles, answer questions about CMGalaxy features, and guide you through onboarding and setup. Just ask!\"}\n" .
-                  "User: 'how to onboard' → {\"type\":\"search\",\"keywords\":\"onboarding guide\"}\n" .
-                  "User: 'UTM paramters guidlines' → {\"type\":\"search\",\"keywords\":\"UTM parameters\"}\n" .
-                  "User: 'open article which tell how to on board on platfrom' → {\"type\":\"search\",\"keywords\":\"onboarding platform\"}\n\n" .
-                  "Now respond to: \"" . addslashes($query) . "\"";
+        $prompt = "You are Lex, the AI technical assistant for 'CMGalaxy'.\n\n" .
+                  "GOAL: Provide a detailed DIRECT TECHNICAL ANSWER (step-by-step) AND extract EXACT technical nouns for a documentation search.\n\n" .
+                  "RULES:\n" .
+                  "1. If a user asks about 'dv360', 'pixel', 'UTM', etc., your 'answer' field must contain a substantive 3-5 point technical guide immediately.\n" .
+                  "2. In the 'keywords' field, extract ONLY 1-2 specific technology nouns (e.g., 'dv360', 'pixel', 'utm').\n" .
+                  "3. CRITICAL: NEVER include the following in 'keywords': 'how', 'to', 'the', 'setup', 'implement', 'guide', 'instruction', 'ads', 'digital', 'advertising', 'marketing', 'onboarding'. If no specific product noun is present, return empty string.\n" .
+                  "4. Always format your 'answer' with a professional, expert tone.\n\n" .
+                  "IMPORTANT: Always respond in this exact JSON format only:\n" .
+                  "{\n" .
+                  "  \"answer\": \"your expert guide or answer here\",\n" .
+                  "  \"keywords\": \"specific technical noun(s) only\"\n" .
+                  "}";
     }
 
     $body = json_encode([
@@ -234,38 +227,40 @@ function lex_call_openai($query, $force_direct = false) {
     $clean = preg_replace('/^```(?:json)?\s*/i', '', $clean);
     $clean = preg_replace('/\s*```$/i', '', $clean);
     
-    // Extract just the JSON object if there's extra text
     if (preg_match('/\{.*\}/s', $clean, $matches)) {
         $clean = $matches[0];
     }
+    
+    $result = json_decode($clean, true);
 
-    $parsed = json_decode(trim($clean), true);
-    return (is_array($parsed) && isset($parsed['type'])) ? $parsed : null;
+    // If json_decode failed but we have a non-empty string, treat it as a direct answer
+    if (!$result && !empty($clean)) {
+        return [
+            'answer' => $clean,
+            'keywords' => ''
+        ];
+    }
+    
+    return $result;
 }
 
 function lex_chat_query_handler() {
     $original_query = sanitize_text_field($_POST['query']);
 
     // Ask OpenAI to classify and respond
-    $gemini = lex_call_openai($original_query);
+    $ai = lex_call_openai($original_query);
+    
+    $answer = isset($ai['answer']) ? $ai['answer'] : '';
+    $search_term = isset($ai['keywords']) ? $ai['keywords'] : '';
 
-    // If AI returned a direct answer OR an error, send it immediately
-    if ($gemini && in_array($gemini['type'], ['answer', 'error']) && !empty($gemini['text'])) {
-        // Use wp_strip_all_tags instead of sanitize_text_field to preserve apostrophes etc.
-        wp_send_json_success([
-            'message' => wp_strip_all_tags($gemini['text']),
-            'results' => []
-        ]);
+    // If AI explicitly gave an error
+    if (isset($ai['type']) && $ai['type'] === 'error') {
+        wp_send_json_error(['message' => $ai['text']]);
         wp_die();
     }
 
-    // Otherwise treat as a search — use AI keywords or fall back to manual cleaning
-    $search_term = ($gemini && $gemini['type'] === 'search' && !empty($gemini['keywords']))
-        ? sanitize_text_field($gemini['keywords'])
-        : null;
-
-    // Manual cleaning fallback
-    if (!$search_term) {
+    // Determine the search term: use AI keywords or fall back to manual cleaning
+    if (!$search_term && empty($answer)) {
         $stop_phrases = [
             'open article which tell', 'open article which tells', 'open article about',
             'open article in', 'open article', 'find article about', 'find article in',
@@ -288,8 +283,9 @@ function lex_chat_query_handler() {
         $search_term = trim(preg_replace('/\s+/', ' ', $q)) ?: $original_query;
     }
 
-    // Dynamically get ALL public post types
+    // Dynamically get public post types, but EXCLUDE 'page' as it often contains irrelevant eazydocs containers
     $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
+    if (isset($post_types['page'])) unset($post_types['page']);
 
     $args = [
         's'              => $search_term,
@@ -339,10 +335,44 @@ function lex_chat_query_handler() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+            $title = get_the_title();
+            $excerpt = get_the_excerpt();
+            
+            // STRICT FILTER: Keyword must be present effectively.
+            if (!empty($search_term)) {
+                $words = explode(' ', strtolower($search_term));
+                // Broad marketing nouns that often cause false positives
+                $blacklist = [
+                    'how', 'to', 'the', 'is', 'for', 'setup', 'implement', 'guide', 'manual', 
+                    'help', 'ads', 'marketing', 'advertising', 'digital', 'analytics', 'meta', 'google', 'facebook'
+                ];
+                $found_keyword = false;
+                
+                foreach ($words as $w) {
+                    $w = trim($w);
+                    if (strlen($w) < 3 || in_array($w, $blacklist)) continue; 
+                    
+                    if (preg_match('/\b' . preg_quote($w) . '\b/i', $title) || 
+                        preg_match('/\b' . preg_quote($w) . '\b/i', $excerpt)) {
+                        $found_keyword = true;
+                        break;
+                    }
+                }
+                
+                if (!$found_keyword) continue; // Skip irrelevant result
+            }
+
+            // Final safety: if the title is too generic or matches "Meta Ads" when searching for specific tech
+            if (empty($search_term) || strpos(strtolower($search_term), 'meta') === false) {
+                 if (stripos($title, 'Meta Ads') !== false || stripos($title, 'Reporting Hub') !== false || stripos($title, 'Documentation') !== false) {
+                     continue; 
+                 }
+            }
+
             $results[] = [
-                'title'   => get_the_title(),
+                'title'   => $title,
                 'url'     => get_permalink(),
-                'excerpt' => wp_trim_words(get_the_excerpt(), 20),
+                'excerpt' => wp_trim_words($excerpt, 20),
                 'type'    => get_post_type()
             ];
         }
@@ -350,43 +380,42 @@ function lex_chat_query_handler() {
     }
 
     if (!empty($results)) {
-        $total_found = end($results) ? $query->found_posts : count($results);
-        if (!$total_found) $total_found = count($results); // failsafe
+        $total_items = count($results);
+        $article_text = $total_items == 1 ? 'article' : 'articles';
+        $suggest_msg = " I also found {$total_items} {$article_text} that might help you:";
         
-        $article_text = $total_found == 1 ? 'article' : 'articles';
-        $message = "I found {$total_found} {$article_text} that might help you:";
-
-        // Direct answer if user explicitly asked "how many"
+        // If user asked "how many"
         if (preg_match('/^how many/i', trim($original_query))) {
-            $message = "There are {$total_found} {$article_text} related to your search. Here they are:";
+            $suggest_msg = " There are {$total_items} {$article_text} related to your search. Here they are:";
         }
 
         wp_send_json_success([
-            'message' => $message,
+            'message' => (!empty($answer) ? $answer . "\n\n" : "") . $suggest_msg,
             'results' => $results
         ]);
     } else {
-        // AI Fallback: If no articles found, ask the AI to answer directly
-        // Use a longer timeout for the fallback to ensure it finishes
-        $fallback = lex_call_openai($original_query, true);
-        
-        if ($fallback && isset($fallback['type']) && $fallback['type'] === 'answer' && !empty($fallback['text'])) {
+        // No articles found - use AI answer if we have one
+        if (!empty($answer)) {
             wp_send_json_success([
-                'message' => "I couldn't find a specific article, but here is a direct answer based on what I know:\n\n" . wp_strip_all_tags($fallback['text']),
+                'message' => $answer,
                 'results' => []
             ]);
         } else {
-            // Log fallback failure for debugging
-            if (!$fallback) {
-                error_log('Lex Fallback Failed: No response from AI.');
+            // Force a direct answer if we have absolutely nothing
+            $fallback = lex_call_openai($original_query, true);
+            $fb_answer = isset($fallback['answer']) && !empty($fallback['answer']) ? $fallback['answer'] : '';
+            
+            if (!empty($fb_answer)) {
+                wp_send_json_success([
+                    'message' => $fb_answer,
+                    'results' => []
+                ]);
             } else {
-                error_log('Lex Fallback Failed: Unexpected response format: ' . print_r($fallback, true));
+                wp_send_json_success([
+                    'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Please try rephrasing or asking another question.",
+                    'results' => []
+                ]);
             }
-
-            wp_send_json_success([
-                'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Please try rephrasing or asking another question.",
-                'results' => []
-            ]);
         }
     }
     wp_die();
