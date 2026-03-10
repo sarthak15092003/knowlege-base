@@ -337,8 +337,19 @@ function lex_chat_query_handler() {
     }
 
     if (!empty($results)) {
+        $total_found = end($results) ? $query->found_posts : count($results);
+        if (!$total_found) $total_found = count($results); // failsafe
+        
+        $article_text = $total_found == 1 ? 'article' : 'articles';
+        $message = "I found {$total_found} {$article_text} that might help you:";
+
+        // Direct answer if user explicitly asked "how many"
+        if (preg_match('/^how many/i', trim($original_query))) {
+            $message = "There are {$total_found} {$article_text} related to your search. Here they are:";
+        }
+
         wp_send_json_success([
-            'message' => "I found some articles that might help you:",
+            'message' => $message,
             'results' => $results
         ]);
     } else {
