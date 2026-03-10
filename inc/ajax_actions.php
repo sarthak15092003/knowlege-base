@@ -166,15 +166,14 @@ function lex_call_openai($query, $force_direct = false) {
                   "{\"answer\":\"your substantive technical answer here\",\"keywords\":\"\"}";
     } else {
         $prompt = "You are Lex, the AI technical assistant for 'CMGalaxy'.\n\n" .
-                  "GOAL: Provide a HIGHLY TECHNICAL, EXPERT ANSWER for all search queries (how to, implement, what is, number of articles, etc.) AND extract specific search keywords.\n\n" .
+                  "GOAL: Provide a HIGHLY TECHNICAL answer AND extract core search keywords.\n\n" .
                   "RULES:\n" .
-                  "1. If a user asks a question about a feature or technical detail (e.g. 'reporting hub', 'pixel', 'dv360'), your 'answer' field MUST contain a detailed, technical explanation or guide (3-5 bullet points). DO NOT use conversational filler like 'Hello, how can I help?'.\n" .
-                  "2. In the 'keywords' field, extract ONLY 1-2 core nouns (e.g., 'dv360', 'pixel', 'reporting'). NEVER include 'how', 'to', 'the', 'setup', 'total', 'number'.\n" .
-                  "3. For very simple greetings (e.g., 'hi'), keep it brief.\n\n" .
+                  "1. 'answer': Provide a factual technical explanation. If the query mentions a specific platform (e.g. WhatsApp) and you don't have it in your training for CMGalaxy, explain that but provide the general technical context. NO filler greetings.\n" .
+                  "2. 'keywords': Extract ONLY the 1-2 most important technical words (e.g. 'whatsapp', 'dv360'). DO NOT extract common words like 'report' unless it is the ONLY subject.\n\n" .
                   "IMPORTANT: Always respond in this exact JSON format only:\n" .
                   "{\n" .
                   "  \"answer\": \"your expert technical answer here\",\n" .
-                  "  \"keywords\": \"specific technical noun(s) only\"\n" .
+                  "  \"keywords\": \"technical word(s) only\"\n" .
                   "}";
     }
 
@@ -289,145 +288,160 @@ function lex_chat_query_handler() {
     $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
     if (isset($post_types['page'])) unset($post_types['page']);
 
-    $args = [
-        's'              => $search_term,
-        'post_type'      => array_values($post_types),
-        'posts_per_page' => 100, // Increase for accurate post-filtering
-        'orderby'        => 'relevance',
-    ];
-
     $query   = new WP_Query($args);
-    $results = [];
+    $candidates = [];
 
-    // Fallback: taxonomy search
-    if (!$query->have_posts()) {
-        $taxonomies = get_taxonomies(['public' => true]);
-        $find_terms = function($term_name) use ($taxonomies) {
-            return get_terms(['taxonomy' => $taxonomies, 'name__like' => $term_name, 'hide_empty' => false]);
-        };
-
-        $terms = $find_terms($search_term);
-        if (empty($terms) || is_wp_error($terms)) {
-            $words = explode(' ', $search_term);
-            if (count($words) > 1) {
-                $terms = $find_terms(end($words));
-                if (empty($terms) || is_wp_error($terms)) {
-                    $terms = $find_terms($words[0]);
-                }
-            }
-        }
-
-        if (!empty($terms) && !is_wp_error($terms)) {
-            $args['s'] = '';
-            $args['tax_query'] = ['relation' => 'OR'];
-            foreach ($terms as $term) {
-                $args['tax_query'][] = ['taxonomy' => $term->taxonomy, 'field' => 'slug', 'terms' => $term->slug];
-            }
-            $query = new WP_Query($args);
-        }
-    }
-
-    // Second fallback: original query
-    if (!$query->have_posts() && $search_term !== $original_query) {
-        unset($args['tax_query']);
-        $args['s'] = $original_query;
-        $query = new WP_Query($args);
-    }
-
+    // Combine results from multiple match attempts for broader coverage
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $title = get_the_title();
-            $excerpt = get_the_excerpt();
-            
-            // STRICT FILTER: Keyword must be present effectively.
-            if (!empty($search_term)) {
-                $words = explode(' ', strtolower($search_term));
-                // Broad marketing nouns that often cause false positives
-                $blacklist = [
-                    'how', 'to', 'the', 'is', 'for', 'setup', 'implement', 'guide', 'manual', 
-                    'help', 'ads', 'marketing', 'advertising', 'digital', 'analytics', 'meta', 'google', 'facebook'
-                ];
-                $found_keyword = false;
-                
-                foreach ($words as $w) {
-                    $w = trim($w);
-                    if (strlen($w) < 3 || in_array($w, $blacklist)) continue; 
-                    
-                    // Use stripos for more flexible matching (allows matching 'report' to 'reporting')
-                    if (stripos($title, $w) !== false || stripos($excerpt, $w) !== false) {
-                        $found_keyword = true;
-                        break;
-                    }
-                }
-                
-                if (!$found_keyword) continue; // Skip irrelevant result
-            }
-
-            // Final safety: Block ONLY the exact generic landing pages if not searched for.
-            // This prevents "Meta Ads" (the page) from showing up for everything,
-            // but ALLOWS "Meta Ads UTM Parameters" to show up.
-            $exact_generic_pages = ['Meta Ads', 'Reporting Hub', 'Documentation'];
-            if (!empty($search_term)) {
-                foreach ($exact_generic_pages as $gp) {
-                    if (trim($title) === $gp) {
-                        if (stripos($search_term, $gp) === false) {
-                            continue 2; 
-                        }
-                    }
-                }
-            }
-
-            $results[] = [
-                'title'   => $title,
-                'url'     => get_permalink(),
-                'excerpt' => wp_trim_words($excerpt, 20),
-                'type'    => get_post_type()
+            $candidates[get_the_ID()] = [
+                'id' => get_the_ID(),
+                'title' => get_the_title(),
+                'excerpt' => get_the_excerpt(),
+                'content' => get_the_content(), // Store content for deeper matching
+                'url' => get_permalink(),
+                'type' => get_post_type()
             ];
         }
-        wp_reset_postdata();
     }
+
+    // Attempt fuzzy taxonomy/original match to find missed "Sharing" etc
+    $cleaned_q = str_ireplace(['how to', 'share', 'report'], '', strtolower($original_query));
+    if (strlen(trim($cleaned_q)) > 2) {
+        $args['s'] = $original_query;
+        $query2 = new WP_Query($args);
+        while ($query2->have_posts()) {
+            $query2->the_post();
+            $candidates[get_the_ID()] = [
+                'id' => get_the_ID(),
+                'title' => get_the_title(),
+                'excerpt' => get_the_excerpt(),
+                'content' => get_the_content(),
+                'url' => get_permalink(),
+                'type' => get_post_type()
+            ];
+        }
+    }
+
+    $scored_results = [];
+    $search_words = explode(' ', strtolower($search_term . ' ' . $original_query));
+    $search_words = array_unique(array_filter($search_words, function($w) {
+        return strlen($w) > 2 && !in_array($w, ['how', 'the', 'for', 'and', 'with', 'setup']);
+    }));
+
+    foreach ($candidates as $post_id => $data) {
+        $score = 0;
+        $title = strtolower($data['title']);
+        $excerpt = strtolower($data['excerpt']);
+        $content = strtolower($data['content'] ?? '');
+
+        // 1. Title Match Priority for the AI Search Term
+        if (stripos($title, strtolower($search_term)) !== false) {
+            $score += 80; // Massive boost for AI-identified core noun
+            if (preg_match('/\b' . preg_quote(strtolower($search_term), '/') . '\b/i', $title)) {
+                $score += 40; // Extra boost for word boundary match
+            }
+        }
+        
+        $word_matches = 0;
+        foreach ($search_words as $w) {
+            if (stripos($title, $w) !== false) {
+                $score += 25;
+                $word_matches++;
+            }
+            if (stripos($excerpt, $w) !== false) $score += 10;
+            if (!empty($content) && stripos($content, $w) !== false) $score += 5;
+        }
+
+        // 2. Strict Requirement check content too
+        if (!empty($search_term) && strlen($search_term) > 3) {
+            $in_title = (stripos($title, $search_term) !== false);
+            $in_excerpt = (stripos($excerpt, $search_term) !== false);
+            $in_content = (stripos($content, $search_term) !== false);
+
+            if (!$in_title && !$in_excerpt && !$in_content) {
+                $score -= 150; // Strict penalty if the core term is completely absent
+            } elseif ($in_content && !$in_title) {
+                $score += 30; // Boost if found in content even if not in title
+            }
+        }
+
+        // 3. Perfect Title Start
+        if (stripos(trim($title), strtolower($search_term)) === 0) $score += 40;
+
+        // 4. Safety Filter: generic pages block
+        $exact_generic_pages = ['Meta Ads', 'Reporting Hub', 'Documentation', 'CMGalaxy Knowledge Base'];
+        foreach ($exact_generic_pages as $gp) {
+            if (trim($data['title']) === $gp || stripos($title, $gp) !== false) {
+                if (stripos($original_query, $gp) === false && count($search_words) > 1) {
+                    $score -= 60; // Penalize generic landing pages
+                }
+            }
+        }
+
+        if ($score > 40) { // Increased threshold for high-precision matching
+            $scored_results[] = [
+                'score' => $score,
+                'title' => $data['title'],
+                'url' => $data['url'],
+                'excerpt' => wp_trim_words($data['excerpt'], 20),
+                'type' => $data['type']
+            ];
+        }
+    }
+
+    // Sort by score DESC
+    usort($scored_results, function ($a, $b) {
+        return $b['score'] - $a['score'];
+    });
+
+    $results = $scored_results;
+    wp_reset_postdata();
 
     if (!empty($results)) {
         $actual_total = count($results);
-        $display_results = array_slice($results, 0, 5); // Still only show top 5 for UI
+        $display_results = array_slice($results, 0, 5);
         $article_text = $actual_total == 1 ? 'article' : 'articles';
-        
-        $suggest_msg = " I also found {$actual_total} {$article_text} that might help you:";
-        
-        // If user asked for count/total (broader regex)
-        if (preg_match('/(how many|total|number|count)/i', trim($original_query))) {
-            $suggest_msg = " There are {$actual_total} {$article_text} related to \"{$search_term}\". Here's the list:";
+
+        // Check if query is actually related to the top result
+        $top_title = strtolower($results[0]['title']);
+        $is_weak_match = (stripos($top_title, strtolower($search_term)) === false);
+
+        if ($is_weak_match && empty($answer)) {
+            // If match is weak and we have no AI answer, force one
+            $ai_fb = lex_call_openai($original_query, true);
+            $answer = $ai_fb['answer'] ?? '';
+            $results = []; // Hide weak articles
         }
 
-        wp_send_json_success([
-            'message' => (!empty($answer) ? $answer . "\n\n" : "") . $suggest_msg,
-            'results' => $display_results
-        ]);
-    } else {
-        // No articles found - use AI answer if we have one
-        if (!empty($answer)) {
+        if (!empty($results)) {
+            $suggest_msg = " I also found {$actual_total} {$article_text} that might help you:";
+            if (preg_match('/(how many|total|number|count)/i', trim($original_query))) {
+                $suggest_msg = " There are {$actual_total} {$article_text} related to \"{$search_term}\". Here's the list:";
+            }
+
             wp_send_json_success([
-                'message' => $answer,
-                'results' => []
+                'message' => (!empty($answer) ? $answer . "\n\n" : "") . $suggest_msg,
+                'results' => $display_results
             ]);
         } else {
-            // Force a direct answer if we have absolutely nothing
-            $fallback = lex_call_openai($original_query, true);
-            $fb_answer = isset($fallback['answer']) && !empty($fallback['answer']) ? $fallback['answer'] : '';
-            
-            if (!empty($fb_answer)) {
-                wp_send_json_success([
-                    'message' => $fb_answer,
-                    'results' => []
-                ]);
-            } else {
-                wp_send_json_success([
-                    'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Please try rephrasing or asking another question.",
-                    'results' => []
-                ]);
-            }
+            // Results were weak/filtered out
+            wp_send_json_success([
+                'message' => $answer ?: "I couldn't find a specific article for \"" . esc_html($original_query) . "\".",
+                'results' => []
+            ]);
         }
+    } else {
+        // No articles found at all
+        if (empty($answer)) {
+            $ai_fb = lex_call_openai($original_query, true);
+            $answer = $ai_fb['answer'] ?? '';
+        }
+        wp_send_json_success([
+            'message' => $answer ?: "I couldn't find a specific article for \"" . esc_html($original_query) . "\".",
+            'results' => []
+        ]);
     }
     wp_die();
 }

@@ -22,6 +22,27 @@
             color: #484a61;
         }
 
+        .message h1,
+        .message h2,
+        .message h3 {
+            margin: 12px 0 8px 0;
+            color: #1f2937;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .message h3 {
+            font-size: 16px;
+        }
+
+        .message h3 strong,
+        .message h2 strong,
+        .message h1 strong {
+            font-weight: inherit;
+            color: inherit;
+            font-size: inherit;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -1140,11 +1161,19 @@
                     textP.style.marginBottom = '12px';
                     textP.style.lineHeight = '1.6';
 
-                    // Simple Markdown formatting for lists and newlines
+                    // Simple Markdown formatting for headings, bold, lists and newlines
                     let rawMsg = data.data.message || "";
 
+                    // Headings (e.g. ### Heading)
+                    let formatted = rawMsg.replace(/^(#{1,3})\s+(.*)$/gm, function (match, hashes, content) {
+                        return '<h' + hashes.length + '>' + content + '</h' + hashes.length + '>';
+                    });
+
+                    // Bold (e.g. **text**)
+                    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
                     // Group blocks of lines starting with * or - into <ul><li>...</li></ul>
-                    let formatted = rawMsg.replace(/(?:^|\n)[\*\-]\s+(.*)/g, function (match, content) {
+                    formatted = formatted.replace(/(?:^|\n)[\*\-]\s+(.*)/g, function (match, content) {
                         return '<li>' + content + '</li>';
                     });
 
