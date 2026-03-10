@@ -193,22 +193,27 @@
             background: #3A7DFF14;
             color: #161C52;
             border-bottom-right-radius: 4px;
+            position: relative;
         }
 
         .resend-btn {
-            display: inline-flex;
+            display: flex;
             justify-content: center;
             align-items: center;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             color: var(--primary-blue);
-            background: rgba(58, 125, 255, 0.1);
-            border: none;
+            background: #fff;
+            border: 1px solid #E2E8F0;
             cursor: pointer;
-            margin-top: 10px;
             padding: 0;
             border-radius: 50%;
             transition: all 0.2s ease;
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            z-index: 10;
         }
 
         .resend-btn:hover {
@@ -289,11 +294,11 @@
             align-items: center;
             justify-content: flex-start;
             padding-top: 10px;
-            /* Reduced from 20px */
-            padding-bottom: 220px;
-            /* Increased from 160px to prevent prompt hiding */
+            padding-bottom: 250px;
+            /* Leave space for floating input */
             overflow-y: auto;
-            scrollbar-width: none;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
         }
 
         .content::-webkit-scrollbar {
@@ -328,9 +333,9 @@
 
         .greeting-section {
             text-align: center;
-            max-width: 600px;
-            margin-bottom: 20px;
-            /* Reduced from 32px */
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            width: 100%;
             padding: 0 20px;
         }
 
@@ -357,7 +362,9 @@
 
         /* --- Suggested Prompts --- */
         .suggested-section {
-            align-self: flex-start;
+            align-self: center;
+            max-width: 900px;
+            width: 100%;
             padding: 0 40px;
             margin-top: 20px;
         }
@@ -389,12 +396,13 @@
             transform: translateX(-50%);
             width: calc(100% - 48px);
             max-width: 900px;
-            background: #fff;
+            background: #ffffff;
+            /* Solid white */
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             padding: 16px;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .add-context-btn {
@@ -486,6 +494,12 @@
             color: var(--text-dark);
             margin-bottom: 8px;
             padding: 4px 0;
+            resize: none;
+            min-height: 48px;
+            max-height: 200px;
+            line-height: 1.5;
+            font-family: inherit;
+            overflow-y: auto;
         }
 
         .input-box::placeholder {
@@ -533,10 +547,13 @@
         /* --- Chat Messages --- */
         .chat-messages {
             width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 0 24px;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            padding-bottom: 40px;
         }
 
         .message {
@@ -783,7 +800,8 @@
                 </button>
             </div>
 
-            <input type="text" class="input-box" id="user-input" placeholder="Ask me anything... (Type / for commands)">
+            <textarea class="input-box" id="user-input" placeholder="Ask me anything... (Type / for commands)"
+                rows="2"></textarea>
 
             <div class="chat-footer">
                 <div class="footer-left">
@@ -1015,6 +1033,7 @@
 
             const userMsgDiv = addMessage(userMsgEl, true);
             userInput.value = '';
+            userInput.style.height = 'auto'; // Reset height
             removeContextImage();
             showTyping();
 
@@ -1084,7 +1103,7 @@
                         resendBtn.className = 'resend-btn';
                         resendBtn.title = 'Resend Request';
                         resendBtn.innerHTML = `
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                                 <path d="M3 3v5h5"/>
                             </svg>
@@ -1123,10 +1142,17 @@
             }
         });
 
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+        userInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
                 performSearch(userInput.value);
             }
+        });
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
         });
 
         // Initialize
