@@ -287,6 +287,13 @@ function lex_chat_query_handler() {
     // Dynamically get public post types
     $post_types = ['post', 'docs', 'onepage-docs'];
 
+    $args = [
+        's'              => $search_term,
+        'post_type'      => $post_types,
+        'posts_per_page' => 10,
+        'orderby'        => 'relevance'
+    ];
+
     $query   = new WP_Query($args);
     $candidates = [];
 
@@ -403,15 +410,12 @@ function lex_chat_query_handler() {
         $display_results = array_slice($results, 0, 5);
         $article_text = $actual_total == 1 ? 'article' : 'articles';
 
-        // Check if query is actually related to the top result
-        $top_title = strtolower($results[0]['title']);
-        $is_weak_match = (stripos($top_title, strtolower($search_term)) === false);
-
-        if ($is_weak_match && empty($answer)) {
-            // If match is weak and we have no AI answer, force one
+        // With deep content matching, if it passed the > 30 score threshold and 
+        // strict keyword checks, it's a solid match even if not in the title.
+        // We only fetch a fallback AI answer if one wasn't provided earlier.
+        if (empty($answer)) {
             $ai_fb = lex_call_openai($original_query, true);
             $answer = $ai_fb['answer'] ?? '';
-            $results = []; // Hide weak articles
         }
 
         if (!empty($results)) {
