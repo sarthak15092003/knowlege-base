@@ -362,14 +362,16 @@ function lex_chat_query_handler() {
                 if (!$found_keyword) continue; // Skip irrelevant result
             }
 
-            // Final safety: Block generic high-level articles (like 'Meta Ads' landing page) 
-            // ONLY IF the user isn't explicitly searching for those terms.
-            $generic_terms = ['Meta Ads', 'Reporting Hub', 'Documentation'];
-            foreach ($generic_terms as $gt) {
-                if (stripos($title, $gt) !== false) {
-                    // Only skip if the search term doesn't contain the generic title
-                    if (empty($search_term) || stripos($search_term, $gt) === false) {
-                        continue 2; // skip this result
+            // Final safety: Block ONLY the exact generic landing pages if not searched for.
+            // This prevents "Meta Ads" (the page) from showing up for everything,
+            // but ALLOWS "Meta Ads UTM Parameters" to show up.
+            $exact_generic_pages = ['Meta Ads', 'Reporting Hub', 'Documentation'];
+            if (!empty($search_term)) {
+                foreach ($exact_generic_pages as $gp) {
+                    if (trim($title) === $gp) {
+                        if (stripos($search_term, $gp) === false) {
+                            continue 2; 
+                        }
                     }
                 }
             }
