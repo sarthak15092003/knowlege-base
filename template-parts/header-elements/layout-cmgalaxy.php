@@ -32,7 +32,9 @@ $s_value = get_search_query() ? get_search_query() : '';
                                placeholder="<?php esc_attr_e("Search ('/' to focus)", 'docy'); ?>" 
                                name="s" 
                                value="<?php echo esc_attr($s_value) ?>"
-                               class="cmgalaxy-search-input">
+                               class="cmgalaxy-search-input"
+                               autocomplete="off">
+                        <div class="cmgalaxy-search-suggestions" id="search-suggestions"></div>
                     </div>
                 </form>
                 
@@ -108,6 +110,10 @@ $s_value = get_search_query() ? get_search_query() : '';
     <div class="lex-drawer-overlay"></div>
 </div>
 
+<!-- Lex Logic configuration -->
+<script>
+    const lexLogoUrl = "<?php echo get_template_directory_uri(); ?>/assets/img/lexlogo.svg";
+</script>
 <!-- Lex Logic moved to assets/js/cmgalaxy-header-v2.js -->
 
 <style>
@@ -490,6 +496,117 @@ body.menu-is-opened {
     border-color: #3b82f6;
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.cmgalaxy-search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    margin-top: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 450px;
+    overflow-y: auto;
+    display: none;
+    padding: 8px 0;
+}
+
+.cmgalaxy-search-suggestions.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.suggestion-item:hover {
+    background: #f3f4f6;
+}
+
+.suggestion-icon {
+    width: 32px;
+    height: 32px;
+    background: #f1f5f9;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.suggestion-content {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.suggestion-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.suggestion-meta {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.ask-ai-suggestion {
+    border-top: 1px solid #f1f5f9;
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+.ask-ai-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    background: #f8fafc;
+    transition: background 0.2s;
+}
+
+.ask-ai-item:hover {
+    background: #eff6ff;
+}
+
+.ask-ai-icon {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+}
+
+.ask-ai-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+.ask-ai-query {
+    color: #666;
+    font-weight: 400;
 }
 
 .search-icon-left {

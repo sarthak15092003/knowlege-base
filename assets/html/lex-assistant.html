@@ -1258,6 +1258,17 @@
                 setTimeout(() => cover.remove(), 220);
             }
         });
+
+        // Listen for internal commands from parent window
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'lex_start_search') {
+                const query = event.data.query;
+                if (query) {
+                    userInput.value = query;
+                    performSearch(query);
+                }
+            }
+        });
     </script>
 
 </body>

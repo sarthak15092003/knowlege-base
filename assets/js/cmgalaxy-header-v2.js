@@ -145,24 +145,109 @@
             lastScrollTop = scrollTop;
         });
 
-        // Search suggestions (placeholder for future enhancement)
-        $('.cmgalaxy-search-input').on('input', function () {
-            var query = $(this).val();
-            if (query.length > 2) {
-                // Future: Add search suggestions functionality
-                console.log('Search query:', query);
+        // Search suggestions functionality
+        var searchTimer;
+        var $searchInput = $('.cmgalaxy-search-input');
+        var $suggestions = $('#search-suggestions');
+
+        $searchInput.on('input', function () {
+            var query = $(this).val().trim();
+            clearTimeout(searchTimer);
+
+            if (query.length < 2) {
+                $suggestions.hide().empty();
+                return;
+            }
+
+            searchTimer = setTimeout(function () {
+                $.ajax({
+                    url: (typeof ajaxurl !== 'undefined') ? ajaxurl : AJAX_URL,
+                    type: 'POST',
+                    data: {
+                        action: 'lex_live_search',
+                        query: query
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            renderSuggestions(query, response.data.results);
+                        }
+                    }
+                });
+            }, 300);
+        });
+
+        function renderSuggestions(query, results) {
+            $suggestions.empty();
+
+            if (results.length > 0) {
+                results.forEach(function (res) {
+                    var $item = $('<a href="' + res.url + '" class="suggestion-item">' +
+                        '<div class="suggestion-icon">' +
+                        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' +
+                        '</div>' +
+                        '<div class="suggestion-content">' +
+                        '<div class="suggestion-title">' + res.title + '</div>' +
+                        '<div class="suggestion-meta">Article in ' + res.type + '</div>' +
+                        '</div>' +
+                        '</a>');
+                    $suggestions.append($item);
+                });
+            }
+
+            // Always add "Ask Lex" suggestion
+            var $askLex = $('<div class="ask-ai-suggestion">' +
+                '<div class="ask-ai-item" id="ask-lex-suggestion">' +
+                '<div class="ask-ai-icon">' +
+                '<img src="' + lexLogoUrl + '" style="width:20px;height:auto;">' +
+                '</div>' +
+                '<div class="ask-ai-text">Ask Lex: <span class="ask-ai-query">"' + query + '"</span></div>' +
+                '</div>' +
+                '</div>');
+
+            $suggestions.append($askLex);
+            $suggestions.show();
+        }
+
+        // Close suggestions when clicking outside
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.cmgalaxy-search-section').length) {
+                $suggestions.hide();
             }
         });
 
-        // Ask Lex button click handler — opens the right-side drawer
-        $(document).on('click', '.cmgalaxy-ask-lex-btn', function (e) {
-            e.preventDefault();
+        // Handle Ask Lex suggestion click
+        $(document).on('click', '#ask-lex-suggestion', function () {
+            var query = $searchInput.val().trim();
+            $suggestions.hide();
+
+            // Open Lex Drawer
             var $drawer = $('#lex-drawer');
             if ($drawer.length) {
-                console.log('Action: OPENING Lex Drawer');
                 $drawer.removeClass('closing').addClass('open');
                 localStorage.setItem('lex_drawer_state', 'open');
-                // $('body').addClass('lex-drawer-open'); // Allow background scroll
+
+                // Send message to iframe to start search
+                var iframe = document.getElementById('lex-assistant-frame');
+                if (iframe && iframe.contentWindow) {
+                    // Give a small delay to ensure iframe is ready/listening
+                    setTimeout(function () {
+                        iframe.contentWindow.postMessage({
+                            type: 'lex_start_search',
+                            query: query
+                        }, '*');
+                    }, 500);
+                }
+            }
+        });
+
+        // Ask Lex button or Search bar click handler — opens the right-side drawer
+        $(document).on('click', '.cmgalaxy-ask-lex-btn, .cmgalaxy-search-input', function (e) {
+            // Only handle click if drawer isn't already open
+            var $drawer = $('#lex-drawer');
+            if ($drawer.length && !$drawer.hasClass('open')) {
+                console.log('Action: OPENING Lex Drawer via Search Bar or Ask Lex Button');
+                $drawer.removeClass('closing').addClass('open');
+                localStorage.setItem('lex_drawer_state', 'open');
             }
         });
 

@@ -149,6 +149,8 @@ function ajax_search_handler() {
 
 add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
 add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
+add_action('wp_ajax_lex_live_search', 'lex_live_search_handler');
+add_action('wp_ajax_nopriv_lex_live_search', 'lex_live_search_handler');
 
 function lex_call_openai($query, $force_direct = false) {
     // Using Pollinations AI - a free, open OpenAI-compatible endpoint. No API key required!
@@ -428,6 +430,41 @@ function lex_chat_query_handler() {
         }
     }
     wp_die();
+}
+
+/**
+ * Handle live search suggestions from the header
+ */
+function lex_live_search_handler() {
+    $q = isset($_POST['query']) ? sanitize_text_field($_POST['query']) : '';
+    
+    if (strlen($q) < 2) {
+        wp_send_json_success(['results' => []]);
+    }
+
+    $args = [
+        's'              => $q,
+        'post_type'      => ['post', 'docs'],
+        'posts_per_page' => 5,
+        'orderby'        => 'relevance'
+    ];
+
+    $query = new WP_Query($args);
+    $results = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $results[] = [
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+                'type'  => get_post_type()
+            ];
+        }
+        wp_reset_postdata();
+    }
+
+    wp_send_json_success(['results' => $results]);
 }
 
 
