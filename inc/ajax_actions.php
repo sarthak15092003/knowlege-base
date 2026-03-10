@@ -150,29 +150,39 @@ function ajax_search_handler() {
 add_action('wp_ajax_lex_chat_query', 'lex_chat_query_handler');
 add_action('wp_ajax_nopriv_lex_chat_query', 'lex_chat_query_handler');
 
-function lex_call_openai($query) {
+function lex_call_openai($query, $force_direct = false) {
     // Using Pollinations AI - a free, open OpenAI-compatible endpoint. No API key required!
     // This circumvents quota limits from standard OpenAI / Gemini
     $api_url = 'https://text.pollinations.ai/openai';
 
-    $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
-              "Your job is to help users find documentation articles OR answer general questions about yourself and CMGalaxy.\n\n" .
-              "When user asks a CONVERSATIONAL question (greetings, 'who are you', 'what can you do', 'tell me about yourself', general small talk, etc.), " .
-              "respond naturally and helpfully as Lex.\n\n" .
-              "When user asks about DOCUMENTATION or wants to find articles (onboarding, UTM, setup, reporting, etc.), " .
-              "extract 1-4 clean search keywords.\n\n" .
-              "IMPORTANT: Always respond in this exact JSON format only, no extra text:\n" .
-              "{\"type\":\"answer\",\"text\":\"your friendly response here\"}\n" .
-              "OR\n" .
-              "{\"type\":\"search\",\"keywords\":\"clean keywords here\"}\n\n" .
-              "Examples:\n" .
-              "User: 'who are you' → {\"type\":\"answer\",\"text\":\"Hi! I'm Lex, CMGalaxy's AI assistant. I help you find documentation, guides, and answers about the CMGalaxy advertising platform. Ask me anything!\"}\n" .
-              "User: 'hello' → {\"type\":\"answer\",\"text\":\"Hello! How can I help you today? Ask me about onboarding, UTM parameters, reporting, or anything CMGalaxy related!\"}\n" .
-              "User: 'what can you do' → {\"type\":\"answer\",\"text\":\"I can help you find documentation articles, answer questions about CMGalaxy features, and guide you through onboarding and setup. Just ask!\"}\n" .
-              "User: 'how to onboard' → {\"type\":\"search\",\"keywords\":\"onboarding guide\"}\n" .
-              "User: 'UTM paramters guidlines' → {\"type\":\"search\",\"keywords\":\"UTM parameters\"}\n" .
-              "User: 'open article which tell how to on board on platfrom' → {\"type\":\"search\",\"keywords\":\"onboarding platform\"}\n\n" .
-              "Now respond to: \"" . addslashes($query) . "\"";
+    if ($force_direct) {
+        $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform. " .
+                  "A user asked: \"" . addslashes($query) . "\". " .
+                  "We searched our knowledge base but couldn't find a matching article. " .
+                  "Please answer the user's question directly and helpfully based on your knowledge. " .
+                  "If it's about a specific feature (like DV360 or onboarding), explain how it typically works or give general expert advice. " .
+                  "Always respond in this exact JSON format only:\n" .
+                  "{\"type\":\"answer\",\"text\":\"your helpful direct answer here\"}";
+    } else {
+        $prompt = "You are Lex, a friendly AI assistant for 'CMGalaxy', a digital advertising platform knowledge base. " .
+                  "Your job is to help users find documentation articles OR answer general questions about yourself and CMGalaxy.\n\n" .
+                  "When user asks a CONVERSATIONAL question (greetings, 'who are you', 'what can you do', 'tell me about yourself', general small talk, etc.), " .
+                  "respond naturally and helpfully as Lex.\n\n" .
+                  "When user asks about DOCUMENTATION or wants to find articles (onboarding, UTM, setup, reporting, etc.), " .
+                  "extract 1-4 clean search keywords.\n\n" .
+                  "IMPORTANT: Always respond in this exact JSON format only, no extra text:\n" .
+                  "{\"type\":\"answer\",\"text\":\"your friendly response here\"}\n" .
+                  "OR\n" .
+                  "{\"type\":\"search\",\"keywords\":\"clean keywords here\"}\n\n" .
+                  "Examples:\n" .
+                  "User: 'who are you' → {\"type\":\"answer\",\"text\":\"Hi! I'm Lex, CMGalaxy's AI assistant. I help you find documentation, guides, and answers about the CMGalaxy advertising platform. Ask me anything!\"}\n" .
+                  "User: 'hello' → {\"type\":\"answer\",\"text\":\"Hello! How can I help you today? Ask me about onboarding, UTM parameters, reporting, or anything CMGalaxy related!\"}\n" .
+                  "User: 'what can you do' → {\"type\":\"answer\",\"text\":\"I can help you find documentation articles, answer questions about CMGalaxy features, and guide you through onboarding and setup. Just ask!\"}\n" .
+                  "User: 'how to onboard' → {\"type\":\"search\",\"keywords\":\"onboarding guide\"}\n" .
+                  "User: 'UTM paramters guidlines' → {\"type\":\"search\",\"keywords\":\"UTM parameters\"}\n" .
+                  "User: 'open article which tell how to on board on platfrom' → {\"type\":\"search\",\"keywords\":\"onboarding platform\"}\n\n" .
+                  "Now respond to: \"" . addslashes($query) . "\"";
+    }
 
     $body = json_encode([
         'model' => 'openai',
@@ -353,12 +363,21 @@ function lex_chat_query_handler() {
             'results' => $results
         ]);
     } else {
-        wp_send_json_success([
-            'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Try asking differently, or search for keywords like '" . esc_html($search_term) . "'.",
-            'results' => []
-        ]);
+        // AI Fallback: If no articles found, ask the AI to answer directly
+        $fallback = lex_call_openai($original_query, true);
+        
+        if ($fallback && $fallback['type'] === 'answer' && !empty($fallback['text'])) {
+            wp_send_json_success([
+                'message' => "I couldn't find a specific article, but here is an answer based on what I know: \n\n" . wp_strip_all_tags($fallback['text']),
+                'results' => []
+            ]);
+        } else {
+            wp_send_json_success([
+                'message' => "I couldn't find a specific article for \"" . esc_html($original_query) . "\". Try asking differently, or search for keywords like '" . esc_html($search_term) . "'.",
+                'results' => []
+            ]);
+        }
     }
-
     wp_die();
 }
 
