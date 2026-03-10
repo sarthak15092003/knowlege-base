@@ -284,9 +284,8 @@ function lex_chat_query_handler() {
         $search_term = trim(preg_replace('/\s+/', ' ', $q)) ?: $original_query;
     }
 
-    // Dynamically get public post types, but EXCLUDE 'page' as it often contains irrelevant eazydocs containers
-    $post_types = get_post_types(['public' => true, 'exclude_from_search' => false], 'names');
-    if (isset($post_types['page'])) unset($post_types['page']);
+    // Dynamically get public post types
+    $post_types = ['post', 'docs', 'onepage-docs'];
 
     $query   = new WP_Query($args);
     $candidates = [];
@@ -347,11 +346,11 @@ function lex_chat_query_handler() {
         $word_matches = 0;
         foreach ($search_words as $w) {
             if (stripos($title, $w) !== false) {
-                $score += 25;
+                $score += 30; // Increased boost
                 $word_matches++;
             }
-            if (stripos($excerpt, $w) !== false) $score += 10;
-            if (!empty($content) && stripos($content, $w) !== false) $score += 5;
+            if (stripos($excerpt, $w) !== false) $score += 15;
+            if (!empty($content) && stripos($content, $w) !== false) $score += 10; // Increased boost
         }
 
         // 2. Strict Requirement check content too
@@ -361,14 +360,14 @@ function lex_chat_query_handler() {
             $in_content = (stripos($content, $search_term) !== false);
 
             if (!$in_title && !$in_excerpt && !$in_content) {
-                $score -= 150; // Strict penalty if the core term is completely absent
+                $score -= 150; 
             } elseif ($in_content && !$in_title) {
-                $score += 30; // Boost if found in content even if not in title
+                $score += 60; // Doubled boost for content finding
             }
         }
 
         // 3. Perfect Title Start
-        if (stripos(trim($title), strtolower($search_term)) === 0) $score += 40;
+        if (stripos(trim($title), strtolower($search_term)) === 0) $score += 50;
 
         // 4. Safety Filter: generic pages block
         $exact_generic_pages = ['Meta Ads', 'Reporting Hub', 'Documentation', 'CMGalaxy Knowledge Base'];
@@ -380,7 +379,7 @@ function lex_chat_query_handler() {
             }
         }
 
-        if ($score > 40) { // Increased threshold for high-precision matching
+        if ($score > 30) { // Lowered from 40 to ensure content-only matches still surface
             $scored_results[] = [
                 'score' => $score,
                 'title' => $data['title'],
