@@ -495,6 +495,16 @@ body.menu-is-opened {
 
 .cmgalaxy-search-section {
     max-width: 500px;
+    width: 100%;
+    transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cmgalaxy-search-section.popup-active {
+    max-width: 750px;
+}
+
+.cmgalaxy-search-section.popup-active .cmgalaxy-ask-lex-btn {
+    display: none !important;
 }
 
 .cmgalaxy-search-form {

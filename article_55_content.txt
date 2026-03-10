@@ -1,0 +1,797 @@
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading"><strong>What is the Reporting Hub in CMGalaxy?</strong></h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The <strong>Reporting Hub</strong> is CMGalaxy’s centralized reporting engine designed to generate, automate, manage, and share performance reports across all your connected marketing platforms — powered by AI insights from <strong>Lex</strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It eliminates manual data compilation and transforms raw campaign data into structured, share-ready reports in minutes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>Overview</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Modern marketing teams operate across multiple platforms — Google, Meta, LinkedIn, Amazon, X, DV360, Pinterest, CDP, and more. Each platform provides isolated dashboards, making cross-platform visibility complex and time-consuming.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The <strong>Reporting Hub</strong> solves this by:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Consolidating performance reporting in one place</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Generating AI-powered insights automatically</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Enabling scheduled automated reporting</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Providing multi-format export options (PDF, CSV)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Allowing secure report sharing (Email, WhatsApp, In-App)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Delivering real-time report status notifications</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Users can access recommended AI reports and manage all reports from a centralized dashboard.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":180,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-16-1024x985.png" alt="" class="wp-image-180"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>Why the Reporting Hub Exists</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Marketing teams face three major challenges:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>1. Manual Reporting Overhead</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Downloading CSVs from multiple platforms and merging them in Excel wastes time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>2. Delayed Insights</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Performance trends are often discovered too late.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>3. Inconsistent Stakeholder Communication</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Different teams receive different versions of reports.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub standardizes, automates, and accelerates reporting workflows.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>Core Capabilities</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>1. Centralized Report Management</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":174,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-10-1024x592.png" alt="" class="wp-image-174"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub provides a unified dashboard that includes:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Recommended Reports by Lex</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>All Reports table</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Search and filter functionality</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Report status tracking</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Action controls (View, Edit, Schedule, Share, Delete)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>This ensures complete control over reporting operations from a single interface.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>2. AI-Powered Insights with Lex</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":175,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-11-1024x894.png" alt="" class="wp-image-175"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Lex is CMGalaxy’s AI intelligence layer.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It continuously analyzes:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Campaign performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Conversion trends</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Cost efficiency</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Audience insights</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>ROI signals</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Lex then recommends ready-to-generate reports such as:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Top Insights Overview</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Conversion Trends</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Cost Analysis</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Performance Highlights</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Lex provides contextual insights tailored to your platform data.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This transforms reporting from reactive to proactive.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>3. Multi-Platform Reporting</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub supports reporting across:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Google Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Meta Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>LinkedIn Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Amazon Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>X Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>DV360 Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Pinterest Performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>CDP</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Data Stitch (cross-platform view)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":176,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-12-1024x894.png" alt="" class="wp-image-176"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Each report is platform-specific, but data stitching enables broader performance analysis.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>4. Flexible Report Types</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Users can generate different report formats depending on business needs:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Time Graph</strong> – Trend analysis over time</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Top Campaigns</strong> – Best-performing campaigns</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Cost Analysis</strong> – Budget efficiency insights</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Keyword Performance</strong> – Search performance analysis</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Product Wise Breakdown</strong> – Product-level insights</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>TOFU Reports</strong> – Top-of-funnel metrics</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Top Data</strong> – Highlighted performance metrics</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>These report types are selectable during report creation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":181,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-16-1024x985.png" alt="" class="wp-image-181"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>5. Automated Report Scheduling</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub allows users to:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Schedule recurring reports</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Set frequency (Daily, Weekly, Twice a Week, Monthly)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Define timezone</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Set start and expiry dates</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Choose delivery time</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Select recipients</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>The scheduling interface enables full automation of reporting cycles.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":179,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-15-1024x620.png" alt="" class="wp-image-179"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>This is especially useful for:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Leadership weekly reviews</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Monthly board reporting</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Client performance updates</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Agency reporting workflows</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>6. Report Status Tracking</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Each report progresses through defined lifecycle stages:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>In Progress</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Created</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Scheduled</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Failed</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Sent Successfully</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>During generation, users see a progress indicator. Once completed, a “Report generated successfully.” notification appears.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This ensures transparency and eliminates uncertainty.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":177,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-13-1024x415.png" alt="" class="wp-image-177"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>7. Multi-Format Export Options</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Reports can be downloaded in:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>PDF (presentation-ready format)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>CSV (data analysis format)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>The download modal allows format selection before exporting.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":178,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-14-1024x620.png" alt="" class="wp-image-178"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>8. Secure Sharing Capabilities</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Reports can be shared via:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Email</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Add email recipients</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Include optional notes</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Send PDF or CSV</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>WhatsApp</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Generate secure shareable link</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Link expires in 24 hours</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Open via WhatsApp Web</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>In-App Sharing</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Select internal users</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Choose notification method (Email or In-App)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":182,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-17-1024x620.png" alt="" class="wp-image-182"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>9. Real-Time Notifications</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The notification panel alerts users about:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Report generation success</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Report in progress</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Report failure</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Report shared successfully</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>New insights from Lex</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>This ensures teams remain informed without constantly checking dashboards.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":183,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://e89fp3uohq-staging.onrocket.site/wp-content/uploads/2026/02/image-18-1024x597.png" alt="" class="wp-image-183"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>How the Reporting Hub Fits into CMGalaxy</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>CMGalaxy operates as an AI-powered marketing intelligence layer.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub acts as:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>The presentation layer for insights</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>The automation engine for reporting workflows</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>The collaboration tool for sharing performance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>The operational dashboard for marketing teams</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>It bridges raw data and executive decision-making.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>Who Should Use the Reporting Hub?</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Reporting Hub is built for:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Marketing Managers</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Track campaign ROI and optimize budgets.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Performance Teams</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Monitor conversion trends and cost efficiency.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Agency Teams</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Automate client reporting and reduce manual work.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Leadership Teams</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Receive consistent performance summaries.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Data Analysts</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Export structured CSV data for deeper analysis.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading"><strong>Key Benefits</strong></h1>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Reduce manual reporting time by up to 80%</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Eliminate spreadsheet consolidation</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Get AI-driven insights automatically</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Maintain reporting consistency</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Enable secure collaboration</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Improve stakeholder transparency</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>When Should You Use the Reporting Hub?</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Use it when you need to:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Generate weekly campaign reports</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Monitor cost efficiency trends</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Share campaign performance with clients</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Automate recurring reporting workflows</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Respond quickly to performance changes</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Identify high-ROI campaigns</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading"><strong>Frequently Asked Clarifications</strong></h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Is Reporting Hub only for AI-generated reports?</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>No. You can create custom reports manually, or use Lex recommendations.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Can reports be automated?</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Yes. Scheduling is fully supported.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Can reports be shared externally?</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Yes. Via Email or WhatsApp secure links.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><strong>Does it support cross-platform reporting?</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Data Stitch enables broader multi-source visibility.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->

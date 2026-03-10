@@ -158,6 +158,7 @@
                 $suggestions.hide().empty();
                 if (query.length === 0) {
                     $('#cmgalaxy-search-backdrop').removeClass('active');
+                    $('.cmgalaxy-search-section').removeClass('popup-active');
                 }
                 return;
             }
@@ -174,6 +175,7 @@
                         if (response.success) {
                             renderSuggestions(query, response.data.results);
                             $('#cmgalaxy-search-backdrop').addClass('active');
+                            $('.cmgalaxy-search-section').addClass('popup-active');
                         }
                     }
                 });
@@ -188,6 +190,7 @@
 
             var query = $(this).val().trim();
             $('#cmgalaxy-search-backdrop').addClass('active');
+            $('.cmgalaxy-search-section').addClass('popup-active');
 
             if (query.length >= 2 && $suggestions.children().length > 0) {
                 $suggestions.show();
@@ -202,9 +205,6 @@
             if (results.length > 0) {
                 results.forEach(function (res) {
                     var $item = $('<a href="' + res.url + '" class="suggestion-item">' +
-                        '<div class="suggestion-icon">' +
-                        '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>' +
-                        '</div>' +
                         '<div class="suggestion-content">' +
                         '<div class="suggestion-title">' + res.title + '</div>' +
                         '<div class="suggestion-meta">Article in ' + res.type + '</div>' +
@@ -233,12 +233,14 @@
             if (!$(e.target).closest('.cmgalaxy-search-section').length) {
                 $suggestions.hide();
                 $('#cmgalaxy-search-backdrop').removeClass('active');
+                $('.cmgalaxy-search-section').removeClass('popup-active');
             }
         });
 
         $(document).on('click', '#cmgalaxy-search-backdrop', function () {
             $suggestions.hide();
             $(this).removeClass('active');
+            $('.cmgalaxy-search-section').removeClass('popup-active');
         });
 
         // Handle Ask Lex suggestion click
@@ -246,6 +248,7 @@
             var query = $searchInput.val().trim();
             $suggestions.hide();
             $('#cmgalaxy-search-backdrop').removeClass('active');
+            $('.cmgalaxy-search-section').removeClass('popup-active');
 
             // Open Lex Drawer
             var $drawer = $('#lex-drawer');
@@ -274,6 +277,7 @@
             // Close search popup if active before opening Lex
             $suggestions.hide();
             $('#cmgalaxy-search-backdrop').removeClass('active');
+            $('.cmgalaxy-search-section').removeClass('popup-active');
 
             // Only handle click if drawer isn't already open
             var $drawer = $('#lex-drawer');

@@ -153,7 +153,10 @@ add_action('wp_ajax_lex_live_search', 'lex_live_search_handler');
 add_action('wp_ajax_nopriv_lex_live_search', 'lex_live_search_handler');
 
 function lex_call_openai($query, $force_direct = false) {
-    // Using Pollinations AI - a free, open OpenAI-compatible endpoint. No API key required!
+    // Using Pollinations AI - a free, open OpenAI-compatible endpoint. No 
+    // 
+    // 
+    // API key required!
     // This circumvents quota limits from standard OpenAI / Gemini
     $api_url = 'https://text.pollinations.ai/openai';
 
