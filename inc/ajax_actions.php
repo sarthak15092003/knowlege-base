@@ -168,14 +168,14 @@ function lex_call_openai($query, $force_direct = false) {
                   "Always respond in this exact JSON format only:\n" .
                   "{\"answer\":\"your substantive technical answer here\",\"keywords\":\"\"}";
     } else {
-        $prompt = "You are Lex, the AI technical assistant for 'CMGalaxy'.\n\n" .
-                  "GOAL: Provide a HIGHLY TECHNICAL answer AND extract core search keywords.\n\n" .
-                  "RULES:\n" .
-                  "1. 'answer': Provide a factual technical explanation. If the query mentions a specific platform (e.g. WhatsApp) and you don't have it in your training for CMGalaxy, explain that but provide the general technical context. NO filler greetings.\n" .
-                  "2. 'keywords': Extract ONLY the 1-2 most important technical words (e.g. 'whatsapp', 'dv360'). DO NOT extract common words like 'report' unless it is the ONLY subject.\n\n" .
+        $prompt = "You are Lex, the AI assistant for 'CMGalaxy'.\n\n" .
+                  "GOAL: Extract the core search keywords from the user's question so we can search our knowledge base.\n\n" .
+                  "STRICT RULES:\n" .
+                  "1. 'answer': Leave this EMPTY string. Do NOT generate any answer, explanation, or article content. Do NOT make up articles or CMGalaxy features. Only the knowledge base search results will be shown.\n" .
+                  "2. 'keywords': Extract ONLY the 1-2 most important technical words from the query (e.g. 'whatsapp', 'dv360', 'report'). Ignore filler words like 'is there', 'any', 'related to', 'article about'.\n\n" .
                   "IMPORTANT: Always respond in this exact JSON format only:\n" .
                   "{\n" .
-                  "  \"answer\": \"your expert technical answer here\",\n" .
+                  "  \"answer\": \"\",\n" .
                   "  \"keywords\": \"technical word(s) only\"\n" .
                   "}";
     }
@@ -439,13 +439,9 @@ function lex_chat_query_handler() {
             ]);
         }
     } else {
-        // No articles found at all
-        if (empty($answer)) {
-            $ai_fb = lex_call_openai($original_query, true);
-            $answer = $ai_fb['answer'] ?? '';
-        }
+        // No articles found — return honest message, never hallucinate
         wp_send_json_success([
-            'message' => $answer ?: "I couldn't find a specific article for \"" . esc_html($original_query) . "\".",
+            'message' => "I couldn't find any articles related to \"" . esc_html($original_query) . "\" in the knowledge base. Try different keywords or browse the categories.",
             'results' => []
         ]);
     }
