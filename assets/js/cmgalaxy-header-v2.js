@@ -181,6 +181,11 @@
         });
 
         $searchInput.on('focus click', function () {
+            // Ensure Lex Drawer closes when search is activated
+            if ($('#lex-drawer').hasClass('open')) {
+                $(document).trigger('lex:close');
+            }
+
             var query = $(this).val().trim();
             $('#cmgalaxy-search-backdrop').addClass('active');
 
@@ -240,6 +245,7 @@
         $(document).on('click', '#ask-lex-suggestion', function () {
             var query = $searchInput.val().trim();
             $suggestions.hide();
+            $('#cmgalaxy-search-backdrop').removeClass('active');
 
             // Open Lex Drawer
             var $drawer = $('#lex-drawer');
@@ -264,6 +270,11 @@
         // Ask Lex button click handler — opens the right-side drawer
         $(document).on('click', '.cmgalaxy-ask-lex-btn', function (e) {
             e.preventDefault();
+
+            // Close search popup if active before opening Lex
+            $suggestions.hide();
+            $('#cmgalaxy-search-backdrop').removeClass('active');
+
             // Only handle click if drawer isn't already open
             var $drawer = $('#lex-drawer');
             if ($drawer.length && !$drawer.hasClass('open')) {
