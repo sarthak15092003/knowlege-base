@@ -30,11 +30,13 @@
 
     function docySearchTabs() {
         let tabsHtml = `<div data-type="all" class="tab-item active">All</div>`;
-        postTypes.forEach(type => {
-            const cleanedType = type.replace(/[-_]+/g, ' ').replace(/[^a-zA-Z0-9\s]/g, '').trim();
-            const postTypeName = cleanedType.charAt(0).toUpperCase() + cleanedType.slice(1);
-            tabsHtml += `<div data-type="${type}" class="tab-item">${postTypeName}</div>`;
-        });
+        if (postTypes && Array.isArray(postTypes)) {
+            postTypes.forEach(type => {
+                const cleanedType = type.replace(/[-_]+/g, ' ').replace(/[^a-zA-Z0-9\s]/g, '').trim();
+                const postTypeName = cleanedType.charAt(0).toUpperCase() + cleanedType.slice(1);
+                tabsHtml += `<div data-type="${type}" class="tab-item">${postTypeName}</div>`;
+            });
+        }
         $('#search-tabs').html(tabsHtml);
     }
 
@@ -52,7 +54,6 @@
             beforeSend: function () {
                 $(".spinner").css("display", "block");
                 $('#search-results').append('<div id="search-preloader"></div>')
-
             },
             success: function (response) {
                 $('#docy-search-result').addClass('ajax-search');
@@ -62,25 +63,16 @@
         });
     }
 
-    $('div.tab-item').on('click', function (e) {
-        e.preventDefault();
-        var postType = $(this).data('post-type'); // Assuming your tabs have a data attribute for the post type
-        $('#search-results').removeClass(function (index, className) {
-            return (className.match(/(^|\s)post-type-\S+/g) || []).join(' '); // Remove previous post type classes
-        }).addClass(postType); // Add the new post type class
-    });
-
     // Throttled search on keyup for improved performance
     function handleSearch(searchTerm) {
         clearTimeout(searchTimeout);
-        currentSearchTerm = searchTerm; // Update the current search term
+        currentSearchTerm = searchTerm;
 
         if (currentSearchTerm) {
             searchTimeout = setTimeout(() => {
                 displayResults(activePostType, currentSearchTerm);
             }, 100);
         } else {
-            // Clear results and reset the view if no search term
             $("#docy-search-result").removeClass("ajax-search").html("");
             $(".spinner").hide();
         }
@@ -88,9 +80,9 @@
 
     // Event listener for keyup on search input
     $('#searchInput').on('keyup', function () {
-        $(this).focus();
-        $('.header_search_form').css('z-index', '99');
-        $('#search-preloader').hide();
+        if ($(this).hasClass('use-cmgalaxy-live-search-input')) {
+            return;
+        }
         if ($(this).val()) {
             handleSearch($(this).val());
         }
@@ -102,60 +94,22 @@
         const searchTerm = $(this).text();
         $("#searchInput").val(searchTerm).focus();
         handleSearch(searchTerm);
-        $('.header_search_form').css('z-index', '99');
     });
 
-    // Update results when switching tabs if search term exists
-    $('#search-tabs, #search_post_type').on('click change', function (e) {
-        if (e.type === 'keydown' && e.key != 'Enter') {
-            e.preventDefault();
-        }
-        // Determine the source and active post type
-        if ($(e.target).hasClass('tab-item')) {
-            activePostType = $(e.target).data('type');
-            $('.tab-item').removeClass('active');
-            $(e.target).addClass('active');
-        } else if ($(e.target).is('#search_post_type')) {
-            activePostType = $(e.target).val();
-            $(e.target).addClass('active');
-        }
+    // Tab switching
+    $('#search-tabs').on('click', '.tab-item', function (e) {
+        e.preventDefault();
+        activePostType = $(this).data('type');
+        $('.tab-item').removeClass('active');
+        $(this).addClass('active');
 
-        // Hide all from #search-results except #search-preloader
         $('#search-results').children().not('#search-preloader').hide();
         $('#search-preloader').show();
 
-        // Only display results for the selected tab if there's a search term
         if (currentSearchTerm) {
             displayResults(activePostType, currentSearchTerm);
         }
     });
-
-    // Add a body class when interacting with form, tabs, or results
-    function addActiveClass() {
-        $('body').addClass('search-focused');
-    }
-
-    function removeActiveClass() {
-        $('body').removeClass('search-focused');
-    }
-
-    $('#ajax-search-form, .banner_search_form, .header_search_form, #search-tabs, #search-results').on('click', addActiveClass);
-
-    $(document).on('click', function (e) {
-        if (!$(e.target).closest('#ajax-search-form, .banner_search_form, .header_search_form, .focused-form, #search-tabs, #search-results').length) {
-            removeActiveClass();
-            $("#docy-search-result").removeClass("ajax-search");
-        }
-    });
-
-    $(document).on('click', function (e) {
-        if ($(e.target).closest('.header_search_form').length) {
-            $('.header_search_form, .banner_search_form').css('z-index', '999');
-        } else {
-            $('.header_search_form, .banner_search_form').css('z-index', '2');
-        }
-    });
-
 
     docySearchTabs();
 

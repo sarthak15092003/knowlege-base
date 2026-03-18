@@ -56,7 +56,7 @@ function docy_scripts() {
 	wp_enqueue_style( 'elegant-icon', DOCY_DIR_VEND . '/elegant-icon/style.css' );
 	wp_enqueue_style( 'font-awesome', DOCY_DIR_VEND . '/font-awesome/css/all.css' );
 	wp_enqueue_style( 'animate', DOCY_DIR_VEND . '/animation/animate.css' );
-	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.6' );
+	wp_enqueue_style( 'docy-main', DOCY_DIR_CSS . '/style-main.css', array(), DOCY_VERSION . '.7' );
 	
 	// CMGALAXY Custom Header Styles
 	wp_enqueue_style( 'cmgalaxy-header', DOCY_DIR_CSS . '/cmgalaxy-header.css', array(), DOCY_VERSION );
@@ -208,7 +208,7 @@ function docy_scripts() {
 	
 	// CMGALAXY Header JavaScript - renamed file to force cache refresh
 	// Force reload: v2 file loaded
-	wp_enqueue_script( 'cmgalaxy-header', DOCY_DIR_JS . '/cmgalaxy-header-v2.js', array( 'jquery' ), '1.0.3', true );
+	wp_enqueue_script( 'cmgalaxy-header', DOCY_DIR_JS . '/cmgalaxy-header-v2.js', array( 'jquery' ), '1.2.2', true );
 
 	$banner_type = docy_meta('banner_type');
 
@@ -245,7 +245,7 @@ function docy_scripts() {
 	$is_focus_by_slash   = $opt['is_focus_by_slash'] ?? '';
 	$sbnr_post_types   	 = ! empty ( $opt['sbnr_post_types'] ) ?  $opt['sbnr_post_types'] : ['post', 'page', 'docs'];
 	    
-    wp_enqueue_script( 'docy-ajax-search-form', DOCY_DIR_JS . '/ajax-search-form.js', array( 'jquery', 'docy-main' ), '1.0.0', true );
+    wp_enqueue_script( 'docy-ajax-search-form', DOCY_DIR_JS . '/ajax-search-form.js', array( 'jquery', 'docy-main' ), '1.0.1', true );
     wp_localize_script('docy-main', 'docy_local_object',
         array(
             'ajaxurl'           => $ajax_url,

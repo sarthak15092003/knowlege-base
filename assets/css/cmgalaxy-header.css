@@ -186,6 +186,18 @@ section:first-of-type {
     width: 100%;
 }
 
+/* Keep banner search interactive above the global search backdrop */
+.header_search_form.popup-active,
+.header_search_form.focused-form {
+    position: relative;
+    z-index: 1001;
+}
+
+.header_search_form.popup-active .cmgalaxy-search-suggestions,
+.header_search_form.focused-form .cmgalaxy-search-suggestions {
+    z-index: 1002;
+}
+
 .cmgalaxy-search-input {
     width: 100%;
     padding: 0.875rem 1.25rem;

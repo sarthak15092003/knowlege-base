@@ -34,6 +34,7 @@ $s_value = get_search_query() ? get_search_query() : '';
                                value="<?php echo esc_attr($s_value) ?>"
                                class="cmgalaxy-search-input"
                                autocomplete="off">
+                        <span class="cmgalaxy-search-loader" aria-hidden="true"></span>
                         <div class="cmgalaxy-search-suggestions" id="search-suggestions"></div>
                     </div>
                 </form>
@@ -527,12 +528,45 @@ body.menu-is-opened {
 
 .cmgalaxy-search-input {
     width: 100%;
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     background-color: #f9fafb;
     transition: all 0.2s ease;
+}
+
+.cmgalaxy-search-loader {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid #d1d5db;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cmgalaxy-search-loader.active {
+    opacity: 1;
+    visibility: visible;
+    animation: cmgalaxy-search-spin 0.75s linear infinite;
+}
+
+.cmgalaxy-search-input.is-loading::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+@keyframes cmgalaxy-search-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .cmgalaxy-search-input:focus {
@@ -542,72 +576,73 @@ body.menu-is-opened {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
+/* --- Improved Search Suggestions --- */
 .cmgalaxy-search-suggestions {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 12px);
     left: 0;
     right: 0;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.75rem;
-    margin-top: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
     z-index: 1002;
+    overflow: hidden;
+    display: none;
+    text-align: left !important; /* Force left alignment against banner centering */
     max-height: 480px;
     overflow-y: auto;
-    display: none;
-    padding: 8px 0;
-    animation: lex-fade-in 0.2s ease-out;
-}
-
-.cmgalaxy-search-suggestions.active {
-    display: block;
 }
 
 .suggestion-item {
-    padding: 10px 16px;
+    padding: 12px 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    color: inherit;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
 }
 
 .suggestion-item:hover {
-    background: #f3f4f6;
+    background: #f8fafc;
 }
 
 .suggestion-icon {
-    width: 32px;
-    height: 32px;
-    background: #eff6ff;
-    border-radius: 8px;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3b82f6;
-    flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
-.suggestion-icon svg {
-    width: 18px;
-    height: 18px;
-    stroke: #3b82f6 !important;
-    display: block;
+.suggestion-item:hover .suggestion-icon {
+    background: #e2e8f0;
+    color: #475569;
 }
 
 .suggestion-content {
-    flex-grow: 1;
-    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+    text-align: left !important;
 }
 
 .suggestion-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: #1f2937;
-    margin-bottom: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827 !important;
+    margin-bottom: 3px;
+    line-height: 1.4;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -615,52 +650,58 @@ body.menu-is-opened {
 
 .suggestion-meta {
     font-size: 12px;
-    color: #6b7280;
+    color: #6b7280 !important;
+    line-height: 1;
 }
 
+/* Ask Lex Suggestion (AI) */
 .ask-ai-suggestion {
-    border-top: 1px solid #f1f5f9;
-    margin-top: 8px;
-    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: #f8fafc; /* Subtle light blue/gray background */
 }
 
 .ask-ai-item {
+    padding: 14px 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: 14px;
     cursor: pointer;
-    background: #f8fafc;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .ask-ai-item:hover {
-    background: #eff6ff;
+    background: #eff6ff; /* Light blue on hover */
 }
 
 .ask-ai-icon {
-    width: 32px;
-    height: 32px;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
     background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3b82f6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .ask-ai-text {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    color: #3b82f6;
+    color: #1e40af !important; /* Brand Blue */
 }
 
 .ask-ai-query {
-    color: #666;
-    font-weight: 400;
+    color: #3b82f6;
+    font-style: italic;
 }
 
+.search-highlight {
+    background: #fef08a; /* Soft yellow highlight */
+    color: #854d0e;
+    padding: 0 2px;
+    border-radius: 2px;
+}
 .search-icon-left {
     position: absolute;
     left: 0.75rem;
@@ -1007,4 +1048,3 @@ body {
     color: #9ca3af;
 }
 </style>
-

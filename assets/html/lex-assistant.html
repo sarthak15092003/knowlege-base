@@ -102,7 +102,7 @@
         }
 
         .header-title {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
             color: #484a61;
         }
@@ -1298,6 +1298,14 @@
                 if (query) {
                     userInput.value = query;
                     performSearch(query);
+                }
+            }
+
+            if (event.data && event.data.type === 'lex_expanded_state') {
+                if (event.data.expanded) {
+                    document.body.classList.add('is-expanded');
+                } else {
+                    document.body.classList.remove('is-expanded');
                 }
             }
         });

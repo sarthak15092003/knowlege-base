@@ -48,22 +48,25 @@ $is_focus_search      = $is_focus_search == '1' ? 'focused-form' : '';
 
                         <div class="header_search_form_info">
                             <div class="stylish-search stylish-search--banner">
-                                <div class="stylish-search__shell">
+                                <div class="stylish-search__shell search-input-wrapper">
                                     <div class="stylish-search__body" style="height:57px;">
                                         <span class="stylish-search__sparkle" aria-hidden="true">
                                             <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/lexlogo.svg' ); ?>" alt="" width="24" height="24" loading="lazy" />
                                         </span>
-                                        <input type="search" name="s" id="searchInput" class="stylish-search__input" placeholder="<?php echo esc_attr( $placeholder ) ?>" autocomplete="off" value="<?php echo get_search_query() ?>"style="
+                                        <input type="search" name="s" id="searchInput" class="stylish-search__input use-cmgalaxy-live-search-input" placeholder="<?php echo esc_attr( $placeholder ) ?>" autocomplete="off" value="<?php echo get_search_query() ?>"style="
     border: 0px;
 " />
-                                        <?php include( 'search-spinner.php' ); ?>
                                         <button type="submit" class="stylish-search__submit" aria-label="<?php esc_attr_e( 'Search', 'docy' ); ?>">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14.707 13.293a1 1 0 0 1 1.32-.083l.094.083 2.5 2.5a1 1 0 0 1-1.32 1.497l-.094-.083-2.5-2.5a1 1 0 0 1 0-1.414z" fill="currentColor" />
-                                                <path d="M9 2a7 7 0 1 1 0 14A7 7 0 0 1 9 2zm0 2a5 5 0 1 0 0 10A5 5 0 0 0 9 4z" fill="currentColor" />
-                                            </svg>
+                                            <span class="stylish-search__submit-icon" aria-hidden="true">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M14.707 13.293a1 1 0 0 1 1.32-.083l.094.083 2.5 2.5a1 1 0 0 1-1.32 1.497l-.094-.083-2.5-2.5a1 1 0 0 1 0-1.414z" fill="currentColor" />
+                                                    <path d="M9 2a7 7 0 1 1 0 14A7 7 0 0 1 9 2zm0 2a5 5 0 1 0 0 10A5 5 0 0 0 9 4z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <span class="stylish-search__submit-loader" aria-hidden="true"></span>
                                         </button>
                                     </div>
+                                    <div class="cmgalaxy-search-suggestions" id="search-suggestions-banner"></div>
                                 </div>
                             </div>
                             <?php 
@@ -74,11 +77,7 @@ $is_focus_search      = $is_focus_search == '1' ? 'focused-form' : '';
                             ?>
                         </div>
 
-					<?php
-					// include( 'ajax-search-results.php' );
-					include( 'keywords.php' );
-						include( 'ajax-search-results.php' );
-						?>
+					<?php include( 'keywords.php' ); ?>
                     </form>
 				    <?php 
                 endif; 
