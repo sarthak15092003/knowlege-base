@@ -407,10 +407,10 @@ body.lex-drawer-open .lex-side-trigger {
     pointer-events: none;
 }
 
-/* Prevent body scroll while drawer is open */
-body.lex-drawer-open {
+/* Prevent body scroll while drawer is open - Commented out to allow background scrolling as requested */
+/* body.lex-drawer-open {
     overflow: hidden !important;
-}
+} */
 
 /* =============================================
    CSS Fixes for Mobile Menu Visibility and Interaction
@@ -453,9 +453,11 @@ body.lex-drawer-open {
     background: rgba(0,0,0,0.5) !important;
 }
 
-/* Ensure body doesn't scroll when menu is open */
-body.menu-is-opened {
-    overflow: hidden !important;
+/* Ensure body doesn't scroll when menu is open - Restrict to mobile only */
+@media (max-width: 991px) {
+    body.menu-is-opened {
+        overflow: hidden !important;
+    }
 }
 
 <style>
