@@ -505,7 +505,7 @@
                 });
             };
             $.fn.tab.defaults = {
-                trigger_event_type: "click", //mouseover | click é»˜è®¤æ˜¯click
+                trigger_event_type: "click", //mouseover | click
             };
         }
     }
@@ -544,7 +544,7 @@
 
     /*-------------------------------------
         Intersection Observer
-        -------------------------------------*/
+    -------------------------------------*/
     if (!!window.IntersectionObserver) {
         let observer = new IntersectionObserver(
             (entries, observer) => {
@@ -582,22 +582,6 @@
             }
         });
     }
-
-
-
-    // === Back to Top Button
-    var back_top_btn = $("#back-to-top");
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 300) {
-            back_top_btn.addClass("show");
-        } else {
-            back_top_btn.removeClass("show");
-        }
-    });
-    back_top_btn.on("click", function (e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, "300");
-    });
 
     if ($(".cheatsheet_item").length) {
         $(".shadow-sm.cheatsheet_item").hover(

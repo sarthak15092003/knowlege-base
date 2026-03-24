@@ -36,11 +36,6 @@ if ( $footer_visibility == '1' ) {
 </div> <!-- Body Wrapper -->
 
 <?php
-if ( $is_back2top_btn == '1' ) :
-    ?>
-    <a id="back-to-top" title="<?php esc_attr_e('Back to Top', 'docy') ?>" class="<?php echo esc_attr( $bt_position ); ?>"></a>
-    <?php 
-endif;
 
 if ( is_singular('docs') || is_singular('post') ) :
     ?>
