@@ -407,22 +407,63 @@
 
     bodyScrollAnimation();
 
+    // Persist left sidebar state across page loads
+    var docySideMenuKey = "docy_side_menu_open";
+    function setSideMenuState(isOpen) {
+        if (!$('.side_menu').length) {
+            return;
+        }
+        if (isOpen) {
+            $("body").removeClass("menu-is-closed").addClass("menu-is-opened");
+            $(".side_menu").addClass("menu-opened");
+        } else {
+            $("body").removeClass("menu-is-opened").addClass("menu-is-closed");
+            $(".side_menu").removeClass("menu-opened");
+        }
+    }
+
+    try {
+        var storedSideMenu = localStorage.getItem(docySideMenuKey);
+        if (storedSideMenu === "1") {
+            setSideMenuState(true);
+        } else if (storedSideMenu === "0") {
+            setSideMenuState(false);
+        }
+    } catch (e) {
+        // Ignore storage errors (private mode, disabled storage)
+    }
+
     // Global mobile menu
     $(".mobile_menu_btn").on("click", function () {
         $("body").removeClass("menu-is-closed").addClass("menu-is-opened");
         $(".side_menu").addClass("menu-opened");
+        try {
+            localStorage.setItem(docySideMenuKey, "1");
+        } catch (e) {
+            // Ignore storage errors
+        }
     });
 
     $(".close_nav").on("click", function (e) {
         if ($(".side_menu").hasClass("menu-opened")) {
             $(".side_menu").removeClass("menu-opened");
             $("body").removeClass("menu-is-opened");
+            try {
+                localStorage.setItem(docySideMenuKey, "0");
+            } catch (e) {
+                // Ignore storage errors
+            }
         }
     });
 
     $(".click_capture").on("click", function () {
         $("body").removeClass("menu-is-opened").addClass("menu-is-closed");
         $(".side_menu").removeClass("menu-opened");
+        try {
+            localStorage.setItem(docySideMenuKey, "0");
+        } catch (e) {
+            // Ignore storage errors
+        }
     });
 
     /*--------------- Tab button js--------*/

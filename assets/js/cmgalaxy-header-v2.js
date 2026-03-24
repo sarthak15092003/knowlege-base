@@ -179,6 +179,38 @@
         initSearch('.cmgalaxy-search-input', '.cmgalaxy-search-section'); // Top Bar
         initSearch('.use-cmgalaxy-live-search-input', '.header_search_form'); // Banner
 
+        // --- PERSISTENCE ---
+        function restoreLexDrawerState() {
+            var state = localStorage.getItem('lex_drawer_state');
+            var expanded = localStorage.getItem('lex_drawer_expanded') === 'true';
+            var $drawer = $('#lex-drawer');
+            var $panel = $('.lex-drawer-panel');
+
+            if (state === 'open' && $drawer.length) {
+                // Add no-animation class to prevent slide-in on page load
+                $drawer.addClass('lex-no-animation');
+                $drawer.addClass('open');
+                $('body').addClass('lex-drawer-open');
+                
+                if (expanded && $panel.length) {
+                    $panel.addClass('expanded');
+                }
+
+                // Sync expanded state with iframe
+                setTimeout(function() {
+                    syncLexExpandedState();
+                }, 100);
+
+                // Remove the no-animation class after a short delay so future interactions are animated
+                setTimeout(function() {
+                    $drawer.removeClass('lex-no-animation');
+                }, 500);
+            }
+        }
+
+        // Restore state on load
+        restoreLexDrawerState();
+
         // --- GLOBAL TRIGGERS ---
         $(document).on('mousedown', function (e) {
             if (!$(e.target).closest('.cmgalaxy-search-section, .header_search_form').length) {
@@ -259,3 +291,4 @@
     });
 
 })(jQuery);
+
