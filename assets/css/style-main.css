@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root {
   --font-family-primary: 'Onest', sans-serif !important;
 }
@@ -308,7 +310,7 @@ article img,
   opacity: .85;
 }
 
-@charset "UTF-8";
+
 
 /*----------------------------------------------------
 @File: Default Styles
@@ -821,7 +823,7 @@ p kbd {
 
 #back-to-top.show {
   opacity: 1;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .search-focused .click_capture {
@@ -2675,7 +2677,7 @@ button.wp-block-search__button.wp-element-button {
   box-sizing: border-box;
   display: block;
   -webkit-appearance: none;
-  vertical-align: middle;
+  appearance: none;
   font-size: 14px;
   line-height: 22px;
   padding: 12px 30px 12px 45px;
@@ -7224,7 +7226,7 @@ body.body_dark .tutor-toggle-more-collapsed:before {
 .tag_list li a:before {
   content: "h";
   font-family: "ElegantIcons";
-  speak: none;
+
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -9473,6 +9475,7 @@ span.search_keyword_label {
 .swiper-slide {
   -webkit-flex-shrink: 0;
   -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   -ms-flex-negative: 0;
   flex-shrink: 0;
   width: 100%;
@@ -9697,6 +9700,7 @@ button.swiper-pagination-bullet {
 .swiper-container-coverflow .swiper-wrapper,
 .swiper-container-flip .swiper-wrapper {
   -ms-perspective: 1200px;
+  perspective: 1200px;
 }
 
 .swiper-container-cube,
@@ -9819,6 +9823,7 @@ button.swiper-pagination-bullet {
   border-radius: 10px;
   position: relative;
   -ms-touch-action: none;
+  touch-action: none;
   background: rgba(0, 0, 0, 0.1);
 }
 
@@ -9915,7 +9920,7 @@ button.swiper-pagination-bullet {
 
 .swiper-slide.swiper-slide-active .slider-image:hover .preview-icon {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+
   z-index: 1;
 }
 
@@ -9932,7 +9937,7 @@ button.swiper-pagination-bullet {
   display: inline-block;
   height: 10px;
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+
   width: 26px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -9944,7 +9949,7 @@ button.swiper-pagination-bullet {
   border: medium none;
   height: 12px;
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+
   width: 12px;
 }
 
@@ -13128,6 +13133,7 @@ button.mfp-close {
   /* modern clamp */
   display: -webkit-box !important;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden !important;
   /* fallback */
@@ -15117,7 +15123,7 @@ span#favorite-toggle {
   width: 15px;
   height: 15px;
   position: relative;
-  display: inline-block;
+  display: block;
   float: left;
   margin: 0 2px 0 0;
   padding: 0;
@@ -15581,9 +15587,7 @@ body.category .doc_blog_grid_area {
   display: none;
 }
 
-.header_search_form.is-loading .stylish-search--banner .stylish-search__submit-loader {
-  display: inline-block;
-}
+
 
 @keyframes cmgalaxy-search-spin {
   to {
@@ -15596,9 +15600,7 @@ body.category .doc_blog_grid_area {
   z-index: 1002;
 }
 
-.header_search_form.focused-form .stylish-search__shell,
-.header_search_form.popup-active .stylish-search__shell {
-}
+
 
 @media (max-width: 767px) {
   .header_search_form .stylish-search--banner .stylish-search__shell {

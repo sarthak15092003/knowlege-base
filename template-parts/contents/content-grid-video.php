@@ -23,6 +23,7 @@ if ( !empty($_GET['blog_layout']) && $_GET['blog_layout'] == 'blog_category' ) {
             if ( !empty($video_url) ) :
                 wp_enqueue_style('magnific-popup');
                 wp_enqueue_script('magnific-popup');
+                ?>
                 <a class="popup-youtube video_icon" href="<?php echo esc_url($video_url) ?>"><i class="arrow_triangle-right"></i></a>
             <?php
             endif;
