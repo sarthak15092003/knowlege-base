@@ -497,7 +497,7 @@ function docy_toc( $post_type ) {
 	$is_toc = docy_meta('is_toc');
 
 	// Check if 'is_toc' exists and if its value is 'default'
-	if ( isset( $is_toc ) && $is_toc == 'default' ) {
+	if ( ( isset( $is_toc ) && $is_toc == 'default' ) || empty( $is_toc ) ) {
 		$is_toc = docy_opt( "is_" . $post_type . "_toc" );
 	} else {
 		$is_toc = ! empty( $is_toc ) ? $is_toc : '';

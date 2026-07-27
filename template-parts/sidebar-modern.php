@@ -13,8 +13,22 @@ $current_post_id = get_queried_object_id();
 $current_categories = array();
 if ($is_single_post) {
     $cats = get_the_category($current_post_id);
-    if ($cats) {
+        // Filter out parent categories if a subcategory is also assigned
+        $filtered_cats = array();
         foreach ($cats as $cat) {
+            $is_parent = false;
+            foreach ($cats as $other_cat) {
+                if ($other_cat->parent == $cat->term_id) {
+                    $is_parent = true;
+                    break;
+                }
+            }
+            if (!$is_parent) {
+                $filtered_cats[] = $cat;
+            }
+        }
+        
+        foreach ($filtered_cats as $cat) {
             $current_categories[] = $cat->slug;
         }
     }
