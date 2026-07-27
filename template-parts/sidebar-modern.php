@@ -31,7 +31,6 @@ if ($is_single_post) {
         foreach ($filtered_cats as $cat) {
             $current_categories[] = $cat->slug;
         }
-    }
 } elseif (is_category()) {
     $cat = get_queried_object();
     if ($cat && isset($cat->slug)) {
