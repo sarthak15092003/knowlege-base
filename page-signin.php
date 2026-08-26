@@ -468,6 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(function(res) { return res.json(); })
             .then(function(data) {
+                console.log('🔐 CMGalaxy Login Response:', data);
                 if (data && data.success) {
                     globalSuccess.innerText = data.data.message || 'Signed in successfully! Redirecting...';
                     globalSuccess.classList.add('active');
@@ -478,6 +479,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 500);
                 } else {
                     var errorMsg = (data && data.data && data.data.message) ? data.data.message : 'Invalid email or password. Please try again.';
+                    if (data && data.data && data.data.debug) {
+                        console.warn('⚠️ API Debug Diagnostics:', data.data.debug);
+                    }
                     globalError.innerText = errorMsg;
                     globalError.classList.add('active');
                     submitBtn.disabled = false;

@@ -83,7 +83,7 @@ function cmg_authenticate_with_api($username, $password) {
         } elseif (!empty($data['error'])) {
             $err_msg = is_string($data['error']) ? $data['error'] : 'Invalid credentials.';
         }
-        return new WP_Error('api_auth_failed', $err_msg);
+        return new WP_Error('api_auth_failed', $err_msg, array('status' => $status_code, 'api_response' => $data, 'raw_body' => $body));
     }
 
     // Helper to find data inside response
@@ -248,10 +248,15 @@ function cmg_handle_ajax_login() {
         ));
     } else {
         $err_msg = 'Invalid email or password. Please try again.';
+        $debug_info = array();
         if (is_wp_error($user)) {
             $err_msg = $user->get_error_message();
+            $debug_info = $user->get_error_data();
         }
-        wp_send_json_error(array('message' => $err_msg));
+        wp_send_json_error(array(
+            'message' => $err_msg,
+            'debug'   => $debug_info
+        ));
     }
 }
 add_action('wp_ajax_nopriv_cmg_ajax_login', 'cmg_handle_ajax_login');
