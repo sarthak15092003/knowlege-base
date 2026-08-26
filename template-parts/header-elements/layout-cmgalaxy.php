@@ -56,7 +56,7 @@ $s_value = get_search_query() ? get_search_query() : '';
             </a>
 
             <!-- Sign In Link -->
-            <a href="#" class="cmgalaxy-nav-link">
+            <a href="https://platform.cmgalaxy.com/login" class="cmgalaxy-nav-link">
                 <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/signin.svg' ); ?>" alt="Sign In" class="cmgalaxy-signin-icon me-2">
                 Sign In
             </a>

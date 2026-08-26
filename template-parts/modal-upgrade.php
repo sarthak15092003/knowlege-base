@@ -6,7 +6,7 @@
  * get_template_part('template-parts/modal-upgrade');
  */
 
-$default_signin  = get_page_by_path('signin') ? home_url('/signin/') : wp_login_url(get_permalink());
+$default_signin  = 'https://platform.cmgalaxy.com/login';
 $default_upgrade = 'https://cmgalaxy.com/book-a-demo';
 
 $upgrade_url = isset($args['upgrade_url']) ? $args['upgrade_url'] : $default_upgrade;
