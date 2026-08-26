@@ -88,22 +88,36 @@ function cmg_authenticate_with_api($username, $password) {
         return new WP_Error('api_auth_failed', $err_msg, array('status' => $status_code, 'api_response' => $data, 'raw_body' => $body));
     }
 
-    // Helper to find data inside response
+    // Deep recursive finder helper to extract data from any level of the API response
     $find_val = function($keys) use ($data) {
-        foreach ((array)$keys as $k) {
-            if (!empty($data[$k])) return $data[$k];
-            if (!empty($data['user'][$k])) return $data['user'][$k];
-            if (!empty($data['data'][$k])) return $data['data'][$k];
-        }
-        return '';
+        $search = function($arr, $keys) use (&$search) {
+            if (!is_array($arr)) return '';
+            foreach ($keys as $k) {
+                if (isset($arr[$k]) && is_string($arr[$k]) && trim($arr[$k]) !== '') {
+                    return trim($arr[$k]);
+                }
+            }
+            foreach ($arr as $sub) {
+                if (is_array($sub)) {
+                    $res = $search($sub, $keys);
+                    if (!empty($res)) return $res;
+                }
+            }
+            return '';
+        };
+        return $search($data, (array)$keys);
     };
 
-    // Extract user details
-    $user_email = $find_val(array('email', 'user_email', 'username'));
+    // 1. Extract Email
+    $user_email = $find_val(array('email', 'user_email', 'username', 'user_name'));
     if (empty($user_email) && is_email($username)) {
         $user_email = $username;
     }
 
+    // 2. Extract Brand Name (Used for Username / Display Name)
+    $brand_name = $find_val(array('brand_name', 'brandName', 'brand'));
+    
+    // 3. Extract Name
     $first_name = $find_val(array('first_name', 'firstName', 'fname'));
     $last_name  = $find_val(array('last_name', 'lastName', 'lname'));
     $full_name  = $find_val(array('name', 'full_name', 'fullName', 'display_name'));
@@ -113,13 +127,16 @@ function cmg_authenticate_with_api($username, $password) {
         $last_name  = isset($name_parts[1]) ? $name_parts[1] : '';
     }
 
+    // 4. Extract Phone Number
     $phone_number = $find_val(array('phone', 'phone_number', 'phoneNumber', 'mobile', 'mobile_number', 'contact', 'contact_number', 'number'));
+
+    // 5. Extract Account Type (e.g. "E-commerce")
     $account_type = $find_val(array('account_type', 'accountType', 'user_type', 'userType', 'role', 'type'));
     if (empty($account_type)) {
-        $account_type = 'Client';
+        $account_type = 'E-commerce';
     }
 
-    // Default Plan Status: Paid
+    // 6. Default Plan Status: Paid
     $plan_status = $find_val(array('plan_status', 'planStatus', 'plan', 'subscription_status', 'status'));
     if (empty($plan_status) || strtolower($plan_status) !== 'demo') {
         $plan_status = 'paid';
@@ -131,14 +148,20 @@ function cmg_authenticate_with_api($username, $password) {
         return new WP_Error('invalid_email', 'Invalid email address returned from API.');
     }
 
+    // Determine Username to use (Prefer brand_name if available)
+    $preferred_username = !empty($brand_name) ? sanitize_user($brand_name, true) : sanitize_user(strstr($user_email, '@', true), true);
+    if (empty($preferred_username)) {
+        $preferred_username = 'cmg_user';
+    }
+
     // Find or create WordPress user
     $wp_user = get_user_by('email', $user_email);
     if (!$wp_user) {
-        $uname = sanitize_user(strstr($user_email, '@', true));
+        $uname = $preferred_username;
         $base_uname = $uname;
         $i = 1;
         while (username_exists($uname)) {
-            $uname = $base_uname . $i;
+            $uname = $base_uname . '_' . $i;
             $i++;
         }
 
@@ -158,22 +181,33 @@ function cmg_authenticate_with_api($username, $password) {
         // Keep local password in sync
         wp_set_password($password, $uid);
 
-        // Update User Meta
-        if (!empty($first_name)) update_user_meta($uid, 'first_name', sanitize_text_field($first_name));
-        if (!empty($last_name)) update_user_meta($uid, 'last_name', sanitize_text_field($last_name));
-        if (!empty($full_name)) {
-            wp_update_user(array('ID' => $uid, 'display_name' => sanitize_text_field($full_name)));
+        // Display Name priority: brand_name > full_name > first_name
+        $display_title = !empty($brand_name) ? $brand_name : (!empty($full_name) ? $full_name : $preferred_username);
+
+        wp_update_user(array(
+            'ID'           => $uid,
+            'display_name' => sanitize_text_field($display_title),
+            'nickname'     => sanitize_text_field($display_title)
+        ));
+
+        // Store Brand Name & Personal Names
+        if (!empty($brand_name)) {
+            update_user_meta($uid, 'brand_name', sanitize_text_field($brand_name));
         }
+        if (!empty($first_name)) update_user_meta($uid, 'first_name', sanitize_text_field($first_name));
+        if (!empty($last_name))  update_user_meta($uid, 'last_name', sanitize_text_field($last_name));
 
         if (!empty($phone_number)) {
             update_user_meta($uid, 'phone_number', sanitize_text_field($phone_number));
         }
 
+        // Store Exact Account Type (e.g. "E-commerce")
         if (!empty($account_type)) {
             update_user_meta($uid, 'account_type', sanitize_text_field($account_type));
         }
 
         update_user_meta($uid, 'plan_status', sanitize_text_field($plan_status));
+        update_user_meta($uid, '_cmg_plan_status', sanitize_text_field($plan_status));
         update_user_meta($uid, '_cmg_plan_status', sanitize_text_field($plan_status));
 
         $token = $find_val(array('token', 'access_token', 'accessToken', 'jwt', 'jwt_token'));

@@ -113,9 +113,11 @@ $s_value = get_search_query() ? get_search_query() : '';
                         </div>
                     </div>
                 </div>
-            <?php else : ?>
+            <?php else : 
+                $curr_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            ?>
                 <!-- Sign In Link -->
-                <a href="<?php echo esc_url(home_url('/signin/')); ?>" class="cmgalaxy-nav-link">
+                <a href="<?php echo esc_url(add_query_arg('redirect_to', urlencode($curr_url), home_url('/signin/'))); ?>" class="cmgalaxy-nav-link">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/signin.svg' ); ?>" alt="Sign In" class="cmgalaxy-signin-icon me-2">
                     Sign In
                 </a>

@@ -6,8 +6,9 @@
  * get_template_part('template-parts/modal-upgrade');
  */
 
-$default_signin  = home_url('/signin/');
-$default_upgrade = 'https://cmgalaxy.com/book-a-demo';
+$current_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$default_signin   = add_query_arg('redirect_to', urlencode($current_page_url), home_url('/signin/'));
+$default_upgrade  = 'https://cmgalaxy.com/book-a-demo';
 
 $upgrade_url = isset($args['upgrade_url']) ? $args['upgrade_url'] : $default_upgrade;
 $signin_url  = isset($args['signin_url']) ? $args['signin_url'] : $default_signin;
