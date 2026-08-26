@@ -493,3 +493,16 @@ add_filter('login_redirect', function($redirect_to, $request, $user) {
     return $redirect_to;
 }, 10, 3);
 
+/**
+ * Redirect standard wp-login.php to custom /signin/ page
+ */
+add_action('init', function() {
+    global $pagenow;
+    if ($pagenow === 'wp-login.php' && !isset($_GET['action']) && !isset($_POST['wp-submit']) && !is_admin()) {
+        $redirect = !empty($_GET['redirect_to']) ? '?redirect_to=' . urlencode($_GET['redirect_to']) : '';
+        wp_safe_redirect(home_url('/signin/' . $redirect));
+        exit;
+    }
+});
+
+

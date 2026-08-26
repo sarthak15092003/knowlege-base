@@ -3,7 +3,7 @@
  * Template Name: Sign in Page
  */
 
-// If user is already logged in, redirect to home or requested article
+// If user is already logged in, redirect to requested article or home
 if ( is_user_logged_in() && ! isset( $_GET['action'] ) ) {
     $redirect_url = ! empty( $_GET['redirect_to'] ) ? esc_url_raw( $_GET['redirect_to'] ) : home_url( '/' );
     wp_safe_redirect( $redirect_url );
@@ -13,7 +13,7 @@ if ( is_user_logged_in() && ! isset( $_GET['action'] ) ) {
 get_header( 'empty' );
 
 $redirect_to = ! empty( $_GET['redirect_to'] ) ? esc_url( $_GET['redirect_to'] ) : home_url( '/' );
-$login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
+$ajax_url    = admin_url( 'admin-ajax.php' );
 ?>
 
 <style>
@@ -176,6 +176,27 @@ $login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
     font-size: 14px;
     margin-bottom: 20px;
     font-weight: 500;
+    display: none;
+}
+
+.cmg-alert-error.active {
+    display: block;
+}
+
+.cmg-alert-success {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: none;
+}
+
+.cmg-alert-success.active {
+    display: block;
 }
 
 /* Submit Button */
@@ -206,6 +227,12 @@ $login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
 
 .cmg-submit-btn:active {
     transform: translateY(0);
+}
+
+.cmg-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* Footer Links */
@@ -246,6 +273,22 @@ $login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
     text-decoration: underline;
 }
 
+/* Spinner */
+.cmg-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: cmgSpin 0.7s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes cmgSpin {
+    to { transform: rotate(360deg); }
+}
+
 @media (max-width: 480px) {
     .cmg-signin-title {
         font-size: 26px;
@@ -268,24 +311,21 @@ $login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
             <p class="cmg-signin-subtitle">Please sign-in to your account</p>
         </div>
 
-        <?php if ( $login_error ) : ?>
-            <div class="cmg-alert-error">
-                Invalid email or password. Please try again.
-            </div>
-        <?php endif; ?>
+        <div class="cmg-alert-error" id="globalErrorAlert"></div>
+        <div class="cmg-alert-success" id="globalSuccessAlert"></div>
 
-        <!-- Sign-in Form -->
-        <form action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post" class="cmg-signin-form" id="cmgLoginForm">
+        <!-- Sign-in Form (Submits via AJAX) -->
+        <form class="cmg-signin-form" id="cmgLoginForm" novalidate>
             
-            <input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>">
+            <input type="hidden" id="cmg_redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>">
 
             <!-- Email Field -->
             <div class="cmg-form-group">
                 <label for="cmg_email" class="cmg-form-label" id="emailLabel">Email</label>
                 <div class="cmg-input-wrapper">
-                    <input type="text" 
+                    <input type="email" 
                            id="cmg_email" 
-                           name="log" 
+                           name="email" 
                            class="cmg-input" 
                            placeholder="Enter your email address" 
                            autocomplete="username" 
@@ -300,7 +340,7 @@ $login_error = isset( $_GET['login'] ) && $_GET['login'] === 'failed';
                 <div class="cmg-input-wrapper">
                     <input type="password" 
                            id="cmg_password" 
-                           name="pwd" 
+                           name="password" 
                            class="cmg-input" 
                            placeholder="Enter password" 
                            autocomplete="current-password" 
@@ -343,6 +383,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var passwordError = document.getElementById('passwordError');
     var emailLabel = document.getElementById('emailLabel');
     var passwordLabel = document.getElementById('passwordLabel');
+    var submitBtn = document.getElementById('submitBtn');
+    var globalError = document.getElementById('globalErrorAlert');
+    var globalSuccess = document.getElementById('globalSuccessAlert');
+    var redirectTo = document.getElementById('cmg_redirect_to').value;
+    var ajaxUrl = <?php echo json_encode( $ajax_url ); ?>;
 
     // Toggle Password Visibility
     if (toggleBtn && passwordInput) {
@@ -350,7 +395,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             
-            // Toggle eye icon
             if (type === 'text') {
                 toggleBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
             } else {
@@ -359,49 +403,95 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Client-side Validation on Submit
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            var hasError = false;
-
-            if (!emailInput.value.trim()) {
-                emailInput.classList.add('has-error');
-                emailLabel.classList.add('has-error');
-                emailError.classList.add('active');
-                hasError = true;
-            } else {
-                emailInput.classList.remove('has-error');
-                emailLabel.classList.remove('has-error');
-                emailError.classList.remove('active');
-            }
-
-            if (!passwordInput.value.trim()) {
-                passwordInput.classList.add('has-error');
-                passwordLabel.classList.add('has-error');
-                passwordError.classList.add('active');
-                hasError = true;
-            } else {
-                passwordInput.classList.remove('has-error');
-                passwordLabel.classList.remove('has-error');
-                passwordError.classList.remove('active');
-            }
-
-            if (hasError) {
-                e.preventDefault();
-            }
-        });
-
-        // Clear error on input
+    // Input cleanup listeners
+    if (emailInput) {
         emailInput.addEventListener('input', function() {
             emailInput.classList.remove('has-error');
             emailLabel.classList.remove('has-error');
             emailError.classList.remove('active');
+            globalError.classList.remove('active');
         });
-
+    }
+    if (passwordInput) {
         passwordInput.addEventListener('input', function() {
             passwordInput.classList.remove('has-error');
             passwordLabel.classList.remove('has-error');
             passwordError.classList.remove('active');
+            globalError.classList.remove('active');
+        });
+    }
+
+    // AJAX Form Submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = emailInput.value.trim();
+            var password = passwordInput.value;
+            var hasError = false;
+
+            globalError.classList.remove('active');
+            globalSuccess.classList.remove('active');
+
+            if (!email) {
+                emailInput.classList.add('has-error');
+                emailLabel.classList.add('has-error');
+                emailError.classList.add('active');
+                hasError = true;
+            }
+
+            if (!password) {
+                passwordInput.classList.add('has-error');
+                passwordLabel.classList.add('has-error');
+                passwordError.classList.add('active');
+                hasError = true;
+            }
+
+            if (hasError) {
+                return;
+            }
+
+            // Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="cmg-spinner"></span> Signing in...';
+
+            var formData = new FormData();
+            formData.append('action', 'cmg_ajax_login');
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('redirect_to', redirectTo);
+
+            fetch(ajaxUrl, {
+                method: 'POST',
+                body: formData,
+                credentials: 'same-origin'
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data && data.success) {
+                    globalSuccess.innerText = data.data.message || 'Signed in successfully! Redirecting...';
+                    globalSuccess.classList.add('active');
+                    submitBtn.innerHTML = 'Success!';
+                    
+                    setTimeout(function() {
+                        window.location.href = data.data.redirect || redirectTo || '/';
+                    }, 500);
+                } else {
+                    var errorMsg = (data && data.data && data.data.message) ? data.data.message : 'Invalid email or password. Please try again.';
+                    globalError.innerText = errorMsg;
+                    globalError.classList.add('active');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Sign in';
+                    passwordInput.classList.add('has-error');
+                    passwordLabel.classList.add('has-error');
+                }
+            })
+            .catch(function(err) {
+                globalError.innerText = 'Unable to connect to server. Please try again.';
+                globalError.classList.add('active');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Sign in';
+            });
         });
     }
 });
