@@ -4,10 +4,11 @@ $is_ajax_cat = isset($_POST['cat_slug']) || isset($_GET['cat_slug']);
 $has_cat_sidebar = (isset($_GET['cat']) && !empty($_GET['cat'])) || is_category() || $is_ajax_cat;
 
 if ($has_cat_sidebar) {
+    $is_restricted = !is_user_logged_in() && function_exists('cmg_is_post_restricted_to_logged_in') && cmg_is_post_restricted_to_logged_in(get_the_ID());
     // Simple card layout for category pages with sidebar
     ?>
     <div class="col-12 mb-4">
-        <div class="simple-post-card">
+        <div class="simple-post-card <?php echo $is_restricted ? 'is-restricted-card' : ''; ?>" <?php echo $is_restricted ? 'data-restricted="true"' : ''; ?>>
             <div class="post-card-content">
                 <div class="post-card-meta">
                     <?php 
@@ -27,21 +28,30 @@ if ($has_cat_sidebar) {
                     <span class="post-date">
                         <i class="fa fa-calendar"></i> <?php the_time(get_option('date_format')); ?>
                     </span>
+                    <?php if ($is_restricted): ?>
+                    <span class="badge" style="background: #eff6ff; color: #2563eb; font-size: 11px; padding: 4px 8px; border-radius: 6px; font-weight: 600; margin-left: 6px;">
+                        <i class="fa fa-lock me-1"></i> Members Only
+                    </span>
+                    <?php endif; ?>
                 </div>
                 <h4 class="post-card-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <a href="<?php the_permalink(); ?>" <?php echo $is_restricted ? 'data-restricted="true" class="is-restricted-link"' : ''; ?>><?php the_title(); ?></a>
                 </h4>
                 <p class="post-card-excerpt">
                     <?php 
-                    $excerpt = get_the_excerpt();
-                    if (empty($excerpt)) {
-                        $excerpt = wp_strip_all_tags(get_the_content());
+                    if ($is_restricted) {
+                        echo 'Unlock full access to this premium guide and resource by upgrading to a paid account.';
+                    } else {
+                        $excerpt = get_the_excerpt();
+                        if (empty($excerpt)) {
+                            $excerpt = wp_strip_all_tags(get_post_field('post_content', get_the_ID()));
+                        }
+                        echo esc_html(wp_trim_words($excerpt, 20, '…'));
                     }
-                    echo esc_html(wp_trim_words($excerpt, 20, '…'));
                     ?>
                 </p>
-                <a href="<?php the_permalink(); ?>" class="post-card-link">
-                    Continue Reading →
+                <a href="<?php the_permalink(); ?>" class="post-card-link <?php echo $is_restricted ? 'is-restricted-link' : ''; ?>" <?php echo $is_restricted ? 'data-restricted="true"' : ''; ?>>
+                    <?php echo $is_restricted ? 'Unlock Access →' : 'Continue Reading →'; ?>
                 </a>
             </div>
         </div>

@@ -312,10 +312,15 @@ function cmg_is_post_restricted_to_logged_in($post_id = null) {
 }
 
 /**
- * Filter the_content: If post is restricted to logged-in users and user is not logged in, show upgrade modal
+ * Filter the_content: If single post is restricted to logged-in users and user is not logged in, show upgrade modal
  */
 function cmg_render_restricted_post_modal($content) {
     if (is_admin()) {
+        return $content;
+    }
+
+    // Only replace content on singular single post views, not archives or feeds
+    if (!is_singular()) {
         return $content;
     }
 
@@ -339,6 +344,18 @@ function cmg_render_restricted_post_modal($content) {
     return $content;
 }
 add_filter('the_content', 'cmg_render_restricted_post_modal', 999);
+
+/**
+ * Filter the_excerpt: Prevent modal markup from polluting archive/category excerpts
+ */
+function cmg_filter_restricted_excerpt($excerpt) {
+    $post_id = get_the_ID();
+    if ($post_id && !is_user_logged_in() && cmg_is_post_restricted_to_logged_in($post_id)) {
+        return 'Unlock full access to this premium guide and resource by upgrading to a paid account.';
+    }
+    return $excerpt;
+}
+add_filter('the_excerpt', 'cmg_filter_restricted_excerpt', 1);
 
 /**
  * Also hook into Content Control plugin filter hooks if active
@@ -374,16 +391,22 @@ add_shortcode('cmg_upgrade_modal', function($atts) {
 });
 
 /**
- * Live Browser Console Debugger for Post Restrictions
+ * Global Popup Modal & Click Handler in wp_footer
  */
 add_action('wp_footer', function() {
-    $post_id = get_the_ID();
-    if (!$post_id) return;
-
     $is_logged_in = is_user_logged_in();
-    $all_meta = get_post_meta($post_id);
-    $is_restricted = cmg_is_post_restricted_to_logged_in($post_id);
-    $post_title = get_the_title($post_id);
+    $post_id = get_the_ID();
+    $all_meta = $post_id ? get_post_meta($post_id) : array();
+    $is_restricted = $post_id ? cmg_is_post_restricted_to_logged_in($post_id) : false;
+    $post_title = $post_id ? get_the_title($post_id) : '';
+
+    // If user is not logged in, render the popup overlay template
+    if (!$is_logged_in) {
+        get_template_part('template-parts/modal-upgrade', null, array(
+            'is_popup' => true,
+            'id'       => 'cmg-global-upgrade-modal'
+        ));
+    }
     ?>
     <script>
         console.group('%c🔐 CMGalaxy Restriction Debugger', 'color: #2563eb; font-size: 14px; font-weight: bold;');
@@ -393,15 +416,66 @@ add_action('wp_footer', function() {
         console.log('🚫 Is Restricted to Logged-in:', <?php echo $is_restricted ? 'true' : 'false'; ?>);
         console.log('📦 All Meta Keys for this Post:', <?php echo json_encode($all_meta); ?>);
         <?php if ($is_restricted && !$is_logged_in): ?>
-        console.log('%c✅ Status: Modal Should Be Displayed!', 'color: green; font-weight: bold; font-size: 12px;');
+        console.log('%c✅ Status: Restricted Post Detected!', 'color: green; font-weight: bold; font-size: 12px;');
         <?php elseif ($is_logged_in): ?>
         console.log('%cℹ️ Status: User is logged in, full content displayed.', 'color: #64748b;');
-        <?php else: ?>
-        console.log('%c⚠️ Status: Restriction NOT detected yet. Expand "All Meta Keys" above to see the exact meta saved by the plugin.', 'color: #d97706; font-weight: bold;');
         <?php endif; ?>
         console.groupEnd();
+
+        <?php if (!$is_logged_in): ?>
+        // Universal Click Handler for Restricted Content
+        document.addEventListener('DOMContentLoaded', function() {
+            function openUpgradeModal() {
+                var modal = document.getElementById('cmg-global-upgrade-modal');
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeUpgradeModal() {
+                var modal = document.getElementById('cmg-global-upgrade-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // Expose globally
+            window.cmgOpenUpgradeModal = openUpgradeModal;
+            window.cmgCloseUpgradeModal = closeUpgradeModal;
+
+            // Close on overlay backdrop or close button
+            var modal = document.getElementById('cmg-global-upgrade-modal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal || e.target.classList.contains('cmg-modal-close')) {
+                        closeUpgradeModal();
+                    }
+                });
+            }
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeUpgradeModal();
+                }
+            });
+
+            // Delegate click listener for all restricted elements
+            document.addEventListener('click', function(e) {
+                var target = e.target.closest('[data-restricted="true"], .is-restricted-card a, .is-restricted-link, a.restricted-post-link');
+                if (target) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openUpgradeModal();
+                }
+            });
+        });
+        <?php endif; ?>
     </script>
     <?php
 }, 9999);
+
 
 
