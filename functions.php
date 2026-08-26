@@ -379,13 +379,39 @@ add_filter('content_control_restriction_message', function($message) {
 }, 999);
 
 /**
- * Prevent Content Control / RBCR plugin from redirecting single posts,
- * so the single template can display the inline teaser + upgrade modal directly.
+ * Prevent Content Control / RBCR / Restriction plugins from redirecting single posts,
+ * allowing single.php to render the teaser + upgrade modal directly.
  */
 add_filter('content_control/prevent_redirect', '__return_true', 999);
 add_filter('content_control/do_redirect', '__return_false', 999);
 add_filter('rbcr_do_redirect', '__return_false', 999);
 add_filter('rbcr_redirect_url', '__return_false', 999);
+add_filter('rbcr_allow_redirect', '__return_false', 999);
+
+add_action('template_redirect', function() {
+    if (is_singular() && !is_user_logged_in() && cmg_is_post_restricted_to_logged_in(get_the_ID())) {
+        global $wp_filter;
+        if (isset($wp_filter['template_redirect']) && isset($wp_filter['template_redirect']->callbacks)) {
+            foreach ($wp_filter['template_redirect']->callbacks as $priority => $callbacks) {
+                foreach ($callbacks as $idx => $callback) {
+                    $func_name = '';
+                    if (is_array($callback['function'])) {
+                        $class = is_object($callback['function'][0]) ? get_class($callback['function'][0]) : $callback['function'][0];
+                        $method = $callback['function'][1];
+                        $func_name = $class . '::' . $method;
+                    } elseif (is_string($callback['function'])) {
+                        $func_name = $callback['function'];
+                    }
+
+                    if (stripos($func_name, 'rbcr') !== false || stripos($func_name, 'content_control') !== false || stripos($func_name, 'restrict') !== false) {
+                        unset($wp_filter['template_redirect']->callbacks[$priority][$idx]);
+                    }
+                }
+            }
+        }
+    }
+}, 0);
+
 
 /**
  * Shortcode [cmg_upgrade_modal]
