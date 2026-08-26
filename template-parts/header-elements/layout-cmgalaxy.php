@@ -55,11 +55,71 @@ $s_value = get_search_query() ? get_search_query() : '';
                 Community
             </a>
 
-            <!-- Sign In Link -->
-            <a href="<?php echo esc_url(home_url('/signin/')); ?>" class="cmgalaxy-nav-link">
-                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/signin.svg' ); ?>" alt="Sign In" class="cmgalaxy-signin-icon me-2">
-                Sign In
-            </a>
+            <?php if ( is_user_logged_in() ) : 
+                $current_user = wp_get_current_user();
+                $display_name = !empty($current_user->display_name) ? $current_user->display_name : (!empty($current_user->first_name) ? $current_user->first_name : $current_user->user_login);
+                $initial = strtoupper(substr($display_name, 0, 1));
+                $user_email = $current_user->user_email;
+                $plan_status = get_user_meta($current_user->ID, 'plan_status', true);
+                if (empty($plan_status)) $plan_status = 'paid';
+            ?>
+                <!-- User Profile Dropdown -->
+                <div class="cmg-profile-dropdown-wrap">
+                    <button type="button" class="cmg-profile-trigger" id="cmgProfileTrigger" aria-expanded="false" aria-haspopup="true">
+                        <span class="cmg-avatar-circle"><?php echo esc_html($initial); ?></span>
+                        <span class="cmg-profile-name"><?php echo esc_html($display_name); ?></span>
+                        <svg class="cmg-arrow-down" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="cmg-profile-dropdown-menu" id="cmgProfileDropdownMenu">
+                        <div class="cmg-dropdown-header">
+                            <div class="cmg-dropdown-user-row">
+                                <div class="cmg-dropdown-avatar"><?php echo esc_html($initial); ?></div>
+                                <div class="cmg-dropdown-user-meta">
+                                    <div class="cmg-dropdown-user-name"><?php echo esc_html($display_name); ?></div>
+                                    <div class="cmg-dropdown-user-email" title="<?php echo esc_attr($user_email); ?>"><?php echo esc_html($user_email); ?></div>
+                                </div>
+                            </div>
+                            <div class="cmg-dropdown-badge-wrap">
+                                <span class="cmg-plan-badge <?php echo esc_attr(strtolower($plan_status)); ?>">
+                                    ✓ <?php echo esc_html(strtoupper($plan_status)); ?> ACCOUNT
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="cmg-dropdown-divider"></div>
+
+                        <div class="cmg-dropdown-links">
+                            <a href="https://platform.cmgalaxy.com" target="_blank" rel="noopener noreferrer" class="cmg-dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                                <span>Platform App</span>
+                                <svg class="cmg-ext-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                            <a href="<?php echo esc_url(wp_logout_url(home_url('/'))); ?>" class="cmg-dropdown-item cmg-dropdown-logout">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                <span>Sign Out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php else : ?>
+                <!-- Sign In Link -->
+                <a href="<?php echo esc_url(home_url('/signin/')); ?>" class="cmgalaxy-nav-link">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/signin.svg' ); ?>" alt="Sign In" class="cmgalaxy-signin-icon me-2">
+                    Sign In
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -117,9 +177,218 @@ $s_value = get_search_query() ? get_search_query() : '';
     const cmgalaxy_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
 </script>
 <div id="cmgalaxy-search-backdrop" class="cmgalaxy-search-backdrop"></div>
-<!-- Lex Logic moved to assets/js/cmgalaxy-header-v2.js -->
-
 <style>
+/* =============================================
+   CMGalaxy User Profile Dropdown Styles
+   ============================================= */
+.cmg-profile-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.cmg-profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    padding: 5px 12px 5px 6px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.cmg-profile-trigger:hover,
+.cmg-profile-trigger.active {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cmg-avatar-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.cmg-profile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cmg-arrow-down {
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+
+.cmg-profile-trigger.active .cmg-arrow-down {
+    transform: rotate(180deg);
+}
+
+.cmg-profile-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 250px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+    padding: 12px 0;
+    z-index: 1050;
+    display: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cmg-profile-dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cmg-dropdown-header {
+    padding: 4px 16px 10px 16px;
+}
+
+.cmg-dropdown-user-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.cmg-dropdown-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.cmg-dropdown-user-meta {
+    overflow: hidden;
+}
+
+.cmg-dropdown-user-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.cmg-dropdown-user-email {
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.cmg-dropdown-badge-wrap {
+    margin-top: 4px;
+}
+
+.cmg-plan-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.cmg-plan-badge.paid {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+}
+
+.cmg-plan-badge.demo {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+}
+
+.cmg-dropdown-divider {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 8px 0;
+}
+
+.cmg-dropdown-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.cmg-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    color: #334155 !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.15s ease;
+}
+
+.cmg-dropdown-item:hover {
+    background: #f8fafc;
+    color: #0f172a !important;
+}
+
+.cmg-dropdown-item svg {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.cmg-dropdown-item .cmg-ext-icon {
+    margin-left: auto;
+    color: #94a3b8;
+}
+
+.cmg-dropdown-item.cmg-dropdown-logout {
+    color: #dc2626 !important;
+}
+
+.cmg-dropdown-item.cmg-dropdown-logout svg {
+    color: #dc2626;
+}
+
+.cmg-dropdown-item.cmg-dropdown-logout:hover {
+    background: #fef2f2;
+}
+
 .cmgalaxy-search-backdrop {
     position: fixed;
     top: 0;
@@ -1050,3 +1319,35 @@ body {
     color: #9ca3af;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var trigger = document.getElementById('cmgProfileTrigger');
+    var menu = document.getElementById('cmgProfileDropdownMenu');
+
+    if (trigger && menu) {
+        trigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = menu.classList.contains('show');
+            if (isOpen) {
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.add('show');
+                trigger.classList.add('active');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
+</script>
+
