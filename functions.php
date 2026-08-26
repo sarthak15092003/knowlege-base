@@ -379,6 +379,15 @@ add_filter('content_control_restriction_message', function($message) {
 }, 999);
 
 /**
+ * Prevent Content Control / RBCR plugin from redirecting single posts,
+ * so the single template can display the inline teaser + upgrade modal directly.
+ */
+add_filter('content_control/prevent_redirect', '__return_true', 999);
+add_filter('content_control/do_redirect', '__return_false', 999);
+add_filter('rbcr_do_redirect', '__return_false', 999);
+add_filter('rbcr_redirect_url', '__return_false', 999);
+
+/**
  * Shortcode [cmg_upgrade_modal]
  */
 add_shortcode('cmg_upgrade_modal', function($atts) {
@@ -391,7 +400,7 @@ add_shortcode('cmg_upgrade_modal', function($atts) {
 });
 
 /**
- * Global Popup Modal & Click Handler in wp_footer
+ * Debugger in wp_footer
  */
 add_action('wp_footer', function() {
     $is_logged_in = is_user_logged_in();
@@ -399,14 +408,6 @@ add_action('wp_footer', function() {
     $all_meta = $post_id ? get_post_meta($post_id) : array();
     $is_restricted = $post_id ? cmg_is_post_restricted_to_logged_in($post_id) : false;
     $post_title = $post_id ? get_the_title($post_id) : '';
-
-    // If user is not logged in, render the popup overlay template
-    if (!$is_logged_in) {
-        get_template_part('template-parts/modal-upgrade', null, array(
-            'is_popup' => true,
-            'id'       => 'cmg-global-upgrade-modal'
-        ));
-    }
     ?>
     <script>
         console.group('%c🔐 CMGalaxy Restriction Debugger', 'color: #2563eb; font-size: 14px; font-weight: bold;');
@@ -416,66 +417,11 @@ add_action('wp_footer', function() {
         console.log('🚫 Is Restricted to Logged-in:', <?php echo $is_restricted ? 'true' : 'false'; ?>);
         console.log('📦 All Meta Keys for this Post:', <?php echo json_encode($all_meta); ?>);
         <?php if ($is_restricted && !$is_logged_in): ?>
-        console.log('%c✅ Status: Restricted Post Detected!', 'color: green; font-weight: bold; font-size: 12px;');
+        console.log('%c✅ Status: Restricted Post - Paywall Rendered on Single Page!', 'color: green; font-weight: bold; font-size: 12px;');
         <?php elseif ($is_logged_in): ?>
         console.log('%cℹ️ Status: User is logged in, full content displayed.', 'color: #64748b;');
         <?php endif; ?>
         console.groupEnd();
-
-        <?php if (!$is_logged_in): ?>
-        // Universal Click Handler for Restricted Content
-        document.addEventListener('DOMContentLoaded', function() {
-            function openUpgradeModal() {
-                var modal = document.getElementById('cmg-global-upgrade-modal');
-                if (modal) {
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            function closeUpgradeModal() {
-                var modal = document.getElementById('cmg-global-upgrade-modal');
-                if (modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-
-            // Expose globally
-            window.cmgOpenUpgradeModal = openUpgradeModal;
-            window.cmgCloseUpgradeModal = closeUpgradeModal;
-
-            // Close on overlay backdrop or close button
-            var modal = document.getElementById('cmg-global-upgrade-modal');
-            if (modal) {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal || e.target.classList.contains('cmg-modal-close')) {
-                        closeUpgradeModal();
-                    }
-                });
-            }
-
-            // Close on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeUpgradeModal();
-                }
-            });
-
-            // Delegate click listener for all restricted elements
-            document.addEventListener('click', function(e) {
-                var target = e.target.closest('[data-restricted="true"], .is-restricted-card a, .is-restricted-link, a.restricted-post-link');
-                if (target) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    openUpgradeModal();
-                }
-            });
-        });
-        <?php endif; ?>
     </script>
     <?php
 }, 9999);
-
-
-
