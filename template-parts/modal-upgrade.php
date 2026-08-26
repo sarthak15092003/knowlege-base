@@ -17,73 +17,77 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 
 <style>
 /* =============================================
-   CMGalaxy Upgrade Modal & Overlay CSS
+   CMGalaxy Upgrade Modal & Paywall Gate Styles
    ============================================= */
-.cmg-modal-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background: rgba(15, 23, 42, 0.65) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    z-index: 999999 !important;
-    display: none !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 20px !important;
-    box-sizing: border-box !important;
+.cmg-paywall-container {
+    position: relative !important;
+    width: 100% !important;
+    margin-top: 10px !important;
 }
 
-.cmg-modal-overlay.active {
+.cmg-teaser-content {
+    color: #334155 !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 0 !important;
+}
+
+.cmg-teaser-content p {
+    margin-bottom: 1.25rem !important;
+    color: #334155 !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+}
+
+.cmg-paywall-gate {
+    position: relative !important;
+    margin-top: 0 !important;
+    padding-bottom: 30px !important;
+    width: 100% !important;
+}
+
+.cmg-blurred-backdrop {
+    user-select: none !important;
+    pointer-events: none !important;
+    filter: blur(1.5px) !important;
+    opacity: 0.35 !important;
+    max-height: 180px !important;
+    overflow: hidden !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%) !important;
+    margin-bottom: -60px !important;
+}
+
+.cmg-paywall-card-wrap {
+    position: relative !important;
+    z-index: 10 !important;
     display: flex !important;
-    animation: cmgOverlayFadeIn 0.25s ease forwards !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 20px !important;
 }
 
+/* Modal Box */
 .cmg-upgrade-card {
     background: #ffffff !important;
     border: 1.5px solid #3b82f6 !important;
     border-radius: 28px !important;
     max-width: 580px !important;
     width: 100% !important;
-    padding: 52px 36px 44px !important;
+    padding: 48px 36px 40px !important;
     text-align: center !important;
     box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.08) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     box-sizing: border-box !important;
-    margin: 30px auto !important;
+    margin: 20px auto !important;
     position: relative !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
-.cmg-modal-overlay .cmg-upgrade-card {
-    max-height: 90vh !important;
-    overflow-y: auto !important;
-    margin: 0 !important;
-    animation: cmgModalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-}
-
-@keyframes cmgOverlayFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes cmgModalSlideUp {
-    from {
-        opacity: 0;
-        transform: scale(0.92) translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
 .cmg-lock-icon-wrap {
-    margin-bottom: 24px !important;
+    margin-bottom: 22px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -96,19 +100,19 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 }
 
 .cmg-upgrade-title {
-    font-size: 32px !important;
+    font-size: 30px !important;
     font-weight: 700 !important;
     line-height: 1.25 !important;
     color: #0f172a !important;
     letter-spacing: -0.025em !important;
-    margin: 0 0 18px 0 !important;
+    margin: 0 0 16px 0 !important;
     padding: 0 !important;
     text-align: center !important;
     font-family: inherit !important;
 }
 
 .cmg-upgrade-subtitle {
-    font-size: 20px !important;
+    font-size: 19px !important;
     font-weight: 600 !important;
     line-height: 1.35 !important;
     color: #1e293b !important;
@@ -124,7 +128,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: #64748b !important;
-    margin: 0 0 28px 0 !important;
+    margin: 0 0 26px 0 !important;
     padding: 0 !important;
     max-width: 460px !important;
     text-align: center !important;
@@ -144,7 +148,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     cursor: pointer !important;
     transition: all 0.2s ease !important;
     box-shadow: 0 2px 6px rgba(47, 115, 246, 0.25) !important;
-    margin: 0 0 20px 0 !important;
+    margin: 0 0 18px 0 !important;
     font-family: inherit !important;
 }
 
@@ -179,6 +183,52 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 
 .cmg-signin-link:hover {
     color: #1e293b !important;
+}
+
+/* Popup Overlay */
+.cmg-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.65) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 999999 !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+
+.cmg-modal-overlay.active {
+    display: flex !important;
+    animation: cmgOverlayFadeIn 0.25s ease forwards !important;
+}
+
+.cmg-modal-overlay .cmg-upgrade-card {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    margin: 0 !important;
+    animation: cmgModalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes cmgOverlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes cmgModalSlideUp {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .cmg-modal-close {

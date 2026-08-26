@@ -382,7 +382,55 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                             the_post_thumbnail('full', array( 'class' => 'mb-4 featured-image' ) );
                             
                             if ( ! is_user_logged_in() && cmg_is_post_restricted_to_logged_in( get_the_ID() ) ) {
-                                get_template_part('template-parts/modal-upgrade');
+                                $raw_post_content = get_post_field( 'post_content', get_the_ID() );
+                                $formatted_content = wpautop( $raw_post_content );
+                                
+                                // Split content into block elements for teaser
+                                $blocks = preg_split( '/(<\/p>|<\/h[1-6]>|<\/div>|<\/ul>|<\/ol>)/i', $formatted_content, -1, PREG_SPLIT_DELIM_CAPTURE );
+                                
+                                $teaser_html = '';
+                                $blurred_html = '';
+                                $block_count = 0;
+                                $max_teaser = 4; // ~2-3 paragraphs
+
+                                if ( is_array( $blocks ) && count( $blocks ) > 1 ) {
+                                    for ( $k = 0; $k < count( $blocks ) - 1; $k += 2 ) {
+                                        $chunk = $blocks[$k] . ( isset( $blocks[$k + 1] ) ? $blocks[$k + 1] : '' );
+                                        if ( empty( trim( strip_tags( $chunk ) ) ) ) continue;
+                                        
+                                        $block_count++;
+                                        if ( $block_count <= $max_teaser ) {
+                                            $teaser_html .= $chunk;
+                                        } else if ( $block_count <= $max_teaser + 3 ) {
+                                            $blurred_html .= $chunk;
+                                        }
+                                    }
+                                }
+
+                                if ( empty( $teaser_html ) ) {
+                                    $teaser_html = '<p>' . wp_trim_words( strip_tags( $raw_post_content ), 50 ) . '</p>';
+                                }
+                                ?>
+                                <div class="cmg-paywall-container">
+                                    <!-- Top Teaser (Visible) -->
+                                    <div class="cmg-teaser-content">
+                                        <?php echo wp_kses_post( $teaser_html ); ?>
+                                    </div>
+
+                                    <!-- Faded Ghost Text & Upgrade Modal Card -->
+                                    <div class="cmg-paywall-gate">
+                                        <?php if ( ! empty( $blurred_html ) ) : ?>
+                                        <div class="cmg-blurred-backdrop" aria-hidden="true">
+                                            <?php echo wp_kses_post( $blurred_html ); ?>
+                                        </div>
+                                        <?php endif; ?>
+
+                                        <div class="cmg-paywall-card-wrap">
+                                            <?php get_template_part('template-parts/modal-upgrade'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
                             } else {
                                 the_content();
                             }
