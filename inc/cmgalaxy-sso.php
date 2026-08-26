@@ -27,7 +27,6 @@ if (!defined('CMG_SSO_COOKIE_NAMES')) {
  * Helper: Extract JWT Token from Cookies, Header, or URL Parameter
  */
 function cmg_sso_get_token() {
-    // A. Check URL query parameters (e.g. ?auth_token=... or ?cmg_token=...)
     if (!empty($_GET['auth_token'])) {
         return sanitize_text_field($_GET['auth_token']);
     }
@@ -35,14 +34,12 @@ function cmg_sso_get_token() {
         return sanitize_text_field($_GET['cmg_token']);
     }
 
-    // B. Check Authorization Header (Bearer token)
     if (!empty($_SERVER['HTTP_AUTHORIZATION'])) {
         if (preg_match('/Bearer\s(\S+)/', $_SERVER['HTTP_AUTHORIZATION'], $matches)) {
             return $matches[1];
         }
     }
 
-    // C. Check Cookies
     $cookie_names = unserialize(CMG_SSO_COOKIE_NAMES);
     foreach ($cookie_names as $cookie_name) {
         if (!empty($_COOKIE[$cookie_name])) {
@@ -67,7 +64,6 @@ function cmg_sso_decode_jwt($jwt) {
     }
 
     $payload_b64 = $parts[1];
-    // Base64URL to Base64 decode
     $remainder = strlen($payload_b64) % 4;
     if ($remainder) {
         $padlen = 4 - $remainder;
@@ -102,86 +98,9 @@ function cmg_sso_is_authenticated_user() {
         return false;
     }
 
-    // Check expiration if exp claim is present
     if (isset($payload['exp']) && $payload['exp'] < time()) {
-        return false; // Token expired
+        return false;
     }
 
     return true;
 }
-
-/**
- * Auto-login WordPress user on init if a valid JWT token is found
- */
-add_action('init', function() {
-    if (is_admin() || is_user_logged_in()) {
-        return;
-    }
-
-    $token = cmg_sso_get_token();
-    if (!$token) {
-        return;
-    }
-
-    $payload = cmg_sso_decode_jwt($token);
-    if (!$payload) {
-        return;
-    }
-
-    // Check expiration
-    if (isset($payload['exp']) && $payload['exp'] < time()) {
-        return;
-    }
-
-    // Extract email or username from JWT payload
-    $email = '';
-    if (!empty($payload['email'])) {
-        $email = sanitize_email($payload['email']);
-    } elseif (!empty($payload['user_email'])) {
-        $email = sanitize_email($payload['user_email']);
-    } elseif (!empty($payload['username']) && is_email($payload['username'])) {
-        $email = sanitize_email($payload['username']);
-    }
-
-    if (empty($email) || !is_email($email)) {
-        return;
-    }
-
-    // Look for existing user or create one
-    $user = get_user_by('email', $email);
-    if (!$user) {
-        $username = sanitize_user(strstr($email, '@', true));
-        // Ensure username is unique
-        $base_username = $username;
-        $i = 1;
-        while (username_exists($username)) {
-            $username = $base_username . $i;
-            $i++;
-        }
-
-        $random_password = wp_generate_password(24, true);
-        $user_id = wp_create_user($username, $random_password, $email);
-
-        if (is_wp_error($user_id)) {
-            return;
-        }
-
-        // Add first/last name if in token
-        if (!empty($payload['first_name'])) {
-            update_user_meta($user_id, 'first_name', sanitize_text_field($payload['first_name']));
-        }
-        if (!empty($payload['last_name'])) {
-            update_user_meta($user_id, 'last_name', sanitize_text_field($payload['last_name']));
-        }
-
-        $user = get_user_by('id', $user_id);
-    }
-
-    if ($user && !is_wp_error($user)) {
-        // Automatically sign in the user
-        wp_clear_auth_cookie();
-        wp_set_current_user($user->ID);
-        wp_set_auth_cookie($user->ID, true);
-        do_action('wp_login', $user->user_login, $user);
-    }
-}, 1);

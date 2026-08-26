@@ -381,8 +381,7 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                             $user_desc = get_the_author_meta( 'description' );
                             the_post_thumbnail('full', array( 'class' => 'mb-4 featured-image' ) );
                             
-                            $is_user_auth = is_user_logged_in() || (function_exists('cmg_sso_is_authenticated_user') && cmg_sso_is_authenticated_user());
-                            if ( ! $is_user_auth && cmg_is_post_restricted_to_logged_in( get_the_ID() ) ) {
+                            if ( ! is_user_logged_in() && cmg_is_post_restricted_to_logged_in( get_the_ID() ) ) {
                                 $raw_post_content = get_post_field( 'post_content', get_the_ID() );
                                 $formatted_content = wpautop( $raw_post_content );
                                 
