@@ -14,6 +14,9 @@ if (!defined('ABSPATH')) {
  * Core Helper: Authenticate Credentials with CMGalaxy API and Return WP_User
  */
 function cmg_authenticate_with_api($username, $password) {
+    $username = trim((string)$username);
+    $password = (string)$password;
+
     if (empty($username) || empty($password)) {
         return new WP_Error('empty_credentials', 'Email and password are required.');
     }
@@ -26,16 +29,20 @@ function cmg_authenticate_with_api($username, $password) {
         'password' => $password
     );
 
+    $headers = array(
+        'Content-Type' => 'application/json',
+        'Accept'       => 'application/json',
+        'Origin'       => 'https://platform.cmgalaxy.com',
+        'Referer'      => 'https://platform.cmgalaxy.com/'
+    );
+
     $response = wp_remote_post($api_url, array(
         'method'      => 'POST',
         'timeout'     => 15,
         'redirection' => 5,
         'httpversion' => '1.1',
         'blocking'    => true,
-        'headers'     => array(
-            'Content-Type' => 'application/json',
-            'Accept'       => 'application/json'
-        ),
+        'headers'     => $headers,
         'body'        => json_encode($payload),
         'sslverify'   => true
     ));
@@ -49,10 +56,7 @@ function cmg_authenticate_with_api($username, $password) {
         $response_alt = wp_remote_post($api_url, array(
             'method'      => 'POST',
             'timeout'     => 15,
-            'headers'     => array(
-                'Content-Type' => 'application/json',
-                'Accept'       => 'application/json'
-            ),
+            'headers'     => $headers,
             'body'        => json_encode($payload_alt),
             'sslverify'   => true
         ));
