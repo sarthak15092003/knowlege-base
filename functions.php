@@ -230,7 +230,18 @@ function cmg_is_post_restricted_to_logged_in($post_id = null) {
         return false;
     }
 
-    // 1. Content Control Plugin function checks
+    // 1. Exact match for your plugin (_rbcr_ keys)
+    $rbcr_logged_in_only = get_post_meta($post_id, '_rbcr_logged_in_only', true);
+    if ($rbcr_logged_in_only === '1' || $rbcr_logged_in_only === 1 || $rbcr_logged_in_only === true) {
+        return true;
+    }
+
+    $rbcr_login_status = get_post_meta($post_id, '_rbcr_login_status', true);
+    if (!empty($rbcr_login_status) && (strpos($rbcr_login_status, 'logged_in') !== false || $rbcr_login_status === 'logged_in_only')) {
+        return true;
+    }
+
+    // 2. Content Control Plugin function checks
     if (function_exists('content_control_user_can_view_post')) {
         if (!content_control_user_can_view_post($post_id)) {
             return true;
@@ -245,8 +256,10 @@ function cmg_is_post_restricted_to_logged_in($post_id = null) {
         } catch (\Exception $e) {}
     }
 
-    // 2. Check all meta keys used by Content Control and similar restriction plugins
+    // 3. Check all other common restriction meta keys
     $meta_keys = array(
+        '_rbcr_logged_in_only',
+        '_rbcr_login_status',
         '_content_control_restriction_type',
         '_content_control_user_status',
         '_content_control_who',
