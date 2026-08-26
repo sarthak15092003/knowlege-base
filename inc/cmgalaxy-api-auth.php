@@ -216,11 +216,22 @@ function cmg_handle_ajax_login() {
     // 1. Try API Auth
     $user = cmg_authenticate_with_api($email, $password);
 
-    // 2. Fallback to Local WP User check
-    if (is_wp_error($user)) {
-        $local_user = wp_authenticate_username_password(null, $email, $password);
-        if ($local_user instanceof WP_User) {
-            $user = $local_user;
+    // 2. Fallback to Local WordPress Authentication (Supports both Email and Username)
+    if (is_wp_error($user) || !($user instanceof WP_User)) {
+        // A. Check by email in WP DB
+        if (is_email($email)) {
+            $wp_user_by_email = get_user_by('email', $email);
+            if ($wp_user_by_email && wp_check_password($password, $wp_user_by_email->user_pass, $wp_user_by_email->ID)) {
+                $user = $wp_user_by_email;
+            }
+        }
+
+        // B. Check by username in WP DB
+        if (is_wp_error($user) || !($user instanceof WP_User)) {
+            $wp_user_by_login = get_user_by('login', $email);
+            if ($wp_user_by_login && wp_check_password($password, $wp_user_by_login->user_pass, $wp_user_by_login->ID)) {
+                $user = $wp_user_by_login;
+            }
         }
     }
 
