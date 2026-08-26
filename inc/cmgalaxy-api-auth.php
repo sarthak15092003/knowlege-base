@@ -23,10 +23,11 @@ function cmg_authenticate_with_api($username, $password) {
 
     $api_url = 'https://api.cmgalaxy.com/api/v2/authentication/login/';
 
-    // 1. Try with email payload
+    // Exact Payload required by CMGalaxy API
     $payload = array(
-        'email'    => $username,
-        'password' => $password
+        'user_name' => $username,
+        'password'  => $password,
+        'website'   => 'platform.cmgalaxy.com'
     );
 
     $headers = array(
@@ -47,11 +48,12 @@ function cmg_authenticate_with_api($username, $password) {
         'sslverify'   => true
     ));
 
-    // 2. If email failed, try with username payload
+    // Fallback: try with email field if user_name alone didn't match
     if (is_wp_error($response) || wp_remote_retrieve_response_code($response) >= 400) {
         $payload_alt = array(
-            'username' => $username,
-            'password' => $password
+            'email'    => $username,
+            'password' => $password,
+            'website'  => 'platform.cmgalaxy.com'
         );
         $response_alt = wp_remote_post($api_url, array(
             'method'      => 'POST',
