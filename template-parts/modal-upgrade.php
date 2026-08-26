@@ -6,8 +6,8 @@
  * get_template_part('template-parts/modal-upgrade');
  */
 
-$default_signin = get_page_by_path('signin') ? home_url('/signin/') : wp_login_url(get_permalink());
-$default_upgrade = get_page_by_path('signup') ? home_url('/signup/') : (get_page_by_path('pricing') ? home_url('/pricing/') : wp_registration_url());
+$default_signin  = 'https://api.cmgalaxy.com/api/v2/authentication/login/';
+$default_upgrade = 'https://cmgalaxy.com/book-a-demo';
 
 $upgrade_url = isset($args['upgrade_url']) ? $args['upgrade_url'] : $default_upgrade;
 $signin_url  = isset($args['signin_url']) ? $args['signin_url'] : $default_signin;
