@@ -360,3 +360,35 @@ add_shortcode('cmg_upgrade_modal', function($atts) {
     return ob_get_clean();
 });
 
+/**
+ * Live Browser Console Debugger for Post Restrictions
+ */
+add_action('wp_footer', function() {
+    $post_id = get_the_ID();
+    if (!$post_id) return;
+
+    $is_logged_in = is_user_logged_in();
+    $all_meta = get_post_meta($post_id);
+    $is_restricted = cmg_is_post_restricted_to_logged_in($post_id);
+    $post_title = get_the_title($post_id);
+    ?>
+    <script>
+        console.group('%c🔐 CMGalaxy Restriction Debugger', 'color: #2563eb; font-size: 14px; font-weight: bold;');
+        console.log('📌 Post ID:', <?php echo json_encode($post_id); ?>);
+        console.log('📄 Post Title:', <?php echo json_encode($post_title); ?>);
+        console.log('👤 User Logged In:', <?php echo $is_logged_in ? 'true' : 'false'; ?>);
+        console.log('🚫 Is Restricted to Logged-in:', <?php echo $is_restricted ? 'true' : 'false'; ?>);
+        console.log('📦 All Meta Keys for this Post:', <?php echo json_encode($all_meta); ?>);
+        <?php if ($is_restricted && !$is_logged_in): ?>
+        console.log('%c✅ Status: Modal Should Be Displayed!', 'color: green; font-weight: bold; font-size: 12px;');
+        <?php elseif ($is_logged_in): ?>
+        console.log('%cℹ️ Status: User is logged in, full content displayed.', 'color: #64748b;');
+        <?php else: ?>
+        console.log('%c⚠️ Status: Restriction NOT detected yet. Expand "All Meta Keys" above to see the exact meta saved by the plugin.', 'color: #d97706; font-weight: bold;');
+        <?php endif; ?>
+        console.groupEnd();
+    </script>
+    <?php
+}, 9999);
+
+

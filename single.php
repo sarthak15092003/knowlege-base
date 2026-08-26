@@ -380,7 +380,13 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                         while ( have_posts() ) : the_post();
                             $user_desc = get_the_author_meta( 'description' );
                             the_post_thumbnail('full', array( 'class' => 'mb-4 featured-image' ) );
-                            the_content();
+                            
+                            if ( ! is_user_logged_in() && cmg_is_post_restricted_to_logged_in( get_the_ID() ) ) {
+                                get_template_part('template-parts/modal-upgrade');
+                            } else {
+                                the_content();
+                            }
+
                             wp_link_pages( array(
                                 'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'docy' ) . '</span>',
                                 'after'       => '</div>',
