@@ -218,3 +218,145 @@ function docy_fix_localhost_paths($content) {
 add_filter('the_content', 'docy_fix_localhost_paths', 99);
 add_filter('the_excerpt', 'docy_fix_localhost_paths', 99);
 add_filter('post_thumbnail_html', 'docy_fix_localhost_paths', 99);
+
+/**
+ * Helper: Check if post is restricted to logged-in users
+ */
+function cmg_is_post_restricted_to_logged_in($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    if (!$post_id) {
+        return false;
+    }
+
+    // 1. Content Control Plugin function checks
+    if (function_exists('content_control_user_can_view_post')) {
+        if (!content_control_user_can_view_post($post_id)) {
+            return true;
+        }
+    }
+    if (class_exists('\ContentControl\Models\Post')) {
+        try {
+            $cc_post = new \ContentControl\Models\Post($post_id);
+            if (method_exists($cc_post, 'is_restricted') && $cc_post->is_restricted()) {
+                return true;
+            }
+        } catch (\Exception $e) {}
+    }
+
+    // 2. Check all meta keys used by Content Control and similar restriction plugins
+    $meta_keys = array(
+        '_content_control_restriction_type',
+        '_content_control_user_status',
+        '_content_control_who',
+        'content_control_restriction_type',
+        '_ca_content_control_settings',
+        '_content_control_settings',
+        'content_control_settings',
+        '_content_control_post_restricted',
+        'content_control',
+        '_content_control',
+        'restrict_access_type',
+        '_restrict_access_type',
+        '_restriction_type',
+        'restriction_type'
+    );
+
+    foreach ($meta_keys as $key) {
+        $val = get_post_meta($post_id, $key, true);
+        if (!empty($val)) {
+            if (is_string($val)) {
+                $val_lower = strtolower($val);
+                if (strpos($val_lower, 'logged_in') !== false || strpos($val_lower, 'logged-in') !== false || $val_lower === 'users' || $val_lower === 'loggedin') {
+                    return true;
+                }
+            } elseif (is_array($val)) {
+                $serialized = strtolower(serialize($val));
+                if (strpos($serialized, 'logged_in') !== false || strpos($serialized, 'logged-in') !== false || strpos($serialized, 'logged_in_only') !== false) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    // 3. Check all meta of post for Content Control settings
+    $all_meta = get_post_meta($post_id);
+    if (!empty($all_meta) && is_array($all_meta)) {
+        foreach ($all_meta as $m_key => $m_values) {
+            if (strpos($m_key, 'content_control') !== false || strpos($m_key, 'restrict') !== false) {
+                foreach ((array)$m_values as $m_val) {
+                    $m_val_lower = strtolower(is_string($m_val) ? $m_val : serialize($m_val));
+                    if (strpos($m_val_lower, 'logged_in') !== false || strpos($m_val_lower, 'logged-in') !== false) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Filter the_content: If post is restricted to logged-in users and user is not logged in, show upgrade modal
+ */
+function cmg_render_restricted_post_modal($content) {
+    if (is_admin()) {
+        return $content;
+    }
+
+    $post_id = get_the_ID();
+    if (!$post_id) {
+        return $content;
+    }
+
+    // If user is already logged in, show normal content (do not show modal)
+    if (is_user_logged_in()) {
+        return $content;
+    }
+
+    // If post is restricted to logged-in users only
+    if (cmg_is_post_restricted_to_logged_in($post_id)) {
+        ob_start();
+        get_template_part('template-parts/modal-upgrade');
+        return ob_get_clean();
+    }
+
+    return $content;
+}
+add_filter('the_content', 'cmg_render_restricted_post_modal', 999);
+
+/**
+ * Also hook into Content Control plugin filter hooks if active
+ */
+add_filter('content_control/content/replacement_content', function($replacement, $post_id) {
+    if (!is_user_logged_in()) {
+        ob_start();
+        get_template_part('template-parts/modal-upgrade');
+        return ob_get_clean();
+    }
+    return $replacement;
+}, 999, 2);
+
+add_filter('content_control_restriction_message', function($message) {
+    if (!is_user_logged_in()) {
+        ob_start();
+        get_template_part('template-parts/modal-upgrade');
+        return ob_get_clean();
+    }
+    return $message;
+}, 999);
+
+/**
+ * Shortcode [cmg_upgrade_modal]
+ */
+add_shortcode('cmg_upgrade_modal', function($atts) {
+    if (is_user_logged_in()) {
+        return '';
+    }
+    ob_start();
+    get_template_part('template-parts/modal-upgrade');
+    return ob_get_clean();
+});
+
