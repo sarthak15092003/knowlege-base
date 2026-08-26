@@ -400,9 +400,14 @@ add_shortcode('cmg_upgrade_modal', function($atts) {
 });
 
 /**
- * Debugger in wp_footer
+ * Debugger in wp_footer (Only on Single Article Pages)
  */
 add_action('wp_footer', function() {
+    // Only check and log on single article pages
+    if (!is_singular()) {
+        return;
+    }
+
     $is_logged_in = is_user_logged_in();
     $post_id = get_the_ID();
     $all_meta = $post_id ? get_post_meta($post_id) : array();
@@ -410,7 +415,7 @@ add_action('wp_footer', function() {
     $post_title = $post_id ? get_the_title($post_id) : '';
     ?>
     <script>
-        console.group('%c🔐 CMGalaxy Restriction Debugger', 'color: #2563eb; font-size: 14px; font-weight: bold;');
+        console.group('%c🔐 CMGalaxy Single Post Restriction Debugger', 'color: #2563eb; font-size: 14px; font-weight: bold;');
         console.log('📌 Post ID:', <?php echo json_encode($post_id); ?>);
         console.log('📄 Post Title:', <?php echo json_encode($post_title); ?>);
         console.log('👤 User Logged In:', <?php echo $is_logged_in ? 'true' : 'false'; ?>);
@@ -420,6 +425,8 @@ add_action('wp_footer', function() {
         console.log('%c✅ Status: Restricted Post - Paywall Rendered on Single Page!', 'color: green; font-weight: bold; font-size: 12px;');
         <?php elseif ($is_logged_in): ?>
         console.log('%cℹ️ Status: User is logged in, full content displayed.', 'color: #64748b;');
+        <?php else: ?>
+        console.log('%cℹ️ Status: This post is not restricted (public article).', 'color: #64748b;');
         <?php endif; ?>
         console.groupEnd();
     </script>
