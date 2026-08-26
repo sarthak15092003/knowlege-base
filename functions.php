@@ -494,15 +494,24 @@ add_filter('login_redirect', function($redirect_to, $request, $user) {
 }, 10, 3);
 
 /**
- * Redirect standard wp-login.php to custom /signin/ page
+ * Automatically load page-signin.php on /signin/ or /login/ URL (No 404 error)
  */
-add_action('init', function() {
-    global $pagenow;
-    if ($pagenow === 'wp-login.php' && !isset($_GET['action']) && !isset($_POST['wp-submit']) && !is_admin()) {
-        $redirect = !empty($_GET['redirect_to']) ? '?redirect_to=' . urlencode($_GET['redirect_to']) : '';
-        wp_safe_redirect(home_url('/signin/' . $redirect));
-        exit;
+add_filter('template_include', function($template) {
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    $path = trim(parse_url($request_uri, PHP_URL_PATH), '/');
+
+    if ($path === 'signin' || $path === 'login') {
+        $signin_template = get_template_directory() . '/page-signin.php';
+        if (file_exists($signin_template)) {
+            global $wp_query;
+            $wp_query->is_404 = false;
+            status_header(200);
+            return $signin_template;
+        }
     }
-});
+
+    return $template;
+}, 99);
+
 
 
