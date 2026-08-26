@@ -151,6 +151,7 @@ require get_template_directory() . '/inc/filter_actions.php';
 require get_template_directory() . '/inc/woo_config.php';
 require get_template_directory() . '/inc/ajax_actions.php';
 require get_template_directory() . '/inc/reg_process.php';
+require get_template_directory() . '/inc/cmgalaxy-sso.php';
 
 /**
  * Classes
