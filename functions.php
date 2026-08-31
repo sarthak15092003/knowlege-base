@@ -314,19 +314,8 @@ function cmg_is_post_restricted_to_logged_in($post_id = null) {
 }
 
 /**
- * Filter the_content: If single post is restricted to logged-in users and user is not logged in, show upgrade modal
+ * Renders the sticky paywall gate with readable teaser and blurred background content
  */
-function cmg_render_restricted_post_modal($content) {
-    if (is_admin()) {
-        return $content;
-    }
-
-    // Only replace content on singular single post views, not archives or feeds
-    if (!is_singular()) {
-        return $content;
-    }
-
-    $post_id = get_the_ID();
 function cmg_render_paywall_gate($post_id = null) {
     if (!$post_id) {
         $post_id = get_the_ID();
@@ -394,6 +383,9 @@ function cmg_render_paywall_gate($post_id = null) {
     return ob_get_clean();
 }
 
+/**
+ * Filter the_content: If single post is restricted to logged-in users and user is not logged in, show upgrade modal
+ */
 function cmg_render_restricted_post_modal($content) {
     if (is_admin() || !is_singular()) {
         return $content;
