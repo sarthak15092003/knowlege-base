@@ -21,7 +21,7 @@ function cmg_authenticate_with_api($username, $password) {
         return new WP_Error('empty_credentials', 'Email and password are required.');
     }
 
-    $api_url = 'https://api.cmgalaxy.com/api/v2/authentication/login/';
+    $api_url = 'https://staging-api.cmgalaxy.com/api/v2/authentication/simple-login/';
 
     // Exact Payload required by CMGalaxy API
     $payload = array(
@@ -88,61 +88,29 @@ function cmg_authenticate_with_api($username, $password) {
         return new WP_Error('api_auth_failed', $err_msg, array('status' => $status_code, 'api_response' => $data, 'raw_body' => $body));
     }
 
-    // Deep recursive finder helper to extract data from any level of the API response
-    $find_val = function($keys) use ($data) {
-        $search = function($arr, $keys) use (&$search) {
-            if (!is_array($arr)) return '';
-            foreach ($keys as $k) {
-                if (isset($arr[$k]) && is_string($arr[$k]) && trim($arr[$k]) !== '') {
-                    return trim($arr[$k]);
-                }
-            }
-            foreach ($arr as $sub) {
-                if (is_array($sub)) {
-                    $res = $search($sub, $keys);
-                    if (!empty($res)) return $res;
-                }
-            }
-            return '';
-        };
-        return $search($data, (array)$keys);
-    };
+    // Extract user item from "data": [ { "username": "...", "brand_name": "...", "first_name": "..." } ]
+    $user_item = array();
+    if (isset($data['data']) && is_array($data['data'])) {
+        if (isset($data['data'][0]) && is_array($data['data'][0])) {
+            $user_item = $data['data'][0];
+        } else {
+            $user_item = $data['data'];
+        }
+    } else {
+        $user_item = is_array($data) ? $data : array();
+    }
 
-    // 1. Extract Email
-    $user_email = $find_val(array('email', 'user_email', 'username', 'user_name'));
+    // 1. Extract Username / Email (e.g. "ritik.mcc@maildrop.cc")
+    $user_email = !empty($user_item['username']) ? trim($user_item['username']) : (!empty($user_item['email']) ? trim($user_item['email']) : '');
     if (empty($user_email) && is_email($username)) {
         $user_email = $username;
     }
 
-    // 2. Extract Brand Name (Used for Username / Display Name)
-    $brand_name = $find_val(array('brand_name', 'brandName', 'brand'));
-    
-    // 3. Extract Name
-    $first_name = $find_val(array('first_name', 'firstName', 'fname'));
-    $last_name  = $find_val(array('last_name', 'lastName', 'lname'));
-    $full_name  = $find_val(array('name', 'full_name', 'fullName', 'display_name'));
-    if (empty($first_name) && !empty($full_name)) {
-        $name_parts = explode(' ', trim($full_name), 2);
-        $first_name = $name_parts[0];
-        $last_name  = isset($name_parts[1]) ? $name_parts[1] : '';
-    }
+    // 2. Extract Brand Name (e.g. "finserv")
+    $brand_name = !empty($user_item['brand_name']) ? trim($user_item['brand_name']) : '';
 
-    // 4. Extract Phone Number
-    $phone_number = $find_val(array('phone', 'phone_number', 'phoneNumber', 'mobile', 'mobile_number', 'contact', 'contact_number', 'number'));
-
-    // 5. Extract Account Type (e.g. "E-commerce")
-    $account_type = $find_val(array('account_type', 'accountType', 'user_type', 'userType', 'role', 'type'));
-    if (empty($account_type)) {
-        $account_type = 'E-commerce';
-    }
-
-    // 6. Default Plan Status: Paid
-    $plan_status = $find_val(array('plan_status', 'planStatus', 'plan', 'subscription_status', 'status'));
-    if (empty($plan_status) || strtolower($plan_status) !== 'demo') {
-        $plan_status = 'paid';
-    } else {
-        $plan_status = strtolower($plan_status);
-    }
+    // 3. Extract First Name (e.g. "sbjbsubxisbxs")
+    $first_name = !empty($user_item['first_name']) ? trim($user_item['first_name']) : '';
 
     if (empty($user_email) || !is_email($user_email)) {
         return new WP_Error('invalid_email', 'Invalid email address returned from API.');
@@ -156,6 +124,10 @@ function cmg_authenticate_with_api($username, $password) {
 
     // Find or create WordPress user
     $wp_user = get_user_by('email', $user_email);
+    if (!$wp_user) {
+        $wp_user = get_user_by('login', $user_email);
+    }
+
     if (!$wp_user) {
         $uname = $preferred_username;
         $base_uname = $uname;
@@ -181,39 +153,27 @@ function cmg_authenticate_with_api($username, $password) {
         // Keep local password in sync
         wp_set_password($password, $uid);
 
-        // Display Name priority: brand_name > full_name > first_name
-        $display_title = !empty($brand_name) ? $brand_name : (!empty($full_name) ? $full_name : $preferred_username);
+        // Display Name priority: brand_name > first_name > username
+        $display_title = !empty($brand_name) ? $brand_name : (!empty($first_name) ? $first_name : $preferred_username);
 
         wp_update_user(array(
             'ID'           => $uid,
             'display_name' => sanitize_text_field($display_title),
-            'nickname'     => sanitize_text_field($display_title)
+            'nickname'     => sanitize_text_field($display_title),
+            'first_name'   => sanitize_text_field($first_name)
         ));
 
-        // Store Brand Name & Personal Names
+        // Store only the required fields: brand_name and first_name
         if (!empty($brand_name)) {
             update_user_meta($uid, 'brand_name', sanitize_text_field($brand_name));
         }
-        if (!empty($first_name)) update_user_meta($uid, 'first_name', sanitize_text_field($first_name));
-        if (!empty($last_name))  update_user_meta($uid, 'last_name', sanitize_text_field($last_name));
-
-        if (!empty($phone_number)) {
-            update_user_meta($uid, 'phone_number', sanitize_text_field($phone_number));
+        if (!empty($first_name)) {
+            update_user_meta($uid, 'first_name', sanitize_text_field($first_name));
         }
 
-        // Store Exact Account Type (e.g. "E-commerce")
-        if (!empty($account_type)) {
-            update_user_meta($uid, 'account_type', sanitize_text_field($account_type));
-        }
-
-        update_user_meta($uid, 'plan_status', sanitize_text_field($plan_status));
-        update_user_meta($uid, '_cmg_plan_status', sanitize_text_field($plan_status));
-        update_user_meta($uid, '_cmg_plan_status', sanitize_text_field($plan_status));
-
-        $token = $find_val(array('token', 'access_token', 'accessToken', 'jwt', 'jwt_token'));
-        if (!empty($token)) {
-            update_user_meta($uid, '_cmg_api_token', sanitize_text_field($token));
-        }
+        // Set active plan status for site compatibility
+        update_user_meta($uid, 'plan_status', 'paid');
+        update_user_meta($uid, '_cmg_plan_status', 'paid');
 
         return $wp_user;
     }
@@ -300,7 +260,7 @@ add_action('wp_ajax_cmg_ajax_login', 'cmg_handle_ajax_login');
 
 /**
  * =========================================================================
- * WordPress Admin Users Table Columns: Name, Email, Phone, Account Type, Plan
+ * WordPress Admin Users Table Columns: Brand Name, First Name, Plan
  * =========================================================================
  */
 add_filter('manage_users_columns', function($columns) {
@@ -308,31 +268,32 @@ add_filter('manage_users_columns', function($columns) {
     foreach ($columns as $key => $title) {
         $new_columns[$key] = $title;
         if ($key === 'email') {
-            $new_columns['cmg_phone']        = 'Phone Number';
-            $new_columns['cmg_account_type'] = 'Account Type';
-            $new_columns['cmg_plan_status']  = 'Plan Status';
+            $new_columns['cmg_brand_name'] = 'Brand Name';
+            $new_columns['cmg_first_name'] = 'First Name';
+            $new_columns['cmg_plan_status'] = 'Plan Status';
         }
     }
     if (!isset($new_columns['cmg_plan_status'])) {
-        $new_columns['cmg_phone']        = 'Phone Number';
-        $new_columns['cmg_account_type'] = 'Account Type';
-        $new_columns['cmg_plan_status']  = 'Plan Status';
+        $new_columns['cmg_brand_name'] = 'Brand Name';
+        $new_columns['cmg_first_name'] = 'First Name';
+        $new_columns['cmg_plan_status'] = 'Plan Status';
     }
     return $new_columns;
 });
 
 add_filter('manage_users_custom_column', function($value, $column_name, $user_id) {
-    if ($column_name === 'cmg_phone') {
-        $phone = get_user_meta($user_id, 'phone_number', true);
-        return !empty($phone) ? esc_html($phone) : '<span style="color:#94a3b8;">—</span>';
+    if ($column_name === 'cmg_brand_name') {
+        $brand = get_user_meta($user_id, 'brand_name', true);
+        return !empty($brand) ? '<strong style="color:#0f172a;">' . esc_html($brand) . '</strong>' : '<span style="color:#94a3b8;">—</span>';
     }
 
-    if ($column_name === 'cmg_account_type') {
-        $type = get_user_meta($user_id, 'account_type', true);
-        if (empty($type)) {
-            $type = 'Client';
+    if ($column_name === 'cmg_first_name') {
+        $fname = get_user_meta($user_id, 'first_name', true);
+        if (empty($fname)) {
+            $user = get_userdata($user_id);
+            $fname = $user ? $user->first_name : '';
         }
-        return '<span style="background:#f1f5f9; color:#334155; padding:3px 8px; border-radius:6px; font-size:12px; font-weight:600;">' . esc_html($type) . '</span>';
+        return !empty($fname) ? esc_html($fname) : '<span style="color:#94a3b8;">—</span>';
     }
 
     if ($column_name === 'cmg_plan_status') {
@@ -357,26 +318,17 @@ add_action('show_user_profile', 'cmg_render_user_profile_fields');
 add_action('edit_user_profile', 'cmg_render_user_profile_fields');
 
 function cmg_render_user_profile_fields($user) {
-    $phone        = get_user_meta($user->ID, 'phone_number', true);
-    $account_type = get_user_meta($user->ID, 'account_type', true);
-    $plan_status  = get_user_meta($user->ID, 'plan_status', true);
+    $brand_name  = get_user_meta($user->ID, 'brand_name', true);
+    $plan_status = get_user_meta($user->ID, 'plan_status', true);
     if (empty($plan_status)) $plan_status = 'paid';
-    if (empty($account_type)) $account_type = 'Client';
     ?>
-    <h3 style="margin-top:25px;">CMGalaxy Account & Subscription Details</h3>
+    <h3 style="margin-top:25px;">CMGalaxy Account Details</h3>
     <table class="form-table">
         <tr>
-            <th><label for="cmg_phone">Phone Number</label></th>
+            <th><label for="cmg_brand_name">Brand Name</label></th>
             <td>
-                <input type="text" name="cmg_phone" id="cmg_phone" value="<?php echo esc_attr($phone); ?>" class="regular-text" placeholder="+1 234 567 8900" /><br />
-                <span class="description">User's contact phone number from CMGalaxy API.</span>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="cmg_account_type">Account Type</label></th>
-            <td>
-                <input type="text" name="cmg_account_type" id="cmg_account_type" value="<?php echo esc_attr($account_type); ?>" class="regular-text" placeholder="Client" /><br />
-                <span class="description">e.g. Client, Partner, Enterprise.</span>
+                <input type="text" name="cmg_brand_name" id="cmg_brand_name" value="<?php echo esc_attr($brand_name); ?>" class="regular-text" placeholder="Brand Name" /><br />
+                <span class="description">User's Brand Name from CMGalaxy API.</span>
             </td>
         </tr>
         <tr>
@@ -401,11 +353,8 @@ function cmg_save_user_profile_fields($user_id) {
         return false;
     }
 
-    if (isset($_POST['cmg_phone'])) {
-        update_user_meta($user_id, 'phone_number', sanitize_text_field($_POST['cmg_phone']));
-    }
-    if (isset($_POST['cmg_account_type'])) {
-        update_user_meta($user_id, 'account_type', sanitize_text_field($_POST['cmg_account_type']));
+    if (isset($_POST['cmg_brand_name'])) {
+        update_user_meta($user_id, 'brand_name', sanitize_text_field($_POST['cmg_brand_name']));
     }
     if (isset($_POST['cmg_plan_status'])) {
         $plan = sanitize_text_field($_POST['cmg_plan_status']);
@@ -413,3 +362,4 @@ function cmg_save_user_profile_fields($user_id) {
         update_user_meta($user_id, '_cmg_plan_status', $plan);
     }
 }
+
