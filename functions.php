@@ -327,20 +327,89 @@ function cmg_render_restricted_post_modal($content) {
     }
 
     $post_id = get_the_ID();
+function cmg_render_paywall_gate($post_id = null) {
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+    $raw_post_content = get_post_field('post_content', $post_id);
+    $formatted_content = wpautop($raw_post_content);
+    
+    // Split content into block chunks (paragraphs, headings, lists, etc.)
+    $blocks = preg_split('/(<\/p>|<\/h[1-6]>|<\/div>|<\/ul>|<\/ol>)/i', $formatted_content, -1, PREG_SPLIT_DELIM_CAPTURE);
+    
+    $teaser_html = '';
+    $blurred_html = '';
+    $block_count = 0;
+    $max_teaser = 2;
+
+    if (is_array($blocks) && count($blocks) > 1) {
+        for ($k = 0; $k < count($blocks) - 1; $k += 2) {
+            $chunk = $blocks[$k] . (isset($blocks[$k + 1]) ? $blocks[$k + 1] : '');
+            if (empty(trim(strip_tags($chunk)))) continue;
+            
+            $block_count++;
+            if ($block_count <= $max_teaser) {
+                $teaser_html .= $chunk;
+            } else {
+                $blurred_html .= $chunk;
+            }
+        }
+    }
+
+    if (empty($teaser_html)) {
+        $teaser_html = '<p>' . wp_trim_words(strip_tags($raw_post_content), 40) . '</p>';
+    }
+
+    if (empty(trim(strip_tags($blurred_html)))) {
+        $blurred_html = '<p>To access the complete step-by-step instructions, comprehensive guidelines, configuration options, advanced examples, and downloadable assets, upgrade to a paid account or sign in to your existing active membership.</p>'
+                      . '<p>Our knowledge base contains in-depth documentation crafted by industry experts to help you scale your workflow, optimize configurations, and solve complex integrations effortlessly.</p>'
+                      . '<p>Unlock uninterrupted access across all guides, developer tutorials, and real-time updates tailored for high-growth operations and seamless deployment.</p>'
+                      . '<p>Join thousands of professionals and teams who rely on CMGalaxy daily for complete technical accuracy and accelerated development.</p>';
+    }
+
+    ob_start();
+    ?>
+    <div class="cmg-paywall-container">
+        <!-- Top Teaser (Legible) -->
+        <div class="cmg-teaser-content">
+            <?php echo wp_kses_post($teaser_html); ?>
+        </div>
+
+        <!-- Sticky Paywall Gate -->
+        <div class="cmg-paywall-gate">
+            <!-- Blurred Backdrop Content (scrolls underneath sticky card) -->
+            <div class="cmg-blurred-backdrop" aria-hidden="true">
+                <?php echo wp_kses_post($blurred_html); ?>
+            </div>
+
+            <!-- Sticky Overlay with Centered Modal Card -->
+            <div class="cmg-paywall-sticky-overlay">
+                <div class="cmg-paywall-card-wrap">
+                    <?php get_template_part('template-parts/modal-upgrade'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+function cmg_render_restricted_post_modal($content) {
+    if (is_admin() || !is_singular()) {
+        return $content;
+    }
+
+    $post_id = get_the_ID();
     if (!$post_id) {
         return $content;
     }
 
-    // If user is already logged in, show normal content (do not show modal)
     if (is_user_logged_in()) {
         return $content;
     }
 
-    // If post is restricted to logged-in users only
     if (cmg_is_post_restricted_to_logged_in($post_id)) {
-        ob_start();
-        get_template_part('template-parts/modal-upgrade');
-        return ob_get_clean();
+        return cmg_render_paywall_gate($post_id);
     }
 
     return $content;
@@ -364,18 +433,14 @@ add_filter('the_excerpt', 'cmg_filter_restricted_excerpt', 1);
  */
 add_filter('content_control/content/replacement_content', function($replacement, $post_id) {
     if (!is_user_logged_in()) {
-        ob_start();
-        get_template_part('template-parts/modal-upgrade');
-        return ob_get_clean();
+        return cmg_render_paywall_gate($post_id);
     }
     return $replacement;
 }, 999, 2);
 
 add_filter('content_control_restriction_message', function($message) {
     if (!is_user_logged_in()) {
-        ob_start();
-        get_template_part('template-parts/modal-upgrade');
-        return ob_get_clean();
+        return cmg_render_paywall_gate(get_the_ID());
     }
     return $message;
 }, 999);

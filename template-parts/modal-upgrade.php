@@ -30,7 +30,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.75 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 24px !important;
 }
 
 .cmg-teaser-content p {
@@ -43,46 +43,76 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 .cmg-paywall-gate {
     position: relative !important;
     margin-top: 0 !important;
-    padding-bottom: 30px !important;
+    padding-bottom: 40px !important;
     width: 100% !important;
+    min-height: 520px !important;
 }
 
 .cmg-blurred-backdrop {
     user-select: none !important;
+    -webkit-user-select: none !important;
     pointer-events: none !important;
-    filter: blur(1.5px) !important;
-    opacity: 0.35 !important;
-    max-height: 180px !important;
+    filter: blur(4px) !important;
+    opacity: 0.38 !important;
     overflow: hidden !important;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%) !important;
-    margin-bottom: -60px !important;
+    padding-bottom: 60px !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 100%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 100%) !important;
+}
+
+.cmg-blurred-backdrop p,
+.cmg-blurred-backdrop h2,
+.cmg-blurred-backdrop h3,
+.cmg-blurred-backdrop ul,
+.cmg-blurred-backdrop ol {
+    margin-bottom: 1.5rem !important;
+    color: #334155 !important;
+    line-height: 1.75 !important;
+}
+
+.cmg-paywall-sticky-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 15 !important;
 }
 
 .cmg-paywall-card-wrap {
-    position: relative !important;
-    z-index: 10 !important;
+    position: sticky !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
     width: 100% !important;
-    margin-top: 20px !important;
+    pointer-events: auto !important;
+    padding: 20px 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* Modal Box */
 .cmg-upgrade-card {
-    background: #ffffff !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     border: 1.5px solid #3b82f6 !important;
     border-radius: 28px !important;
     max-width: 580px !important;
     width: 100% !important;
     padding: 48px 36px 40px !important;
     text-align: center !important;
-    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.12), 0 20px 40px -15px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(59, 130, 246, 0.12) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     box-sizing: border-box !important;
-    margin: 20px auto !important;
+    margin: 0 auto !important;
     position: relative !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }

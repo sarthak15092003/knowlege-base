@@ -425,8 +425,10 @@ get_template_part( 'template-parts/single-post/banner', $banner_type );
                                         </div>
                                         <?php endif; ?>
 
-                                        <div class="cmg-paywall-card-wrap">
-                                            <?php get_template_part('template-parts/modal-upgrade'); ?>
+                                        <div class="cmg-paywall-sticky-overlay">
+                                            <div class="cmg-paywall-card-wrap">
+                                                <?php get_template_part('template-parts/modal-upgrade'); ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
