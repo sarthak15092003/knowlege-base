@@ -30,40 +30,11 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.75 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 0 !important;
 }
 
 .cmg-teaser-content p {
     margin-bottom: 1.25rem !important;
-    color: #334155 !important;
-    font-size: 16px !important;
-    line-height: 1.75 !important;
-}
-
-/* 3-line Progressive Blur Preview */
-.cmg-blur-fade-preview {
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    pointer-events: none !important;
-    color: #334155 !important;
-    font-size: 16px !important;
-    line-height: 1.75 !important;
-    margin-top: 0 !important;
-    margin-bottom: 4px !important;
-    position: relative !important;
-    max-height: 90px !important;
-    overflow: hidden !important;
-    filter: blur(1.8px) !important;
-    opacity: 0.82 !important;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.05) 100%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.05) 100%) !important;
-}
-
-.cmg-blur-fade-preview p,
-.cmg-blur-fade-preview ul,
-.cmg-blur-fade-preview ol,
-.cmg-blur-fade-preview li {
-    margin-bottom: 0.5rem !important;
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.75 !important;
@@ -77,7 +48,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     margin-top: 0 !important;
     padding-bottom: 40px !important;
     width: 100% !important;
-    min-height: 540px !important;
+    min-height: 560px !important;
 }
 
 .cmg-blurred-backdrop {
@@ -89,9 +60,10 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     filter: blur(5px) !important;
     opacity: 0.45 !important;
     overflow: hidden !important;
+    padding-top: 0 !important;
     padding-bottom: 60px !important;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.35) 350px, rgba(0,0,0,0.1) 100%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.35) 350px, rgba(0,0,0,0.1) 100%) !important;
 }
 
 .cmg-blurred-backdrop p,
@@ -99,7 +71,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 .cmg-blurred-backdrop h3,
 .cmg-blurred-backdrop ul,
 .cmg-blurred-backdrop ol {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
     color: #334155 !important;
     line-height: 1.75 !important;
 }
