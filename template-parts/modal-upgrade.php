@@ -98,7 +98,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     width: 100% !important;
     pointer-events: auto !important;
     padding: 0 !important;
-    margin-top: 135px !important;
+    margin-top: 85px !important;
     box-sizing: border-box !important;
 }
 

@@ -329,7 +329,7 @@ function cmg_render_paywall_gate($post_id = null) {
     $teaser_html = '';
     $blurred_html = '';
     $block_count = 0;
-    $max_teaser = 2; // Legible intro paragraph + heading
+    $max_teaser = 3; // Legible intro + heading + requirement intro line (clear / no blur)
 
     if (is_array($blocks) && count($blocks) > 1) {
         for ($k = 0; $k < count($blocks) - 1; $k += 2) {
@@ -346,7 +346,7 @@ function cmg_render_paywall_gate($post_id = null) {
     }
 
     if (empty($teaser_html)) {
-        $teaser_html = '<p>' . wp_trim_words(strip_tags($raw_post_content), 35) . '</p>';
+        $teaser_html = '<p>' . wp_trim_words(strip_tags($raw_post_content), 40) . '</p>';
     }
 
     if (empty(trim(strip_tags($blurred_html)))) {
