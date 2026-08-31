@@ -30,7 +30,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.75 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 8px !important;
 }
 
 .cmg-teaser-content p {
@@ -40,24 +40,58 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     line-height: 1.75 !important;
 }
 
-.cmg-paywall-gate {
-    position: relative !important;
-    margin-top: 0 !important;
-    padding-bottom: 40px !important;
-    width: 100% !important;
-    min-height: 520px !important;
-}
-
-.cmg-blurred-backdrop {
+/* 3-line Progressive Blur Preview */
+.cmg-blur-fade-preview {
     user-select: none !important;
     -webkit-user-select: none !important;
     pointer-events: none !important;
-    filter: blur(7px) !important;
-    opacity: 0.32 !important;
+    color: #334155 !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+    position: relative !important;
+    max-height: 90px !important;
+    overflow: hidden !important;
+    filter: blur(1.8px) !important;
+    opacity: 0.82 !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.05) 100%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.05) 100%) !important;
+}
+
+.cmg-blur-fade-preview p,
+.cmg-blur-fade-preview ul,
+.cmg-blur-fade-preview ol,
+.cmg-blur-fade-preview li {
+    margin-bottom: 0.5rem !important;
+    color: #334155 !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+}
+
+.cmg-paywall-gate {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+    margin-top: 0 !important;
+    padding-bottom: 40px !important;
+    width: 100% !important;
+    min-height: 540px !important;
+}
+
+.cmg-blurred-backdrop {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 2 !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    pointer-events: none !important;
+    filter: blur(5px) !important;
+    opacity: 0.45 !important;
     overflow: hidden !important;
     padding-bottom: 60px !important;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 100%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 100%) !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
 }
 
 .cmg-blurred-backdrop p,
@@ -71,11 +105,9 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 }
 
 .cmg-paywall-sticky-overlay {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 2 !important;
+    position: relative !important;
     width: 100% !important;
     height: 100% !important;
     pointer-events: none !important;
@@ -83,6 +115,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 }
 
 .cmg-paywall-card-wrap {
+    position: -webkit-sticky !important;
     position: sticky !important;
     top: max(80px, calc(50vh - 220px)) !important;
     transform: none !important;
@@ -93,7 +126,7 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     width: 100% !important;
     pointer-events: auto !important;
     padding: 0 !important;
-    margin-top: 10px !important;
+    margin-top: 0 !important;
     box-sizing: border-box !important;
 }
 

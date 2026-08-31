@@ -314,7 +314,7 @@ function cmg_is_post_restricted_to_logged_in($post_id = null) {
 }
 
 /**
- * Renders the sticky paywall gate with readable teaser and blurred background content
+ * Renders the sticky paywall gate with readable teaser, progressive blur preview, and blurred background content
  */
 function cmg_render_paywall_gate($post_id = null) {
     if (!$post_id) {
@@ -327,9 +327,11 @@ function cmg_render_paywall_gate($post_id = null) {
     $blocks = preg_split('/(<\/p>|<\/h[1-6]>|<\/div>|<\/ul>|<\/ol>)/i', $formatted_content, -1, PREG_SPLIT_DELIM_CAPTURE);
     
     $teaser_html = '';
+    $blur_preview_html = '';
     $blurred_html = '';
     $block_count = 0;
-    $max_teaser = 2;
+    $max_teaser = 2; // 1-2 blocks for readable teaser (e.g. Intro + 1st Subheading)
+    $max_blur_preview = 1; // 1 block (~3 lines) for the gradual blur preview transition
 
     if (is_array($blocks) && count($blocks) > 1) {
         for ($k = 0; $k < count($blocks) - 1; $k += 2) {
@@ -339,6 +341,9 @@ function cmg_render_paywall_gate($post_id = null) {
             $block_count++;
             if ($block_count <= $max_teaser) {
                 $teaser_html .= $chunk;
+            } elseif ($block_count <= ($max_teaser + $max_blur_preview)) {
+                $blur_preview_html .= $chunk;
+                $blurred_html .= $chunk;
             } else {
                 $blurred_html .= $chunk;
             }
@@ -346,7 +351,11 @@ function cmg_render_paywall_gate($post_id = null) {
     }
 
     if (empty($teaser_html)) {
-        $teaser_html = '<p>' . wp_trim_words(strip_tags($raw_post_content), 40) . '</p>';
+        $teaser_html = '<p>' . wp_trim_words(strip_tags($raw_post_content), 35) . '</p>';
+    }
+
+    if (empty($blur_preview_html)) {
+        $blur_preview_html = '<p>1. Valid business email address to receive activation link.<br>2. Administrator access to configure data stream settings.<br>3. Integration API credentials for supported advertising platforms.</p>';
     }
 
     if (empty(trim(strip_tags($blurred_html)))) {
@@ -363,6 +372,13 @@ function cmg_render_paywall_gate($post_id = null) {
         <div class="cmg-teaser-content">
             <?php echo wp_kses_post($teaser_html); ?>
         </div>
+
+        <?php if (!empty($blur_preview_html)): ?>
+        <!-- 3-line Progressive Blur Preview -->
+        <div class="cmg-blur-fade-preview" aria-hidden="true">
+            <?php echo wp_kses_post($blur_preview_html); ?>
+        </div>
+        <?php endif; ?>
 
         <!-- Sticky Paywall Gate -->
         <div class="cmg-paywall-gate">
