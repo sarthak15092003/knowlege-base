@@ -239,31 +239,26 @@ $s_value = get_search_query() ? get_search_query() : '';
     transition: transform 0.2s ease;
 }
 
-.cmg-profile-trigger.active .cmg-arrow-down {
-    transform: rotate(180deg);
-}
-
-.cmg-profile-dropdown-menu {
+.cmg-profile-dropdown-wrap::after {
+    content: '';
     position: absolute;
-    top: calc(100% + 10px);
+    top: 100%;
+    left: 0;
     right: 0;
-    width: 250px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
-    padding: 12px 0;
-    z-index: 1050;
-    display: none;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    height: 12px;
+    display: block;
 }
 
+.cmg-profile-dropdown-wrap:hover .cmg-profile-dropdown-menu,
 .cmg-profile-dropdown-menu.show {
     display: block;
     opacity: 1;
     transform: translateY(0);
+}
+
+.cmg-profile-dropdown-wrap:hover .cmg-arrow-down,
+.cmg-profile-trigger.active .cmg-arrow-down {
+    transform: rotate(180deg);
 }
 
 .cmg-dropdown-header {

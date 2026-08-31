@@ -118,6 +118,7 @@ body {
 /* Fix any overlapping issues */
 section:first-of-type {
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /* Breadcrumb spacing */
