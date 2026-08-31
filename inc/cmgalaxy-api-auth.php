@@ -145,6 +145,9 @@ function cmg_authenticate_with_api($username, $password) {
         }
 
         $wp_user = get_user_by('id', $new_user_id);
+        if ($wp_user) {
+            $wp_user->set_role('subscriber');
+        }
     }
 
     if ($wp_user && !is_wp_error($wp_user)) {
