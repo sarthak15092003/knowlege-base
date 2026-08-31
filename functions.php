@@ -423,15 +423,15 @@ add_filter('the_excerpt', 'cmg_filter_restricted_excerpt', 1);
 /**
  * Also hook into Content Control plugin filter hooks if active
  */
-add_filter('content_control/content/replacement_content', function($replacement, $post_id) {
-    if (!is_user_logged_in()) {
+add_filter('content_control/content/replacement_content', function($replacement, $post_id = null) {
+    if (!is_user_logged_in() && is_singular()) {
         return cmg_render_paywall_gate($post_id);
     }
     return $replacement;
 }, 999, 2);
 
 add_filter('content_control_restriction_message', function($message) {
-    if (!is_user_logged_in()) {
+    if (!is_user_logged_in() && is_singular()) {
         return cmg_render_paywall_gate(get_the_ID());
     }
     return $message;
@@ -448,22 +448,29 @@ add_filter('rbcr_redirect_url', '__return_false', 999);
 add_filter('rbcr_allow_redirect', '__return_false', 999);
 
 add_action('template_redirect', function() {
-    if (is_singular() && !is_user_logged_in() && cmg_is_post_restricted_to_logged_in(get_the_ID())) {
-        global $wp_filter;
-        if (isset($wp_filter['template_redirect']) && isset($wp_filter['template_redirect']->callbacks)) {
-            foreach ($wp_filter['template_redirect']->callbacks as $priority => $callbacks) {
-                foreach ($callbacks as $idx => $callback) {
-                    $func_name = '';
-                    if (is_array($callback['function'])) {
-                        $class = is_object($callback['function'][0]) ? get_class($callback['function'][0]) : $callback['function'][0];
-                        $method = $callback['function'][1];
-                        $func_name = $class . '::' . $method;
-                    } elseif (is_string($callback['function'])) {
-                        $func_name = $callback['function'];
-                    }
+    if (is_singular() && !is_user_logged_in()) {
+        $post_id = get_the_ID();
+        if ($post_id && cmg_is_post_restricted_to_logged_in($post_id)) {
+            global $wp_filter;
+            if (isset($wp_filter['template_redirect']) && is_object($wp_filter['template_redirect']) && isset($wp_filter['template_redirect']->callbacks) && is_array($wp_filter['template_redirect']->callbacks)) {
+                foreach ($wp_filter['template_redirect']->callbacks as $priority => $callbacks) {
+                    if (is_array($callbacks)) {
+                        foreach ($callbacks as $idx => $callback) {
+                            $func_name = '';
+                            if (isset($callback['function'])) {
+                                if (is_array($callback['function']) && isset($callback['function'][0])) {
+                                    $class = is_object($callback['function'][0]) ? get_class($callback['function'][0]) : (is_string($callback['function'][0]) ? $callback['function'][0] : '');
+                                    $method = isset($callback['function'][1]) && is_string($callback['function'][1]) ? $callback['function'][1] : '';
+                                    $func_name = $class . '::' . $method;
+                                } elseif (is_string($callback['function'])) {
+                                    $func_name = $callback['function'];
+                                }
+                            }
 
-                    if (stripos($func_name, 'rbcr') !== false || stripos($func_name, 'content_control') !== false || stripos($func_name, 'restrict') !== false) {
-                        unset($wp_filter['template_redirect']->callbacks[$priority][$idx]);
+                            if (!empty($func_name) && (stripos($func_name, 'rbcr') !== false || stripos($func_name, 'content_control') !== false || stripos($func_name, 'restrict') !== false)) {
+                                unset($wp_filter['template_redirect']->callbacks[$priority][$idx]);
+                            }
+                        }
                     }
                 }
             }
