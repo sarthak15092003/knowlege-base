@@ -52,8 +52,8 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     user-select: none !important;
     -webkit-user-select: none !important;
     pointer-events: none !important;
-    filter: blur(4px) !important;
-    opacity: 0.38 !important;
+    filter: blur(7px) !important;
+    opacity: 0.32 !important;
     overflow: hidden !important;
     padding-bottom: 60px !important;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 100%) !important;
@@ -84,14 +84,15 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 
 .cmg-paywall-card-wrap {
     position: sticky !important;
-    top: 180px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     z-index: 20 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
     pointer-events: auto !important;
-    padding: 10px 0 !important;
+    padding: 20px 0 !important;
     box-sizing: border-box !important;
 }
 
