@@ -84,15 +84,16 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
 
 .cmg-paywall-card-wrap {
     position: sticky !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    top: max(80px, calc(50vh - 220px)) !important;
+    transform: none !important;
     z-index: 20 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
     pointer-events: auto !important;
-    padding: 20px 0 !important;
+    padding: 0 !important;
+    margin-top: 10px !important;
     box-sizing: border-box !important;
 }
 
