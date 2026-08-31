@@ -86,13 +86,12 @@ $is_popup    = isset($args['is_popup']) && $args['is_popup'];
     user-select: none !important;
     -webkit-user-select: none !important;
     pointer-events: none !important;
-    filter: blur(4.5px) !important;
-    opacity: 0.52 !important;
+    filter: blur(5px) !important;
+    opacity: 0.45 !important;
     overflow: hidden !important;
-    padding-top: 4px !important;
     padding-bottom: 60px !important;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 100px, rgba(0,0,0,0.45) 280px, rgba(0,0,0,0.15) 100%) !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 100px, rgba(0,0,0,0.45) 280px, rgba(0,0,0,0.15) 100%) !important;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 120px, rgba(0,0,0,0.4) 350px, rgba(0,0,0,0.15) 100%) !important;
 }
 
 .cmg-blurred-backdrop p,
